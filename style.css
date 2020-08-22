@@ -117,23 +117,17 @@ p {
 
 #contactDetails ul {
 	list-style-type: none;
-	font-size: 0.9em;
+	font-size: 0.7em;
 	margin-top: 2px;
 }
 
 #contactDetails ul li {
-	margin-bottom: 3px;
+	margin-bottom: 2px;
 	color: #444;
 }
 
 #contactDetails ul li a, a[href^=tel] {
 	color: #444; 
-	text-decoration: none;
-	-webkit-transition: all .3s ease-in;
-	-moz-transition: all .3s ease-in;
-	-o-transition: all .3s ease-in;
-	-ms-transition: all .3s ease-in;
-	transition: all .3s ease-in;
 }
 
 #contactDetails ul li a:hover { 
