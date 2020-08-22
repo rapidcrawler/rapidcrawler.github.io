@@ -3,67 +3,20 @@
 <head>
 <title>Juspreet51 - Curriculum Vitae</title>
 
-<meta name="viewport" content="width=device-width"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <meta name="description" content="The Curriculum Vitae of Juspreet Singh."/>
 <meta charset="UTF-8"> 
 
-<link type="text/css" rel="stylesheet" href="style.css">
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="style.css">
 
 <style>
-	.button {
-	  border: none;
-	  color: transparent;
-	  padding: 3px 3px;
-	  text-align: center;
-	  text-decoration: none;
-	  display: inline-block;
-	  font-size: 16px;
-	  transition-duration: 0.4s;
-	  cursor: pointer;
-	  border-radius: 12px;
-	}
 
-	.button1 {
-	  background-color: white; 
-	  color: black; 
-	  width: 100%;
-	}
-
-	.button1:hover {
-	  background-color: #4CAF50;
-	  color: white;
-	  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	}
-
-	.button1 span {
-	  cursor: pointer;
-	  display: inline-block;
-	  position: relative;
-	  transition: 0.5s;
-	}
-
-	.button1 span:after {
-	  content: '\00bb';
-	  position: absolute;
-	  opacity: 0;
-	  top: 0;
-	  right: -20px;
-	  transition: 0.5s;
-	}
-
-	.button1:hover span {
-	  padding-right: 25px;
-	}
-
-	.button1:hover span:after {
-	  opacity: 1;
-	  right: 0;
-	}
 
 </style>
 
@@ -89,26 +42,34 @@
 			<div id="contactDetails" class="quickFade delayFour">
 				<ul>
 					<li>
-						<a href="https://www.linkedin.com/in/juspreet51/com" target="_blank" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i> : juspreet51</a>
+						<a href="https://www.linkedin.com/in/juspreet51/com" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i> : juspreet51</a>
 					</li>
 					
 					<li>
-						<a href="https://github.com/juspreet51" target="_blank" class="icoGithub" title="GitHub"><i class="fa fa-github"></i> : juspreet51</a>
+						<a href="https://github.com/juspreet51" target="_blank" title="GitHub"><i class="fa fa-github"></i> : juspreet51</a>
 					</li>
 					
 					<li>
-						<a href="tel:+18475555555" class="icoGithub" title="Contact"><i class="fa fa-phone"></i> : +91-9780-95-3556</a>
+						<a href="tel:+18475555555" title="Contact"><i class="fa fa-phone"></i> : +91-9780-95-3556</a>
 					</li>
 					
 					<li>
-						<a href="mailto:jaspreetsk96@gmail.com" target="_blank" class="icoGithub" title="e-Mail"><i class="fa fa-envelope"></i> : jaspreetsk96@gmail.com</a>
+						<a href="mailto:jaspreetsk96@gmail.com" target="_blank" title="e-Mail"><i class="fa fa-envelope"></i> : jaspreetsk96@gmail.com</a>
 					</li>
 
 					<li>
-						<button class="button button1" onclick="printFunction()" style="vertical-align:middle">Print</button>
+						<a href="DevBlog/index.html" target="_blank" title="visit_blog">
+							
+							<i class="fa fa-medium"></i>
+						 : Visit Blog</a>
+						<a target="_blank" title="click_to_print" onclick="printFunction()"><i class="fa fa-print"></i> : Print CV</a>
 					</li>
+					
 				</ul>
+				
+				
 			</div>
+			
 			<div class="clear"></div>
 		</div>
 		
@@ -259,8 +220,10 @@
 					</article>
 					<article>
 						<h2>Move to some other page</h2>
-						<p class="subDetails">Click on the button below</p>
-						<a href="./DevBlog/index.html" class="next">Next &raquo;</a> <br>
+						<p class="subDetails">Click on the button below</p>	
+						<a href="DevBlog/index.html" class="btn btn-primary">
+							<span class="spinner-grow spinner-grow-sm"></span> Blog
+						</a>
 					</article>
 				</div>
 				<div class="clear"></div>
