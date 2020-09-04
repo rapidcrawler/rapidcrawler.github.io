@@ -1,5 +1,5 @@
 .main { 
-  margin-right: 290px;
+  margin-right: 200px;
   margin-left: 25px;
   margin-top: 55px;
 }
@@ -45,6 +45,7 @@ a {
 
 
 
+
 .sidenav {
   top: 40;   right: 0;
   height: 85%;
@@ -73,27 +74,7 @@ a {
   color: white;
 }
 
-.navbar {
-  overflow: hidden;
-  padding-left: 25px;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
 
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-.navbar a.active {
-  background-color: #4CAF50;
-  color: white;
-}
 
 .dropdown {
   float: left;
