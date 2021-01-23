@@ -6,35 +6,33 @@
 
 body {
   margin: 0;
-  color: #222;
-  background: #fff;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-h1{
-  font-family: 'Press Start 2P';
-  font-size: 25px;
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 26px;
 }
 
-h2{
-  font-family: 'Orbitron';
-  font-size: 30px;
+h2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 23px;
 }
 
-h4{
-  font-family: 'Rubik', sans-serif;
+h3 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
 }
 
-p{
-  font-family: 'Ubuntu';
-  font-size: 18px;
+
+p {
+  font-family: 'Quicksand', sans-serif;
 }
 
 a {
   color: #0033cc;
 }
 
-
+ /*Dark background Theme*/
 @media (prefers-color-scheme: dark) {
   body {
     color: #eee;
