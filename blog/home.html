@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- NavBar . Also copy the part from start of <body> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 		$(function() {
-		    $("#navigation").load("../nav_bar.html");
+		    $("#navigation").load("/nav_bar.html");
 		});
 	</script>
 
@@ -20,7 +21,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" href="../assets/css/articles_style.css">
+	<link rel="stylesheet" href="/assets/css/main_style.css">
 
 	<link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto">
 	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Ubuntu">
@@ -46,45 +47,39 @@
 </head>
 
 <body class="w3-black">
-	<!-- Here goes the left side navigation bar -->
+  <!-- NavBar . Also copy the part from start of <head> -->
 	<div id="navigation"></div>
 
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<!-- <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+  <!-- Navbar on small screens (Hidden on medium and large screens) -->
+  <!-- <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+      <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+      <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+      <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+    </div>
+  </div> -->
+
+  <!-- Page Content -->
+  <div class="w3-padding-large" id="main">
+    <!-- Header/Home -->
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+      <br> <br> <br> <br> 
+      <h1 class="w3-jumbo"><span class="w3-hide-small">Hi! </span>I'm Juspreet</h1>
+      <h3>Data Scientist and Blogger</h3>
+      <img src="/assets/imgs/avatar.jpeg" alt="Juspreet51 Avatar" class="w3-image" style="width:40%">
+    </header>
+
+    <!-- About Section -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+      <h2 class="w3-text-light-grey">My Name: Juspreet Singh</h2>
+      <hr style="width:200px" class="w3-opacity">
+      <p style="color: white">
+        A firm believer in learning over knowing and extreme experimentation. I am passionate about working on ideas that are innovative and impactful <br>
+        I love data and solving business problems which can be answered using data-driven approaches
+      </p>
+    </div>
   </div>
-</div> -->
-
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <br> <br> <br> <br> 
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Hi! </span>I'm Juspreet</h1>
-    <h3>Data Scientist and Blogger</h3>
-    <img src="../assets/imgs/avatar.jpeg" alt="Juspreet51 Avatar" class="w3-image" style="width:40%">
-  </header>
-
-  <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 class="w3-text-light-grey">My Name: Juspreet Singh</h2>
-    <hr style="width:200px" class="w3-opacity">
-    <p style="color: white">
-A firm believer in learning over knowing and extreme experimentation. I am passionate about working on ideas that are innovative and impactful <br>
-I love data and solving business problems which can be answered using data-driven approaches
-    </p>
-  </div>
-
-
-</div>
-    
-    
-    
-
   <!-- Skill-Sets Section -->
   <h1 class="w3-padding-large w3-text-light-grey" style="margin-left: 30px;">Skill Sets</h1>
   <div class="w3-padding-large  w3-text-grey" id="photos" style="margin-left: 160px;">

@@ -1,2 +1,7 @@
-http-server "D:\github_codes\github_pages\juspreet51.github.io\"
-Ref: https://www.youtube.com/watch?v=vnPemSnnJYY
+Download and Install NodeJS
+npm install -g http-server
+
+cd \directory\where\files\are\saved
+http-server 
+
+Ref: https://jasonwatmore.com/post/2016/06/22/nodejs-setup-simple-http-server-local-web-server
