@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<!-- NavBar . Also copy the part from start of <body> tag below -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+		    $("#personal_header").load("/nav_bar_2_cv_header.html");
+		});
+	</script>
+	<!-- Personal header ends here -->
+
 <title>Juspreet51 - Curriculum Vitae</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +33,8 @@
 
 </head>
 <body id="top">
+	
+
 	<script>
 	function printFunction() {
 	window.print();
@@ -30,61 +42,11 @@
 	</script>
 
 	<div id="cv" class="instaFade">
-		<div class="mainDetails">
-			<div id="headshot" class="quickFade">
-				<img src="\assets\imgs\avatar.jpeg" alt="Juspreet51" />
-			</div>
-			
-			<div id="name">
-				<h1 class="quickFade delayTwo">
-					<a href="/ecv" style="text-decoration:None; color: black">
-					Jaspreet Singh
-					</a>
-				</h1>
-				<h2 class="quickFade delayThree">
-					<a href="/ecv" style="text-decoration:None; color: black">
-					Data Scientist
-					</a>					
-				</h2>
-				<h2 class="quickFade delayThree">
-					<a href="/ecv" style="text-decoration:None; color: black">
-					Mu Sigma, Bangalore (KA)
-					</a>					
-				</h2>
-			</div>
-			
-			<div id="contactDetails" class="quickFade delayFour">
-				<ul>
-					<li>
-						<a href="https://www.linkedin.com/in/juspreet51/com" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i> : juspreet51</a>
-					</li>
-					
-					<li>
-						<a href="https://github.com/juspreet51" target="_blank" title="GitHub"><i class="fa fa-github"></i> : juspreet51</a>
-					</li>
-					
-					<li>
-						<a href="tel:+18475555555" title="Contact"><i class="fa fa-phone"></i> : +91-9780-95-3556</a>
-					</li>
-					
-					<li>
-						<a href="mailto:jaspreetsk96@gmail.com" target="_blank" title="e-Mail"><i class="fa fa-envelope"></i> : er.juspreet51@gmail.com</a>
-					</li>
 
-					<li>
-						<a href="https://medium.com/@juspreet51" target="_blank" title="visit_blog">	
-							<i class="fa fa-medium"></i>
-						 : Visit Blog</a>
-						<!-- <a target="_blank" title="click_to_print" onclick="printFunction()"><i class="fa fa-print"></i> : Download in .pdf</a> -->
-					</li>
-					
-				</ul>
-				
-				
-			</div>
-			
-			<div class="clear"></div>
-		</div>
+		<!-- personal_header for all the pages
+		Also copy the part from start of <head> tag above -->
+		<div id="personal_header"></div>
+		<!-- Personal header ends here -->
 		
 		<div id="mainArea" class="quickFade delayFive">
 			<section>
@@ -97,7 +59,7 @@
 						<p>
 						• A firm believer in learning over knowing & extreme experimentation <br>
 						• Passionate about working on ideas that are innovative and impactful <br>
-						• Being imaginative, forever learning & ability to transform  business needs to actionable data driven strategies are what I enjoy most <br>
+						• Axiom: I am the wisest man alive, for I know one thing, and that is that I know nothing -- Socrates
 						</p>
 					</div>
 				</article>
@@ -111,14 +73,29 @@
 				
 				<div class="sectionContent">
 
-					<!-- WMT CN DF Project -->
+					<!-- CITI Project -->
 					<article>
 						<h2>
-							<a href="/resume/wmc_df" style="text-decoration-line: underline; color: black">
-								Prediciting Monthly Sales
+							<a href="#" style="text-decoration-line: underline; color: black">
+								Data Governance Setup for 1 of the Fortune-10 BFSI Organization
 							</a>
 						</h2>
-						<p class="subDetails">Jun 2020 – Present</p>
+						<p class="subDetails">May 2021 – Present</p>
+						<p>
+							<!-- i) Built Neural Network based RNN Model,for Sales Forecasting problem, to assist one of the US based, Fortune 5 Retailer to leverage their historical sales data, in order to achieve weekly demand forecasting at Product-Store level <br>
+							ii) Using this solution, client was able to minimize thier Out of Stock ratio, and thus reducing chances of missing out on high sales opportunities <br>
+							iii) An increase in 6%-20% (on various categories) of accuracy, as compared to pre-existing models was achieved <br> -->
+						</p>
+					</article>
+
+					<!-- EGA Project -->
+					<article>
+						<h2>
+							<a href="#" style="text-decoration-line: underline; color: black">
+								Regression Based Production Halts Reduction
+							</a>
+						</h2>
+						<p class="subDetails">Sept 2020 – Jan 2021</p>
 						<p>
 							i) Built Neural Network based RNN Model,for Sales Forecasting problem, to assist one of the US based, Fortune 5 Retailer to leverage their historical sales data, in order to achieve weekly demand forecasting at Product-Store level <br>
 							ii) Using this solution, client was able to minimize thier Out of Stock ratio, and thus reducing chances of missing out on high sales opportunities <br>
@@ -126,6 +103,22 @@
 						</p>
 					</article>
 
+					<!-- WMT CN DF Project -->
+					<article>
+						<h2>
+							<a href="/resume/wmc_df" style="text-decoration-line: underline; color: black">
+								Prediciting Monthly Sales
+							</a>
+						</h2>
+						<p class="subDetails">May 2020 – Sept 2020</p>
+						<p>
+							i) Built a Machine Learning based fault prediction model for the global leader in Aluminum Conglomerate, to reduce their production halts and early detection of potential backlogs in production during their aluminum production & smelting process <br>
+							ii) The model successfully reduced the unwarned halts in production line and thus improved steady and continuous production by 50%+ from previous operational cycle <br>
+							iii) Delivered along with CI/CD implementation with Azure DataBricks <br>
+						</p>
+					</article>
+
+					
 					<!-- WMT CN VP Project -->
 					<article>
 						<h2>
@@ -145,11 +138,11 @@
 					<article>
 						<h2>
 							<a href="/resume/wmc_va" style="text-decoration-line: underline; color: black">
-								Customer Behaviorial Analysis In A Brick & Mortar Store
+								Customer Behavioral Analysis In A Brick & Mortar Store
 							</a>
 						</h2>
 						<h2></h2>
-						<p class="subDetails">Nov 2019 – Feb 2020</p>
+						<p class="subDetails">Oct 2019 – Feb 2020</p>
 						<p>
 							i) Delivered to a US based globally leading retailer to tap the untapped potential of in-store customer behavioral analysis, in their brick and mortar stores, by providing Video Analytics and Deep-Learning based analytical solutions <br>
 							ii) The solutions helped the clients to achieve the knowledge and insights of thier physical store customers for first time ever <br>
@@ -246,6 +239,19 @@
 				</div>
 				<div class="sectionContent">
 					<article>
+						<h2>Databricks Certificate of Completion of Spark SQL Fundamentals</h2>
+						<p class="subDetails"> June, 2021</p>
+						<p>
+							• Fundamentals of Spark <br>
+							• Fundamentals of Big Data and Lakehouse <br>
+							• Execution of SQL in Spark SQL Environment <br>
+						</p>
+						<p>
+							<a href="https://drive.google.com/file/d/1W5yle6_Pu-qJM2I4uH2pip-IlNe0CQNu/view?usp=sharing">Credentials</a> 
+						</p>
+					</article>
+
+					<article>
 						<h2>Time Series Data Analysis</h2>
 						<p class="subDetails"> Jul, 2020</p>
 						<p>
@@ -281,12 +287,12 @@
 					<article>
 					<h2>Lovely Professional University</h2>
 						<p class="subDetails"> Bachelor of Technology in Computer Science & Engineering</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
+						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p> -->
 					</article>
 					<article>
 						<h2>Carmel Convent Senior Secondary School</h2>
-						<p class="subDetails">Senior Scondary Schooling</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
+						<p class="subDetails">Senior Secondary Schooling</p>
+						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p> -->
 					</article>
 				</div>
 				<div class="clear"></div>

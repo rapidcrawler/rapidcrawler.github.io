@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<!-- NavBar . Also copy the part from start of <body> tag below -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+		    $("#personal_header").load("/nav_bar_2_cv_header.html");
+		});
+	</script>
+	<!-- Personal header ends here -->
+
+
 <title>Juspreet51 - Curriculum Vitae</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,61 +41,10 @@
 	</script>
 
 	<div id="cv" class="instaFade">
-		<div class="mainDetails">
-			<div id="headshot" class="quickFade">
-				<img src="\assets\imgs\avatar.jpeg" alt="Juspreet51" />
-			</div>
-			
-			<div id="name">
-				<h1 class="quickFade delayTwo">
-					<a href="/ecv" style="text-decoration:None; color: black">
-					Jaspreet Singh
-					</a>
-				</h1>
-				<h2 class="quickFade delayThree">
-					<a href="/ecv" style="text-decoration:None; color: black">
-					Data Scientist
-					</a>					
-				</h2>
-				<h2 class="quickFade delayThree">
-					<a href="/ecv" style="text-decoration:None; color: black">
-					Mu Sigma, Bangalore (KA)
-					</a>					
-				</h2>
-			</div>
-			
-			<div id="contactDetails" class="quickFade delayFour">
-				<ul>
-					<li>
-						<a href="https://www.linkedin.com/in/juspreet51/com" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i> : juspreet51</a>
-					</li>
-					
-					<li>
-						<a href="https://github.com/juspreet51" target="_blank" title="GitHub"><i class="fa fa-github"></i> : juspreet51</a>
-					</li>
-					
-					<li>
-						<a href="tel:+919780953556" title="Contact"><i class="fa fa-phone"></i> : +91-9780-95-3556</a>
-					</li>
-					
-					<li>
-						<a href="mailto:jaspreetsk96@gmail.com" target="_blank" title="e-Mail"><i class="fa fa-envelope"></i> : jaspreetsk96@gmail.com</a>
-					</li>
-
-					<li>
-						<a href="/blog/home.html" target="_blank" title="visit_blog">	
-							<i class="fa fa-medium"></i>
-						 : Visit Blog</a>
-						<!-- <a target="_blank" title="click_to_print" onclick="printFunction()"><i class="fa fa-print"></i> : Download in .pdf</a> -->
-					</li>
-					
-				</ul>
-				
-				
-			</div>
-			
-			<div class="clear"></div>
-		</div>
+		<!-- personal_header for all the pages
+		Also copy the part from start of <head> tag above -->
+		<div id="personal_header"></div>
+		<!-- Personal header ends here -->
 		
 		<div id="mainArea" class="quickFade delayFive">
 			<section>
