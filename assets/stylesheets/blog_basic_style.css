@@ -81,6 +81,7 @@ h1,h2 {
 }
 .left_text p{
   font-size: 18px;
+  color: white;
 }
 .left_text a:hover{
   color: black;
@@ -97,6 +98,7 @@ h1,h2 {
 }
 .right_text p{
   font-size: 18px;
+  color: white;
 }
 
 .center_text{
