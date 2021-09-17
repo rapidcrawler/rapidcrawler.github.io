@@ -5,13 +5,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     $(function() {
-        $("#navigation").load("/nav_bar.html");
+        $("#navigation").load("/assets/scripts/nav_bar_responsive.html");
     });
   </script>
 
   <title>Juspreet51.in</title>
 
-  <link rel="stylesheet" href="/assets/stylesheets/nav_bar_style.css">
+  <link rel="shortcut icon" type="image/png" href="/assets/imgs/logos/favicon.png">
+
+  <link rel="stylesheet" href="/assets/stylesheets/nav_bar_responsive_style.css">
   <link rel="stylesheet" href="/assets/stylesheets/3col_style.css">
   <link rel="stylesheet" href="/assets/stylesheets/blog_post_style.css">
   <link rel="stylesheet" href="/assets/stylesheets/social_share_btn_style.css">
@@ -67,14 +69,17 @@
     </div>
   </div>
   <div class="share-btn-container">
-  	<a href="#">
-  		<i class="fab fa-facebook"></i>
-  	</a>
-  	<a href="#">
+  	<a href="#" class="twitter-btn">
   		<i class="fab fa-twitter"></i>
   	</a>
-  	<a href="#">
+  	<a href="#" class="linkedin-btn">
   		<i class="fab fa-linkedin"></i>
+  	</a>
+  	<a href="#" class="whatsapp-btn">
+  		<i class="fab fa-whatsapp"></i>
+  	</a>
+  	<a href="#" class="facebook-btn">
+  		<i class="fab fa-facebook"></i>
   	</a>
   </div>
 
@@ -83,6 +88,9 @@
 	<!-- ***************************** -->
   <div class="mid_column" style="width: 70%;">
     <h2 style="text-align: center;">Post Title</h2>
+
+    <img class="pinterest-img" 
+    src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80">
     <p>
     	Sit blanditiis ea repudiandae. Ipsum neque quia sunt rerum consequuntur debitis sed cupiditate. Aut consequuntur omnis illum et non eos eum ipsam. Dolores nisi ut aperiam voluptas quos nihil. <br> <br>
 
@@ -130,6 +138,6 @@
     </div>
   </div>
 </div>
-
+<script type="text/javascript" src="/assets/js/social_media_share_btns.js"></script>  
 </body>
 </html>
