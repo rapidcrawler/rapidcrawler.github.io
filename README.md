@@ -1,1 +1,1 @@
-# [Visit](https://juspreet51.github.io/)
+# [Visit BLog](http://juspreet51.in/)

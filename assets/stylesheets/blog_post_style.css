@@ -11,11 +11,13 @@ body {
 h1 {
   font-family: 'Press Start 2P', cursive;
   font-size: 26px;
+  color: #19FF19;
 }
 
 h2 {
   font-family: 'Press Start 2P', cursive;
   font-size: 23px;
+  color: #19FF19;
 }
 
 h3 {
@@ -25,8 +27,11 @@ h3 {
 
 
 p {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Inconsolata', monospace;
+  text-align: justify;
+  line-height: 1.9;
 }
+
 
 a {
   color: #0033cc;

@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.side_columns {
+  float: left;
+  width: 15%;
+  padding: 5px;
+  background-color: #242424;
+  border-radius: 35px;
+  text-align: center;
+}
+
+.mid_column {
+  float: left;
+  width: 70%;
+  padding: 10px;
+  /*height: 300px;  Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.menu {
+  text-align: center;
+}
+
+.menu a {
+  padding: 8px;
+  /*margin-top: 7px;*/
+  display: block;
+  color: whitesmoke;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.menu a:hover{
+  background-color: #ff004f; /*Background color of links in left side bar, when hovered*/
+  border-radius: 8px;
+}
+
+/* Style the active/current link*/
+.menu a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
