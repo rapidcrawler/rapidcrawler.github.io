@@ -15,11 +15,6 @@ body {margin:0;font-family:Arial}
   font-size: 17px;
 }
 
-.active {
-  background-color: #19FF19;
-  color: Black;
-}
-
 .topnav .icon {
   display: none;
 }
