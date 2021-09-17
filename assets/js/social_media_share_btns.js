@@ -21,8 +21,7 @@ function init(){
 
 	facebookBtn.setAttribute("href", `https://www.facebook.com/sharer.php?u=${postUrl}`);
 	twitterBtn.setAttribute("href", `https://twitter.com/share?url=${postUrl}&text=${postTitle}`);
-	// linkedInBtn.setAttribute("href", `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`);
-	linkedInBtn.setAttribute("href", `https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`);
+	linkedInBtn.setAttribute("href", `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`);
 	whatsappBtn.setAttribute("href", `https://api.whatsapp.com/send?text=${postTitle} ${postUrl}`);
 }
 
