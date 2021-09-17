@@ -43,6 +43,12 @@
   border-radius: 8px;
 }
 
+.pinterest-img {
+    margin: 10px auto 20px;
+    display: block;
+}
+
+
 /* Style the active/current link*/
 .menu a.active {
   background-color: dodgerblue;
