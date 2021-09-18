@@ -11,7 +11,7 @@ body {
 h1 {
   font-family: 'Press Start 2P', cursive;
   font-size: 26px;
-  color: #19FF19;
+  color: #19FF19; /*Green H1 headings of blog posts page*/  
 }
 
 h2 {

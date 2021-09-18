@@ -1,5 +1,11 @@
 body {margin:0;font-family:Arial}
 
+/* Style the active class (and buttons on mouse-over) */
+.active {
+  background-color: #666;
+  color: white;
+}
+
 .topnav {
   overflow: hidden;
   background-color: #333;
@@ -59,13 +65,18 @@ body {margin:0;font-family:Arial}
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #19FF19;
   color: black;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.active {
+  background-color: darkviolet;
+}
+
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
