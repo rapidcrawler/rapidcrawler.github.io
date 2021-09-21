@@ -1,1 +1,1 @@
-# [Visit BLog](http://juspreet51.in/)
+# [Visit Blog](http://juspreet51.in/)
