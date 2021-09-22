@@ -2,7 +2,7 @@ body {margin:0;font-family:Arial}
 
 /* Style the active class (and buttons on mouse-over) */
 .active {
-  background-color: #666;
+  background-color: #666; 
   color: white;
 }
 
@@ -38,7 +38,8 @@ body {margin:0;font-family:Arial}
   font-size: 17px;    
   border: none;
   outline: none;
-  color: white;
+  /*color: white;*/
+  color: #19FF19; /*Green H1 headings of blog posts page*/  
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -64,12 +65,12 @@ body {margin:0;font-family:Arial}
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-  color: black;
+  background-color: rebeccapurple;
+  color: white;
 }
 
 .dropdown-content a:hover {
-  background-color: #19FF19;
+  background-color: #19FF19; /*Green H1 headings of blog posts page*/  
   color: black;
 }
 
