@@ -6,17 +6,15 @@
 h1 {
   font-family: 'Press Start 2P', cursive;
   color: #19FF19; /*Green H1 headings of blog posts page*/  
-  font-size: 56px;
 }
 
 .listings h3{
   font-family: 'Press Start 2P', cursive;
   color: #19FF19; /*Green H1 headings of blog posts page*/  
-  font-size: 40px;
 }
 
 .listings p{
-  font-size: 30px;
+  font-size: 16px;
   margin-left: 60px;
 }
 
