@@ -27,6 +27,8 @@ p {
 
 
 .grid {
+	padding-left: 85px;
+	float: right;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   grid-gap: 1rem;
@@ -57,10 +59,6 @@ p {
   height: 100%;
   object-fit: contain;
 }
-
-
-
-
 
 
 
@@ -153,12 +151,12 @@ section:last-child {
 
 .sectionTitle {
 	float: left;
-	width: 25%;
+	width: 5%;
 }
 
 .sectionContent {
 	float: right;
-	width: 72.5%;
+	width: 85%;
 }
 
 .sectionTitle h1 {
@@ -392,11 +390,6 @@ section:last-child {
 	-moz-animation-delay: 0, 2.5s;
 	animation-delay: 0, 2.5s;
 }
-
-
-
-
-
 
 
 ul.social-network {

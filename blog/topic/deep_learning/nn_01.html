@@ -1,98 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-	  <!-- NavBar . Also copy the part from start of <body> tag below -->
+  <!-- NavBar . Also copy the part from start of <body> tag below -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     $(function() {
         $("#navigation").load("/assets/scripts/nav_bar_responsive.html");
-        // $("#social_share_btns").load("/assets/scripts/social_share_btns.html");
+        $("#contact").load("/assets/scripts/contact_section.html");
     });
   </script>
 
-  <title>Juspreet51.in</title>
-
-  <link rel="icon" type="image/png" href="/assets/imgs/logos/favicon.png">
-
-  <link rel="stylesheet" href="/assets/stylesheets/nav_bar_responsive_style.css">
-  <link rel="stylesheet" href="/assets/stylesheets/3col_style.css">
-  <link rel="stylesheet" href="/assets/stylesheets/blog_post_style.css">
-  <!-- <link rel="stylesheet" href="/assets/stylesheets/social_share_btn_style.css"> -->
-  
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet"> 
-  <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Press+Start+2P">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.fb_coment_plugin{
-	background-color: white;
-	border-radius: 15px;
-}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/new_blog_style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
+<body class="w3-black">
+  <!-- NavBar . Also copy the part from start of <head> tag above -->
+  <div id="navigation"></div>
 
-<body>
-	<!-- NavBar . Also copy the part from start of <head> tag above -->
-	<div id="navigation"></div>
-
-	<!-- Facebook comment plugin's JS SDK -->
-	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0" nonce="090kwpWr"></script>
-
-
-<!-- ***************************** -->
-<!--    Title of the blog post     -->
-<!-- ***************************** -->
-<div class="row">
-	<div class="side_columns" style="background-color: #121212;">
-	</div>
-
-	<div class="mid_column">
-		<h1 style="text-align: justify;">Neural Network Series - www.JusPreet51.in</h1>
-		<p></p>
-	</div>
-
-	<div class="side_columns" style="background-color: #121212;">
-		<p></p>
-	</div>
-</div>
-
-<div class="row">
-  <div class="side_columns">
-    <h3 style="color: #19FF19; text-align: center;">Topics</h3>
-    <!-- 
-    **************
-    * LHSBar *
-    **************
-     -->
-    <div class="menu">
-      <a class="active" href="#">History of ANN</a>
-      <a href="#">Backpropagation</a>
-      <a href="#">Learning Rate & Gradient Descent</a>
+  <div class="row">
+    <div class="side_column">
+      
+    </div>
+    <div class="mid_column">
+      <h2>Put Post Title</h2>
+      <p>Last Updated on : Oct-02, 2021</p>
+    </div>
+    <div class="side_column">
+      
     </div>
   </div>
+
   
-  <!-- Social media share buttons -->
-  <!-- NavBar . Also copy the part from start of <head> tag above -->
-  <!-- <div id="social_share_btns"></div> -->
 
-	<!-- ***************************** -->
-	<!--      Body of the blog post    -->
-	<!-- ***************************** -->
-  <div class="mid_column" style="width: 70%;">
-    <h2 style="text-align: center;">Post Title</h2>
+  <div class="row">
+    
+    <div class="side_column" style="background-color:#aaa; text-align: center;">
+      <h4>Column 1</h4>
+      <p>Some text..</p>
+    </div>
+    
+    <div class="mid_column">
+      <h2>Column 2</h2>
+      <p id="P1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu urna in sapien auctor tempus a eu ipsum. Fusce ornare fringilla orci, mattis vehicula risus lobortis a. Donec tempus orci in egestas suscipit. Aenean fringilla eros velit, ac feugiat leo ultricies ut. Pellentesque lacinia ac lectus a rhoncus. Integer leo velit, consectetur non tristique eget, egestas semper nisl. Nunc volutpat, orci eget porttitor malesuada, eros enim pulvinar purus, eget fringilla libero massa at enim. Cras sagittis risus non tellus sodales suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis in velit vel urna cursus eleifend ut sit amet nisl. Praesent quis nisi sagittis, lobortis justo id, varius ipsum. Etiam tortor nisi, scelerisque non urna eu, bibendum vehicula ipsum. Morbi et egestas nisi, posuere auctor nulla. </p>
 
-    <img class="pinterest-img" 
-    src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80">
-    <p id="P1">
-    	Sit blanditiis ea repudiandae. Ipsum neque quia sunt rerum consequuntur debitis sed cupiditate. Aut consequuntur omnis illum et non eos eum ipsam. Dolores nisi ut aperiam voluptas quos nihil. <br> <br>
-
-		  Veritatis ut voluptate consequatur est ut neque et. Quia sed corrupti non. Officiis facilis ex omnis. A odio suscipit consectetur officia eius. Pariatur id qui ut perspiciatis blanditiis eum vel. <br> <br>
+      <p>Cras venenatis justo non erat volutpat eleifend. Proin fringilla tempor ante, id placerat sapien dictum elementum. Nulla semper vel elit a consequat. Curabitur in finibus velit. Sed dui ipsum, maximus non scelerisque a, dictum sit amet nulla. Fusce in auctor elit, et pellentesque justo. Aenean ante ex, fermentum et sem at, lacinia pellentesque lectus. Aliquam vel diam nunc. Proin dignissim bibendum turpis, ac consectetur risus dapibus id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur finibus hendrerit ipsum vitae convallis. In efficitur vel neque in tempus. Sed a velit ac purus lacinia dignissim a id urna. </p>
 
       <!-- Code Script: GitHub Gist -->
       <script 
@@ -106,72 +58,18 @@
         sandbox="allow-scripts allow-same-origin">
       </iframe>
 
+      <p id="P2">Donec elit velit, aliquet in purus faucibus, dapibus ullamcorper diam. Nam et suscipit turpis. Cras laoreet, neque ut ultrices fringilla, magna dolor finibus ipsum, non elementum felis ligula vitae quam. Vivamus a ligula ultricies, fringilla quam id, elementum est. Pellentesque pulvinar eros et metus ornare aliquet. In malesuada, massa at luctus pulvinar, nunc justo porttitor lectus, vitae accumsan ipsum tellus eget nulla. Integer nec ante quis risus venenatis molestie. Mauris gravida tortor eu varius pharetra. Vivamus nec vestibulum risus. Donec pretium tincidunt arcu vel auctor. Sed pharetra libero hendrerit, tincidunt metus eu, bibendum magna. Suspendisse ut justo id ligula interdum euismod ut eget lectus. </p>
 
-    </p>
+      <p id="P3">Nulla non turpis nec risus dapibus viverra. Morbi sagittis est ac enim vehicula, in maximus elit facilisis. Morbi aliquam augue metus, ac porttitor nisl aliquam vel. Maecenas at magna at turpis auctor commodo. Donec bibendum vitae dui vitae pellentesque. Nulla consectetur volutpat accumsan. Nullam maximus turpis quis augue posuere tincidunt. Nulla ut libero vitae magna mollis commodo ac nec magna. Curabitur in blandit sapien. Fusce laoreet ipsum ultricies, efficitur massa et, lacinia ipsum. Curabitur at tincidunt dolor, eget porta nulla. Nulla convallis, massa vitae efficitur suscipit, justo odio consectetur elit, a ultrices neque erat a nunc. Pellentesque et purus vitae libero hendrerit faucibus a sit amet erat. Donec faucibus dapibus nibh, id tempus nibh lobortis vel. Quisque a quam et mauris euismod vulputate. </p>
 
-    <p id="P2">
-      Velit et temporibus rem iusto quidem quia. Ab eveniet aut porro sed qui. Officia itaque et molestiae sint est omnis. Sit amet ab autem accusamus et asperiores est eaque. Ad voluptas hic animi blanditiis. <br> <br>
-
-      Natus repellat qui voluptates omnis facilis quae quaerat. Reiciendis animi ut ipsa distinctio. Hic itaque sunt cum totam dolorem est. Repellat non quia id asperiores rerum. <br> <br>
-
-      Dolorem facere ab voluptate sint ipsam debitis repellendus modi. Magnam et asperiores vel nihil. At earum dolorem praesentium. 
-
-
-      <!-- Page visitor counter -->
-      <!-- <a href='https://www.stat-counter.org/'>Free StatCounter</a> 
-      <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=3e6873eb1896abaed63bcefd543935c20f9e3489'>
-      </script>
-      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/873710/t/7"></script> -->
-
-      <br> <br>
-    </p>
-
-    <p id="P3">
-      Sit blanditiis ea repudiandae. Ipsum neque quia sunt rerum consequuntur debitis sed cupiditate. Aut consequuntur omnis illum et non eos eum ipsam. Dolores nisi ut aperiam voluptas quos nihil. <br> <br>
-
-      Veritatis ut voluptate consequatur est ut neque et. Quia sed corrupti non. Officiis facilis ex omnis. A odio suscipit consectetur officia eius. Pariatur id qui ut perspiciatis blanditiis eum vel. <br> <br>
-
-      Velit et temporibus rem iusto quidem quia. Ab eveniet aut porro sed qui. Officia itaque et molestiae sint est omnis. Sit amet ab autem accusamus et asperiores est eaque. Ad voluptas hic animi blanditiis. <br> <br>
-
-      Natus repellat qui voluptates omnis facilis quae quaerat. Reiciendis animi ut ipsa distinctio. Hic itaque sunt cum totam dolorem est. Repellat non quia id asperiores rerum. <br> <br>
-    </p>		
-
-		<p id="P4">
-      Dolorem facere ab voluptate sint ipsam debitis repellendus modi. Magnam et asperiores vel nihil. At earum dolorem praesentium. <br> <br>
-
-      Sit blanditiis ea repudiandae. Ipsum neque quia sunt rerum consequuntur debitis sed cupiditate. Aut consequuntur omnis illum et non eos eum ipsam. Dolores nisi ut aperiam voluptas quos nihil. <br> <br>
-
-      Veritatis ut voluptate consequatur est ut neque et. Quia sed corrupti non. Officiis facilis ex omnis. A odio suscipit consectetur officia eius. Pariatur id qui ut perspiciatis blanditiis eum vel. <br> <br>
-
-      Velit et temporibus rem iusto quidem quia. Ab eveniet aut porro sed qui. Officia itaque et molestiae sint est omnis. Sit amet ab autem accusamus et asperiores est eaque. Ad voluptas hic animi blanditiis. <br> <br>
-
-      Natus repellat qui voluptates omnis facilis quae quaerat. Reiciendis animi ut ipsa distinctio. Hic itaque sunt cum totam dolorem est. Repellat non quia id asperiores rerum. <br> <br>
-
-      Dolorem facere ab voluptate sint ipsam debitis repellendus modi. Magnam et asperiores vel nihil. At earum dolorem praesentium. <br> <br>  
-    </p>
-
-    <div class="fb_coment_plugin">
-    	<!-- Facebook Comment Box. Also copy, JS SDK above in Head tag start -->
-    	<div class="fb-comments" data-href="https://juspreet51.github.io/blog/topic/neural_nets/2021/nn_01_bp" data-width="760" data-numposts="5" data-colorscheme="dark"></div>
+      <p id="P4">Ut maximus sem id eros commodo, eget vehicula risus interdum. Aenean non diam eu sapien bibendum interdum ac at turpis. Donec sagittis mollis eleifend. Nam quis consequat lacus. Praesent dui mi, accumsan quis turpis nec, tempor pellentesque sapien. Vivamus consequat risus non felis efficitur lacinia. Donec condimentum risus fermentum, finibus nisi ullamcorper, dictum purus. Quisque rhoncus nulla ante. Ut lacinia eros at nibh tristique sagittis. Nulla sit amet tincidunt mi. Nunc sed ante diam. Morbi lectus felis, porta vel ligula sit amet, congue condimentum ipsum.  </p>
     </div>
     
-
-  </div>
-  <div class="side_columns" style="background-color: inherit;">
-    <!-- 
-    **************
-    * RHSBar *
-    **************
-     -->
-    <div class="rhs_menu">
-      <h3 style="color: #19FF19; text-align: center;">Subtopics</h3>
-      <a href="#P4" >Subtopic 1</a>
-      <a href="#P3">Subtopic 2</a>
-      <a href="#P2">Subtopic 3</a>
-      <a href="#P1">Subtopic 4</a>
+    <div class="side_column" style="background-color:#ccc; text-align: center;">
+      <h4>Column 3</h4>
+      <p>Some text..</p>
     </div>
   </div>
-</div>
-<!-- <script type="text/javascript" src="/assets/js/social_media_share_btns.js"></script>  -->
+
 </body>
 </html>
