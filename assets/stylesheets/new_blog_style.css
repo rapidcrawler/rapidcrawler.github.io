@@ -1,66 +1,22 @@
-* {
-  box-sizing: border-box;
-}
-
-/*Responsive Text*/
-.h1{
-  font-size:10vw;
-}
-.h2{
-  font-size:8vw;
-}
-
-a{
-  color: #19FF19; /*Green H1 headings of blog posts page*/
-  text-decoration: none;
-}
-
-
-/* Create three equal columns that floats next to each other */
-.side_column {
-  float: left;
+.sidebar{
   width: 15%;
   text-align: center;
-  padding: 10px;
-  border-radius: 15px;
-  opacity: 35%;
 }
-.side_column a, h4{
-  color: black;
-}
-.mid_column {
-  float: left;
-  width: 70%;
-  padding: 10px;
-  color: white;
-}
-.mid_column p{
-  font-size: 1.2vw;
+.center_body{
+  display: inline-block; 
+  width: 70%; 
+  text-align: justify;
+  padding-left: 10px;
 }
 
-.meta_info a{
-  color: #19FF19; /*Green H1 headings of blog posts page*/  ;
-}
-.meta_info p a{
-  font-size:1vw;
-}
-
-.footer a{
-  color: #19FF19; /*Green H1 headings of blog posts page*/
-  text-decoration: none;
-}
-
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+/* On screens that are 600px or less, dont' display sidebar */
 @media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
+  .sidebar {
+    display: none !important;
+    }
+  .center_body{
+  width: 100%; 
+  text-align: justify;
+  padding-left: 10px;
 }
+  }
