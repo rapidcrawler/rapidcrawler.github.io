@@ -10,6 +10,11 @@
   font-size:8vw;
 }
 
+a{
+  color: #19FF19; /*Green H1 headings of blog posts page*/
+  text-decoration: none;
+}
+
 
 /* Create three equal columns that floats next to each other */
 .side_column {
@@ -21,6 +26,14 @@
   float: left;
   width: 70%;
   padding: 10px;
+}
+
+.meta_info a{
+  color: #19FF19; /*Green H1 headings of blog posts page*/  ;
+}
+
+.meta_info p a{
+  font-size:1vw;
 }
 
 /* Clear floats after the columns */
