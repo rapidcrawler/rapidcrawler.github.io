@@ -9,6 +9,15 @@
   padding-left: 10px;
 }
 
+.footer a{
+  color: #19FF19; /*Green H1 headings of blog posts page*/
+}
+
+a{
+  color: #19FF19; /*Green H1 headings of blog posts page*/
+  text-decoration: none;
+}
+
 /* On screens that are 600px or less, dont' display sidebar */
 @media screen and (max-width: 600px) {
   .sidebar {
@@ -18,5 +27,6 @@
   width: 100%; 
   text-align: justify;
   padding-left: 10px;
-}
+  padding-right: 10px;
   }
+}
