@@ -20,21 +20,36 @@ a{
 .side_column {
   float: left;
   width: 15%;
+  text-align: center;
   padding: 10px;
+  border-radius: 15px;
+  opacity: 35%;
+}
+.side_column a, h4{
+  color: black;
 }
 .mid_column {
   float: left;
   width: 70%;
   padding: 10px;
+  color: white;
+}
+.mid_column p{
+  font-size: 1.2vw;
 }
 
 .meta_info a{
   color: #19FF19; /*Green H1 headings of blog posts page*/  ;
 }
-
 .meta_info p a{
   font-size:1vw;
 }
+
+.footer a{
+  color: #19FF19; /*Green H1 headings of blog posts page*/
+  text-decoration: none;
+}
+
 
 /* Clear floats after the columns */
 .row:after {
