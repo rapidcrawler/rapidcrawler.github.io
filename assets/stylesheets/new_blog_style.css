@@ -2,6 +2,12 @@
   width: 15%;
   text-align: center;
 }
+.sidebar h2{
+  font-size:2vw
+}
+.sidebar a{
+  font-size:1.3vw
+}
 .center_body{
   display: inline-block; 
   width: 70%; 
@@ -16,6 +22,18 @@
 a{
   color: #19FF19; /*Green H1 headings of blog posts page*/
   text-decoration: none;
+}
+h1,h2,h3,h4{
+  color: yellow;
+  font-family: 'Orbitron', sans-serif;
+}
+p{
+  font-family: 'Roboto', sans-serif;
+}
+
+.post_title h1{
+  font-size: 30px;
+  text-align: left;
 }
 
 /* On screens that are 600px or less, dont' display sidebar */
