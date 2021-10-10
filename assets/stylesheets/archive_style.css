@@ -6,6 +6,8 @@
 h1 {
   font-family: 'Press Start 2P', cursive;
   color: #19FF19; /*Green H1 headings of blog posts page*/  
+  text-align: center; 
+  padding: 5px;
 }
 
 .listings h3{
