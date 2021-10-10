@@ -1,20 +1,21 @@
-.listings{
-	margin-left: 15%;
-	margin-right: 15%;
-}
-
 h1 {
   font-family: 'Press Start 2P', cursive;
   color: #19FF19; /*Green H1 headings of blog posts page*/  
   text-align: center; 
   padding: 5px;
 }
+u{
+  font-family: 'Roboto', sans-serif;
+}
 
+.listings{
+  margin-left: 15%;
+  margin-right: 15%;
+}
 .listings h3{
   font-family: 'Press Start 2P', cursive;
   color: #19FF19; /*Green H1 headings of blog posts page*/  
 }
-
 .listings p{
   font-size: 16px;
   margin-left: 60px;
