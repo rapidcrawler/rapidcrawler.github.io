@@ -19,16 +19,24 @@
   color: #19FF19; /*Green H1 headings of blog posts page*/
 }
 
-a{
-  color: #19FF19; /*Green H1 headings of blog posts page*/
-  text-decoration: none;
-}
 h1,h2,h3,h4{
   color: yellow;
   font-family: 'Orbitron', sans-serif;
 }
 p{
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+a{
+  color: #19FF19; /*Green H1 headings of blog posts page*/
+  text-decoration: none;
+}
+.custom_link{
+  color: #19FF19; /*Green H1 headings of blog posts page*/
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 1.3px;
 }
 
 .post_title h1{
