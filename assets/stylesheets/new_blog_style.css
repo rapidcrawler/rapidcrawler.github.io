@@ -1,35 +1,60 @@
 .sidebar{
   width: 15%;
-  text-align: center;
+  padding-left: 5px;
+  margin-top: 125px;
 }
 .sidebar h2{
   font-size:2vw
 }
 .sidebar a{
   font-size:1.3vw;
+  text-align: left;
+}
+.sidebar h2,a{
+  color: white;
+}
+.meta_info p,a{
+  font-size: 1.3vw;
 }
 .center_body{
   display: inline-block; 
   width: 70%; 
   text-align: justify;
   padding-left: 10px;
+  padding-right: 10px;
 }
+.center_body i{
+  font-family: 'Kalam', cursive;
+  font-size: 15px;
+  background-color: dimgrey;
+}
+
+.cover img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.cover img:hover{
+  position: relative; 
+  top: -5px;}
 
 .footer a{
   color: #19FF19; /*Green H1 headings of blog posts page*/
 }
 
 h1,h2,h3,h4{
-  color: yellow;
+  color: #19FF19; /*Green H1 headings of blog posts page*/
   font-family: 'Orbitron', sans-serif;
 }
 p{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
 }
 a{
-  color: #19FF19; /*Green H1 headings of blog posts page*/
+  /*color: #19FF19; Green H1 headings of blog posts page*/
   text-decoration: none;
+  font-size: 1.3vw;
 }
 .custom_link{
   color: #19FF19; /*Green H1 headings of blog posts page*/
