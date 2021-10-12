@@ -39,7 +39,7 @@ body {margin:0;font-family:Arial}
   border: none;
   outline: none;
   /*color: white;*/
-  color: #19FF19; /*Green H1 headings of blog posts page*/  
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -65,12 +65,12 @@ body {margin:0;font-family:Arial}
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: rebeccapurple;
-  color: white;
+  background-color: #00FFBB; /*New Green H1 headings of blog posts page*/;
+  color: black;
 }
 
 .dropdown-content a:hover {
-  background-color: #19FF19; /*Green H1 headings of blog posts page*/  
+  background-color: #00FFBB; /*New Green H1 headings of blog posts page*/
   color: black;
 }
 

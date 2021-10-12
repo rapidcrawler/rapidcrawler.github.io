@@ -1,3 +1,9 @@
+body{
+  background-color: #121212
+}
+p:hover{
+  top: -5px;
+}
 .sidebar{
   width: 15%;
   padding-left: 5px;
@@ -5,28 +11,45 @@
 }
 .sidebar h2{
   font-size:2vw
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
 }
 .sidebar a{
   font-size:1.3vw;
   text-align: left;
-}
-.sidebar h2,a{
   color: white;
+}
+.sidebar a:hover{
+  font-size:1.3vw;
+  font-weight: bold;
+  text-align: left;
+  /* text-decoration: underline; */
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
 }
 .meta_info p,a{
   font-size: 1.3vw;
 }
 .center_body{
-  display: inline-block; 
-  width: 70%; 
+  display: inline-block;
+  width: 70%;
   text-align: justify;
   padding-left: 10px;
   padding-right: 10px;
 }
+.center_body p{
+  color: darkgrey;
+}
 .center_body i{
   font-family: 'Kalam', cursive;
   font-size: 15px;
-  background-color: dimgrey;
+}
+.center_body b{
+  font-family: 'Exo 2', sans-serif;
+  font-size: 17px;
+  color: #da9600
+}
+.center_body sup a{
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
+  font-weight: bold;
 }
 
 .cover img{
@@ -36,15 +59,16 @@
   width: 100%;
 }
 .cover img:hover{
-  position: relative; 
-  top: -5px;}
+  position: relative;
+  top: -5px;
+}
 
 .footer a{
-  color: #19FF19; /*Green H1 headings of blog posts page*/
+  color: ##00FFBB; /*New Green H1 headings of blog posts page*/
 }
 
 h1,h2,h3,h4{
-  color: #19FF19; /*Green H1 headings of blog posts page*/
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
   font-family: 'Orbitron', sans-serif;
 }
 p{
@@ -52,12 +76,11 @@ p{
   font-size: 16px;
 }
 a{
-  /*color: #19FF19; Green H1 headings of blog posts page*/
   text-decoration: none;
   font-size: 1.3vw;
 }
 .custom_link{
-  color: #19FF19; /*Green H1 headings of blog posts page*/
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
   text-decoration: none;
   font-size: 13px;
   font-family: 'Press Start 2P', cursive;
@@ -69,13 +92,14 @@ a{
   text-align: left;
 }
 
+
 /* On screens that are 600px or less, dont' display sidebar */
 @media screen and (max-width: 600px) {
   .sidebar {
     display: none !important;
     }
   .center_body{
-  width: 100%; 
+  width: 100%;
   text-align: justify;
   padding-left: 10px;
   padding-right: 10px;

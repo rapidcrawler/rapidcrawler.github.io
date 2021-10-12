@@ -1,0 +1,63 @@
+.disabled_btn{
+  opacity: 15%;
+  }
+.pagination_button {
+  border-radius: 8px;
+  background-color: #00FFBB; /*New Green H1 headings of blog posts page*/
+  color: black;
+  border: none;
+  text-align: center;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.pagination_button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.next_button{
+  float: right;
+  right: 0;
+}
+.previous_button{
+  float: left;
+  left: 0;
+}
+
+.next_button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.previous_button span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.next_button:hover span {
+  padding-right: 25px;
+}
+.previous_button:hover span {
+  padding-left: 25px;
+}
+
+.next_button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.previous_button:hover span:after {
+  opacity: 1;
+  left: 0;
+}
