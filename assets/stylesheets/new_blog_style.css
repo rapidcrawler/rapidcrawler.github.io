@@ -1,9 +1,16 @@
 body{
   background-color: #121212
 }
+p{
+  color: darkgrey;
+}
 p:hover{
   top: -5px;
 }
+ul{
+  color: darkgrey;
+}
+
 .sidebar{
   width: 15%;
   padding-left: 5px;
@@ -22,7 +29,6 @@ p:hover{
   font-size:1.3vw;
   font-weight: bold;
   text-align: left;
-  /* text-decoration: underline; */
   color: #00FFBB; /*New Green H1 headings of blog posts page*/
 }
 .meta_info p,a{
@@ -30,7 +36,7 @@ p:hover{
 }
 .center_body{
   display: inline-block;
-  width: 70%;
+  width: 68%;
   text-align: justify;
   padding-left: 10px;
   padding-right: 10px;
@@ -63,6 +69,13 @@ p:hover{
   top: -5px;
 }
 
+.post_body img.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: auto;
+}
 .footer a{
   color: ##00FFBB; /*New Green H1 headings of blog posts page*/
 }
@@ -70,6 +83,9 @@ p:hover{
 h1,h2,h3,h4{
   color: #00FFBB; /*New Green H1 headings of blog posts page*/
   font-family: 'Orbitron', sans-serif;
+}
+h2{
+  font-size:2vw
 }
 p{
   font-family: 'Noto Sans', sans-serif;
@@ -80,11 +96,13 @@ a{
   font-size: 1.3vw;
 }
 .custom_link{
+  font-size:1.3vw;
   color: #00FFBB; /*New Green H1 headings of blog posts page*/
-  text-decoration: none;
-  font-size: 13px;
-  font-family: 'Press Start 2P', cursive;
-  letter-spacing: 1.3px;
+}
+.center_body a:hover{
+  font-size:1.3vw;
+  font-weight: bold;
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
 }
 
 .post_title h1{
