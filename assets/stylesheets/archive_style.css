@@ -1,6 +1,21 @@
+body{
+  background-color: #121212
+}
+p{
+  color: darkgrey;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+}
+h1,h2,h3,h4{
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
+  font-family: 'Orbitron', sans-serif;
+}
+a{
+  text-decoration: none;
+  /*font-size: 1.3vw;*/
+}
 h1 {
   font-family: 'Press Start 2P', cursive;
-  color: #19FF19; /*Green H1 headings of blog posts page*/  
   text-align: center; 
   padding: 5px;
 }
@@ -9,12 +24,13 @@ u{
 }
 
 .listings{
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
   margin-left: 15%;
   margin-right: 15%;
 }
 .listings h3{
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
   font-family: 'Press Start 2P', cursive;
-  color: #19FF19; /*Green H1 headings of blog posts page*/  
 }
 .listings p{
   font-size: 16px;
