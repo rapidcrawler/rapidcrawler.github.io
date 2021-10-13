@@ -87,3 +87,16 @@
     width: 70%; 
     margin-left: 15%;
   }
+
+
+  /*Hide sidebars, when screen size too small*/
+  @media only screen and (max-width: 600px) {
+    .column-right, .column-left {
+        display: none;
+    }
+    .column_center{
+      width: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+}
