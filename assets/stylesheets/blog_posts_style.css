@@ -1,0 +1,113 @@
+body{
+  background-color: #121212; /*Dark Theme Background*/
+}
+p{
+  color: darkgrey;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  text-align: justify;
+}
+ul{
+  color: darkgrey;
+}
+h1,h2,h3,h4{
+  color: white
+  font-family: 'Roboto', sans-serif;
+}
+a{
+  text-decoration: none;
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
+}
+.three_col_layout h1,h2,h3,h4{
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
+  font-family: 'Orbitron', sans-serif;
+  text-align: left;
+}
+
+.column_left {
+  float: left;
+  width: 19%;
+  margin-top: 125px;
+  margin-left: 5px;
+  padding-left: 15px;
+}
+.column_right {
+  float: right;
+  width: 19%;
+  margin-top: 125px;
+  margin-right: 5px;
+  padding-right: 15px;
+  height: all;
+}
+.column_left h1,h2,h3, 
+.column_center h1,h2,h3, 
+.column_right h1,h2,h3{
+  text-align: center;
+}
+.column_left a, .column_right a{
+  color: white;
+}
+.column_left a:hover, .column_right a:hover, .column_center a:hover{
+  font-weight: bold;
+  text-align: left;
+  color: #00FFBB; /*New Green H1 headings of posts*/
+}
+
+.column_center {
+  display: inline-block;
+  width: 58%;
+  padding-left: 10px;
+  margin: auto;
+}
+
+.banner img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 99%;
+}
+
+.blog_content h1,h2,h3{
+  color: #00FFBB; /*New Green H1 headings of posts*/
+  font-family: 'Orbitron', sans-serif;
+  text-align: left;
+}
+.blog_content p,a{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+}
+.blog_content b{
+  font-family: 'Exo 2', sans-serif;
+  font-size: 17px;
+  color: #da9600; /*New Yellow Bold texts of posts*/
+}
+.blog_content i{
+  font-family: 'Kalam', cursive;
+  font-size: 15px;
+  width: 60%;
+}
+.blog_content img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 80%;*/
+  height: auto;
+}
+
+.footer {
+  margin-left: 25px; 
+  width: 70%; 
+  margin-left: 15%;
+}
+
+/*Hide sidebars, when screen size too small*/
+@media only screen and (max-width: 600px) {
+  .column_right, .column_left{
+      display: none;
+  }
+  .column_center{
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

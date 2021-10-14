@@ -21,129 +21,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
-
-  <style>
-  body{
-    background-color: #121212; /*Dark Theme Background*/
-  }
-  p{
-    color: darkgrey;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
-    text-align: justify;
-  }
-  ul{
-    color: darkgrey;
-  }
-  h1,h2,h3,h4{
-    color: white
-    font-family: 'Roboto', sans-serif;
-  }
-  a{
-    text-decoration: none;
-    color: #00FFBB; /*New Green H1 headings of blog posts page*/
-  }
-  .blog_body h1,h2,h3,h4{
-    color: #00FFBB; /*New Green H1 headings of blog posts page*/
-    font-family: 'Orbitron', sans-serif;
-  }
-
-  .column_left {
-      float: left;
-      width: 19%;
-      margin-top: 125px;
-      margin-left: 5px;
-      padding-left: 15px;
-      background-color: dimgray;
-    }
-    .column_right {
-      float: right;
-      width: 19%;
-      margin-top: 125px;
-      margin-right: 5px;
-      padding-right: 15px;
-      background-color: dimgray;
-      height: all;
-    }
-    .column_left h1,h2,h3, .column_center h1,h2,h3, .column_right h1,h2,h3{
-      text-align: center;
-    }
-    .column_left a, .column_right a{
-      color: white;
-    }
-    .column_left a:hover, .column_right a:hover, .column_center a:hover{
-      font-weight: bold;
-      text-align: left;
-      color: #00FFBB; /*New Green H1 headings of blog posts page*/
-    }
-
-    .column_center {
-      display: inline-block;
-      width: 58%;
-      padding-left: 10px;
-      margin: auto;
-    }
-
-    .banner img{
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 99%;
-    }
-
-    .blog_body h1,h2,h3{
-      color: #00FFBB; /*New Green H1 headings of posts*/
-      font-family: 'Orbitron', sans-serif;
-    }
-    .blog_body p,a{
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 16px;
-    }
-    .blog_body b{
-      font-family: 'Exo 2', sans-serif;
-      font-size: 17px;
-      color: #da9600; /*New Yellow Bold texts of posts*/
-    }
-    .blog_body i{
-      font-family: 'Kalam', cursive;
-      font-size: 15px;
-      width: 60%;
-    }
-    .blog_body img{
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      /*width: 80%;*/
-      height: auto;
-    }
-
-    .footer {
-      margin-left: 25px; 
-      width: 70%; 
-      margin-left: 15%;
-    }
-
-    /*Hide sidebars, when screen size too small*/
-    @media only screen and (max-width: 600px) {
-      .column_right, .column_left{
-          display: none;
-      }
-      .column_center{
-        width: 100%;
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-    }
-  </style>
+  
 </head>
 <body>
   <!-- NavBar . Also copy the part from start of <head> tag above -->
   <div id="nav_bar_dark"></div>
 
-  <div class="blog_body">
+  <div class="three_col_layout">
+
     <div class="column_left">
-      <h1>Hello</h1>
+      <h2 style="text-align: center;"> Chapters </h2>
+      <a href="#">1) Glossary</a> <br>
+      <a href="#">2) Hypothesis Testing With Python Codes</a> <br>
+      <a href="#">3) Probability with Python Codes</a> <br> 
     </div>
+
     <div class="column_center">
       <br><br><br><br>
       <h1>Hello World</h1>
@@ -156,36 +48,70 @@
           <span style="float: right;">
             <p>
               Last Update on: 07th Oct, 2021
-            </p>
-            
+            </p>            
           </span>
         </div>
-      <div class="banner">
-        <img src="/assets/imgs/banners/stats_gloss.png">
+
+        <div class="banner">
+          <img src="/assets/imgs/banners/stats_gloss.png">
+        </div>
+
+        <div class="blog_content">
+          <div id="basics">
+            <br><h2>Basics</h2>
+            <p>
+              <b>Statistics</b>: <a class="custom_link" href="https://en.wikipedia.org/wiki/Statistics" target="_blank">Statistics</a> is the discipline that concerns the collection, organization, analysis, interpretation, and presentation of data
+            </p>
+            <p>
+                  <b>Observation</b>: (<i>interchangably used value</i>) An <a class="custom_link" href="https://stats.oecd.org/glossary/detail.asp?ID=6132" target="_blank">observation</a> is the value, at a particular period, of a particular variable
+            </p>
+          </div>
+          <div id="sample">
+            <br><h2>Describing A Sample</h2>
+            <p>
+              <b>Variable</b>: Any attribute or characterstic, that helps us to distinguish between one individual & others
+            </p>
+            <p>
+              <b>Category</b>: <a class="custom_link" href="https://www.google.com/search?client=firefox-b-d&q=define+category" target="_blank">Category</a> is a class or division of people or things regarded as having particular shared characteristics
+            </p>
+          </div>
+          <div id="summary">
+            <br><h2>Data Summary</h2>
+            <p>
+              <b>Table</b>: A <a class="custom_link" href="https://www.google.com/search?client=firefox-b-d&q=definition+of+table" target="_blank">table</a> is a set of facts or figures, systematically displayed in columns
+                  <img src="/assets/imgs/blog/stats/stats_glossary_01.JPG" class="center" style="width: 40%">
+            </p>
+            <p>
+              And, as you noticed, the very same square root of Variance, is also known as <b>Standard Deviation</b>
+            </p>
+          </div>
+          <div id="distribution">
+            <br><h2>Shape of Distribution</h2>
+            <p>
+              <b>Normal Distribution</b>: The distribution shown below is very close approximation of a Normal/Gaussian Distribution. A normla distribution has following traits: <br>
+              - symmetric bell shape, i.e. red blanket like curve over the distribution
+              - mean and median are equal; both located at the center of the distribution
+              <img src="/assets/imgs/blog/stats/stats_glossary_19_00.JPG" class="center" style="width: 95%"> 
+            </p>
+        </div>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Habitant morbi tristique senectus et netus et malesuada. Quam nulla porttitor massa id neque. Nibh sed pulvinar proin gravida hendrerit lectus. Ultricies integer quis auctor elit sed. Dolor sit amet consectetur adipiscing. Faucibus vitae aliquet nec ullamcorper sit amet risus. Mi tempus imperdiet nulla malesuada. Ut morbi tincidunt augue interdum.
-
-        Nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Cras sed felis eget velit aliquet sagittis id. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget. Iaculis eu non diam phasellus. Lobortis feugiat vivamus at augue eget. Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Nulla malesuada pellentesque elit eget gravida. Nunc sed augue lacus viverra vitae congue eu consequat ac. Sagittis vitae et leo duis ut diam quam nulla porttitor. Libero volutpat sed cras ornare. At elementum eu facilisis sed odio. Nisl suscipit adipiscing bibendum est ultricies.
-
-        Tortor vitae purus faucibus ornare suspendisse sed. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Curabitur gravida arcu ac tortor dignissim. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Fermentum odio eu feugiat pretium nibh ipsum consequat. Et egestas quis ipsum suspendisse ultrices gravida dictum. Habitant morbi tristique senectus et netus. Sit amet venenatis urna cursus eget nunc scelerisque viverra mauris. Iaculis eu non diam phasellus vestibulum. Purus sit amet volutpat consequat. Pellentesque habitant morbi tristique senectus et netus et. Tortor vitae purus faucibus ornare. Tristique senectus et netus et malesuada fames. Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Vitae auctor eu augue ut. A cras semper auctor neque vitae. Nunc scelerisque viverra mauris in aliquam sem fringilla ut morbi. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan.
-
-        Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Sed adipiscing diam donec adipiscing tristique risus nec feugiat. Posuere sollicitudin aliquam ultrices sagittis orci a. Ut faucibus pulvinar elementum integer enim. Lacinia quis vel eros donec. Penatibus et magnis dis parturient. Viverra adipiscing at in tellus integer. Ullamcorper dignissim cras tincidunt lobortis. Suspendisse ultrices gravida dictum fusce ut. Tellus in metus vulputate eu scelerisque felis imperdiet. Arcu non odio euismod lacinia at quis risus. Sagittis orci a scelerisque purus semper eget duis. Placerat in egestas erat imperdiet sed euismod nisi porta lorem. Sit amet purus gravida quis blandit turpis. Scelerisque varius morbi enim nunc faucibus a pellentesque.
-
-        Pharetra et ultrices neque ornare aenean. Diam maecenas ultricies mi eget mauris pharetra et. Morbi leo urna molestie at elementum eu. Blandit cursus risus at ultrices mi tempus imperdiet. Lobortis elementum nibh tellus molestie. Mi sit amet mauris commodo. Mauris sit amet massa vitae tortor condimentum. Ridiculus mus mauris vitae ultricies. Lacus laoreet non curabitur gravida arcu ac tortor dignissim. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Lorem sed risus ultricies tristique nulla aliquet. Fames ac turpis egestas integer eget. Sapien pellentesque habitant morbi tristique senectus.
-      </p>
+      
     </div>
     <div class="column_right">
-      <h1>Hello</h1>
+      <h2 style="text-align: center;"> Topics </h2>
+      <a href="#basics">a) Basics</a> <br>
+      <a href="#sample">b) Distributions</a> <br>
+      <a href="#summary">c) Data Summary</a> <br>
+      <a href="#distribution">d)Shape of Distribution</a> <br>
     </div>
       <!-- ########################################### -->
       <!-- ############## RHS Sidebar ################ -->
       <!-- ########################################### -->
 
-    <!-- ################################################### -->
-    <!-- ############## Blog Body Ends Here ################ -->
-    <!-- ################################################### -->
   </div>
+  <!-- ################################################### -->
+  <!-- ############## Blog Body Ends Here ################ -->
+  <!-- ################################################### -->
 
   <div style="height: 50px;">
     <h1></h1>
