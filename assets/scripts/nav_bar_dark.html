@@ -1,78 +1,21 @@
-<link rel="stylesheet" href="/assets/stylesheets/nav_bar_dark_style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-
-<div class="wrapper">
-  <nav>
-    <!-- <input type="checkbox" id="show-search"> -->
-    <input type="checkbox" id="show-menu">
-    <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
-    <div class="content">
-    
-    <div class="logo"><a href="#">Juspreet51.in</a></div>
-      <ul class="links">
-        
-        <li>
-          <a href="#" class="desktop-link">Statistics</a>
-          <input type="checkbox" id="show_statistics">
-          <label for="show_statistics">Statistics</label>
-          <ul>
-            <li><a href="/blog/statistics/stats_gloss">Weaving Statistical Terminologies</a></li>
-            <!-- <li><a href="#">Features 2</a></li>
-            <li><a href="#">Features 3</a></li>
-            <li><a href="#">Features 4</a></li> -->
-          </ul>
-        </li>
-
-        <li>
-          <a href="#" class="desktop-link">Python</a>
-          <!-- <input type="checkbox" id="show_python">
-          <label for="show_python">Python</label>
-          <ul>
-            <li><a href="#">Features 1</a></li>
-            <li><a href="#">Features 2</a></li>
-            <li><a href="#">Features 3</a></li>
-            <li><a href="#">Features 4</a></li>
-          </ul> -->
-        </li>
-        
-        <li>
-          <a href="#" class="desktop-link">Machine Learning</a>
-          <!-- <input type="checkbox" id="show_Machine_Learning">
-          <label for="show_Machine_Learning">Machine Learning</label>
-          <ul>
-            <li><a href="#">Services 1</a></li>
-            <li><a href="#">Services 2</a></li>
-            <li><a href="#">Services 3</a></li>
-          </ul> -->
-        </li>
-        
-        <li>
-          <a href="#" class="desktop-link">Deep Learning</a>
-          <!-- <input type="checkbox" id="show_Deep_Learning">
-          <label for="show_Deep_Learning">Deep Learning</label>
-          <ul>
-            <li><a href="#">Services 1</a></li>
-            <li><a href="#">Services 2</a></li>
-            <li><a href="#">Services 3</a></li>
-          </ul> -->
-        </li>
-        
-        <li>
-          <a href="#" class="desktop-link">Favorite Books</a>
-          <!-- <input type="checkbox" id="show_Favorite_Books">
-          <label for="show_Favorite_Books">Favorite Books</label>
-          <ul>
-            <li><a href="#">Services 1</a></li>
-            <li><a href="#">Services 2</a></li>
-            <li><a href="#">Services 3</a></li>
-          </ul> -->
-        </li>
-
-        <li><a href="/blog/archive" target="_blank">Archive</a></li>
-        <li><a href="#">About</a></li>
-
-
-      </ul>
-    </div>
-  </nav>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
 </div>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
