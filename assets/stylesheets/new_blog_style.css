@@ -1,6 +1,6 @@
 
   body{
-    background-color: #121212
+    background-color: #121212;
   }
   p{
     color: darkgrey;
@@ -91,7 +91,7 @@
 
   /*Hide sidebars, when screen size too small*/
   @media only screen and (max-width: 600px) {
-    .column-right, .column-left {
+    .columnright, .column-left {
         display: none;
     }
     .column_center{

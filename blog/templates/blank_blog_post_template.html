@@ -5,34 +5,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
   $(function() {
-      $("#navigation").load("/assets/scripts/nav_bar_responsive.html");
-      $("#footer").load("/assets/scripts/footer.html");
+      $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
   });
   </script>
 
-  <title>Juspreet51.in</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <!-- Social share button from ShareThis.com -->
-  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=6144f669b1633800191baddc&product=sticky-share-buttons' async='async'></script>
-
-  <meta charset="UTF-8">
-  <!-- Responsive Web Desing -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Responsive Images -->
-  <!-- <img src="img_girl.jpg" style="width:100%;">  -->
-  <!-- 1vw = 1% of viewport width -->
-  <!-- <h1 style="font-size:10vw">Hello World</h1>  -->
-
-  <link rel="shortcut icon" type="image/png" href="/favicon.png">
-
-  <link rel="stylesheet" href="/assets/stylesheets/nav_bar_responsive_style.css">
-
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-  <!-- <link rel="stylesheet" href="/assets/stylesheets/new_blog_style.css"> -->
-  <link rel="stylesheet" href="/assets/stylesheets/blinking_fa_icons.css">
-  <link rel="stylesheet" href="/assets/stylesheets/button_joe.css">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
 
   <!-- Google Fonts: Robot Black 900-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,163 +21,209 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
-  
+
   <style>
   body{
-    background-color: #121212
+    background-color: #121212; /*Dark Theme Background*/
   }
   p{
     color: darkgrey;
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
-  }
-  p:hover{
-    top: -5px;
+    text-align: justify;
   }
   ul{
     color: darkgrey;
   }
   h1,h2,h3,h4{
-    color: #00FFBB; /*New Green H1 headings of blog posts page*/
-    font-family: 'Orbitron', sans-serif;
+    color: white
+    font-family: 'Roboto', sans-serif;
   }
   a{
     text-decoration: none;
     color: #00FFBB; /*New Green H1 headings of blog posts page*/
   }
-
-  .column-left {
-    float: left;
-    width: 15%;
-    margin-top: 125px;
-    padding-left: 15px;
-  }
-  .column-left a:hover, .column-right a:hover, .column_center a:hover{
-    font-weight: bold;
-    text-align: left;
+  .blog_body h1,h2,h3,h4{
     color: #00FFBB; /*New Green H1 headings of blog posts page*/
-  }
-
-  .column_center {
-    display: inline-block;
-    width: 65%;
-    padding-left: 10px;
-  }
-
-  .banner img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-  }
-
-  .blog_body h1,h2,h3{
-    color: #00FFBB; /*New Green H1 headings of posts*/
     font-family: 'Orbitron', sans-serif;
   }
-  .blog_body p,a{
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
-  }
-  .blog_body b{
-    font-family: 'Exo 2', sans-serif;
-    font-size: 17px;
-    color: #da9600; /*New Yellow Bold texts of posts*/
-  }
-  .blog_body i{
-    font-family: 'Kalam', cursive;
-    font-size: 15px;
-    width: 60%;
-  }
 
-  .column-right {
-    float: right;
-    width: 15%;
-    margin-top: 125px;
-  }
+  .column_left {
+      float: left;
+      width: 19%;
+      margin-top: 125px;
+      margin-left: 5px;
+      padding-left: 15px;
+      background-color: dimgray;
+    }
+    .column_right {
+      float: right;
+      width: 19%;
+      margin-top: 125px;
+      margin-right: 5px;
+      padding-right: 15px;
+      background-color: dimgray;
+      height: all;
+    }
+    .column_left h1,h2,h3, .column_center h1,h2,h3, .column_right h1,h2,h3{
+      text-align: center;
+    }
+    .column_left a, .column_right a{
+      color: white;
+    }
+    .column_left a:hover, .column_right a:hover, .column_center a:hover{
+      font-weight: bold;
+      text-align: left;
+      color: #00FFBB; /*New Green H1 headings of blog posts page*/
+    }
 
-  .footer {
-    padding-left: 40px;
-  }
+    .column_center {
+      display: inline-block;
+      width: 58%;
+      padding-left: 10px;
+      margin: auto;
+    }
+
+    .banner img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 99%;
+    }
+
+    .blog_body h1,h2,h3{
+      color: #00FFBB; /*New Green H1 headings of posts*/
+      font-family: 'Orbitron', sans-serif;
+    }
+    .blog_body p,a{
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 16px;
+    }
+    .blog_body b{
+      font-family: 'Exo 2', sans-serif;
+      font-size: 17px;
+      color: #da9600; /*New Yellow Bold texts of posts*/
+    }
+    .blog_body i{
+      font-family: 'Kalam', cursive;
+      font-size: 15px;
+      width: 60%;
+    }
+    .blog_body img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      /*width: 80%;*/
+      height: auto;
+    }
+
+    .footer {
+      margin-left: 25px; 
+      width: 70%; 
+      margin-left: 15%;
+    }
+
+    /*Hide sidebars, when screen size too small*/
+    @media only screen and (max-width: 600px) {
+      .column_right, .column_left{
+          display: none;
+      }
+      .column_center{
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div>
-    <div class="column-left">
-          <h2> Chapters </h2>
-      <a href="#">1) Glossary</a> <br>
-      <a href="#">2) Hypothesis Testing With Python Codes</a> <br>
-      <a href="#">3) Probability with Python Codes</a> <br>     
+  <!-- NavBar . Also copy the part from start of <head> tag above -->
+  <div id="nav_bar_dark"></div>
+
+  <div class="blog_body">
+    <div class="column_left">
+      <h1>Hello</h1>
     </div>
-
     <div class="column_center">
-      <h1>Weaving Statistical Terminologies</h1>
-
-      <div class="meta_info">
-        <span style="float: left;">
-          <p> 
-            Posted by: <a href="" target="_blank" class="blog_links">Juspreet51</a>
-          </p>
-        </span>
-        <span style="float: right;">
-          <p>
-            Last Update on: 07th Oct, 2021
-          </p>
-          
-        </span>
-      </div>
-
-      <div class="banner">
-        <img src="/assets/imgs/banners/stats_glossary.png">
-      </div>
-
-      <div class="blog_body">
-        <div id="basics">
-          <h2>Basics</h2>
-          <p>
-            <b>Statistics</b>: <a class="custom_link" href="https://en.wikipedia.org/wiki/Statistics" target="_blank">Statistics</a> is the discipline that concerns the collection, organization, analysis, interpretation, and presentation of data
-            <br>
-          </p>
-          <p>
-                <b>Observation</b>: (<i>interchangably used value</i>) An <a class="custom_link" href="https://stats.oecd.org/glossary/detail.asp?ID=6132" target="_blank">observation</a> is the value, at a particular period, of a particular variable
-                <br>
-          </p>
-          <p>
-            <b>Statistics</b>: <a class="custom_link" href="https://en.wikipedia.org/wiki/Statistics" target="_blank">Statistics</a> is the discipline that concerns the collection, organization, analysis, interpretation, and presentation of data
-            <br>
-          </p>
+      <br><br><br><br>
+      <h1>Hello World</h1>
+        <div class="meta_info">
+          <span style="float: left;">
+            <p> 
+              Posted by: <a href="" target="_blank" class="blog_links">Juspreet51</a>
+            </p>
+          </span>
+          <span style="float: right;">
+            <p>
+              Last Update on: 07th Oct, 2021
+            </p>
+            
+          </span>
         </div>
+      <div class="banner">
+        <img src="/assets/imgs/banners/stats_gloss.png">
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Habitant morbi tristique senectus et netus et malesuada. Quam nulla porttitor massa id neque. Nibh sed pulvinar proin gravida hendrerit lectus. Ultricies integer quis auctor elit sed. Dolor sit amet consectetur adipiscing. Faucibus vitae aliquet nec ullamcorper sit amet risus. Mi tempus imperdiet nulla malesuada. Ut morbi tincidunt augue interdum.
+
+        Nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Cras sed felis eget velit aliquet sagittis id. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget. Iaculis eu non diam phasellus. Lobortis feugiat vivamus at augue eget. Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Nulla malesuada pellentesque elit eget gravida. Nunc sed augue lacus viverra vitae congue eu consequat ac. Sagittis vitae et leo duis ut diam quam nulla porttitor. Libero volutpat sed cras ornare. At elementum eu facilisis sed odio. Nisl suscipit adipiscing bibendum est ultricies.
+
+        Tortor vitae purus faucibus ornare suspendisse sed. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Curabitur gravida arcu ac tortor dignissim. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Fermentum odio eu feugiat pretium nibh ipsum consequat. Et egestas quis ipsum suspendisse ultrices gravida dictum. Habitant morbi tristique senectus et netus. Sit amet venenatis urna cursus eget nunc scelerisque viverra mauris. Iaculis eu non diam phasellus vestibulum. Purus sit amet volutpat consequat. Pellentesque habitant morbi tristique senectus et netus et. Tortor vitae purus faucibus ornare. Tristique senectus et netus et malesuada fames. Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Vitae auctor eu augue ut. A cras semper auctor neque vitae. Nunc scelerisque viverra mauris in aliquam sem fringilla ut morbi. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan.
+
+        Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Sed adipiscing diam donec adipiscing tristique risus nec feugiat. Posuere sollicitudin aliquam ultrices sagittis orci a. Ut faucibus pulvinar elementum integer enim. Lacinia quis vel eros donec. Penatibus et magnis dis parturient. Viverra adipiscing at in tellus integer. Ullamcorper dignissim cras tincidunt lobortis. Suspendisse ultrices gravida dictum fusce ut. Tellus in metus vulputate eu scelerisque felis imperdiet. Arcu non odio euismod lacinia at quis risus. Sagittis orci a scelerisque purus semper eget duis. Placerat in egestas erat imperdiet sed euismod nisi porta lorem. Sit amet purus gravida quis blandit turpis. Scelerisque varius morbi enim nunc faucibus a pellentesque.
+
+        Pharetra et ultrices neque ornare aenean. Diam maecenas ultricies mi eget mauris pharetra et. Morbi leo urna molestie at elementum eu. Blandit cursus risus at ultrices mi tempus imperdiet. Lobortis elementum nibh tellus molestie. Mi sit amet mauris commodo. Mauris sit amet massa vitae tortor condimentum. Ridiculus mus mauris vitae ultricies. Lacus laoreet non curabitur gravida arcu ac tortor dignissim. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Lorem sed risus ultricies tristique nulla aliquet. Fames ac turpis egestas integer eget. Sapien pellentesque habitant morbi tristique senectus.
+      </p>
+    </div>
+    <div class="column_right">
+      <h1>Hello</h1>
+    </div>
+      <!-- ########################################### -->
+      <!-- ############## RHS Sidebar ################ -->
+      <!-- ########################################### -->
+
+    <!-- ################################################### -->
+    <!-- ############## Blog Body Ends Here ################ -->
+    <!-- ################################################### -->
+  </div>
+
+  <div style="height: 50px;">
+    <h1></h1>
+  </div>
+
+  <div class="footer">
+      <div id="page_change_btns">
+        <a href="#">
+        <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+        <span>Previous </span>
+        </button>
+      </a>
+      <a href="">
+        <button class="pagination_button next_button" style="">
+        <span>Learn More </span>
+        </button>
+      </a>
       </div>
       
-    </div>
+      <div class="share_this_plugin">
+        <h1>Share This</h1>
+        <p>Share it with your friends and colleagues whom you think it can help</p>
+      <!-- Footer . Also copy the part from start of <head> tag above -->
+        <div class="sharethis-inline-share-buttons"></div>
+      </div>
 
+      <div class="comment_box">
         <!-- ########################################### -->
-        <!-- ############## RHS Sidebar ################ -->
-        <!-- ########################################### -->
-    <div class="column-right">
-          <h2> Topics </h2>
-          <a href="#basics">a) Basics</a> <br>
-          <a href="#sample">b) Distributions</a> <br>
-          <a href="#summary">c) Data Summary</a> <br>
-          <a href="#distribution">d)Shape of Distribution</a> <br>
-    </div>
-    <!-- ########################################### -->
-    <!-- ############## RHS Sidebar ################ -->
-    <!-- ########################################### -->
+      <!-- ############# Needs updates ############### -->
+      <!-- ########################################### -->
+      <!-- begin wwww.htmlcommentbox.com -->
+      <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>
+      <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+      <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} hcb_user.PAGE="https://juspreet51.github.io/blog/deep_learning/network_understanding_basic";(function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F"+"&opts=16406&num=5&ts=1633641065176");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+      <!-- end www.htmlcommentbox.com -->
+      </div>
 
-  </div>
-  <!-- ################################################### -->
-  <!-- ############## Blog Body Ends Here ################ -->
-  <!-- ################################################### -->
-
-
-  <br><br><br>
-
-    <div style="height: 50px;">
-      <h1></h1>
     </div>
 
-  <!-- Footer . Also copy the part from start of <head> tag above -->
-    <div id="footer" class="footer"></div>
 </body>
 </html>
