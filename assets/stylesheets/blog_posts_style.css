@@ -1,5 +1,9 @@
 body{
   background-color: #121212; /*Dark Theme Background*/
+  color: dimgray;
+}
+b{
+  color: white;
 }
 p{
   color: darkgrey;
