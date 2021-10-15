@@ -68,7 +68,7 @@ body {
 /* Add a dark background on topnav links and the dropdown button on hover */
 .topnav a:hover, .dropdown:hover .dropbtn {
   background-color: #555;
-  color: white;
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
 }
 
 /* Add a grey background to dropdown links on hover */
