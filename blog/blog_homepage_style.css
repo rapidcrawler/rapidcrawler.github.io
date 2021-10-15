@@ -1,7 +1,9 @@
-.navbar {font-family: 'Open Sans', sans-serif; font-size: 8.5px;
-    color: #fff;
-    letter-spacing: 4px;
+.navbar {
+  font-family: 'Open Sans', sans-serif; font-size: 8.5px;
+  color: #fff;
+  letter-spacing: 4px;
 }
+
 .img-responsive {
     margin: 0 auto; padding: 2px;
 }
