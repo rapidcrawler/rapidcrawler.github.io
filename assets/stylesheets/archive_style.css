@@ -6,13 +6,9 @@ p{
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
 }
-h1,h2,h3,h4{
+h1,h2,h4{
   color: #00FFBB; /*New Green H1 headings of blog posts page*/
   font-family: 'Orbitron', sans-serif;
-}
-a{
-  text-decoration: none;
-  /*font-size: 1.3vw;*/
 }
 h1 {
   font-family: 'Press Start 2P', cursive;
@@ -22,6 +18,10 @@ h1 {
 u{
   font-family: 'Roboto', sans-serif;
 }
+a{
+  text-decoration: none;
+  /*font-size: 1.3vw;*/
+}
 
 .listings{
   color: #00FFBB; /*New Green H1 headings of blog posts page*/
@@ -29,7 +29,7 @@ u{
   margin-right: 15%;
 }
 .listings h3{
-  color: #00FFBB; /*New Green H1 headings of blog posts page*/
+  color: whitesmoke;
   font-family: 'Press Start 2P', cursive;
 }
 .listings p{
