@@ -101,6 +101,13 @@ a{
   height: auto;
 }
 
+.img_credit{
+  color: grey; 
+  text-align: center; 
+  margin: 25% 25%;
+  opacity: 35%;
+}
+
 .footer {
   margin-left: 25px; 
   width: 70%; 
