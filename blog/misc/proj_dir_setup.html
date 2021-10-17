@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop' async='async'></script>
+  <!-- NavBar . Also copy the part from start of <body> tag below -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  $(function() {
+      $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+  });
+  </script>
+
+  <title>Juspreet51.in</title>
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
+
+  <!-- Google Fonts: Robot Black 900-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <!-- NavBar . Also copy the part from start of <head> tag above -->
+  <div id="nav_bar_dark"></div>
+
+  <div class="three_col_layout">
+
+    <!-- ####################
+    LHS Sidebar needs update
+    #################### -->
+    <div class="column_left">
+      <!-- <h2 style="text-align: center;"> Chapters </h2>
+      <a href="http://juspreet51.in/blog/deep_learning/nlp">1) Glossary</a> <br>
+      <a href="#">2) Preprocessing Text Data</a> <br>
+      <a href="#">3) Machine Translation</a> <br>  -->
+    </div>
+
+    <!-- ####################
+    Page Titke needs update
+    #################### -->
+    <div class="column_center">
+      <h1>Create A New Virtual Environment With Conda</h1>
+        <div class="meta_info">
+          <span style="float: left;">
+            <p>
+              <!-- ####################
+              Date-Posted needs update
+              #################### -->
+              Posted by: <a href="http://juspreet51.in/blog/home" target="_blank" class="blog_links">Juspreet51</a>
+            </p>
+          </span>
+          <span style="float: right;">
+            <p>
+              Last Update on: 15th Jan, 2021
+            </p>            
+          </span>
+        </div>
+
+        
+        <!-- ####################
+        Banner img needs update
+        #################### -->
+        <div class="banner">
+          <img src="/assets/imgs/banners/new_env.png">
+        </div>
+
+        <div class="blog_content">
+          <br>
+          <div id="basics">
+            <h1>Create A New Virtual Environment With Conda</h1>
+            <h3>Why Virtual Environment?</h3>
+            <p>
+              One of the key advantage of using a isolated working-environment is, <br>
+              a) lets assume you start a project-x, and install library-x for your work  <br>
+              b) the date when you installed library-x, v1.2.6 was available <br>
+              c) after few weeks, while project-x is still going on, you initiated project-y also <br>
+              d) for project-y, you need library-y, so you installed library-y in your system <br>
+              e) however, library-y comes in a bundle of many other libraries, including library-x <br>
+              f) the day when you started working on project-y and thus installed library-y, by that time library-x's version v1.2.9 was available <br>
+              g) and thus your library-x gets automatically updated to newer version <br>
+              h) this might lead to issues, as your project-x is built on top of v12.6, and installing newer version may or maynot throw some errors <br>
+            </p>
+            <br>
+            
+            <p>
+                To avoid all these issues, it is a good practice to create isolated working-environment for your project <br>
+                If you had created 2 separate virtual environment for project-x & project-y, the libraries would have been installed in isolation with each other, and thus risk of issues would have been averted <br>
+            </p><br>
+              
+            <h3>Follow below provided steps to create a new virtual environment for your new project:</h3>
+            <p>
+              1) Visit <a href="https://www.anaconda.com/products/individual">official Conda product page</a> and click on green Download button on right hand side <br>
+              2) Click on save file to begin download, and open the file after it gets downloaded completely <br>
+              3) Keep default settings if installing for first time, and keep clicking on "Next" till the installation begins
+              4) After instllation, in the end screen, select "<i>Getting Started With Anaconda</i>" to launch Anaconda Prompt
+              <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210907215940/image20210907215938.png" alt="end_screen">
+              4) If stuck anywhere, visit <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html">Official Doc</a> for detailed installation guide <br>
+              5) If Anaconda Prompt doesn't opens up automatically, press windows key and search <i>"Anaconda Prompt"</i> and hit enter <br>
+              6) Anaconda Prompt will look something like this <br>
+              <img src="/assets/imgs/blog/env_setup/env_setup_00.JPG" style="width: 95%;" alt="end_screen">
+              7) Create a new folder to save all your code files in there <br>
+              8) In Anaconda Prompt, type <i>mkdir</i> command to create a new folder, & <i>cd</i> command to enter inside that folder
+              <img src="/assets/imgs/blog/env_setup/env_setup_01.JPG" style="width: 95%;" alt="end_screen">
+              9) As we created a new folder to keep our code files isolated from rest of the files, we will also create a "<i>working-environment</i>" to keep our python libraries isolated from changes or later updates <br>
+              10) In anaconda prompt type <i>conda create --name env_name_of_your_choice</i> and hit enter <br>
+              11) When prompted with yes or no, enter "y" and hit enter
+              <img src="/assets/imgs/blog/env_setup/env_setup_02.JPG" style="width: 95%;" alt="end_screen">
+              Your new environment would be created
+              <img src="/assets/imgs/blog/env_setup/env_setup_03.JPG" style="width: 95%;" alt="end_screen">
+              12) To list all the existing virtual environment available to you, type "<i>conda env list</i>" <br>
+              13) Enter "<i>conda activate env_name_of_your_choice</i>" to activate your newly created environment
+              <img src="/assets/imgs/blog/env_setup/env_setup_04.JPG" style="width: 95%;" alt="end_screen">
+            </p> 
+            <br><br>            
+            <h3>Using same dependencies across various machines</h3>
+            <p>
+                If you wish to make sure the list of libraries and their respective versions needs to be replicated with your friends/colleagues/different machines, you can export your environment's dependencies using following commanmd
+                <img src="/assets/imgs/blog/env_setup/env_setup_05.JPG" style="width: 95%;" alt="end_screen">
+            </p> <br>
+            <p>
+                And, if you wish to share your environment with others, or use other's environment, place this export .yml file in your project directory and run this command to create a duplicate
+                <img src="/assets/imgs/blog/env_setup/env_setup_06.JPG" style="width: 95%;" alt="end_screen">
+            </p>
+            <p>
+                I hope I helped you to break all of it down into as simple and uncomplicated as possible. Still, in case of any unresolved issue you have, feel free to drop a comment below.
+            </p>
+        </div>
+      <!-- ###################################################### -->
+      <!-- ############## Blog Content Ends Here ################ -->
+      <!-- ###################################################### -->
+
+    </div>
+    
+     <div class="column_right">
+      <!-- <h2 style="text-align: center;"> Topics </h2>
+      <a href="#basics">a) Basics</a> <br>
+      <a href="#sample">b) Distributions</a> <br>
+      <a href="#summary">c) Data Summary</a> <br>
+      <a href="#distribution">d)Shape of Distribution</a> <br> -->
+    </div>
+      <!-- ########################################### -->
+      <!-- ############## RHS Sidebar ################ -->
+      <!-- ########################################### -->
+
+  </div>
+  <!-- ################################################### -->
+  <!-- ############ three_col_layout Ends Here ########### -->
+  <!-- ################################################### -->
+
+  <div class="footer">
+      <div id="page_change_btns">
+        <a href="#">
+        <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+        <span>Previous </span>
+        </button>
+      </a>
+      
+      <!-- ####################
+      Link in nxt-btn needs update
+      #################### -->
+      <a href="#">
+        <button class="pagination_button next_button disabled_btn" style="">
+        <span>Learn More </span>
+        </button>
+      </a>
+      </div>
+      <br> <br> <br> <br>
+      <div class="share_this_plugin">
+        <h1>Share This</h1>
+        <p>Share it with your friends and colleagues whom you think it can help</p>
+      <!-- Footer . Also copy the part from start of <head> tag above -->
+        <div class="sharethis-inline-share-buttons"></div>
+      </div>
+
+      <div class="comment_box">
+        <!-- ########################################### -->
+      <!-- ############# Needs updates ############### -->
+      <!-- ########################################### -->
+      <!-- begin wwww.htmlcommentbox.com -->
+      <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>
+      <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+      <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} hcb_user.PAGE="https://juspreet51.github.io/blog/deep_learning/network_understanding_basic";(function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F"+"&opts=16406&num=5&ts=1633641065176");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+      <!-- end www.htmlcommentbox.com -->
+      </div>
+
+    </div>
+    
+  <div style="height: 50px;">
+    <h1></h1>
+  </div>
+
+
+</body>
+</html>
