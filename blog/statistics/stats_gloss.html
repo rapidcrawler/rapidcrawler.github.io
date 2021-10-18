@@ -199,23 +199,33 @@
               <b>Central Tendency</b>: It is crucial to have some ways to quanitfy the distribution, and 2 of them are <i> central tendency and variability</i> <br>
                   Central Tendency of the distribution is, the distribution's tendency to pile up, arround a particular value, instead of spreading out evenly acorss a range, e.g. Mean, Median & Mode 
             </p>
+            <h4 id="dispersion">Dispersion</h4>
             <p>
-              <b>Measure of Disperssion</b>: Graphical representation such as Dot-Diagram can be very well used to get the picture of distribution's dispression
+              Lets taalk a bit about dispersion too. Dispersion is about spread of data. Remeber median? That is going to help us in measuring dispersion. Lets assumer the below given images tells about the total spread of the distribution
+              <img src="/assets/imgs/blog/stats/stats_glossary_14_02.JPG" class="center"; width="80%">
+              Lets plot a median in this spread of data
+              <img src="/assets/imgs/blog/stats/stats_glossary_14_03.JPG" class="center"; width="80%">
+              Now divide the left region from median into half, and mark it as <i>Q1</i>. And similarly, right region from the median into half, and mark it as <i>Q3</i>
+              <img src="/assets/imgs/blog/stats/stats_glossary_14_04.JPG" class="center"; width="80%">
+              <br>
+              <img src="/assets/imgs/blog/stats/stats_glossary_14_05.JPG" class="center"; width="80%">
+              <br>
+              The name <i>Q1,Q3</i> denotes the 1st and 3rd Quartiles and it is used to calcualte IQR
             </p>
             <p>
-              <b>Quartiles</b>: Quartiles are 4 division of the distribution, in equal proportions, i.e. 25% for each quartile
-              <img src="/assets/imgs/blog/stats/stats_glossary_14_00.JPG" class="center"; width="60%">
+              <b>Inter Quartile Range (IQR)</b>: The differnce between Q3 and Q1 is called as Inter Quartile Range
+              <img src="/assets/imgs/blog/stats/stats_glossary_14_06.JPG" class="center"; width="60%">
             </p>
             <p>
-              <b>Inter Quartile Range</b>: IQR is the distance between Q1 and Q3
-              <img src="/assets/imgs/blog/stats/stats_glossary_14_00.JPG" class="center"; width="60%">
+              <b>Box-Whisker Plot</b>: We can draw a box whose boundaries are Q1 & Q3, and median lies inside them. And then we can add whiskers to the box, which would be at a distance of 1.5IQR from both the end of the box boundary
+              <img src="/assets/imgs/blog/stats/stats_glossary_14_07.JPG" class="center"; width="80%">
+              <i>Any data point lying bwyond Whiskers could be classified as <b>Outliers</b></i>
             </p>
             <p>
-              <b>Standard Deviation</b>: Standard Deviation os a distribution is a way of indicating, a kind of average amount, by which all the values deviate from the mean<br>
-                    - Zero disperssion: Same values being repeated throughout the distribution<br>
-                    - Which means all value == mean of the distribution<br>
-                    - Leading to Standard Deviation = 0<br>
-                <img src="/assets/imgs/blog/stats/stats_glossary_15.JPG" class="center" width="60%"> 
+              <b>Dispersoin From Mean</b>: Another useful way of computing the spread of data is, employing Mean to our rescue<br>
+              <br> Lets assume a distribution <i>X</i> which carries 5 observations. We can calcualte its mean easily, and thhus can also calcualte the deviation of each observation from the mean also very easily
+                <img src="/assets/imgs/blog/stats/stats_glossary_15_00.JPG" class="center" width="85%"> <br>
+                <img src="/assets/imgs/blog/stats/stats_glossary_15_01.JPG" class="center" width="85%"> 
             </p>
             <p>
               Since, the Deviation is a ditance calculation between an observation and the mean of the distribution it bleongs to, it can be sometimes negative in nature. This would affect the arithmetic mean. <br><br>
@@ -231,7 +241,16 @@
               <img src="/assets/imgs/blog/stats/stats_glossary_18.JPG" class="center" style="width: 85%"> 
             </p>
             <p>
-              And, as you noticed, the very same square root of Variance, is also known as <b>Standard Deviation</b>
+              And, as you noticed, the very same square root of Variance, is also known as <b>Standard Deviation</b>. 
+              <br>
+              <img src="/assets/imgs/blog/stats/stats_glossary_18_00.JPG" class="center" style="width: 85%"> <br><br>
+              It is often useful to know how many Standard Deviation an observation is from mean, as Standard Deviation slices the distribution into standrd sized slices, each slice containing known percentage of observation 
+              <br>
+              And for a perfect noraml distribution, approximately 68% of data is within 1 Standard Deviation, away from the mean(<i>approximately two-third of data</i>), and 95% of data is 2 Standard Deviation from the mean value
+              <img src="/assets/imgs/blog/stats/stats_glossary_18_01.JPG" class="center" style="width: 85%"> 
+              And when we say an observation A is 2 Standard Deviation above mean value, it means the observation has a <i><b>Z-Score</b> of +2</i>
+              <br><br>
+              But, what the fliffity fliffity fluff is <i>Normal Distribution</i>, which I very smoothly mentioned without giving any context, you may ask. "Well, goood observation", I will reply. We already know what is <b>distribution</b>. Lets look at what is normal and what is not normal.
             </p>
         </div>
         <br>
@@ -239,9 +258,22 @@
         <div id="distribution">
           <h2>Shape of Distribution</h2>
           <p>
+            We have already seen what a <b>Histogram</b> looks like
+            <img src="/assets/imgs/blog/stats/stats_glossary_13.JPG" class="center" style="width: 70%;">
+            In a Histogram, if we split up all the bars into infinite numbers of smaller & smaller bars, ultimately we would end up with a smooth (continous) curved line, called as <b>Curve of Distribution</b>. Below provided video gives a nice vsual interpretation of it
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Txlm4ORI4Gs?start=176" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </p>
+          <p>
             <b>Normal Distribution</b>: The distribution shown below is very close approximation of a Normal/Gaussian Distribution. A normla distribution has following traits: <br>
-            - symmetric bell shape, i.e. red blanket like curve over the distribution
-            - mean and median are equal; both located at the center of the distribution
+            <ul>
+              <li>
+                <i>symmetric bell shape</i>, i.e. red blanket like curve over the distribution
+              </li>
+              <li>
+                <i>mean, median and median are equal</i>, i.e. all located at the center of the distribution
+              </li>
+            </ul>
+            <br>
             <img src="/assets/imgs/blog/stats/stats_glossary_19_00.JPG" class="center" style="width: 95%"> 
           </p>
           <p>
@@ -261,6 +293,7 @@
                   - Mode is towards opoosite direction of the slope <br>
                   <img src="/assets/imgs/blog/stats/stats_glossary_19_02.JPG" class="center" style="width: 100%">         
           </p>
+
         </div>
         <br>
 
