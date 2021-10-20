@@ -118,7 +118,7 @@ a{
 }
 
 /*Hide sidebars, when screen size too small*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 400px) {
   .column_right, .column_left{
       display: none;
   }

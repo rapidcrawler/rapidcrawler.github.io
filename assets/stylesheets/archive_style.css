@@ -26,7 +26,7 @@ a{
 .listings{
   color: #00FFBB; /*New Green H1 headings of blog posts page*/
   margin-left: 15%;
-  margin-right: 15%;
+  /* margin-right: 15%; */
 }
 .listings h3{
   color: whitesmoke;
@@ -34,7 +34,12 @@ a{
 }
 .listings p{
   font-size: 16px;
-  margin-left: 60px;
+  margin-left: 5%;
+}
+.listings a:hover {
+  font-weight: bold;
+  color: #00FFBB; /*New Green H1 headings of blog posts page*/
+
 }
 
 
