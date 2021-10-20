@@ -148,9 +148,9 @@ a {
 }
 
 .footer {
+  /* margin-left: 25px; */
+  width: 90%;
   margin-left: 25px;
-  width: 70%;
-  margin-left: 15%;
 }
 
 
