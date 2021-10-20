@@ -25,11 +25,13 @@ h1, h2, h3, h4 {
 
 a {
   text-decoration: none;
-  color: #00FFBB;  /*New Green H1 headings of blog posts page*/
+  color: #00FFBB;
+  /*New Green H1 headings of blog posts page*/
 }
 
 .three_col_layout h1, h2, h3, h4 {
-  color: #00FFBB;  /*New Green H1 headings of blog posts page*/
+  color: #00FFBB;
+  /*New Green H1 headings of blog posts page*/
   font-family: 'Orbitron', sans-serif;
   text-align: left;
 }
@@ -61,7 +63,8 @@ a {
 .column_left a:hover, .column_right a:hover, .column_center a:hover {
   font-weight: bold;
   text-align: left;
-  color: #00FFBB;  /*New Green H1 headings of posts*/
+  color: #00FFBB;
+  /*New Green H1 headings of posts*/
 }
 
 .column_center {
@@ -79,26 +82,30 @@ a {
 }
 
 .meta_info a {
-  color: #00FFBB;  /*New Green H1 headings of blog posts page*/
+  color: #00FFBB;
+  /*New Green H1 headings of blog posts page*/
 }
 
-.toc{
-  text-align: left; /* background-color: darkgrey; */
+.toc {
+  text-align: left;
+  /* background-color: darkgrey; */
   /* background-color: #1f2933; */
-  
 }
-.toc a{
+
+.toc a {
   text-decoration: none;
   color: darkgrey;
   font-size: 22px;
   font-family: 'Orbitron', sans-serif;
 }
-.toc a:hover{
+
+.toc a:hover {
   font-weight: bold;
 }
 
 .blog_content h1, h2, h3 {
-  color: #00FFBB; /*New Green H1 headings of posts*/
+  color: #00FFBB;
+  /*New Green H1 headings of posts*/
   font-family: 'Orbitron', sans-serif;
   text-align: left;
 }
@@ -115,7 +122,8 @@ a {
 .blog_content b {
   font-family: 'Exo 2', sans-serif;
   font-size: 17px;
-  color: #da9600; /*New Yellow Bold texts of posts*/
+  color: #da9600;
+  /*New Yellow Bold texts of posts*/
 }
 
 .blog_content i {
@@ -145,17 +153,22 @@ a {
   margin-left: 15%;
 }
 
-/*Hide sidebars, when screen size too small*/
 
+
+/*Hide sidebars, when screen size too small*/
+/* We're using max-width, because we want to make an exception to the CSS, 
+when a screen is smaller than the 1200px */
 @media only screen and (max-width: 1200) {
-  .column_right, .column_left {
+  .mobile_hide {
     display: none;
-    /* We're using max-width, because we want to make an exception to the CSS, 
-    when a screen is smaller than the 1200px */
   }
   .column_center {
-    width: 98%;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 99%;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .hide-mobile   {display:none;}
+  .column_left  {display:none;}
+  .column_center {width: 95%;}
+ }
