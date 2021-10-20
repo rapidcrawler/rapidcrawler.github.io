@@ -1,29 +1,35 @@
-body{
-  background-color: #121212; /*Dark Theme Background*/
+body {
+  background-color: #121212;
+  /*Dark Theme Background*/
   color: dimgray;
 }
-b{
+
+b {
   color: white;
 }
-p{
+
+p {
   color: darkgrey;
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
   text-align: justify;
 }
-ul{
+
+ul {
   color: darkgrey;
 }
-h1,h2,h3,h4{
-  color: white
-  font-family: 'Roboto', sans-serif;
+
+h1, h2, h3, h4 {
+  color: white font-family: 'Roboto', sans-serif;
 }
-a{
+
+a {
   text-decoration: none;
-  color: #00FFBB; /*New Green H1 headings of blog posts page*/
+  color: #00FFBB;  /*New Green H1 headings of blog posts page*/
 }
-.three_col_layout h1,h2,h3,h4{
-  color: #00FFBB; /*New Green H1 headings of blog posts page*/
+
+.three_col_layout h1, h2, h3, h4 {
+  color: #00FFBB;  /*New Green H1 headings of blog posts page*/
   font-family: 'Orbitron', sans-serif;
   text-align: left;
 }
@@ -35,6 +41,7 @@ a{
   margin-left: 5px;
   padding-left: 15px;
 }
+
 .column_right {
   float: right;
   width: 19%;
@@ -42,18 +49,19 @@ a{
   margin-right: 5px;
   padding-right: 15px;
 }
-.column_left h1,h2,h3, 
-.column_center h1,h2,h3, 
-.column_right h1,h2,h3{
+
+.column_left h1, h2, h3, .column_center h1, h2, h3, .column_right h1, h2, h3 {
   text-align: center;
 }
-.column_left a, .column_right a{
+
+.column_left a, .column_right a {
   color: white;
 }
-.column_left a:hover, .column_right a:hover, .column_center a:hover{
+
+.column_left a:hover, .column_right a:hover, .column_center a:hover {
   font-weight: bold;
   text-align: left;
-  color: #00FFBB; /*New Green H1 headings of posts*/
+  color: #00FFBB;  /*New Green H1 headings of posts*/
 }
 
 .column_center {
@@ -63,40 +71,60 @@ a{
   margin: auto;
 }
 
-.banner img{
+.banner img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 99%;
 }
 
-.meta_info a{
-  color: #00FFBB; /*New Green H1 headings of blog posts page*/
+.meta_info a {
+  color: #00FFBB;  /*New Green H1 headings of blog posts page*/
 }
 
-.blog_content h1,h2,h3{
+.toc{
+  text-align: left; /* background-color: darkgrey; */
+  /* background-color: #1f2933; */
+  
+}
+.toc a{
+  text-decoration: none;
+  color: darkgrey;
+  font-size: 22px;
+  font-family: 'Orbitron', sans-serif;
+}
+.toc a:hover{
+  font-weight: bold;
+}
+
+.blog_content h1, h2, h3 {
   color: #00FFBB; /*New Green H1 headings of posts*/
   font-family: 'Orbitron', sans-serif;
   text-align: left;
 }
-.blog_content p,a,b,i{
+
+.blog_content p, a, b, i {
   line-height: 150%;
 }
-.blog_content p,a{
+
+.blog_content p, a {
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
 }
-.blog_content b{
+
+.blog_content b {
   font-family: 'Exo 2', sans-serif;
   font-size: 17px;
   color: #da9600; /*New Yellow Bold texts of posts*/
 }
-.blog_content i{
+
+.blog_content i {
   font-family: 'Kalam', cursive;
   font-size: 15px;
   width: 60%;
 }
-.blog_content img{
+
+.blog_content img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -104,25 +132,26 @@ a{
   height: auto;
 }
 
-.img_credit{
-  color: grey; 
-  text-align: center; 
+.img_credit {
+  color: grey;
+  text-align: center;
   margin: 25% 25%;
   opacity: 35%;
 }
 
 .footer {
-  margin-left: 25px; 
-  width: 70%; 
+  margin-left: 25px;
+  width: 70%;
   margin-left: 15%;
 }
 
 /*Hide sidebars, when screen size too small*/
-@media only screen and (max-width: 400px) {
-  .column_right, .column_left{
-      display: none;
+
+@media only screen and (max-width: 768px) {
+  .column_right, .column_left {
+    display: none;
   }
-  .column_center{
+  .column_center {
     width: 98%;
     padding-left: 10px;
     padding-right: 10px;
