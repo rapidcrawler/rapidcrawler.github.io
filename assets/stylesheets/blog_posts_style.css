@@ -147,9 +147,11 @@ a {
 
 /*Hide sidebars, when screen size too small*/
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1200) {
   .column_right, .column_left {
     display: none;
+    /* We're using max-width, because we want to make an exception to the CSS, 
+    when a screen is smaller than the 1200px */
   }
   .column_center {
     width: 98%;
