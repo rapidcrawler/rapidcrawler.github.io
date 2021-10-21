@@ -91,7 +91,7 @@
             </div>
 
             <h1>Window Functions</h1>
-            <hr>            
+            <hr>
             <div class="toc">
                 <h1>Table of Contents</h1>
                 <a href="#groupby">1) GroupBy</a> <br>
@@ -114,9 +114,13 @@
                         <img src="/assets/imgs/blog/sql/window_functions_00_0.png" alt="" style="width: 98%;">
                         <script
                             src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=groupby.sql"></script>
+                        <br>
                     </p>
                 </div>
                 <div id="over">
+                    <h3>Good video to begin with:</h3>
+                    <iframe width="95%" height="320px" src="https://www.youtube.com/embed/D6XNlTfglW4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    More vides from the same <a href="https://www.youtube.com/playlist?list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL">playlist</a>
                     <h1>Over</h1>
                     <p>
                         <img src="/assets/imgs/blog/sql/window_functions_02.png" alt="" style="width: 100%;">
@@ -169,13 +173,13 @@
                     </p>
                     <hr>
                     <p id="unbounded_preceding">
-                        <h3>Unbounded Preceding</h3>
-                        <a href="https://www.windowfunctions.com/questions/over/3">Question</a>: The cats must be
-                        ordered by weight descending and will enter an elevator one by one. We would like to know what
-                        the running total weight is. <br>
-                        * If two cats have the same weight they must enter separately <a
-                            href="https://www.windowfunctions.com/questions/over/3">(source)</a>
-                        <br>
+                    <h3>Unbounded Preceding</h3>
+                    <a href="https://www.windowfunctions.com/questions/over/3">Question</a>: The cats must be
+                    ordered by weight descending and will enter an elevator one by one. We would like to know what
+                    the running total weight is. <br>
+                    * If two cats have the same weight they must enter separately <a
+                        href="https://www.windowfunctions.com/questions/over/3">(source)</a>
+                    <br>
                     </p>
                     <div>
                         <span>
@@ -206,6 +210,49 @@
                             <br>
                         </p>
                     </div>
+                </div>
+
+                <div id="ranking">
+                    <h1>Row Number, Rank & Dense Rank</h1>
+                    <p>
+                        <img src="/assets/imgs/blog/sql/window_functions_03.JPG" alt="" style="width: 98%;">
+                        <b>row_number</b> gives a result that must always be unique
+                        <script
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=rank.sql"></script>
+                        <br>
+                    </p>
+                    <h1>Cume Dist & Percent Rank </h1>
+                    <p>
+                        <img src="/assets/imgs/blog/sql/window_functions_04.JPG" alt="" style="width: 98%;">
+                        <ul>
+                            <li> <b>percent_rank</b> returns a number from 1 to 0. The highest being 1 and the lowest 0</li>
+                            <li> <b>cume_dist</b> will return a number from 1 towards 0 but never 0</li>
+                        </ul>
+                        <script
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=percent_rank.sql"></script>
+                        <br>
+                    </p>
+                </div>
+
+                <div id="grouping">
+                    <h1>Grouping</h1>
+                    <p>
+                        <b>Lag and Lead</b>: These functions allow you to examine the next or previous row, may then compare this value to the current row
+                        <script
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=lag_lead.sql"></script>
+                        <br>
+                        <img src="/assets/imgs/blog/sql/window_functions_05.JPG" alt="" style="width: 98%;">
+                    </p>
+                    <p>
+                        <b>nth_value</b>: nth_value will return the nth_value, but if we do not specify a range it will return null if the current value is less than the nth. If we always want something displayed we need to specify a range 
+                        <br>
+                        <b>ntile</b>: ntile(n) divides the group into n equal partitions and denotes which partition each row is in
+                        <br>
+                        <img src="/assets/imgs/blog/sql/window_functions_06.JPG" alt="" style="width: 98%;">
+                        <script
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=nth_ntile.sql"></script>
+                        <br>
+                    </p>
                 </div>
             </div>
 
