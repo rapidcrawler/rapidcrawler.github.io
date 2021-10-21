@@ -47,9 +47,9 @@
     #################### -->
         <div class="column_left">
             <h2 style="text-align: center;"> Chapters </h2>
-            <a href="#setup">1) Server Setup</a> <br>
+            <a href="/blog/langs/SQL/basic">1) Server Setup</a> <br>
             <a href="#">2) Basic Querying</a> <br>
-            <a href="/blog/langs/SQL/window_functions">3) Window Functions</a> <br>
+            <a href="#groupby">3) Window Functions</a> <br>
         </div>
 
         <!-- ####################
@@ -93,67 +93,114 @@
             <hr>
             <div class="toc">
                 <h1>Table of Contents</h1>
-                <a href="#setup">1) Server Setup</a> <br>
-                <a href="#basics">2) Basic Querying</a>
+                <a href="#groupby">1) GroupBy</a> <br>
+                <a href="#over">2) Over</a>
             </div>
             <hr>
 
             <div class="blog_content">
                 <br>
-                <div id="setup">
-                    <h1>1) Server Setup</h1>
+                <div id="groupby">
+                    <h1>1) GroupBy</h1>
                     <p>
-                    <ol>
-                        <li>Donwload SQL Server <a
-                                href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">Dveloper
-                                Edition</a></li>
-                        <li>
-                            Meanwhile, download
-                            <a
-                                href="https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms">database</a>
-                            we wold be working with
-                            <img src="/assets/imgs/blog/sql/ssms_window_0.JPG" alt="" style="width: 90%;">
-                        </li>
-                        <li>Save the downloaded "<i>.BAK</i>" in a desired folder, under C Drive, where you want to keep
-                            all your databases</li>
-                        <li>Open the downloaded SQL Server and install it</li>
-                        <li>After installation, press win-key and search SSMS, and open it</li>
-                        <li>Click on connect and wait till SSMS opens up
-                            <img src="/assets/imgs/blog/sql/ssms_window_00.JPG" alt="ssms_window" style="width: 98%;">
-                        </li>
-                        <li>On RHS, right click on Database and left click on Restore Database</li>
-                        <li>Click on "Device" option and then click on 3-dots adjacent to it
-                            <img src="/assets/imgs/blog/sql/ssms_window_01.JPG" alt="ssms_window" style="width: 98%;">
-                        </li>
-                        <li>Click on "Add" button and then navigate to the folder where you stored the downloaded file
-                            (Step2)</li>
-                        <li>Click OK, and now we're ready to begin querying, in the database we just included, as
-                            visible in LHS side of the SSMS window under Database</li>
-                        <li>Righ click on DB name(<i>AdventureWorksDW2017</i> in our case ), goto 'Tables' adn right
-                            click on a table and select
-                            <img src="/assets/imgs/blog/sql/ssms_window_03.png" alt="ssms_window" style="width: 98%;">
-                        </li>
-                        <li>Type in your query, select the lines you would like to run, press "F5" to execute the
-                            selected lines
-                            <img src="/assets/imgs/blog/sql/ssms_window_04.JPG" alt="" style="width: 98%;">
-                        </li>
-                        <li>
-                            That's it. Happy Querying!!!
-                        </li>
-                    </ol>
-                    </p>
-                    <p> To save battery being consumer by SSMS server, when you're not using it, close the SSMS server
-                        services:
-                    <ol>
-                        <li>Press Win-Key and search Services</li>
-                        <li>Scroll down and go to <i>SQL Server (MSSQLSERVER)</i></li>
-                        <li>Right click on it, and 'stop' it</li>
-                        <li>Next time, before launching SSMS, come back here, right click and 'start' it</li>
-                        <img src="/assets/imgs/blog/sql/ssms_window_05.png" alt="" style="width: 98%;">
-                    </ol>
+                        Group by allows us to group data for use in aggregate functions (like sum, count & avg)
+                        <img src="/assets/imgs/blog/sql/window_functions_01.png" alt="" style="width: 95%;">
+                        <i class="img_credit">Credits: <a
+                                href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com</a>
+                        </i> <br>
+                        <b>Database Used</b>: <a
+                            href="https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms">AdventureWorksDW2017.bak</a>
+                        <img src="/assets/imgs/blog/sql/window_functions_00_0.png" alt="" style="width: 98%;">
+                        <script
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=groupby.sql"></script>
                     </p>
                 </div>
-                <div id="basics">
+                <div id="over">
+                    <h1>Over</h1>
+                    <p>
+                        <img src="/assets/imgs/blog/sql/window_functions_02.png" alt="" style="width: 100%;">
+                        <i class="img_credit">Credits: <a
+                                href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com</a>
+                        </i> <br>
+                        <script
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=over.sql"></script>
+                        <br>
+                        Notice that, in line number 3, we haven't mentioned <i>ORDER BY SalesOrderNumber</i> inside
+                        "OVER()" and thus, we are just getting total average <br>
+                        But, in line number 9 we have mentoined <i>OVER (ORDER BY SalesOrderNumber)</i> and thus at each
+                        row, <br>
+                        - OrderBy is applied, and then <br>
+                        - average is getting calculated <br>
+                        <img src="/assets/imgs/blog/sql/window_functions_00_1.JPG" alt="" style="width: 60%;">
+                    </p>
+                    <h1 id=partition>Partition by</h1>
+                    <p>
+                        <img src="/assets/imgs/blog/sql/window_functions_00_2.png" alt="" style="width: 98%;">
+                        <i class="img_credit">
+                            Credits: <a href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com </a>
+                        </i>
+                        <br>
+                        What is going on here is:
+                    <ol>
+                        <li>Of the whole dataset, create chunks of partition, on Countries
+                            <img src="/assets/imgs/blog/sql/window_functions_00_3.JPG" alt="" style="width: 98%;">
+                        </li>
+                        <li>For those individual chunks, calculate <br>
+                            <i>avg(weight) over (order by name)</i>
+                            <img src="/assets/imgs/blog/sql/window_functions_00_4.JPG" alt="" style="width: 98%;">
+                        </li>
+                        <li>Order by name
+                            <img src="/assets/imgs/blog/sql/window_functions_00_5.JPG" alt="" style="width: 98%;">
+                        </li>
+                    </ol>
+                    </p>
+                    <h1>Preceding and Following</h1>
+                    <p>
+                        <img src="/assets/imgs/blog/sql/window_functions_00_6.JPG" alt="" style="width: 98%;">
+                        <i class="img_credit">
+                            Credits: <a href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com </a>
+                        </i>
+                        <script
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=preceeding.sql"></script>
+                        <br>
+                        <img src="/assets/imgs/blog/sql/window_functions_00_7.JPG" alt="" style="width: 98%;">
+                        <br>
+                    </p>
+                    <hr>
+                    <p id="unbounded_preceding">
+                        <h3>Unbounded Preceding</h3>
+                        <a href="https://www.windowfunctions.com/questions/over/3">Question</a>: The cats must be
+                        ordered by weight descending and will enter an elevator one by one. We would like to know what
+                        the running total weight is. <br>
+                        * If two cats have the same weight they must enter separately <a
+                            href="https://www.windowfunctions.com/questions/over/3">(source)</a>
+                        <br>
+                    </p>
+                    <div>
+                        <span>
+                            <img src="/assets/imgs/blog/sql/window_functions_00_8_0.JPG" alt=""
+                                style="width: 49%; float: left;">
+                        </span>
+                        <span>
+                            <img src="/assets/imgs/blog/sql/window_functions_00_8_1.JPG" alt=""
+                                style="width: 49%; float: right;">
+                        </span>
+                        <br><br><br><br>
+                    </div>
+                    <div style="height: 50px;">
+                        <!-- <h1>Hello</h1> -->
+                    </div>
+
+                    <br><br><br><br><br><br><br>
+                    <div>
+                        <p>
+                            <br>
+                            <b>Solution</b>:
+                            <script
+                                src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=unbounded_preceding.sql"></script>
+                            <br>
+                        </p>
+                    </div>
                 </div>
             </div>
 
