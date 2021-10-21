@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type='text/javascript'
+        src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop'
+        async='async'></script>
+    <!-- NavBar . Also copy the part from start of <body> tag below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+        });
+    </script>
+
+    <title>Juspreet51.in</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css_dark_mode_gist_embed_code.css">
+
+    <!-- Google Fonts: Robot Black 900-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <!-- NavBar . Also copy the part from start of <head> tag above -->
+    <div id="nav_bar_dark"></div>
+
+    <div class="three_col_layout">
+
+        <!-- ####################
+    LHS Sidebar needs update
+    #################### -->
+        <div class="column_left">
+            <h2 style="text-align: center;"> Chapters </h2>
+            <a href="#setup">1) Server Setup</a> <br>
+            <a href="#basics">2) Basic Querying</a>
+        </div>
+
+        <!-- ####################
+    Page Titke needs update
+    #################### -->
+        <div class="column_center">
+            <h1>SQL Language</h1>
+            <div class="meta_info">
+                <span style="float: left;">
+                    <p>
+                        <!-- ####################
+              Date-Posted needs update
+              #################### -->
+                        Posted by: <a href="http://juspreet51.in/blog/home" target="_blank"
+                            class="blog_links">Juspreet51</a>
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        Last Update on: 09 Oct, 2021
+                    </p>
+                </span>
+            </div>
+
+
+            <!-- ####################
+        Banner img needs update
+        #################### -->
+            <div class="banner">
+                <img src="/assets/imgs/banners/nlp_01.png">
+            </div>
+
+            <br>
+
+            <div class="share_this_plugin">
+                <br>
+                <!-- Footer . Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+
+            <hr>
+            <div class="toc">
+                <h1>Table of Contents</h1>
+                <a href="#setup">1) Server Setup</a> <br>
+                <a href="#basics">2) Basic Querying</a>
+            </div>
+            <hr>
+
+            <div class="blog_content">
+                <br>
+                <div id="setup">
+                    <h1>1) Server Setup</h1>
+                    <p>
+                    <ol>
+                        <li>Donwload SQL Server <a
+                                href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">Dveloper
+                                Edition</a></li>
+                        <li>
+                            Meanwhile, download
+                            <a
+                                href="https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms">database</a>
+                            we wold be working with
+                            <img src="/assets/imgs/blog/sql/ssms_window_0.JPG" alt="" style="width: 90%;">
+                        </li>
+                        <li>Save the downloaded "<i>.BAK</i>" in a desired folder, under C Drive, where you want to keep
+                            all your databases</li>
+                        <li>Open the downloaded SQL Server and install it</li>
+                        <li>After installation, press win-key and search SSMS, and open it</li>
+                        <li>Click on connect and wait till SSMS opens up
+                            <img src="/assets/imgs/blog/sql/ssms_window_00.JPG" alt="ssms_window" style="width: 98%;">
+                        </li>
+                        <li>On RHS, right click on Database and left click on Restore Database</li>
+                        <li>Click on "Device" option and then click on 3-dots adjacent to it
+                            <img src="/assets/imgs/blog/sql/ssms_window_01.JPG" alt="ssms_window" style="width: 98%;">
+                        </li>
+                        <li>Click on "Add" button and then navigate to the folder where you stored the downloaded file
+                            (Step2)</li>
+                        <li>Click OK, and now we're ready to begin querying, in the database we just included, as
+                            visible in LHS side of the SSMS window under Database</li>
+                        <li>Righ click on DB name(<i>AdventureWorksDW2017</i> in our case ), goto 'Tables' adn right
+                            click on a table and select
+                            <img src="/assets/imgs/blog/sql/ssms_window_03.png" alt="ssms_window" style="width: 98%;">
+                        </li>
+                        <li>Type in your query, select the lines you would like to run, press "F5" to execute the
+                            selected lines
+                            <img src="/assets/imgs/blog/sql/ssms_window_04.JPG" alt="" style="width: 98%;">
+                        </li>
+                        <li>
+                            That's it. Happy Querying!!!
+                        </li>
+                    </ol>
+                    </p>
+                    <p> To save battery being consumer by SSMS server, when you're not using it, close the SSMS server
+                        services:
+                    <ol>
+                        <li>Press Win-Key and search Services</li>
+                        <li>Scroll down and go to <i>SQL Server (MSSQLSERVER)</i></li>
+                        <li>Right click on it, and 'stop' it</li>
+                        <li>Next time, before launching SSMS, come back here, right click and 'start' it</li>
+                        <img src="/assets/imgs/blog/sql/ssms_window_05.png" alt="" style="width: 98%;">
+                    </ol>
+                    </p>
+                </div>
+                <div id="basics">
+                </div>
+            </div>
+
+            <div class="column_right">
+                <!-- <h2 style="text-align: center;"> Topics </h2>
+      <a href="#basics">a) Basics</a> <br>
+      <a href="#sample">b) Distributions</a> <br>
+      <a href="#summary">c) Data Summary</a> <br>
+      <a href="#distribution">d)Shape of Distribution</a> <br> -->
+            </div>
+            <!-- ########################################### -->
+            <!-- ############## RHS Sidebar ################ -->
+            <!-- ########################################### -->
+
+        </div>
+        <!-- ################################################### -->
+        <!-- ############ three_col_layout Ends Here ########### -->
+        <!-- ################################################### -->
+
+        <div style="height: 50px;">
+            <h1></h1>
+        </div>
+
+        <div class="footer">
+            <div id="page_change_btns">
+                <a href="/blog/deep_learning/nlp">
+                    <button class="pagination_button previous_button" style="vertical-align:middle;">
+                        <span>Previous </span>
+                    </button>
+                </a>
+
+                <!-- ####################
+                Link in nxt-btn needs update
+                #################### -->
+                <a href="#">
+                    <button class="pagination_button next_button" style="">
+                        <span>Learn More </span>
+                    </button>
+                </a>
+            </div>
+            <br> <br> <br> <br>
+            <div class="share_this_plugin">
+                <h1>Share This</h1>
+                <p>Share it with your friends and colleagues whom you think it can help</p>
+                <!-- Footer . Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+
+            <div class="comment_box">
+                <!-- ########################################### -->
+                <!-- ############# Needs updates ############### -->
+                <!-- ########################################### -->
+                <!-- begin wwww.htmlcommentbox.com -->
+                <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
+                </div>
+                <link rel="stylesheet" type="text/css"
+                    href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                <script type="text/javascript"
+                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+                <!-- end www.htmlcommentbox.com -->
+            </div>
+
+        </div>
+
+</body>
+
+</html>
