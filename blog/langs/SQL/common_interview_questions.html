@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type='text/javascript'
+        src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop'
+        async='async'></script>
+    <!-- NavBar . Also copy the part from start of <body> tag below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+        });
+    </script>
+
+    <title>Juspreet51.in</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css_dark_mode_gist_embed_code.css">
+
+    <!-- Google Fonts: Robot Black 900-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <!-- NavBar . Also copy the part from start of <head> tag above -->
+    <div id="nav_bar_dark"></div>
+
+    <div class="three_col_layout">
+
+        <!-- ####################
+    LHS Sidebar needs update
+    #################### -->
+        <div class="column_left">
+            <h2 style="text-align: center;"> Chapters </h2>
+            <a href="/blog/langs/SQL/setup">1) Server Setup</a> <br>
+            <a href="#basics">2) Basic Querying</a> <br>
+            <a href="/blog/langs/SQL/window_functions">3) Window Functions</a> <br>
+            <a href="/blog/langs/SQL/common_interview_questions">4) Interview Questions</a>
+        </div>
+
+        <!-- ####################
+    Page Titke needs update
+    #################### -->
+        <div class="column_center">
+            <h1>SQL Language</h1>
+            <div class="meta_info">
+                <span style="float: left;">
+                    <p>
+                        <!-- ####################
+              Date-Posted needs update
+              #################### -->
+                        Posted by: <a href="http://juspreet51.in/blog/home" target="_blank"
+                            class="blog_links">Juspreet51</a>
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        Last Update on: 09 Oct, 2021
+                    </p>
+                </span>
+            </div>
+
+
+            <!-- ####################
+        Banner img needs update
+        #################### -->
+            <div class="banner">
+                <img src="/assets/imgs/banners/SQL_basics.png">
+            </div>
+
+            <br>
+
+            <div class="share_this_plugin">
+                <br>
+                <!-- Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+            <h1>Basic Querying</h1>
+            <hr>
+            <div class="toc">
+                <h1>Table of Contents</h1>
+                <a href="#basics">1) Basics</a> <br>
+                <a href="#intermediate">2) Intermediate</a> <br>
+                <a href="#refs">3) References Used</a> <br>
+            </div>
+            <hr>
+
+            <div class="blog_content">
+                <br>
+                <div>
+                    <pre>
+    5 tips you can use to get that data ready...
+    1) Find "holes" in your data:
+        -- missing data in a particular column
+        WHERE column_a IS NULL
+
+        -- patterns associated with holes
+        SELECT
+        column_b,
+        COUNT(*) AS records
+        FROM tablename
+        WHERE column_a IS NULL
+        GROUP BY column_b
+        ORDER BY COUNT(*) DESC;
+
+
+    2) Flag certain records (simple binary column):
+        CASE
+        WHEN column_a is NULL
+        OR column_b = 'some impossible value'
+        THEN 1
+        ELSE 0
+        END AS is_dirty
+
+
+    3) Clean up messy values (to standardize them):
+        CASE
+        WHEN location IN('CA','ca','San Diego, CA') THEN 'CA'
+        ELSE location
+        END AS clean_location
+
+
+    4) Bucket overly granular values into segments:
+        CASE
+        WHEN age < 18 THEN '1. < 18'
+        WHEN age BETWEEN 18 AND 35 THEN '2. 18-35'
+        WHEN age > 35 THEN '3. > 35'
+        END AS age_group
+
+
+    5) Analyze values across multiple records (powerful):
+        -- note the use of 3,2,1 to reorder the values
+        SELECT
+        subscriber_id,
+        MAX(
+        CASE
+        WHEN status = 'paying_subscriber' THEN '3. Active'
+        WHEN status = 'still_in_trial' THEN '2. Trial'
+        WHEN status = 'canceled' THEN '1. Canceled'
+        END) AS current_status
+        FROM subscription_table
+        GROUP BY subscriber_id
+
+
+    What else do you do to clean your data?
+                    </pre>
+                </div>
+                <div id="basics">
+                    <h1>1) Basics</h1>
+                    <p>
+                        <b>Top 5 rows</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>WHERE , AND, OR, NOT, IN</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>ORDER BY, ASC, DESC</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>IS NULL</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>LIMIT</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>MIN, MAX, COUNT, AVG, SUM</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>LIKE, WILDCARDS</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>IN BETWEEN</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>UNION</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>LEFT, RIGHT, MID, CONCAT</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>GROUP BY</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>FIRST_VALUE, LAST_VALUE</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>CASE WHEN</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>UNION</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Find duplicate rows in a table</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Find all unique combination of two rows</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Count the number of non-null entries in a column</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>When to use group by vs. distinct</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>1st and last record from the table</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Count of emp working in same dept</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>String formatting, substring</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Subqueries</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>HAVING vs WHERE</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>MAX and MIN</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Difference between HAVING and WHERE</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>When are COUNT(*) and COUNT DISTINCT equal</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Can left and inner join return the same results?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>What is the difference between RANK and DENSE RANK</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Can UNION and UNION ALL return the same results?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>What are the best scenarios to use a self join?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>How can you use SQL to dedupe rows?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Why would you use GROUP BY ROLLUP?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>What happens if I GROUP BY a column that is not in the SELECT statement? Why does this happen?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>For dealing with NULL values, why would I choose to use IFNULL vs. CASE WHEN?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Do temp tables make your code cleaner and faster, one of the two, or none? Why?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>When is a subquery a bad idea? A good idea?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Why use the WITH statement? What does it help you do?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Can you use COUNT DISTINCT on two columns? How?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>When does a full outer join actually make sense to use?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Can UNION and UNION ALL return the same results?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>When is it a bad idea to use a subquery?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>What is the best approach to doing a running total?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Inner joining tables A and B returns 50 rows. Left join B to A returns 125 rows. What's going on here?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>User Defined Functions</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>COALESCE and CASE WHEN</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                </div>
+                <div id="intermediate">
+                    <h1>2) Intermediate</h1>
+                    <p>
+                        <b>2nd highest salarry</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>3rd highest salarry</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Last 3 records</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Name ends with 'a' & has 5 alphabets</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Calculate even & odd records from a table</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Date-time manipulation</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Window functions like rank and row</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>LAG and LEAD</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>In what scenarios is the LAG function useful?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Use a window function to calculate a running total</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>How to speed up a query</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>When will ROW_NUMBER and RANK give different results? Give an example</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b> Is it possible for LEFT JOIN and FULL OUTER JOIN to produce the same results? Why or why not?</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>LEFT SEMI and ANTI joins (not just LEFT and INNER)</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Cumulative aggregates using window functions</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>CTEs and WITH</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Using CTEs and temporary tables to improve readability</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Recursive CTEs for hierarchical problems</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Using table indexes and partitions to speedup queries</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Datetime manipulations for time series style data</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Window functions for moving average analysis</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Identifying and isolating duplicates in datasets</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>UDFs, views and loops to further automate processes</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b>Query optimization</b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b></b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                    <p>
+                        <b></b> <br>
+                        <b>Solution</b> <br>
+                    </p>
+                </div>
+                <div id="refs">
+                    <h2>References Used:</h2>
+                    <ul>
+                        <li>https://www.linkedin.com/posts/eric-weber-060397b7_datascience-data-sql-activity-6787722309848350721-PlIH</li>
+                        <li>https://www.youtube.com/watch?v=UlXtfq-kuF4</li>
+                        <li>https://www.linkedin.com/posts/srishti-srivastava-aaa04113a_datascience-sql-data-activity-6782611503947268097-ftdA</li>
+                        <li>https://www.linkedin.com/posts/eric-weber-060397b7_data-datascience-analytics-activity-6794261762872020992-0Eha</li>
+                        <li>https://www.linkedin.com/posts/eric-weber-060397b7_data-datascience-sql-activity-6780300222632407040-kwSo</li>
+                        <li>https://www.linkedin.com/posts/eric-weber-060397b7_sql-data-datascience-activity-6808737477549969408-TJSi</li>
+                        <li>https://www.linkedin.com/posts/eric-weber-060397b7_sql-datascience-machinelearning-activity-6808702703619903488-T2yA</li>
+                        <li>https://www.linkedin.com/posts/datawithdanny_data-analytics-datascience-activity-6805675440045469696-NSqo</li>
+                        <li>https://www.linkedin.com/posts/eric-weber-060397b7_data-datascience-analytics-activity-6804394683897298944-oLY4</li>
+                        <li>https://www.linkedin.com/posts/eric-weber-060397b7_data-datascience-sql-activity-6715986430864224256-xDv3</li>
+                        <li>https://www.linkedin.com/posts/eric-weber-060397b7_sql-datascience-data-activity-6707148760071372801-zAKk</li>
+                        <li>https://www.linkedin.com/posts/akashraj001_my-checklist-before-going-for-an-sql-round-activity-6794270380061188096-ATmc</li>
+                        <li>https://www.linkedin.com/posts/eric-weber-060397b7_sql-datascience-statistics-activity-6808368707434291200-Uf70</li>
+                        <li>https://www.linkedin.com/posts/johnpauler_mavenquicktips-sql-data-activity-6807275059107942400-GRt_</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column_right">
+                <!-- <h2 style="text-align: center;"> Topics </h2>
+      <a href="#basics">a) Basics</a> <br>
+      <a href="#sample">b) Distributions</a> <br>
+      <a href="#summary">c) Data Summary</a> <br>
+      <a href="#distribution">d)Shape of Distribution</a> <br> -->
+            </div>
+            <!-- ########################################### -->
+            <!-- ############## RHS Sidebar ################ -->
+            <!-- ########################################### -->
+
+        </div>
+        <!-- ################################################### -->
+        <!-- ############ three_col_layout Ends Here ########### -->
+        <!-- ################################################### -->
+
+        <div style="height: 50px;">
+            <h1></h1>
+        </div>
+
+        <div class="footer" id="footer">
+            <div id="page_change_btns">
+                <a href="#">
+                    <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+                        <span>Previous </span>
+                    </button>
+                </a>
+
+                <!-- ####################
+                Link in nxt-btn needs update
+                #################### -->
+                <a href="/blog/langs/SQL/basic">
+                    <button class="pagination_button next_button" style="">
+                        <span>Basic Querying </span>
+                    </button>
+                </a>
+            </div>
+            <br> <br> <br> <br>
+            <div class="share_this_plugin">
+                <h1>Share This</h1>
+                <p>Share it with your friends and colleagues whom you think it can help</p>
+                <!-- Footer . Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+
+            <div class="comment_box">
+                <!-- ########################################### -->
+                <!-- ############# Needs updates ############### -->
+                <!-- ########################################### -->
+                <!-- begin wwww.htmlcommentbox.com -->
+                <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
+                </div>
+                <link rel="stylesheet" type="text/css"
+                    href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                <script type="text/javascript"
+                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+                <!-- end www.htmlcommentbox.com -->
+            </div>
+
+        </div>
+
+</body>
+
+</html>
