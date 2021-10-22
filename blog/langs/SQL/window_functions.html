@@ -30,7 +30,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=+2:wght@900&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -102,139 +102,171 @@
 
             <div class="blog_content">
                 <br>
+
+                <h1>Create A Practice Database in SSMS</h1>
+                To install MS SSMS visit the <a href="/blog/langs/SQL/setup">installation page</a> for details on
+                downloading and installation
+                <img src="/assets/imgs/blog/sql/CreateDatabase_01.png" alt="" style="width: 85%;">
+                <script
+                    src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=SQLPractice_DB_Creation.sql"></script>
+
+                <br>
+
+                <h1>Insert Records Into Newly Created Tables</h1>
+
+                Run the below query to create the database we would be working on:
+
+                Run the below provided query to create the table we would be working on:
+                <script
+                    src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=Win_Func_Practice_creation.sql"></script>
+                <br>
+                <img src="/assets/imgs/blog/sql/CreateDatabase_02.PNG" alt="" style="width: 45%;">
+
+
                 <div id="groupby">
                     <h1>1) GroupBy</h1>
                     <p>
-                        Group by allows us to group data for use in aggregate functions (like sum, count & avg)
-                        <img src="/assets/imgs/blog/sql/window_functions_01.png" alt="" style="width: 95%;">
-                        <i class="img_credit">Credits: <a
-                                href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com</a>
-                        </i> <br>
-                        <b>Database Used</b>: <a
-                            href="https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms">AdventureWorksDW2017.bak</a>
-                        <img src="/assets/imgs/blog/sql/window_functions_00_0.png" alt="" style="width: 98%;">
                         <script
                             src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=groupby.sql"></script>
                         <br>
+                        When using <i>Group By</i> for a column, for each unique entry in that column, the aggregate
+                        function is applied
+                        <img src="/assets/imgs/blog/sql/groupby_01.PNG" alt="" style="width: 85%;">
+                        <br>
+                        Pay attention, to use groupby, we need to use Aggregate function for rest of the columns
+                        mentioned
+                        in the SELECT statement <br>
+                        But, if we had to <i>Group By</i> at State, and display individual PersonalId, with applying
+                        aggregator, groupby would throw and error
+                        <br>
+                        Here, <i>OVER()</i> comes to rescue here
                     </p>
-                </div>
-                <div id="over">
-                    <h3>Good video to begin with:</h3>
-                    <iframe width="95%" height="320px" src="https://www.youtube.com/embed/D6XNlTfglW4"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    More vides from the same <a
-                        href="https://www.youtube.com/playlist?list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL">playlist</a>
-                    <h1>Over</h1>
                     <p>
-                        Over is useful in limiting or tweaking the data returned from aggregate Functions
-                        <br><br>
-                        Think of over as like a running total. For instance in our runners table, we have a query that
-                        selects name and average weight of all the runners seen so far when ordered by name
-                        <br><br>
-                        Here average_weight is recomputed on each 'step' of the SQL output
-                        <img src="/assets/imgs/blog/sql/window_functions_02_1.png" alt="" style="width: 95%;">
-                        <i class="img_credit">Credits: <a
-                                href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com</a>
-                        </i> <br>
-                        <script
-                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=over.sql"></script>
-                        <br>
-                        Notice that, in line number 3, we haven't mentioned <i>ORDER BY SalesOrderNumber</i> inside
-                        "OVER()" and thus, we are just getting total average <br>
-                        But, in line number 9 we have mentoined <i>OVER (ORDER BY SalesOrderNumber)</i> and thus at each
-                        row, <br>
-                        - OrderBy is applied, and then <br>
-                        - average is getting calculated <br>
-                        <img src="/assets/imgs/blog/sql/window_functions_00_1.JPG" alt="" style="width: 60%;">
-                    </p>
-                    <h1 id=partition>Partition by</h1>
-                    <p>
-                        <img src="/assets/imgs/blog/sql/window_functions_00_2.png" alt="" style="width: 98%;">
-                        <i class="img_credit">
-                            Credits: <a href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com </a>
-                        </i>
-                        <br>
-                        What is going on here is:
-                    <ol>
-                        <li>Of the whole dataset, create chunks of partition, on Countries
-                            <img src="/assets/imgs/blog/sql/window_functions_00_3.JPG" alt="" style="width: 98%;">
-                        </li>
-                        <li>For those individual chunks, calculate <br>
-                            <i>avg(weight) over (order by name)</i>
-                            <img src="/assets/imgs/blog/sql/window_functions_00_4.JPG" alt="" style="width: 98%;">
-                        </li>
-                        <li>Order by name
-                            <img src="/assets/imgs/blog/sql/window_functions_00_5.JPG" alt="" style="width: 98%;">
-                        </li>
-                    </ol>
-                    </p>
-                    <h1>Preceding and Following</h1>
-                    <p>
-                        <img src="/assets/imgs/blog/sql/window_functions_00_6.JPG" alt="" style="width: 98%;">
-                        <i class="img_credit">
-                            Credits: <a href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com </a>
-                        </i>
-                        <script
-                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=preceeding.sql"></script>
-                        <br>
-                        <img src="/assets/imgs/blog/sql/window_functions_00_7.JPG" alt="" style="width: 98%;">
-                        <br>
-                    </p>
-                    <hr>
-                    <p id="unbounded_preceding">
-                    <h3>Unbounded Preceding</h3>
-                    <a href="https://www.windowfunctions.com/questions/over/3">Question</a>: The cats must be
-                    ordered by weight descending and will enter an elevator one by one. We would like to know what
-                    the running total weight is. <br>
-                    * If two cats have the same weight they must enter separately <a
-                        href="https://www.windowfunctions.com/questions/over/3">(source)</a>
+                    <h1 id="over">Over</h1>
+                    <img src="/assets/imgs/blog/sql/groupby_02.PNG" alt="" style="width: 85%;">
                     <br>
+                    <script
+                        src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=over.sql"></script>
+                    <br>
+                    <!-- <img src="/assets/imgs/blog/sql/groupby_04.PNG" alt="" style="width: 85%;">
+                        <br> -->
+                    <img src="/assets/imgs/blog/sql/groupby_05.PNG" alt="" style="width: 85%;">
+                    <br>
+
+                    Here average_weight is recomputed on each 'step' of the SQL output
+                    <img src="/assets/imgs/blog/sql/window_functions_02_1.png" alt="" style="width: 75%;">
+                    <i class="img_credit">Credits: <a
+                            href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com</a>
+                    </i> <br>
+
+
+                    <i>OVER()</i> is useful in limiting or tweaking the data returned from aggregate Functions
+                    <br><br>
+
                     </p>
-                    <div>
-                        <span>
-                            <img src="/assets/imgs/blog/sql/window_functions_00_8_0.JPG" alt=""
-                                style="width: 49%; float: left;">
-                        </span>
-                        <span>
-                            <img src="/assets/imgs/blog/sql/window_functions_00_8_1.JPG" alt=""
-                                style="width: 49%; float: right;">
-                        </span>
-
-                        <br><br><br><br>
-
-                    </div>
-
-                    <div style="height: 50px;">
-                        <h1 style="opacity: 0.1%;">.</h1>
-                        <h1 style="opacity: 0.1%;">.</h1>
-                    </div>
-
-                    <br><br><br><br><br><br><br>
-                    <div>
-                        <p>
-                            <br>
-                            <b>Solution</b>:
-                            <script
-                                src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=unbounded_preceding.sql"></script>
-                            <br>
-                        </p>
-                    </div>
                 </div>
+
+
+                <h1 id=partition>Partition by</h1>
+                <h3>Good video to begin with:</h3>
+                <iframe width="95%" height="320px" src="https://www.youtube.com/embed/D6XNlTfglW4"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                More vides from the same <a
+                    href="https://www.youtube.com/playlist?list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL">playlist</a>
+
+                <p>
+                    <script
+                        src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=partition_by.sql"></script>
+                    <br>
+                    <img src="/assets/imgs/blog/sql/groupby_06.PNG" alt="" style="width: 98%;">
+                </p>
+                <p>
+                    <img src="/assets/imgs/blog/sql/window_functions_00_2.png" alt="" style="width: 98%;">
+                    <i class="img_credit">
+                        Credits: <a href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com </a>
+                    </i>
+                    <br>
+                    What is going on here is:
+                <ol>
+                    <li>Of the whole dataset, create chunks of partition, on Countries
+                        <img src="/assets/imgs/blog/sql/window_functions_00_3.JPG" alt="" style="width: 98%;">
+                    </li>
+                    <li>For those individual chunks, calculate <br>
+                        <i>avg(weight) over (order by name)</i>
+                        <img src="/assets/imgs/blog/sql/window_functions_00_4.JPG" alt="" style="width: 98%;">
+                    </li>
+                    <li>Order by name
+                        <img src="/assets/imgs/blog/sql/window_functions_00_5.JPG" alt="" style="width: 98%;">
+                    </li>
+                </ol>
+                </p>
+                <h1>Preceding and Following</h1>
+                <p>
+                    <img src="/assets/imgs/blog/sql/window_functions_00_6.JPG" alt="" style="width: 98%;">
+                    <i class="img_credit">
+                        Credits: <a href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com </a>
+                    </i>
+                    <script
+                        src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=preceeding.sql"></script>
+                    <br>
+                    <img src="/assets/imgs/blog/sql/groupby_08.PNG" alt="" style="width: 98%;">
+                    <br>
+                </p>
+                <hr>
+                <p id="unbounded_preceding">
+                <h3>Unbounded Preceding</h3>
+                <a href="https://www.windowfunctions.com/questions/over/3">Question</a>: The cats must be
+                ordered by weight descending and will enter an elevator one by one. We would like to know what
+                the running total weight is. <br>
+                * If two cats have the same weight they must enter separately <a
+                    href="https://www.windowfunctions.com/questions/over/3">(source)</a>
+                <br>
+                </p>
+                <div>
+                    <span>
+                        <img src="/assets/imgs/blog/sql/window_functions_00_8_0.JPG" alt=""
+                            style="width: 49%; float: left;">
+                    </span>
+                    <span>
+                        <img src="/assets/imgs/blog/sql/window_functions_00_8_1.JPG" alt=""
+                            style="width: 49%; float: right;">
+                    </span>
+
+                    <br><br><br><br>
+
+                </div>
+
+                <div style="height: 50px;">
+                    <h1 style="opacity: 0.1%;">.</h1>
+                    <h1 style="opacity: 0.1%;">.</h1>
+                </div>
+
+                <br><br><br><br><br><br><br>
+                <div>
+                    <p>
+                        <br>
+                        <b>Solution</b>:
+                        <script
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=unbounded_preceding.sql"></script>
+                        <br>
+                    </p>
+                </div>
+
 
                 <div id="ranking">
                     <h1>Row Number, Rank & Dense Rank</h1>
                     <p>
-                        <img src="/assets/imgs/blog/sql/window_functions_03.JPG" alt="" style="width: 98%;">
-                        <b>row_number</b> gives a result that must always be unique
+                        <img src="/assets/imgs/blog/sql/groupby_09.PNG" alt="" style="width: 75%;">
+                        <br>
                         <script
                             src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=rank.sql"></script>
                         <br>
                     </p>
+
                     <h1>Cume Dist & Percent Rank </h1>
                     <p>
-                        <img src="/assets/imgs/blog/sql/window_functions_04.JPG" alt="" style="width: 98%;">
                     <ul>
                         <li> <b>percent_rank</b> returns a number from 1 to 0. The highest being 1 and the lowest 0</li>
                         <li> <b>cume_dist</b> will return a number from 1 towards 0 but never 0</li>
@@ -242,6 +274,7 @@
                     <script
                         src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=percent_rank.sql"></script>
                     <br>
+                    <img src="/assets/imgs/blog/sql/groupby_10.PNG" alt="" style="width: 75%;">
                     </p>
                 </div>
 
@@ -253,84 +286,92 @@
                         <script
                             src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=lag_lead.sql"></script>
                         <br>
-                        <img src="/assets/imgs/blog/sql/window_functions_05.JPG" alt="" style="width: 98%;">
+                        <img src="/assets/imgs/blog/sql/groupby_11.PNG" alt="" style="width: 75%;">
                     </p>
                     <p>
-                        <b>nth_value</b>: nth_value will return the nth_value, but if we do not specify a range it will
+                        <b>nth_value</b>: Gives the nth-value, after the current row
+                        <br>
+                        nth_value will return the nth_value, but if we do not specify a range it will
                         return null if the current value is less than the nth. If we always want something displayed we
                         need to specify a range
-                        <br>
+
+                        <br><br>
+
                         <b>ntile</b>: ntile(n) divides the group into n equal partitions and denotes which partition
                         each row is in
                         <br>
                         <img src="/assets/imgs/blog/sql/window_functions_06.JPG" alt="" style="width: 98%;">
+                        <i class="img_credit">Credits: <a
+                                href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com</a>
+                        </i> <br>
                         <script
                             src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=nth_ntile.sql"></script>
                         <br>
                     </p>
                 </div>
             </div>
+        </div>
 
-            <div class="column_right">
-                <!-- <h2 style="text-align: center;"> Topics </h2>
+        <div class="column_right">
+            <!-- <h2 style="text-align: center;"> Topics </h2>
       <a href="#basics">a) Basics</a> <br>
       <a href="#sample">b) Distributions</a> <br>
       <a href="#summary">c) Data Summary</a> <br>
       <a href="#distribution">d)Shape of Distribution</a> <br> -->
-            </div>
-            <!-- ########################################### -->
-            <!-- ############## RHS Sidebar ################ -->
-            <!-- ########################################### -->
-
         </div>
-        <!-- ################################################### -->
-        <!-- ############ three_col_layout Ends Here ########### -->
-        <!-- ################################################### -->
+        <!-- ########################################### -->
+        <!-- ############## RHS Sidebar ################ -->
+        <!-- ########################################### -->
 
-        <div style="height: 50px;">
-            <h1></h1>
-        </div>
+    </div>
+    <!-- ################################################### -->
+    <!-- ############ three_col_layout Ends Here ########### -->
+    <!-- ################################################### -->
 
-        <div class="footer">
-            <div id="page_change_btns">
-                <a href="#">
-                    <button class="pagination_button previous_button" style="vertical-align:middle;">
-                        <span>Previous </span>
-                    </button>
-                </a>
+    <div style="height: 50px;">
+        <h1></h1>
+    </div>
 
-                <!-- ####################
+    <div class="footer">
+        <div id="page_change_btns">
+            <a href="#">
+                <button class="pagination_button previous_button" style="vertical-align:middle;">
+                    <span>Previous </span>
+                </button>
+            </a>
+
+            <!-- ####################
                 Link in nxt-btn needs update
                 #################### -->
-                <a href="/blog/langs/SQL/common_interview_questions">
-                    <button class="pagination_button next_button" style="">
-                        <span>Interview Questions </span>
-                    </button>
-                </a>
-            </div>
-            <br> <br> <br> <br>
-            <div class="share_this_plugin">
-                <h1>Share This</h1>
-                <p>Share it with your friends and colleagues whom you think it can help</p>
-                <!-- Footer . Also copy the part from start of <head> tag above -->
-                <div class="sharethis-inline-share-buttons"></div>
-            </div>
-
-            <div class="comment_box">
-                <!-- ########################################### -->
-                <!-- ############# Needs updates ############### -->
-                <!-- ########################################### -->
-                <!-- begin wwww.htmlcommentbox.com -->
-                <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
-                </div>
-                <link rel="stylesheet" type="text/css"
-                    href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-                <script type="text/javascript"
-                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
-                <!-- end www.htmlcommentbox.com -->
-            </div>
-
+            <a href="/blog/langs/SQL/common_interview_questions">
+                <button class="pagination_button next_button" style="">
+                    <span>Interview Questions </span>
+                </button>
+            </a>
         </div>
+        <br> <br> <br> <br>
+        <div class="share_this_plugin">
+            <h1>Share This</h1>
+            <p>Share it with your friends and colleagues whom you think it can help</p>
+            <!-- Footer . Also copy the part from start of <head> tag above -->
+            <div class="sharethis-inline-share-buttons"></div>
+        </div>
+
+        <div class="comment_box">
+            <!-- ########################################### -->
+            <!-- ############# Needs updates ############### -->
+            <!-- ########################################### -->
+            <!-- begin wwww.htmlcommentbox.com -->
+            <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
+            </div>
+            <link rel="stylesheet" type="text/css"
+                href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+            <script type="text/javascript"
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+            <!-- end www.htmlcommentbox.com -->
+        </div>
+
+    </div>
 
 </body>
 
