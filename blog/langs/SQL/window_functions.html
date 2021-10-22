@@ -64,8 +64,7 @@
                         <!-- ####################
               Date-Posted needs update
               #################### -->
-                        Posted by: <a href="/blog/home" target="_blank"
-                            class="blog_links">Juspreet51</a>
+                        Posted by: <a href="/blog/home" target="_blank" class="blog_links">Juspreet51</a>
                     </p>
                 </span>
                 <span style="float: right;">
@@ -121,13 +120,18 @@
                 </div>
                 <div id="over">
                     <h3>Good video to begin with:</h3>
-                    <iframe width="95%" height="320px" src="https://www.youtube.com/embed/D6XNlTfglW4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    More vides from the same <a href="https://www.youtube.com/playlist?list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL">playlist</a>
+                    <iframe width="95%" height="320px" src="https://www.youtube.com/embed/D6XNlTfglW4"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    More vides from the same <a
+                        href="https://www.youtube.com/playlist?list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL">playlist</a>
                     <h1>Over</h1>
                     <p>
                         Over is useful in limiting or tweaking the data returned from aggregate Functions
                         <br><br>
-                        Think of over as like a running total. For instance in our runners table, we have a query that selects name and average weight of all the runners seen so far when ordered by name
+                        Think of over as like a running total. For instance in our runners table, we have a query that
+                        selects name and average weight of all the runners seen so far when ordered by name
                         <br><br>
                         Here average_weight is recomputed on each 'step' of the SQL output
                         <img src="/assets/imgs/blog/sql/window_functions_02_1.png" alt="" style="width: 95%;">
@@ -231,29 +235,33 @@
                     <h1>Cume Dist & Percent Rank </h1>
                     <p>
                         <img src="/assets/imgs/blog/sql/window_functions_04.JPG" alt="" style="width: 98%;">
-                        <ul>
-                            <li> <b>percent_rank</b> returns a number from 1 to 0. The highest being 1 and the lowest 0</li>
-                            <li> <b>cume_dist</b> will return a number from 1 towards 0 but never 0</li>
-                        </ul>
-                        <script
-                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=percent_rank.sql"></script>
-                        <br>
+                    <ul>
+                        <li> <b>percent_rank</b> returns a number from 1 to 0. The highest being 1 and the lowest 0</li>
+                        <li> <b>cume_dist</b> will return a number from 1 towards 0 but never 0</li>
+                    </ul>
+                    <script
+                        src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=percent_rank.sql"></script>
+                    <br>
                     </p>
                 </div>
 
                 <div id="grouping">
                     <h1>Grouping</h1>
                     <p>
-                        <b>Lag and Lead</b>: These functions allow you to examine the next or previous row, may then compare this value to the current row
+                        <b>Lag and Lead</b>: These functions allow you to examine the next or previous row, may then
+                        compare this value to the current row
                         <script
                             src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=lag_lead.sql"></script>
                         <br>
                         <img src="/assets/imgs/blog/sql/window_functions_05.JPG" alt="" style="width: 98%;">
                     </p>
                     <p>
-                        <b>nth_value</b>: nth_value will return the nth_value, but if we do not specify a range it will return null if the current value is less than the nth. If we always want something displayed we need to specify a range 
+                        <b>nth_value</b>: nth_value will return the nth_value, but if we do not specify a range it will
+                        return null if the current value is less than the nth. If we always want something displayed we
+                        need to specify a range
                         <br>
-                        <b>ntile</b>: ntile(n) divides the group into n equal partitions and denotes which partition each row is in
+                        <b>ntile</b>: ntile(n) divides the group into n equal partitions and denotes which partition
+                        each row is in
                         <br>
                         <img src="/assets/imgs/blog/sql/window_functions_06.JPG" alt="" style="width: 98%;">
                         <script
