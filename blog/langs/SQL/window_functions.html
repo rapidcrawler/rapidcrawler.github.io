@@ -173,80 +173,38 @@
                         href="https://www.youtube.com/playlist?list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL">playlist</a>
 
 
-                        
+
                     <br><br>
-                    But, what about a situation where we don't have to group at a level, but perform calculation at a level; for various windows insisde a table?
+                    But, what about a situation where we don't have to group at a level, but perform calculation at a
+                    level; for various windows insisde a table?
                     <br> <br>
-                    One common use case of such a situation is, Calcualtion of Running Total or Average
+                    One common use case of such a situation is, Calcualtion of <i>Running Total</i> or Average
                     <br>
-                    Running total is, cumulative sum of all previous row 
+                    Running total is, cumulative sum of all previous row
                     <img src="/assets/imgs/blog/sql/Window_Function_03.PNG" alt="" style="width: 85%;">
                     </p>
+                    <i>State Level Running Total</i>
+                    <img src="/assets/imgs/blog/sql/Window_Function_04.PNG" alt="" style="width: 85%;">
                 </div>
 
                 <div id=adv_windows>
-                    
-
                     <h1>Preceding and Following</h1>
                     <p>
-                        <!-- <img src="/assets/imgs/blog/sql/window_functions_00_6.JPG" alt="" style="width: 98%;"> -->
-                        <i class="img_credit">
-                            Credits: <a href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com </a>
-                        </i>
                         <script
                             src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=preceeding.sql"></script>
                         <br>
-                        <!-- <img src="/assets/imgs/blog/sql/groupby_08.PNG" alt="" style="width: 98%;"> -->
+                        <img src="/assets/imgs/blog/sql/Window_Function_05.PNG" alt="" style="width: 85%;">
                         <br>
                     </p>
                     <hr>
-                    <p id="unbounded_preceding">
-                    <h3>Unbounded Preceding</h3>
-                    <a href="https://www.windowfunctions.com/questions/over/3">Question</a>: The cats must be
-                    ordered by weight descending and will enter an elevator one by one. We would like to know what
-                    the running total weight is. <br>
-                    * If two cats have the same weight they must enter separately <a
-                        href="https://www.windowfunctions.com/questions/over/3">(source)</a>
-                    <br>
-                    </p>
-                    <div>
-                        <span>
-                            <!-- <img src="/assets/imgs/blog/sql/window_functions_00_8_0.JPG" alt="" -->
-                            style="width: 49%; float: left;">
-                        </span>
-                        <span>
-                            <!-- <img src="/assets/imgs/blog/sql/window_functions_00_8_1.JPG" alt="" -->
-                            style="width: 49%; float: right;">
-                        </span>
-
-                        <br><br><br><br>
-
-                    </div>
-
-                    <div style="height: 50px;">
-                        <h1 style="opacity: 0.1%;">.</h1>
-                        <h1 style="opacity: 0.1%;">.</h1>
-                    </div>
-
-                    <br><br><br><br><br><br><br>
-                    <div>
-                        <p>
-                            <br>
-                            <b>Solution</b>:
-                            <script
-                                src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=unbounded_preceding.sql"></script>
-                            <br>
-                        </p>
-                    </div>
-
 
                     <div id="ranking">
                         <h1>Row Number, Rank & Dense Rank</h1>
                         <p>
-                            <img src="/assets/imgs/blog/sql/groupby_09.PNG" alt="" style="width: 75%;">
-                            <br>
                             <script
                                 src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=rank.sql"></script>
+                            <br>
+                            <img src="/assets/imgs/blog/sql/Window_Function_06.PNG" alt="" style="width: 85%;">
                             <br>
                         </p>
 
@@ -260,7 +218,8 @@
                         <script
                             src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=percent_rank.sql"></script>
                         <br>
-                        <!-- <img src="/assets/imgs/blog/sql/groupby_10.PNG" alt="" style="width: 75%;"> -->
+                        <img src="/assets/imgs/blog/sql/Window_Function_07.PNG" alt="" style="width: 85%;">
+                        <br>
                         </p>
                     </div>
 
@@ -272,7 +231,18 @@
                             <script
                                 src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=lag_lead.sql"></script>
                             <br>
-                            <img src="/assets/imgs/blog/sql/groupby_11.PNG" alt="" style="width: 75%;">
+                            <img src="/assets/imgs/blog/sql/Window_Function_08.PNG" alt="" style="width: 85%;">
+                        </p>
+
+
+
+                        <p id="unbounded_preceding">
+                        <h3>Unbounded Preceding</h3>
+                        <script
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=unbounded_preceding.sql"></script>
+                        <br>
+                        <img src="/assets/imgs/blog/sql/Window_Function_09.PNG" alt="" style="width: 85%;">
+                        <br>
                         </p>
                         <p>
                             <b>nth_value</b>: Gives the nth-value, after the current row
@@ -287,10 +257,11 @@
                             <b>ntile</b>: ntile(n) divides the group into n equal partitions and denotes which partition
                             each row is in
                             <br>
-                            <img src="/assets/imgs/blog/sql/window_functions_06.JPG" alt="" style="width: 98%;">
+
                             <i class="img_credit">Credits: <a
                                     href="https://www.windowfunctions.com/questions/intro/">windowfunctions.com</a>
-                            </i> <br>
+                            </i>
+                            <br>
                             <script
                                 src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=nth_ntile.sql"></script>
                             <br>
