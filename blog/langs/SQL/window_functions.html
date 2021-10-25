@@ -47,10 +47,13 @@
     #################### -->
         <div class="column_left">
             <h2 style="text-align: center;"> Chapters </h2>
-            <a href="/blog/langs/SQL/basics">1) Server Setup</a> <br>
-            <a href="#">2) Basic Querying</a> <br>
-            <a href="#groupby">3) Window Functions</a> <br>
-            <a href="/blog/langs/SQL/common_interview_questions">4) Interview Questions</a>
+            <ol>
+                <li><a href="/blog/langs/SQL/setup">Server Setup</a></li>
+                <li><a href="#basics">Basic Querying</a></li>
+                <li><a href="/blog/langs/SQL/joins">Joins</a></li>
+                <li><a href="/blog/langs/SQL/window_functions">Window Functions</a></li>
+                <li><a href="/blog/langs/SQL/common_interview_questions">Interview Questions</li>
+            </ol>
         </div>
 
         <!-- ####################
@@ -178,12 +181,12 @@
                     But, what about a situation where we don't have to group at a level, but perform calculation at a
                     level; for various windows insisde a table?
                     <br> <br>
-                    
+
                     One common use case of such a situation is, Calcualtion of <i>Running Total</i> or Average
                     <br>
                     Running total is, cumulative sum of all previous row
                     <script
-                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=running_total.sql"></script>
+                        src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=running_total.sql"></script>
                     <img src="/assets/imgs/blog/sql/Window_Function_03.PNG" alt="" style="width: 85%;">
 
                     <i>State Level Running Total</i>
