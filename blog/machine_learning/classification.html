@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type='text/javascript'
+        src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop'
+        async='async'></script>
+    <!-- NavBar . Also copy the part from start of <body> tag below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+        });
+    </script>
+
+    <title>Juspreet51.in</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css_dark_mode_gist_embed_code.css">
+
+    <!-- Google Fonts: Robot Black 900-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <!-- NavBar . Also copy the part from start of <head> tag above -->
+    <div id="nav_bar_dark"></div>
+
+    <div class="three_col_layout">
+
+        <!-- ####################
+    LHS Sidebar needs update
+    #################### -->
+        <div class="column_left">
+            <h2 style="text-align: center;"> Chapters </h2>
+            <ol>
+                <li><a href="#">Regression</a></li>
+                <li><a href="#">Classification</a></li>
+                <li><a href="#">Feature Engineering</a></li>
+                <li><a href="#">Ensembling</a></li>
+            </ol>
+        </div>
+
+        <!-- ####################
+    Page Titke needs update
+    #################### -->
+        <div class="column_center">
+            <h1>Post Title</h1>
+            <div class="meta_info">
+                <span style="float: left;">
+                    <p>
+                        <!-- ####################
+            Date-Posted needs update
+            #################### -->
+                        Posted by: <a href="/index" target="_blank" class="blog_links">Juspreet51</a>
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        Last Updated on: 23 Oct, 2021
+                    </p>
+                </span>
+            </div>
+
+
+            <!-- ####################
+        Banner img needs update
+        #################### -->
+            <div class="banner">
+                <img src="/assets/imgs/banners/generic_banner.jpg">
+            </div>
+
+            <br>
+
+            <div class="share_this_plugin">
+                <br>
+                <!-- Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+            <h1>Classification</h1>
+            <hr>
+            <!-- ####################
+        ToC needs update
+        #################### -->
+            <div class="toc">
+                <h1>Table of Contents</h1>
+                <ol>
+                    <li><a href="#intro">Introduction</a></li>
+                    <li><a href="#classification_models">Classification Models</a></li>
+                    <li><a href="#metrics">Evaluation Metrics</a></li>
+                </ol>
+            </div>
+            <hr>
+
+            <div class="blog_content">
+                <div id="intro">
+                    <p>Something</p>
+                </div>
+
+                <div id="classification_models">
+                    <p>Something</p>
+                </div>
+
+                <div id="metrics">
+                    <p>
+                        <b><a href="#">Precision & Recall:</a></b> <br>
+                        <img src="/assets/imgs/blog/classification/metrics_01.PNG" alt="precision-and-recall"
+                            style="width: 65%;">
+                        <i class="img_credit">Credits: <a
+                                href="https://deepai.org/machine-learning-glossary-and-terms/precision-and-recall">deepai.org</a>
+                        </i> <br> <br>
+                        Explanation: <a
+                            href="https://www.reddit.com/r/datascience/comments/qdai89/i_just_explained_recallprecision_to_a_nonds_and/">u/question_23</a>
+                        <br>
+                        Imagine you're fishing and you have been informed there are a total of 100 fishes in the pond.
+                        Out of those 100 fishes present in the pond, you manage to catch 80<br>
+                        <img src="/assets/imgs/blog/classification/metrics_02.PNG" alt="precision-and-recall"
+                            style="width: 65%;">
+                        <br>
+                        But you also get 80 rocks in your net. So, the total number of things retrived in your fish net
+                        is 80 Fishes + 80 Stones/Junk = 160 things
+                        <br>
+                        <img src="/assets/imgs/blog/classification/metrics_03.PNG" alt="precision-and-recall"
+                            style="width: 65%;">
+                        <br>
+                        ** Note: Both Precision & Recall are bothered about the retrived fish's count <br>
+                        However, <i>Precision</i> is about what proportion of things in net is fish <br>
+                        And, <i>Recall</i> is about what proportion of fish we were able to retrive from the pond
+                        <br><br>
+                        <b>Precision & Recall Trade-off</b> <br>
+                        You could use a smaller net and target one pocket of the lake where there are lots of fish and
+                        no rocks, but you might only get 20 of the fish in order to get 0 rocks.
+                        <br>
+                        That is <i>20% recall</i> but <i>100% precision.</i>
+                    </p>
+                    <p>
+                        <b><a href="https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/">
+                                ROC & AUC Curve</a></b>
+                        <br>
+                        <b>Sensitivity</b> / True Positive Rate / Recall: Sensitivity tells us what proportion of the positive
+                        class got correctly classified
+                        <br>
+                        <b>Specificity</b> / True Negative Rate: Specificity tells us what proportion of the negative class got
+                        correctly classified
+                        <br>
+                        <b>False Negative Rate</b>: FNR tells us what proportion of the positive class got incorrectly
+                        classified by the classifier
+                        <br>
+                        <b>False Positive Rate</b>: FPR tells us what proportion of the negative class got incorrectly
+                        classified by the classifier
+                    </p>
+                </div>
+            </div>
+
+            <div class="column_right">
+                <!-- <h2 style="text-align: center;"> Topics </h2>
+                <a href="#basics">a) Basics</a> <br>
+                <a href="#sample">b) Distributions</a> <br>
+                <a href="#summary">c) Data Summary</a> <br>
+                <a href="#distribution">d)Shape of Distribution</a> <br> -->
+            </div>
+            <!-- ########################################### -->
+            <!-- ############## RHS Sidebar ################ -->
+            <!-- ########################################### -->
+
+        </div>
+    </div>
+    <!-- ################################################### -->
+    <!-- ############ three_col_layout Ends Here ########### -->
+    <!-- ################################################### -->
+
+    <div style="height: 50px;">
+        <h1></h1>
+    </div>
+
+    <div class="footer" id="footer">
+        <div id="page_change_btns">
+            <a href="#">
+                <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+                    <span>Previous </span>
+                </button>
+            </a>
+
+            <!-- ####################
+                Link in nxt-btn needs update
+                #################### -->
+            <a href="#">
+                <button class="pagination_button next_button disabled_btn" style="">
+                    <span>Next </span>
+                </button>
+            </a>
+        </div>
+        <br> <br> <br> <br>
+        <div class="share_this_plugin">
+            <h1>Share This</h1>
+            <p>Share it with your friends and colleagues whom you think it can help</p>
+            <!-- Footer . Also copy the part from start of <head> tag above -->
+            <div class="sharethis-inline-share-buttons"></div>
+        </div>
+
+        <div class="comment_box">
+            <!-- ########################################### -->
+            <!-- ############# Needs updates ############### -->
+            <!-- ########################################### -->
+            <!-- begin wwww.htmlcommentbox.com -->
+            <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
+            </div>
+            <link rel="stylesheet" type="text/css"
+                href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+            <script type="text/javascript"
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+            <!-- end www.htmlcommentbox.com -->
+        </div>
+
+    </div>
+
+</body>
+
+</html>
