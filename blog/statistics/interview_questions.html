@@ -10,7 +10,7 @@
     <script>
         $(function () {
             $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
-            $("#SQL_LHSNavBar").load("/assets/scripts/SQL_LHSNavBar.html");
+            $("#stats_LHSNavBar").load("/assets/scripts/stats_LHSNavBar.html");
         });
     </script>
 
@@ -46,19 +46,19 @@
         <!-- ####################
         LHSNavBar . Also copy the part from start of <head> tag above
         #################### -->
-        <div id="SQL_LHSNavBar"></div>
+        <div id="stats_LHSNavBar"></div>
 
         <!-- ####################
         Page Titke needs update
         #################### -->
         <div class="column_center">
-            <h1>SQL Language</h1>
+            <h1>Statistics</h1>
             <div class="meta_info">
                 <span style="float: left;">
                     <p>
                         <!-- ####################
-              Date-Posted needs update
-              #################### -->
+                        Date-Posted needs update
+                        #################### -->
                         Posted by: <a href="/index" target="_blank" class="blog_links">Juspreet51</a>
                     </p>
                 </span>
@@ -74,85 +74,77 @@
             Banner img needs update
             #################### -->
             <div class="banner">
-                <img src="/assets/imgs/banners/SQL_setup.png">
+                <img src="/assets/imgs/banners/generic_banner.jpg">
             </div>
 
             <br>
 
             <div class="share_this_plugin">
                 <br>
-                <!-- Footer . Also copy the part from start of <head> tag above -->
+                <!-- Also copy the part from start of <head> tag above -->
                 <div class="sharethis-inline-share-buttons"></div>
             </div>
-
-            <h1>SQL Server Setup</h1>
-
+            <h1>Commonly Asked Interview Questions</h1>
             <hr>
-            <div class="toc">
+            <!-- <div class="toc">
                 <h1>Table of Contents</h1>
-                <ol>
-                    <li><a href="#setup">1) Server Setup</a></li>
-                    <li><a href="#basics">2) Basic Querying</a></li>
-                </ol>
+                <a href="#basics">1) Basics</a> <br>
+                <a href="#intermediate">2) Intermediate</a> <br>
+                <a href="#footer">3) Window Functions</a> <br>
             </div>
-            <hr>
+            <hr> -->
 
             <div class="blog_content">
                 <br>
-                <div id="setup">
-                    <h1>1) Server Setup</h1>
+                <div id="basics">
+                    <h1>1) Basics</h1>
                     <p>
-                    <ol>
-                        <li>Donwload SQL Server <a
-                                href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">Dveloper
-                                Edition</a></li>
-                        <li>
-                            Meanwhile, download
-                            <a
-                                href="https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms">database</a>
-                            we wold be working with
-                            <img src="/assets/imgs/blog/sql/ssms_window_0.JPG" alt="" style="width: 90%;">
-                        </li>
-                        <li>Save the downloaded "<i>.BAK</i>" in a desired folder, under C Drive, where you want to keep
-                            all your databases</li>
-                        <li>Open the downloaded SQL Server and install it</li>
-                        <li>After installation, press win-key and search SSMS, and open it</li>
-                        <li>Click on connect and wait till SSMS opens up
-                            <img src="/assets/imgs/blog/sql/ssms_window_00.JPG" alt="ssms_window" style="width: 98%;">
-                        </li>
-                        <li>On RHS, right click on Database and left click on Restore Database</li>
-                        <li>Click on "Device" option and then click on 3-dots adjacent to it
-                            <img src="/assets/imgs/blog/sql/ssms_window_01.JPG" alt="ssms_window" style="width: 98%;">
-                        </li>
-                        <li>Click on "Add" button and then navigate to the folder where you stored the downloaded file
-                            (Step2)</li>
-                        <li>Click OK, and now we're ready to begin querying, in the database we just included, as
-                            visible in LHS side of the SSMS window under Database</li>
-                        <li>Righ click on DB name(<i>AdventureWorksDW2017</i> in our case ), goto 'Tables' adn right
-                            click on a table and select
-                            <img src="/assets/imgs/blog/sql/ssms_window_03.png" alt="ssms_window" style="width: 98%;">
-                        </li>
-                        <li>Type in your query, select the lines you would like to run, press "F5" to execute the
-                            selected lines
-                            <img src="/assets/imgs/blog/sql/ssms_window_04.JPG" alt="" style="width: 98%;">
-                        </li>
-                        <li>
-                            That's it. Happy Querying!!!
-                        </li>
-                    </ol>
+                        <b>Why multicollinearity is a problem in linear regression?</b>
+                        <br>
+                        <img src="/assets/imgs/blog/stats/interview_questions_01.PNG" alt="multicollinearity"
+                            style="width: 95%;">
+                        <i class="img_credit">Credits: <a
+                                href="https://stats.stackexchange.com/a/1150/313779">Rob Hyndman</a>
+                        </i>
+                        <br>
                     </p>
-                    <p> To save battery being consumer by SSMS server, when you're not using it, close the SSMS server
-                        services:
-                    <ol>
-                        <li>Press Win-Key and search Services</li>
-                        <li>Scroll down and go to <i>SQL Server (MSSQLSERVER)</i></li>
-                        <li>Right click on it, and 'stop' it</li>
-                        <li>Next time, before launching SSMS, come back here, right click and 'start' it</li>
-                        <img src="/assets/imgs/blog/sql/ssms_window_05.png" alt="" style="width: 98%;">
-                    </ol>
+                    <p>
+                        <b>Aggregrators</b>: COUNT, SUM, MAX, GROUP BY, HAVING
+                    </p>
+                    <p>
+                        <b>DISTINCT, COUNT DISTINCT</b>:
+                    </p>
+                    <p>
+                        <b>Joins</b>:
+                    </p>
+                    <p>
+                        <b>Self Joins</b>:
+                        <iframe width="95%" height="320" src="https://www.youtube.com/embed/6DQpvfdj6EE"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </p>
+                    <p>
+                        <b>UNION and UNION ALL</b>:
                     </p>
                 </div>
-                <div id="basics">
+                <div id="intermediate">
+                    <h1>2) Intermediate</h1>
+                    <p>
+                        <b>Handling NULLs creatively</b>: COALESCE
+                    </p>
+                    <p>
+                        <b>Subqueries</b>:
+                    </p>
+                    <p>
+                        <b>Window functions</b>: PARTITION, LEAD, LAG, NTILE
+                    </p>
+                    <p>
+                        <b>UDFs</b>:
+                    </p>
+                    <p>
+                        <b>Recursive CTEs</b>:
+                    </p>
                 </div>
             </div>
 
@@ -176,9 +168,9 @@
             <h1></h1>
         </div>
 
-        <div class="footer">
+        <div class="footer" id="footer">
             <div id="page_change_btns">
-                <a href="/blog/deep_learning/nlp">
+                <a href="#">
                     <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
                         <span>Previous </span>
                     </button>
@@ -187,9 +179,9 @@
                 <!-- ####################
                 Link in nxt-btn needs update
                 #################### -->
-                <a href="/blog/langs/SQL/basics">
+                <a href="/blog/langs/SQL/window_functions">
                     <button class="pagination_button next_button" style="">
-                        <span>Basic Querying </span>
+                        <span>Window Functions </span>
                     </button>
                 </a>
             </div>

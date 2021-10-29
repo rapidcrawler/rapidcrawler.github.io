@@ -10,6 +10,7 @@
   <script>
     $(function () {
       $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+      $("#NLP_LHSNavBar").load("/assets/scripts/NLP_LHSNavBar.html");
     });
   </script>
 
@@ -31,7 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 
@@ -42,14 +43,9 @@
   <div class="three_col_layout">
 
     <!-- ####################
-    LHS col needs update
+    LHSNavBar . Also copy the part from start of <head> tag above
     #################### -->
-    <div class="column_left">
-      <h2 style="text-align: center;"> Chapters </h2>
-      <a href="#">1) Glossary</a> <br>
-      <a href="/blog/deep_learning/nlp_preprocessing">2) Preprocessing Text Data</a> <br>
-      <a href="#">3) Machine Translation</a> <br>
-    </div>
+    <div id="NLP_LHSNavBar"></div>
 
     <!-- ####################
     Page Titke needs update

@@ -10,6 +10,7 @@
     <script>
         $(function () {
             $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+            $("#SQL_LHSNavBar").load("/assets/scripts/SQL_LHSNavBar.html");
         });
     </script>
 
@@ -43,22 +44,13 @@
     <div class="three_col_layout">
 
         <!-- ####################
-    LHS Sidebar needs update
-    #################### -->
-        <div class="column_left">
-            <h2 style="text-align: center;"> Chapters </h2>
-            <ol>
-                <li><a href="/blog/langs/SQL/setup">Server Setup</a></li>
-                <li><a href="/blog/langs/SQL/basics.html">Basic Querying</a></li>
-                <li><a href="/blog/langs/SQL/joins">Joins</a></li>
-                <li><a href="/blog/langs/SQL/window_functions">Window Functions</a></li>
-                <li><a href="/blog/langs/SQL/common_interview_questions">Interview Questions</li>
-            </ol>
-        </div>
+        LHSNavBar . Also copy the part from start of <head> tag above
+        #################### -->
+        <div id="SQL_LHSNavBar"></div>
 
         <!-- ####################
-    Page Titke needs update
-    #################### -->
+        Page Titke needs update
+        #################### -->
         <div class="column_center">
             <h1>SQL Language</h1>
             <div class="meta_info">
