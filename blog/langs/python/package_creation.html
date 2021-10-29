@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type='text/javascript'
+        src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop'
+        async='async'></script>
+    <!-- NavBar . Also copy the part from start of <body> tag below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+        });
+    </script>
+
+    <title>Juspreet51.in</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css_dark_mode_gist_embed_code.css">
+
+    <!-- Google Fonts: Robot Black 900-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <!-- NavBar . Also copy the part from start of <head> tag above -->
+    <div id="nav_bar_dark"></div>
+
+    <div class="three_col_layout">
+
+        <!-- ####################
+    LHS Sidebar needs update
+    #################### -->
+        <div class="column_left">
+            <!-- <h2 style="text-align: center;"> Chapters </h2>
+      <ol>
+        <li><a href="#">Resume</a></li>
+        <li><a href="#">Portfolio Preparation</a></li>
+        <li><a href="#">HR Outreach</a></li>
+      </ol> -->
+        </div>
+
+        <!-- ####################
+    Page Titke needs update
+    #################### -->
+        <div class="column_center">
+            <h1>Create Your Own pip Library</h1>
+            <div class="meta_info">
+                <span style="float: left;">
+                    <p>
+                        <!-- ####################
+            Date-Posted needs update
+            #################### -->
+                        Posted by: <a href="/index" target="_blank" class="blog_links">Juspreet51</a>
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        Last Updated on: 30 Oct, 2021
+                    </p>
+                </span>
+            </div>
+
+
+            <!-- ####################
+        Banner img needs update
+        #################### -->
+            <div class="banner">
+                <img src="/assets/imgs/banners/generic_banner.jpg">
+            </div>
+
+            <br>
+
+            <div class="share_this_plugin">
+                <br>
+                <!-- Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+            <h1>Create Your Own pip Library</h1>
+            <hr>
+            <!-- ####################
+        ToC needs update
+        #################### -->
+            <div class="toc">
+                <h1>Table of Contents</h1>
+                <ol>
+                    <li><a href="#setup">Setup</a></li>
+                    <li><a href="#structuring">Structuring</a></li>
+                    <li><a href="#ref">References</a></li>
+                </ol>
+            </div>
+            <hr>
+
+            <div class="blog_content">
+                <div id="setup">
+                    <h2>Packaging Python Projects</h2>
+                    <p>
+                    <ol>
+                        <li>Make Sure you have updated pip installed
+                            <br>
+                            <code>py -m pip install --upgrade pip</code>
+                        </li> <br>
+                        <li>
+                            Follow the steps from <a
+                                href="https://packaging.python.org/tutorials/packaging-projects/">official doc</a> to
+                            create a ready to push directory
+                        </li> <br>
+                        <li>
+                            Make sure you're following the below dir structure: <br>
+                            <pre>
+                            .
+                            └── your_name_pkg/
+                                ├── LICENSE
+                                ├── pyproject.toml
+                                ├── README.md
+                                ├── setup.cfg
+                                ├── src/
+                                │   └── example_package/
+                                │       ├── __init__.py
+                                │       └── example.py
+                                └── Tests
+                      </pre>
+                        </li>
+                    </ol>
+                    </p>
+                </div>
+
+                <div id="structuring">
+                    <h2>Generating distribution archives</h2>
+                    <p>
+                    <ol>
+                        <li>
+                            Open the <b>setup.cfg</b> or <b>setup.py</b> file and update the version to be x.y.1b1 (beta
+                            release 1) <br>
+                            x.y.z = major.minor.patch <br>
+                            <pre>
+                            .
+                            └── your_name_pkg/   
+                                ├── LICENSE
+                                ├── pyproject.toml
+                                ├── README.md
+                                ├── setup.cfg       <==== update version here
+                                ├── src/
+                                │   └── example_package/
+                                │       ├── __init__.py
+                                │       └── example.py
+                                └── Tests
+                      </pre>
+                        </li> <br>
+
+                        <li>Move to the <b>your_name_pkg</b> directory and open cmd
+                            <pre>
+                            .
+                            └── your_name_pkg/   <==== Open cmd here
+                                ├── LICENSE
+                                ├── pyproject.toml
+                                ├── README.md
+                                ├── setup.cfg
+                                ├── src/
+                                │   └── example_package/
+                                │       ├── __init__.py
+                                │       └── example.py
+                                └── Tests
+                      </pre>
+                            ** CMD Trick: Go to the desired folder, press alt+D+Home, type cmd + Spacebar, hit enter
+                        </li> <br>
+                        <li>
+                            Make sure you have the latest version of PyPA’s build installed: <br>
+                            <code>
+                        py -m pip install --upgrade build
+                    </code>
+                        </li> <br>
+                        <li>
+                            Build your package, so that it's ready to be pushed to PyPi <br>
+                            <code>
+                            py -m build
+                      </code>
+                        </li> <br>
+                        <li>
+                            Using <b>Twine</b> to push the package: <br>
+                            <code>
+                            py -m pip install --upgrade twine <br>
+                            py -m twine upload --repository testpypi dist/*
+                      </code>
+                        </li> <br>
+                        <li>
+                            For the username, use <i>__token__</i>. For the password, use the <a
+                                href="https://test.pypi.org/manage/account/token/">token value</a>, including the pypi-
+                            prefix
+                        </li> <br>
+                        <li>
+                            Once pushed, goto <a href="https://test.pypi.org/manage/projects/">PyPi Projects</a> and get
+                            pip install command for your library
+                        </li> <br>
+                        <li>
+                            It'll look something like this: <br>
+                            <code>
+                        py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
+                      </code>
+                        </li> <br>
+                        <li>
+                            Open anaconda prompt & create a new virtual env
+                        </li> <br>
+                        <li>
+                            Paste the pip command copied from the <a href="https://test.pypi.org/manage/projects/">PyPi
+                                Projects</a> page
+                        </li> <br>
+                        <li>
+                            Run python to test proper working of the library: <br>
+                            <code>
+                        py
+                      </code>
+                        </li> <br>
+                        <li>
+                            Import the package: <br>
+                            <code>
+                        from example_package import example <br>
+                        example.add_one(2)
+                    </code>
+                        </li> <br>
+                        <li>
+                            If evrything is working rightly, reupdate the <b>setup.cfg</b> or <b>setup.py</b> file as
+                            x.y.1 (1st release)
+                            <pre>
+                        .
+                        └── your_name_pkg/   
+                            ├── LICENSE
+                            ├── pyproject.toml
+                            ├── README.md
+                            ├── setup.cfg       <==== update version here
+                            ├── src/
+                            │   └── example_package/
+                            │       ├── __init__.py
+                            │       └── example.py
+                            └── Tests
+                  </pre>
+                        </li> <br>
+                        <li>
+                            Build your package, so that it's ready to be pushed to PyPi <br>
+                            <code>
+                          py -m build
+                    </code>
+                        </li> <br>
+                        <li>
+                            Using <b>Twine</b> to push the package: <br>
+                            <code>
+                          py -m twine upload dist/*
+                    </code>
+                        </li> <br>
+                        <li>
+                            For the username, use <i>__token__</i>. For the password, use the <a
+                                href="https://pypi.org/manage/account/token/">token value</a>, including the pypi-
+                            prefix
+                        </li> <br>
+                        <li>
+                            Once pushed, goto <a href="https://pypi.org/manage/projects/">PyPi Projects</a> and get
+                            pip install command for your library
+                        </li> <br>
+                        <li>
+                            Open anaconda prompt & uninstall your library
+                            <code>
+                                pip uninstall your_name_pkg
+                            </code>
+                            And pip install the latest package from <a href="https://pypi.org/manage/projects/">PyPi
+                                Projects</a> page
+                        </li> <br>
+                        <li>
+                            Run python to test proper working of the library: <br>
+                            <code>
+                        py
+                      </code>
+                        </li> <br>
+                        <li>
+                            Import the package: <br>
+                            <code>
+                        from example_package import example <br>
+                        example.add_one(2)
+                    </code>
+                        </li> <br>
+                        <li>
+                            GitHub <a href="https://github.com/juspreet51/juspreet51_pkg">repository</a> for <i>Juspreet51</i> library
+                        </li>
+                    </ol>
+                    </p>
+                </div>
+
+                <div id="ref">
+                    <p>Something</p>
+                </div>
+            </div>
+
+            <div class="column_right">
+                <!-- <h2 style="text-align: center;"> Topics </h2>
+                <a href="#basics">a) Basics</a> <br>
+                <a href="#sample">b) Distributions</a> <br>
+                <a href="#summary">c) Data Summary</a> <br>
+                <a href="#distribution">d)Shape of Distribution</a> <br> -->
+            </div>
+            <!-- ########################################### -->
+            <!-- ############## RHS Sidebar ################ -->
+            <!-- ########################################### -->
+
+        </div>
+    </div>
+    <!-- ################################################### -->
+    <!-- ############ three_col_layout Ends Here ########### -->
+    <!-- ################################################### -->
+
+    <div style="height: 50px;">
+        <h1></h1>
+    </div>
+
+    <div class="footer" id="footer">
+        <div id="page_change_btns">
+            <a href="#">
+                <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+                    <span>Previous </span>
+                </button>
+            </a>
+
+            <!-- ####################
+                Link in nxt-btn needs update
+                #################### -->
+            <a href="#">
+                <button class="pagination_button next_button disabled_btn" style="">
+                    <span>Next </span>
+                </button>
+            </a>
+        </div>
+        <br> <br> <br> <br>
+        <div class="share_this_plugin">
+            <h1>Share This</h1>
+            <p>Share it with your friends and colleagues whom you think it can help</p>
+            <!-- Footer . Also copy the part from start of <head> tag above -->
+            <div class="sharethis-inline-share-buttons"></div>
+        </div>
+
+        <div class="comment_box">
+            <!-- ########################################### -->
+            <!-- ############# Needs updates ############### -->
+            <!-- ########################################### -->
+            <!-- begin wwww.htmlcommentbox.com -->
+            <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
+            </div>
+            <link rel="stylesheet" type="text/css"
+                href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+            <script type="text/javascript"
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+            <!-- end www.htmlcommentbox.com -->
+        </div>
+
+    </div>
+
+</body>
+
+</html>
