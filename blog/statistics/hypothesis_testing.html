@@ -11,6 +11,7 @@
         $(function () {
             $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
             $("#stats_LHSNavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
+            $("#stats_refs").load("/assets/scripts/refrences/stats_refs.html");
         });
     </script>
 
@@ -95,6 +96,7 @@
                     <li><a href="#hypothesis">Hypothesis</a></li>
                     <li><a href="#pValue">P-Value</a></li>
                     <li><a href="#hypo_tests">Hypothesis Tests</a></li>
+                    <li><a href="#refs">References</a></li>
                 </ol>
             </div>
             <hr>
@@ -105,14 +107,22 @@
                 </div>
                 <div id="pValue">
                     <p>
-                        <b>p-Value</b>: Conditional Probability, given Null-Hypothesis is true, what is the probability of observing any association between the predictor-response variables
+                        <b>p-Value</b>: Conditional Probability, given Null-Hypothesis is true, what is the probability
+                        of observing any association between the predictor-response variables
                         <br>
-                        A small p-value indicates, in the absence of any real association between predictor and the response, it is highly unlikely to observe such a substantial association between the predictor and the response
+                        A small p-value indicates, in the absence of any real association between predictor and the
+                        response, it is highly unlikely to observe such a substantial association between the predictor
+                        and the response
                     </p>
                 </div>
                 <div id="hypo_tests">
                     <p>Something</p>
                 </div>
+
+                <!-- ####################
+                Refs . Also copy the part from start of <head> tag above
+                #################### -->
+                <div id="stats_refs"></div>
             </div>
 
             <div class="column_right">

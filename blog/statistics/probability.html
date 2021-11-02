@@ -10,8 +10,8 @@
   <script>
     $(function () {
       $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
-    //   $("#probability_LHSNavBar").load("/assets/scripts/proba_LHSNavBar.html");
-    $("#stats_LHSNavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
+      $("#stats_LHSNavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
+      $("#stats_refs").load("/assets/scripts/refrences/stats_refs.html");
     });
   </script>
 
@@ -53,7 +53,7 @@
     Page Titke needs update
     #################### -->
     <div class="column_center">
-      <h1>Probability</h1>
+      <h1>Statistics</h1>
       <div class="meta_info">
         <span style="float: left;">
           <p>
@@ -96,50 +96,61 @@
           <li><a href="#basics">Basic</a></li>
           <li><a href="#bayes">Bayes Theorem</a></li>
           <li><a href="#dist">Probability Distribution</a></li>
+          <li><a href="#refs">References</a></li>
         </ol>
       </div>
       <hr>
 
       <div class="blog_content">
         <div id="basics">
-          <p>Something</p>
-          <p>Something More</p>
+          <h3>Probability</h3>
+          <p>Probability</p> is a metric for determining the likelihood of an event occurring. Many things are
+          impossible to predict with 100% certainty. Using it, you can only predict the probability of an event
+          occurring, i.e., how likely it is to occur.
+          <h3>Conditional Probability</h3>
           <p>
-              <b>Conditional Probability</b>: Conditional probability is known as the possibility of an event or outcome happening, based on the existence of a previous event or outcome.
-              <br><br>
-              For example, we might expect the probability that it will rain tomorrow (in general) to be smaller than the probability it will rain tomorrow given that it is cloudy today. This latter probability is a conditional probability, since it accounts for relevant information that we possess.
-              <br><br>
-              Mathematically, computing a conditional probability amounts to shrinking our sample space to a particular event. So in our rain example, instead of looking at how often it rains on any day in general, we "pretend" that our sample space consists of only those days for which the previous day was cloudy. 
+            <b>Conditional Probability</b> is known as the possibility of an event or outcome happening, based on the
+            existence of a previous event or outcome.
+            <br><br>
+            For example, we might expect the probability that it will rain tomorrow (in general) to be smaller than the
+            probability it will rain tomorrow given that it is cloudy today. This latter probability is a conditional
+            probability, since it accounts for relevant information that we possess.
+            <br><br>
+            Mathematically, computing a conditional probability amounts to shrinking our sample space to a particular
+            event. So in our rain example, instead of looking at how often it rains on any day in general, we "pretend"
+            that our sample space consists of only those days for which the previous day was cloudy.
           </p>
         </div>
         <div id="bayes">
-            <p>
-              <b>Bayes Theorem</b>
-            </p>
-            <p>
-                <ol>
-                    <li>
-                        <i>Bayes Theorem</i>:
-                    </li>
-                    <li>
-                        <i>Prior Probability</i>:
-                    </li>
-                    <li>
-                        <i>Likelihood Function</i>:
-                    </li>
-                    <li>
-                        <i>Posterior Probability</i>:
-                    </li>
-                    <li>
-                        <i>Bayesian Statistics in Python</i>:
-                    </li>
-                </ol>
-                credits: <a href="https://analyticsindiamag.com/a-guide-to-bayesian-statistics-in-python-for-beginners/">AIM</a>
-            </p>
-          </div>
-          <div id="dist">
-            <p>Something</p>
-          </div>
+          <h3>Bayes Theorem</h3>
+          <p>
+            <b>Bayes Probability</b> can be understood as the description of the probability of any event which is
+            obtained by prior knowledge about the event
+          <ol>
+            <li>
+              <i>Prior Probability</i>:
+            </li>
+            <li>
+              <i>Likelihood Function</i>:
+            </li>
+            <li>
+              <i>Posterior Probability</i>:
+            </li>
+            <li>
+              <i>Bayesian Statistics in Python</i>:
+            </li>
+          </ol>
+          credits: <a
+            href="https://analyticsindiamag.com/a-guide-to-bayesian-statistics-in-python-for-beginners/">AIM</a>
+          </p>
+        </div>
+        <div id="dist">
+          <p>Something</p>
+        </div>
+        <!-- ####################
+        Refs . Also copy the part from start of <head> tag above
+        #################### -->
+        <div id="stats_refs"></div>
       </div>
 
       <div class="column_right">
