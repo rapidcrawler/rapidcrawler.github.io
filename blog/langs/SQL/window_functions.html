@@ -91,7 +91,8 @@
                 <h1>Table of Contents</h1>
                 <a href="#groupby">1) GroupBy</a> <br>
                 <a href="#over">2) Over</a> <br>
-                <a href="#footer">3) Interview Questions</a>
+                <a href="#footer">3) Interview Questions</a> <br>
+                <a href="#refs">References</a> <br>
             </div>
             <hr>
 
@@ -141,8 +142,14 @@
                     </p>
                 </div>
                 <div id=window>
-                    <p>
-                    <h1 id="over">Over</h1>
+                    <h1 id="over">Window functions</h1>
+                    <h3>Before begining, a great introduction about window functions:</h3>
+                        <iframe width="95%" height="320px" src="https://www.youtube.com/embed/Ww71knvhQ-s" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    <p>                    
                     <script
                         src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=over.sql"></script>
                     <br>
@@ -163,7 +170,8 @@
                     <iframe width="95%" height="320px" src="https://www.youtube.com/embed/D6XNlTfglW4"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                        allowfullscreen>
+                    </iframe>
                     More vides from the same <a
                         href="https://www.youtube.com/playlist?list=PLUaB-1hjhk8HTgPnBukmMq7QTe83ANirL">playlist</a>
 
@@ -190,7 +198,8 @@
                     <h1>Preceding and Following</h1>
                     <p>
                         <script
-                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=preceeding.sql"></script>
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=preceeding.sql">
+                        </script>
                         <br>
                         <img src="/assets/imgs/blog/sql/Window_Function_05.PNG" alt="" style="width: 85%;">
                         <br>
@@ -201,7 +210,8 @@
                         <h1>Row Number, Rank & Dense Rank</h1>
                         <p>
                             <script
-                                src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=rank.sql"></script>
+                                src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=rank.sql">
+                            </script>
                             <br>
                             <img src="/assets/imgs/blog/sql/Window_Function_06.PNG" alt="" style="width: 85%;">
                             <br>
@@ -215,7 +225,8 @@
                             <li> <b>cume_dist</b> will return a number from 1 towards 0 but never 0</li>
                         </ul>
                         <script
-                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=percent_rank.sql"></script>
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=percent_rank.sql">
+                        </script>
                         <br>
                         <img src="/assets/imgs/blog/sql/Window_Function_07.PNG" alt="" style="width: 85%;">
                         <br>
@@ -228,7 +239,8 @@
                             <b>Lag and Lead</b>: These functions allow you to examine the next or previous row, may then
                             compare this value to the current row
                             <script
-                                src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=lag_lead.sql"></script>
+                                src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=lag_lead.sql">
+                            </script>
                             <br>
                             <img src="/assets/imgs/blog/sql/Window_Function_08.PNG" alt="" style="width: 85%;">
                         </p>
@@ -238,7 +250,8 @@
                         <p id="unbounded_preceding">
                         <h3>Unbounded Preceding</h3>
                         <script
-                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=unbounded_preceding.sql"></script>
+                            src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=unbounded_preceding.sql">
+                        </script>
                         <br>
                         <img src="/assets/imgs/blog/sql/Window_Function_09.PNG" alt="" style="width: 85%;">
                         <br>
@@ -248,9 +261,12 @@
                             <br>
                             nth_value will return the nth_value, but if we do not specify a range it will
                             return null if the current value is less than the nth. If we always want something displayed
-                            we
-                            need to specify a range
-
+                            we need to specify a range
+                            <iframe width="95%" height="320px" 
+                                src="https://www.youtube.com/embed/zAmJPdZu8Rg?start=1600" 
+                                title="YouTube video player" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                            </iframe>
                             <br><br>
 
                             <b>ntile</b>: ntile(n) divides the group into n equal partitions and denotes which partition
@@ -262,10 +278,27 @@
                             </i>
                             <br>
                             <script
-                                src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=nth_ntile.sql"></script>
+                                src="https://gist.github.com/juspreet51/d6a453950bcd3b459cfbbf612e4bb025.js?file=nth_ntile.sql">
+                            </script>
                             <br>
                         </p>
                     </div>
+                </div>
+                <div id="refs">
+                    <h3>References</h3>
+                    <ul>
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=Ww71knvhQ-s">
+                                SQL Window Function | How to write SQL Query using RANK, DENSE RANK, LEAD/LAG | SQL
+                                Queries Tutorial
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=zAmJPdZu8Rg">
+                                SQL Window Function | How to write SQL Query using Frame Clause, CUME_DIST | SQL Queries Tutorial
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
