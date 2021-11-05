@@ -1,7 +1,8 @@
 body {
   background-color: #121212;
   /*Dark Theme Background*/
-  color: #84817a; /* body font color */
+  color: #84817a;
+  /* body font color */
 }
 
 b {
@@ -9,14 +10,16 @@ b {
 }
 
 p {
-  color: #84817a; /* body font color */
+  color: #84817a;
+  /* body font color */
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
   text-align: justify;
 }
 
 ul {
-  color: #84817a; /* body font color */
+  color: #84817a;
+  /* body font color */
 }
 
 h1, h2, h3, h4 {
@@ -25,11 +28,13 @@ h1, h2, h3, h4 {
 
 a {
   text-decoration: none;
-  color: #00FFBB; /*Green headings color*/
+  color: #00FFBB;
+  /*Green headings color*/
 }
 
 .three_col_layout h1, h2, h3, h4 {
-  color: #00FFBB; /*Green headings color*/
+  color: #00FFBB;
+  /*Green headings color*/
   font-family: 'Orbitron', sans-serif;
   text-align: left;
 }
@@ -61,7 +66,8 @@ a {
 .column_left a:hover, .column_right a:hover, .column_center a:hover {
   font-weight: bold;
   text-align: left;
-  color: #00FFBB; /*Green headings color*/
+  color: #00FFBB;
+  /*Green headings color*/
 }
 
 .column_center {
@@ -79,7 +85,8 @@ a {
 }
 
 .meta_info a {
-  color: #00FFBB; /*Green headings color*/
+  color: #00FFBB;
+  /*Green headings color*/
 }
 
 .toc {
@@ -98,7 +105,8 @@ a {
 }
 
 .blog_content h1, h2, h3 {
-  color: #00FFBB; /*Green headings color*/
+  color: #00FFBB;
+  /*Green headings color*/
   font-family: 'Orbitron', sans-serif;
   text-align: left;
 }
@@ -115,13 +123,15 @@ a {
 .blog_content b {
   font-family: 'Exo 2', sans-serif;
   font-size: 17px;
-  color: #da9600; /* Yellow Bold texts*/
+  color: #da9600;
+  /* Yellow Bold texts*/
 }
 
 .blog_content i {
   font-family: 'Exo 2', sans-serif;
   font-size: 15px;
-  color: #FC427B; /* Red color for italics */
+  color: #FC427B;
+  /* Red color for italics */
 }
 
 .blog_content img {
@@ -145,11 +155,11 @@ a {
   margin-left: 25px;
 }
 
-
-
 /*Hide sidebars, when screen size too small*/
+
 /* We're using max-width, because we want to make an exception to the CSS, 
 when a screen is smaller than the 1200px */
+
 @media only screen and (max-width: 1200) {
   .mobile_hide {
     display: none;
@@ -160,7 +170,19 @@ when a screen is smaller than the 1200px */
 }
 
 @media only screen and (max-width: 600px) {
-  .hide-mobile   {display:none;}
-  .column_left  {display:none;}
-  .column_center {width: 95%;}
- }
+  .hide-mobile {
+    display: none;
+  }
+  .column_left {
+    display: none;
+  }
+  .column_center {
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width: 680px) {
+  .hide_in_pc{
+    display: none;
+  }
+}
