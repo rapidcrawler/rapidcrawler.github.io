@@ -103,6 +103,7 @@
             <div class="toc">
                 <h1>Table of Contents</h1>
                 <ol>
+                    <li><a href="#basics">Basics</a></li>
                     <li><a href="#prec_recall">Precision & Recall</a></li>
                     <li><a href="#roc_auc">ROC & AUC</a></li>
                     <li><a href="#refs">References</a></li>
@@ -111,6 +112,15 @@
             <hr>
 
             <div class="blog_content">
+                <div id="basics">
+                    <h3>Basics</h3>
+                    <b>Confusion Matrix</b>: 
+                    <img src="/assets/imgs/blog/classification/confusion_matrix.jpg" alt="confusion_matrix" width="95%">
+                    <br>
+                    <b>Type-I & Type-II Errors</b>: 
+                    <img src="/assets/imgs/blog/classification/type_1_2_error.jpg" alt="type_1_2_error" width="95%">
+                    <!-- <img src="/assets/imgs/blog/nlp/nlp_00.JPG" class="center" style="width: 80%"> -->
+                </div>
                 <div id="prec_recall">
                     <h3>Evaluation Metrics</h3>
                     <p>
@@ -151,11 +161,18 @@
                         <b><a href="https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/">
                                 ROC & AUC Curve</a></b>
                         <br>
-                        <b>Sensitivity</b> / <b>True Positive Rate</b> / <b>Recall</b>: Sensitivity tells us what proportion of the positive
-                        class got correctly classified
+                        <b>Sensitivity</b> / <b>True Positive Rate</b> / <b>Recall</b>: Sensitivity tells us what proportion of the positive class got correctly classified
                         <br>
-                        <b>Specificity</b> / True Negative Rate: Specificity tells us what proportion of the negative class got
+                        Sensitivity is the ability of a test to correctly identify patients with the disease, e.g. the percentage of sick persons who are correctly identified as having a disease
+                        <br>
+                        100/100 sick people in a crowd identified, then its a 100% Sensitivity. Low Sensitivity gives TypeII-Error
+                        <br>
+                        <b>Specificity</b> / <b>True Negative Rate</b>: Specificity tells us what proportion of the negative class got
                         correctly classified
+                        <br>
+                        100/100 healthy people in a crowd identified, then its a 100% Specificity
+                        <br>
+                        E.g. the percentage of healthy people who are correctly identified as not having the disease
                         <br>
                         <b>False Negative Rate</b>: FNR tells us what proportion of the positive class got incorrectly
                         classified by the classifier
