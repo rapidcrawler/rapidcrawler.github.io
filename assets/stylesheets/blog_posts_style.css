@@ -181,7 +181,7 @@ when a screen is smaller than the 1200px */
   }
 }
 
-@media only screen and (min-width: 680px) {
+@media only screen and (min-width: 600px) {
   .hide_in_pc{
     display: none;
   }
