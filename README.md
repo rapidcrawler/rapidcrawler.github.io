@@ -1,1 +1,1 @@
-# Click here to visit [the Blog](http://juspreet51.in/)
+# Click here to visit [the Blog](https://juspreet51.github.io/)
