@@ -10,10 +10,12 @@
     <script>
         $(function () {
             $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+            $("#classification_LHSNavBar").load("/assets/scripts/LHSSidebar/classification_LHSNavBar.html");
+            $("#clf_Mobile_NavBar").load("/assets/scripts/LHSSidebar/classification_LHSNavBar.html");
         });
     </script>
 
-    <title>Juspreet51.in</title>
+    <title>Introduction to Classification | Juspreet51.in</title>
 
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -43,29 +45,24 @@
     <div class="three_col_layout">
 
         <!-- ####################
-    LHS Sidebar needs update
-    #################### -->
+        LHS Sidebar needs update
+        #################### -->
         <div class="column_left">
             <h2 style="text-align: center;"> Chapters </h2>
-            <ol>
-                <li><a href="#">Regression</a></li>
-                <li><a href="#">Classification</a></li>
-                <li><a href="#">Feature Engineering</a></li>
-                <li><a href="#">Ensembling</a></li>
-            </ol>
+            <div id="classification_LHSNavBar"></div>
         </div>
 
         <!-- ####################
-    Page Titke needs update
-    #################### -->
+        Page Titke needs update
+        #################### -->
         <div class="column_center">
-            <h1>Post Title</h1>
+            <h1>Classification</h1>
             <div class="meta_info">
                 <span style="float: left;">
                     <p>
                         <!-- ####################
-            Date-Posted needs update
-            #################### -->
+                        Date-Posted needs update
+                        #################### -->
                         Posted by: <a href="/index" target="_blank" class="blog_links">Juspreet51</a>
                     </p>
                 </span>
@@ -78,8 +75,8 @@
 
 
             <!-- ####################
-        Banner img needs update
-        #################### -->
+            Banner img needs update
+            #################### -->
             <div class="banner">
                 <img src="/assets/imgs/banners/generic_banner.jpg">
             </div>
@@ -91,48 +88,49 @@
                 <!-- Also copy the part from start of <head> tag above -->
                 <div class="sharethis-inline-share-buttons"></div>
             </div>
-            <h1>Classification</h1>
+            <h1>Classification Evaluation Metrics</h1>
             <hr>
+            <div class="hide_in_pc">
+                <h3>
+                    Chapters
+                </h3>
+                <div id="clf_Mobile_NavBar"></div>
+                <hr>
+            </div>
             <!-- ####################
-        ToC needs update
-        #################### -->
+            ToC needs update
+            #################### -->
             <div class="toc">
                 <h1>Table of Contents</h1>
                 <ol>
-                    <li><a href="#intro">Introduction</a></li>
-                    <li><a href="#classification_models">Classification Models</a></li>
-                    <li><a href="#metrics">Evaluation Metrics</a></li>
+                    <li><a href="#prec_recall">Precision & Recall</a></li>
+                    <li><a href="#roc_auc">ROC & AUC</a></li>
+                    <li><a href="#refs">References</a></li>
                 </ol>
             </div>
             <hr>
 
             <div class="blog_content">
-                <div id="intro">
-                    <p>Something</p>
-                </div>
-
-                <div id="classification_models">
-                    <p>Something</p>
-                </div>
-
-                <div id="metrics">
+                <div id="prec_recall">
+                    <h3>Evaluation Metrics</h3>
                     <p>
-                        <b><a href="#">Precision & Recall:</a></b> <br>
+                        <b>Precision & Recall</b>:
+                        <br>
                         <img src="/assets/imgs/blog/classification/metrics_01.PNG" alt="precision-and-recall"
                             style="width: 65%;">
                         <i class="img_credit">Credits: <a
                                 href="https://deepai.org/machine-learning-glossary-and-terms/precision-and-recall">deepai.org</a>
                         </i> <br> <br>
-                        Explanation: <a
-                            href="https://www.reddit.com/r/datascience/comments/qdai89/i_just_explained_recallprecision_to_a_nonds_and/">u/question_23</a>
+                        Explanation credits: <a
+                            href="https://www.reddit.com/r/datascience/comments/qdai89/i_just_explained_recallprecision_to_a_nonds_and/">reddic.om/u/question_23</a>
                         <br>
                         Imagine you're fishing and you have been informed there are a total of 100 fishes in the pond.
-                        Out of those 100 fishes present in the pond, you manage to catch 80<br>
+                        Out of those 100 fishes present in the pond, you manage to catch 80, so your <b>Recall</b> is <br>
                         <img src="/assets/imgs/blog/classification/metrics_02.PNG" alt="precision-and-recall"
                             style="width: 65%;">
                         <br>
                         But you also get 80 rocks in your net. So, the total number of things retrived in your fish net
-                        is 80 Fishes + 80 Stones/Junk = 160 things
+                        is 80 Fishes + 80 Stones/Junk = 160 things, so your <b>Precision</b> is
                         <br>
                         <img src="/assets/imgs/blog/classification/metrics_03.PNG" alt="precision-and-recall"
                             style="width: 65%;">
@@ -147,11 +145,13 @@
                         <br>
                         That is <i>20% recall</i> but <i>100% precision.</i>
                     </p>
+                    </div>
+                    <div id="roc_auc">
                     <p>
                         <b><a href="https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/">
                                 ROC & AUC Curve</a></b>
                         <br>
-                        <b>Sensitivity</b> / True Positive Rate / Recall: Sensitivity tells us what proportion of the positive
+                        <b>Sensitivity</b> / <b>True Positive Rate</b> / <b>Recall</b>: Sensitivity tells us what proportion of the positive
                         class got correctly classified
                         <br>
                         <b>Specificity</b> / True Negative Rate: Specificity tells us what proportion of the negative class got
