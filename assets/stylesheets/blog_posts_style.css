@@ -89,6 +89,12 @@ a {
   /*Green headings color*/
 }
 
+.hide_in_pc a{
+  color: darkgrey;
+  font-size: 18px;
+  font-family: 'Orbitron', sans-serif;
+}
+
 .toc {
   text-align: left;
 }
@@ -96,7 +102,7 @@ a {
 .toc a {
   text-decoration: none;
   color: darkgrey;
-  font-size: 22px;
+  font-size: 18px;
   font-family: 'Orbitron', sans-serif;
 }
 
