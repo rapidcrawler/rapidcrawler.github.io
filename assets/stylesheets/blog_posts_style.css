@@ -89,6 +89,12 @@ a {
   /*Green headings color*/
 }
 
+.LHS_Sidebar a{
+  color: darkgrey;
+  font-size: 18px;
+  font-family: 'Orbitron', sans-serif;
+}
+
 .hide_in_pc a{
   color: darkgrey;
   font-size: 18px;
