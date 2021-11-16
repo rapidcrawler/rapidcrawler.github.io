@@ -132,6 +132,10 @@ a {
   line-height: 150%;
 }
 
+.blog_content p{
+  justify-content: center;
+}
+
 .blog_content p a {
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
