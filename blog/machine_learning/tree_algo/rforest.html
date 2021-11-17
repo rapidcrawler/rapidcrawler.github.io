@@ -10,8 +10,8 @@
     <script>
         $(function () {
             $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
-            $("#stats_LHSNavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
-            $("#stats_Mobile_NavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
+            $("#tba_LHSNavBar").load("/assets/scripts/LHSSidebar/tba_LHSNavBar.html");
+            $("#tba_Mobile_NavBar").load("/assets/scripts/LHSSidebar/tba_LHSNavBar.html");
         });
     </script>
 
@@ -49,14 +49,14 @@
         #################### -->
         <div class="column_left">
             <h2 style="text-align: center;"> Chapters </h2>
-            <div id="stats_LHSNavBar"></div>
+            <div id="tba_LHSNavBar"></div>
         </div>
 
         <!-- ####################
         Page Titke needs update
         #################### -->
         <div class="column_center">
-            <h1>Statistics</h1>
+            <h1>Tree Based Algorithms</h1>
             <div class="meta_info">
                 <span style="float: left;">
                     <p>
@@ -68,7 +68,7 @@
                 </span>
                 <span style="float: right;">
                     <p>
-                        Last Updated on: 09 Oct, 2021
+                        Last Updated on: 17 Nov, 2021
                     </p>
                 </span>
             </div>
@@ -88,13 +88,13 @@
                 <!-- Also copy the part from start of <head> tag above -->
                 <div class="sharethis-inline-share-buttons"></div>
             </div>
-            <h1>Commonly Asked Interview Questions</h1>
+            <h1>Random Forest</h1>
             <hr>
             <div class="hide_in_pc">
                 <h3>
                     Chapters
                 </h3>
-                <div id="stats_Mobile_NavBar"></div>
+                <div id="tba_Mobile_NavBar"></div>
                 <hr>
             </div>
             <!-- ####################
@@ -102,29 +102,51 @@
               #################### -->
             <div class="toc">
                 <h1>Table of Contents</h1>
-                <li><a href="#basics">1) Basics</a></li>
-                <li><a href="#intermediate">2) Intermediate</a></li>
-                <!-- <a href="#footer">3) Fun</a> <br> -->
+                <a href="#rforest">1) Building Random Forest</a> <br>
+                <a href="#boostinf">2) Building Boosting Based Models</a> <br>
             </div>
             <hr>
 
             <div class="blog_content">
                 <br>
-                <div id="basics">
-                    <h1>1) Basics</h1>
+                <div id="rforest">
+                    <h1>1) Building Random Forest</h1>
                     <p>
-                        <b>Why multicollinearity is a problem in linear regression?</b>
+                        <b>Differences between RandomForest and XGBoost</b> 
                         <br>
-                        <img src="/assets/imgs/blog/stats/interview_questions_01.PNG" alt="multicollinearity"
-                            style="width: 95%;">
-                        <i class="img_credit">Credits: <a href="https://stats.stackexchange.com/a/1150/313779">Rob
-                                Hyndman</a>
-                        </i>
+                        For a set of n independent observations Z1, . . . ,Zn, each
+                        with variance σ2, the variance of the mean Z_bar of the observations is given
+                        by σ2/n. In other words, averaging a set of observations reduces variance, thus, Bootstrap-Aggregating
+                        <br>
+                        Howevewr, if 1 predictor from the predictor space is too powerful/significant and others moderately significant, then
+                        most of the predictions from the bag would be highly correlated to each other (for every bag the highly significant predictor
+                        was considered). 
+                        <br><br>
+                        In order to avoid this, Random Forest will allow only m-predictors, from the set of p-predictors, to be considered in each split.
+                        And the value of m is sqroot of p, i.e if 13 predictors are present, in each split RandomForest will consider just 4 predictors, and 
+                        6 predictors if 39 predictors present.
+                        
+                        <br><br>
+                        
+                        <b>Differences between RandomForest and XGBoost</b> 
+                        <br>
+                        RandomForest is like cultivating a lot of Instagram followers and making decisions based on their 'votes.' 
+                        That is, a lot of 'weak learners,' or in the case of Instagram, 'superficial advice' in the form of likes and short 
+                        comments, when pooled together, might give you a strong answer.
+                        <br><br>
+                        XGBoost is taking the time to cultivate one tree, probably a psychotherapist, who will learn more and more about 
+                        you and revise past misunderstandings with every session 
+                        <br><br>
+                        Other differences include:
+                        <ul>
+                            <li>XGBoost automatically deals with missing values whereas RandomForest from the main libraries in Python and R don't automatically deal with them</li>
+                            <li>While each RandomForest tree is built in parallel to another, parallelization happens within a tree for XGBoost, i.e. each branch is built in parallel</li>
+                        </ul>
                         <br>
                     </p>
                 </div>
-                <div id="intermediate">
-                    <h1>2) Intermediate</h1>
+                <div id="dt_clf">
+                    <h1>2) Building Decision Tree Classifier</h1>
                 </div>
             </div>
 
@@ -145,8 +167,8 @@
 
         <div class="footer" id="footer">
             <div id="page_change_btns">
-                <a href="#">
-                    <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+                <a href="/blog/machine_learning/tree_algo/bagging">
+                    <button class="pagination_button previous_button" style="vertical-align:middle;">
                         <span>Previous </span>
                     </button>
                 </a>
@@ -154,7 +176,7 @@
                 <!-- ####################
                 Link in nxt-btn needs update
                 #################### -->
-                <a href="#">
+                <a href="/blog/machine_learning/tree_algo/boosting">
                     <button class="pagination_button next_button" style="">
                         <span>Next </span>
                     </button>

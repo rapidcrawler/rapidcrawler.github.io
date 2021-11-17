@@ -10,8 +10,8 @@
     <script>
         $(function () {
             $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
-            $("#stats_LHSNavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
-            $("#stats_Mobile_NavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
+            $("#tba_LHSNavBar").load("/assets/scripts/LHSSidebar/tba_LHSNavBar.html");
+            $("#tba_Mobile_NavBar").load("/assets/scripts/LHSSidebar/tba_LHSNavBar.html");
         });
     </script>
 
@@ -49,14 +49,14 @@
         #################### -->
         <div class="column_left">
             <h2 style="text-align: center;"> Chapters </h2>
-            <div id="stats_LHSNavBar"></div>
+            <div id="tba_LHSNavBar"></div>
         </div>
 
         <!-- ####################
         Page Titke needs update
         #################### -->
         <div class="column_center">
-            <h1>Statistics</h1>
+            <h1>Tree Based Algorithms</h1>
             <div class="meta_info">
                 <span style="float: left;">
                     <p>
@@ -68,7 +68,7 @@
                 </span>
                 <span style="float: right;">
                     <p>
-                        Last Updated on: 09 Oct, 2021
+                        Last Updated on: 17 Nov, 2021
                     </p>
                 </span>
             </div>
@@ -88,13 +88,13 @@
                 <!-- Also copy the part from start of <head> tag above -->
                 <div class="sharethis-inline-share-buttons"></div>
             </div>
-            <h1>Commonly Asked Interview Questions</h1>
+            <h1>Boosting</h1>
             <hr>
             <div class="hide_in_pc">
                 <h3>
                     Chapters
                 </h3>
-                <div id="stats_Mobile_NavBar"></div>
+                <div id="tba_Mobile_NavBar"></div>
                 <hr>
             </div>
             <!-- ####################
@@ -102,16 +102,16 @@
               #################### -->
             <div class="toc">
                 <h1>Table of Contents</h1>
-                <li><a href="#basics">1) Basics</a></li>
-                <li><a href="#intermediate">2) Intermediate</a></li>
+                <a href="#dt_reg">1) Building Decision Tree Regressor</a> <br>
+                <a href="#dt_clf">2) Building Decision Tree Classifier</a> <br>
                 <!-- <a href="#footer">3) Fun</a> <br> -->
             </div>
             <hr>
 
             <div class="blog_content">
                 <br>
-                <div id="basics">
-                    <h1>1) Basics</h1>
+                <div id="dt_reg">
+                    <h1>1) Building Decision Tree Regressor</h1>
                     <p>
                         <b>Why multicollinearity is a problem in linear regression?</b>
                         <br>
@@ -123,8 +123,8 @@
                         <br>
                     </p>
                 </div>
-                <div id="intermediate">
-                    <h1>2) Intermediate</h1>
+                <div id="dt_clf">
+                    <h1>2) Building Decision Tree Classifier</h1>
                 </div>
             </div>
 
@@ -145,8 +145,8 @@
 
         <div class="footer" id="footer">
             <div id="page_change_btns">
-                <a href="#">
-                    <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+                <a href="/blog/machine_learning/tree_algo/rforest">
+                    <button class="pagination_button previous_button" style="vertical-align:middle;">
                         <span>Previous </span>
                     </button>
                 </a>
@@ -155,7 +155,7 @@
                 Link in nxt-btn needs update
                 #################### -->
                 <a href="#">
-                    <button class="pagination_button next_button" style="">
+                    <button class="pagination_button next_button disabled_btn" style="">
                         <span>Next </span>
                     </button>
                 </a>

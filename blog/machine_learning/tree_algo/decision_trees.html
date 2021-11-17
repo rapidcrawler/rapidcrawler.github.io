@@ -10,8 +10,8 @@
     <script>
         $(function () {
             $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
-            $("#stats_LHSNavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
-            $("#stats_Mobile_NavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
+            $("#tba_LHSNavBar").load("/assets/scripts/LHSSidebar/tba_LHSNavBar.html");
+            $("#tba_Mobile_NavBar").load("/assets/scripts/LHSSidebar/tba_LHSNavBar.html");
         });
     </script>
 
@@ -49,14 +49,14 @@
         #################### -->
         <div class="column_left">
             <h2 style="text-align: center;"> Chapters </h2>
-            <div id="stats_LHSNavBar"></div>
+            <div id="tba_LHSNavBar"></div>
         </div>
 
         <!-- ####################
         Page Titke needs update
         #################### -->
         <div class="column_center">
-            <h1>Statistics</h1>
+            <h1>Tree Based Algorithms</h1>
             <div class="meta_info">
                 <span style="float: left;">
                     <p>
@@ -68,7 +68,7 @@
                 </span>
                 <span style="float: right;">
                     <p>
-                        Last Updated on: 09 Oct, 2021
+                        Last Updated on: 17 Nov, 2021
                     </p>
                 </span>
             </div>
@@ -88,13 +88,13 @@
                 <!-- Also copy the part from start of <head> tag above -->
                 <div class="sharethis-inline-share-buttons"></div>
             </div>
-            <h1>Commonly Asked Interview Questions</h1>
+            <h1>Decision Trees</h1>
             <hr>
             <div class="hide_in_pc">
                 <h3>
                     Chapters
                 </h3>
-                <div id="stats_Mobile_NavBar"></div>
+                <div id="tba_Mobile_NavBar"></div>
                 <hr>
             </div>
             <!-- ####################
@@ -102,29 +102,80 @@
               #################### -->
             <div class="toc">
                 <h1>Table of Contents</h1>
-                <li><a href="#basics">1) Basics</a></li>
-                <li><a href="#intermediate">2) Intermediate</a></li>
+                <a href="#dt_reg">1) Building Decision Tree Regressor</a> <br>
+                <a href="#dt_clf">2) Building Decision Tree Classifier</a> <br>
                 <!-- <a href="#footer">3) Fun</a> <br> -->
             </div>
             <hr>
 
             <div class="blog_content">
                 <br>
-                <div id="basics">
-                    <h1>1) Basics</h1>
+                <div id="dt_reg">
+                    <h1>1) Building Decision Tree Regressor</h1>
                     <p>
-                        <b>Why multicollinearity is a problem in linear regression?</b>
+                        Roughly Speaking, thier are 2 steps involved:
                         <br>
-                        <img src="/assets/imgs/blog/stats/interview_questions_01.PNG" alt="multicollinearity"
-                            style="width: 95%;">
-                        <i class="img_credit">Credits: <a href="https://stats.stackexchange.com/a/1150/313779">Rob
-                                Hyndman</a>
-                        </i>
+                        <ol>
+                            <li>We divide the predictor space — that is, the set of possible values for X1,X2, . . . ,Xp — into J distinct and non-overlapping regions,
+                                R1,R2, . . . ,RJ .</li>
+                            <li>For every observation that falls into the region Rj , we make the same prediction, which is simply the mean of the response values for the
+                                training observations in Rj</li>
+                        </ol>
+                        The goal is to find boxes R1, . . . ,RJ that minimize the RSS, i.e. Residual Square of Sum
+                        <br><br>
+                        How many partitions in partitions R1....Rj? We can make use of <b>Recursive Binary Splitting</b>
                         <br>
+                        Recursive Binary Splitting says, we first select the predictor Xj and the cutpoint s such that splitting the predictor space into
+                        the regions {X|Xj < s} and {X|Xj ≥ s} leads to the greatest possible reduction in RSS.
+                        <br><br>
+                        That is, we consider all predictors X1, . . . ,Xp, and all possible values of the cutpoint s for each of
+                        the predictors, and then choose the predictor and cutpoint such that the resulting tree has the lowest RSS.
+                        <br><br>
+                        And this step is repitively done, one 1 region less every time, until a stopping criterion is reached
+                    </p>
+                    <h3>Tree Pruning</h3>
+                    <p>
+                        The strategy is to grow a very large tree T0, and then
+                        prune it back in order to obtain a subtree. How do we determine the best prune
+                        way to prune the tree? Intuitively, our goal is to select a subtree that subtree
+                        leads to the lowest test error rate.
+                        <br><br>
+                        Cost complexity pruning—also known as weakest link pruning—gives us
+                        cost complexity pruning weakest link pruning a way to do just this. Rather than considering every possible subtree, we
+                        consider a sequence of trees indexed by a nonnegative tuning parameter α.
+                        For each value of α there corresponds a subtree T ⊂ T0 such that
+                        <img src="/assets/imgs/blog/trees_based_models/pruning_formula.jpg" alt="pruning_formula" style="width: 65%;">
+                        <div style="text-align: center;;">
+                            <i>Credits: <a href="https://www.statlearning.com/">ISL</a></i>
+                        </div>
+                        <br>
+                        Here |T| indicates the number of terminal nodes
+                        of the tree T, Rm is the rectangle (i.e. the subset of predictor space) corresponding
+                        to the mth terminal node, and ˆyRm is the predicted response
+                        associated with Rm—that is, the mean of the training observations in Rm.
+                        The tuning parameter α controls a trade-off between the subtree’s complexity
+                        and its fit to the training data.
                     </p>
                 </div>
-                <div id="intermediate">
-                    <h1>2) Intermediate</h1>
+                <div id="dt_clf">
+                    <h1>2) Building Decision Tree Classifier</h1>
+                    <p>
+                        For a classification tree, we predict that
+                        each observation belongs to the most commonly occurring class of training
+                        observations in the region to which it belongs.
+                        <br> <br>
+                        In interpreting the results of a classification tree, we are often interested not only in the class prediction
+                        corresponding to a particular terminal node region, but also in the class proportions among the training observations that fall into that region.
+                        
+                        <img src="/assets/imgs/blog/trees_based_models/eval_metrics_0.png" alt="eval_metrics_gini_entropy" style="width: 55%;">
+                        <div style="text-align: center;;">
+                            <i>Credits: <a href="https://www.statlearning.com/">ISL</a></i>
+                        </div>
+                        <br>
+                        <b>Gini index</b> is referred to as a measure of
+                        node purity—a small value indicates that a node contains predominantly
+                        observations from a single class. An alternative to the Gini index is <b>entropy</b>
+                    </p>
                 </div>
             </div>
 
@@ -154,7 +205,7 @@
                 <!-- ####################
                 Link in nxt-btn needs update
                 #################### -->
-                <a href="#">
+                <a href="/blog/machine_learning/tree_algo/bagging">
                     <button class="pagination_button next_button" style="">
                         <span>Next </span>
                     </button>
