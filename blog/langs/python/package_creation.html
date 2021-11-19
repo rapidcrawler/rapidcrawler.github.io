@@ -99,7 +99,7 @@
                 <h1>Table of Contents</h1>
                 <ol>
                     <li><a href="#setup">Setup</a></li>
-                    <li><a href="#structuring">Structuring</a></li>
+                    <li><a href="#distribution_archive">Generating distribution archives</a></li>
                     <li><a href="#ref">References</a></li>
                 </ol>
             </div>
@@ -121,25 +121,119 @@
                         </li> <br>
                         <li>
                             Make sure you're following the below dir structure: <br>
-                            <pre>
-                            .
-                            └── your_name_pkg/
-                                ├── LICENSE
-                                ├── pyproject.toml
-                                ├── README.md
-                                ├── setup.cfg
-                                ├── src/
-                                │   └── example_package/
-                                │       ├── __init__.py
-                                │       └── example.py
-                                └── Tests
-                      </pre>
+                            <code>
+                                . <br>
+                            └── your_pkg_name/ <br>
+                                ├── LICENSE  <br>
+                                ├── pyproject.toml  <br>
+                                ├── README.md  <br>
+                                ├── setup.py  <br> 
+                                ├── src/  <br>
+                                │   └── example_package/  <br>
+                                │       ├── __init__.py  <br>
+                                │       └── example.py  <br>
+                                └── tests/
+                      </code>
+                        </li>
+                        <br>
+                        <li>
+                            Open example.py file and enter the following content:
+                            <code>
+                                def add_one(number):  <br>
+                                    return number + 1  <br>
+                            </code>
+                        </li>
+                        <br>
+                        <li>
+                            pyproject.toml tells build tools (like pip and build) what is required to build your
+                            project. This tutorial uses setuptools, so open pyproject.toml and enter the following
+                            content:
+                            <code>
+                                [build-system]  <br>
+                                requires = [  <br>
+                                    "setuptools>=42",  <br>
+                                    "wheel"  <br>
+                                ]  <br>
+                                build-backend = "setuptools.build_meta"  <br>
+                            </code>
+                        </li>
+                        <br>
+                        <li>
+                            Open setup.py and enter
+                            <code>
+                                import setuptools
+
+                                with open("README.md", "r", encoding="utf-8") as fh:  <br>
+                                    long_description = fh.read()  <br>
+                                    <br>
+                                setuptools.setup(  <br>
+                                    name="pkg_name",  <br>
+                                    version="0.0.x",  <br>
+                                    author="author name,  <br>
+                                    author_email="contact@email.com",  <br>
+                                    description="An EDA & modellling assist library",  <br>
+                                    long_description=long_description,  <br>
+                                    long_description_content_type="text/markdown",  <br>
+                                    url="https://something.com/come/here",  <br>
+                                    project_urls={  <br>
+                                        "Bug Tracker": "https://something.com/go/there",  <br>
+                                    }, <br>
+                                    classifiers=[  <br>
+                                        "Programming Language :: Python :: 3",  <br>
+                                        "License :: OSI Approved :: MIT License",  <br>
+                                        "Operating System :: OS Independent",  <br>
+                                    ],  <br>
+                                    package_dir={"": "src"},  <br>
+                                    install_requires = ["pandas", "numpy","matplotlib","pandas", "seaborn", "plotly", "sklearn"],  <br>
+                                    packages=setuptools.find_packages(where="src"),  <br>
+                                    python_requires=">=3.6",  <br>
+                                )   <br>
+                            </code>
+                        </li>
+                        <br>
+                        <li>
+                            Open README.md and enter the following content:
+                            <code>
+                                # Example Package
+
+                                This is a simple example package. You can use [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+                                to write your content.                                
+                            </code>
+                        </li>
+                        <br>
+                        <li>
+                            For help picking a license, see <a
+                                href="https://choosealicense.com/">https://choosealicense.com/</a>
+                            <br>
+                            Once you have chosen a license, open LICENSE file and enter the license text, e.g. for MIT
+                            License
+                            <code>
+                                Copyright (c) 2018 The Python Packaging Authority
+
+                                Permission is hereby granted, free of charge, to any person obtaining a copy
+                                of this software and associated documentation files (the "Software"), to deal
+                                in the Software without restriction, including without limitation the rights
+                                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                copies of the Software, and to permit persons to whom the Software is
+                                furnished to do so, subject to the following conditions:
+                                
+                                The above copyright notice and this permission notice shall be included in all
+                                copies or substantial portions of the Software.
+                                
+                                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                SOFTWARE.                                
+                            </code>
                         </li>
                     </ol>
                     </p>
                 </div>
 
-                <div id="structuring">
+                <div id="distribution_archive">
                     <h2>Generating distribution archives</h2>
                     <p>
                     <ol>
@@ -147,35 +241,36 @@
                             Open the <b>setup.cfg</b> or <b>setup.py</b> file and update the version to be x.y.1b1 (beta
                             release 1) <br>
                             x.y.z = major.minor.patch <br>
-                            <pre>
-                            .
-                            └── your_name_pkg/   
-                                ├── LICENSE
-                                ├── pyproject.toml
-                                ├── README.md
-                                ├── setup.cfg       <==== update version here
-                                ├── src/
-                                │   └── example_package/
-                                │       ├── __init__.py
-                                │       └── example.py
+                            <code>
+                                . <br>
+                            └── your_pkg_name/   <br>
+                                ├── LICENSE <br>
+                                ├── pyproject.toml <br>
+                                ├── README.md <br>
+                                ├── setup.py       <==== update version here <br>
+                                ├── src/ <br>
+                                │   └── example_package/ <br>
+                                │       ├── __init__.py <br>
+                                │       └── example.py <br>
                                 └── Tests
-                      </pre>
+                      </code>
                         </li> <br>
 
-                        <li>Move to the <b>your_name_pkg</b> directory and open cmd
-                            <pre>
-                            .
-                            └── your_name_pkg/   <==== Open cmd here
-                                ├── LICENSE
-                                ├── pyproject.toml
-                                ├── README.md
-                                ├── setup.cfg
-                                ├── src/
-                                │   └── example_package/
-                                │       ├── __init__.py
-                                │       └── example.py
+                        <li>Move to the <b>your_pkg_name</b> directory and open cmd
+                            <code>
+                                . <br>
+                            └── your_pkg_name/   <==== Open cmd here <br>
+                                ├── LICENSE <br>
+                                ├── pyproject.toml <br>
+                                ├── README.md <br>
+                                ├── setup.cfg <br>
+                                ├── src/ <br>
+                                │   └── example_package/ <br>
+                                │       ├── __init__.py <br>
+                                │       └── example.py <br>
                                 └── Tests
-                      </pre>
+                      </code>
+                            <br>
                             ** CMD Trick: Go to the desired folder, press alt+D+Home, type cmd + Spacebar, hit enter
                         </li> <br>
                         <li>
@@ -191,7 +286,31 @@
                       </code>
                         </li> <br>
                         <li>
-                            Using <b>Twine</b> to push the package: <br>
+                            That command just built your package, stored under <i>your_pkg_name/dist</i>, ready to be
+                            deployed to PyPi website
+                        </li>
+                        <br>
+                        <li>
+                            Now we're ready to push the package. Using <b>Twine</b> to push the package<br>
+                            First, we want to push it to <a
+                                href="https://test.pypi.org/account/register/">Test-PyPi</a>, to make sure
+                            everything works fine and is alright. <a
+                                href="https://test.pypi.org/account/register/">Register your account</a>
+                            <br><br>
+                            Then move to <a href="https://test.pypi.org/manage/account/">Accounts</a> page and search
+                            for <b>Add API token</b>
+
+                            To securely upload your project, you’ll need a PyPI API token. Create one
+                            <a href="https://test.pypi.org/manage/account/#api-tokens">token</a>, fill "token name" as
+                            "token" and set "Scope" to "Entire account"
+                            <br>
+                            <i>
+                                Don’t close the page until you have copied and saved the token — you won’t see that
+                                token again. It's displayed only once
+                            </i>. Save it somewhere safe
+                            <br> <br>
+                            Move back to CMD prompt and enter
+                            <br>
                             <code>
                             py -m pip install --upgrade twine <br>
                             py -m twine upload --repository testpypi dist/*
@@ -200,54 +319,61 @@
                         <li>
                             For the username, use <i>__token__</i>. For the password, use the <a
                                 href="https://test.pypi.org/manage/account/token/">token value</a>, including the pypi-
-                            prefix
+                            prefix. And press enter
                         </li> <br>
                         <li>
-                            Once pushed, goto <a href="https://test.pypi.org/manage/projects/">PyPi Projects</a> and get
-                            pip install command for your library
+                            Once pushed, goto <a href="https://test.pypi.org/manage/projects/">PyPi Projects</a>, click
+                            on View button and get
+                            pip install command for your library from the top blue banner of the page, under
+                            <code>your_pkg_name 0.0.1b1</code>
                         </li> <br>
                         <li>
                             It'll look something like this: <br>
                             <code>
-                        py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
-                      </code>
+                                pip install -i https://test.pypi.org/simple/ your_pkg_name
+                            </code>
                         </li> <br>
                         <li>
-                            Open anaconda prompt & create a new virtual env
+                            Open anaconda prompt & <a href="/blog/misc/proj_dir_setup">create a new virtual env</a>
                         </li> <br>
                         <li>
-                            Paste the pip command copied from the <a href="https://test.pypi.org/manage/projects/">PyPi
-                                Projects</a> page
-                        </li> <br>
-                        <li>
-                            Run python to test proper working of the library: <br>
+                            Activate newly created environment 
+                            <br>
                             <code>
-                        py
-                      </code>
+                                conda activate new_env_name
+                            </code>
+                            <br> <br>
+                            Then install your library by pasting the command you copied from the above step <br>
+                            <code>
+                                pip install -i https://test.pypi.org/simple/ your_pkg_name
+                            </code>
                         </li> <br>
                         <li>
+                            Open jupyter nb to see if the package is properly installed and working: <br>
                             Import the package: <br>
                             <code>
-                        from example_package import example <br>
+                        from your_pkg_name import example <br>
                         example.add_one(2)
                     </code>
                         </li> <br>
                         <li>
                             If evrything is working rightly, reupdate the <b>setup.cfg</b> or <b>setup.py</b> file as
                             x.y.1 (1st release)
-                            <pre>
-                        .
-                        └── your_name_pkg/   
-                            ├── LICENSE
-                            ├── pyproject.toml
-                            ├── README.md
-                            ├── setup.cfg       <==== update version here
-                            ├── src/
-                            │   └── example_package/
-                            │       ├── __init__.py
-                            │       └── example.py
+                            <br>
+
+                            <code>
+                        . <br>
+                        └── your_name_pkg/   <br>
+                            ├── LICENSE <br>
+                            ├── pyproject.toml <br>
+                            ├── README.md <br>
+                            ├── setup.py       <==== update version here <br>
+                            ├── src/ <br>
+                            │   └── example_package/ <br>
+                            │       ├── __init__.py <br>
+                            │       └── example.py <br>
                             └── Tests
-                  </pre>
+                  </code>
                         </li> <br>
                         <li>
                             Build your package, so that it's ready to be pushed to PyPi <br>
@@ -292,7 +418,8 @@
                     </code>
                         </li> <br>
                         <li>
-                            GitHub <a href="https://github.com/juspreet51/juspreet51_pkg">repository</a> for <i>Juspreet51</i> library
+                            GitHub <a href="https://github.com/juspreet51/juspreet51_pkg">repository</a> for
+                            <i>Juspreet51</i> library
                         </li>
                     </ol>
                     </p>
