@@ -99,15 +99,44 @@
         <div id="stats_Mobile_NavBar"></div>
         <hr>
       </div>
+      <div>
+        <p>
+          One of the primary objkective of analytics is to measure the uncertainity associated with an event or key
+          performance indicatorr. Axioms of probability and the concept of random
+          variable are fundamental bulding blocks for analytics that are used for measuring uncertainity associated with
+          the key performance indicators of importance of a business.
+          Probability theory is the foundation on which descriptive and predictive analytics models are built.
+          <br>
+          <i>Credits: <a href="https://www.amazon.in/Business-Analytics-Science-Driven-Decision/dp/8126568771">Business
+              Analytics: U Dinesh Kumar </a></i>
+          <hr>
+
+        </p>
+      </div>
       <!-- ####################
         ToC needs update
         #################### -->
       <div class="toc">
         <h1>Table of Contents</h1>
         <ol>
-          <li><a href="#basics">Basic</a></li>
+          <li><a href="#basics">Basics of Probability</a></li>
+          <li><a href="#axioms">Axioms of Probability</a></li>
           <li><a href="#bayes">Bayes Theorem</a></li>
           <li><a href="#difference">Difference Between Conditional Probability and Bayes Theorem</a></li>
+          <li><a href="#random_variable">Random Variable</a></li>
+          <li><a href="#distributions"> Distributions</a></li>
+          <ul>
+            <li>Binomial Distribution </li>
+            <li>Poisson Distribution</li>
+            <li>Geometric Distribution</li>
+            <li>Continous Distribution</li>
+            <li>Uniform Distribution</li>
+            <li>Exponential Distribution</li>
+            <li>Normal Distribution</li>
+            <li>Chi-Squared Distribution</li>
+            <li>Student's t-Distribution</li>
+            <li>F-Distribution</li>
+          </ul>
           <li><a href="#refs">References</a></li>
         </ol>
       </div>
@@ -115,49 +144,205 @@
 
       <div class="blog_content">
         <div id="basics">
-          <h3>Probability</h3>
-          <b>Probability</b> is a metric for determining the likelihood of an event occurring, in terms of percentage.
-          Many things are
-          impossible to predict with 100% certainty. One can only predict the probability of such events occurring,
-          i.e., how likely it is to occur.
-          <!-- <h3>Conditional Probability</h3> -->
+          <h1>1. Basics of Probability</h1>
           <p>
-            <b>Joint Probability</b>:
-            Joint probability is the likelihood that two events will happen at the same time
-            <br>
-            It's the probability that event X occurs at the same time as event Y
-            <br>
-            Conditions being:
-          <ul>
-            <li>events X and Y must happen at the same time</li>
-            <li>events X and Y must be independent (non-interfering) of each other</li>
-          </ul>
-          E.g., throwing two dices
-          <br> <br>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Multivariate_normal_sample.svg/1024px-Multivariate_normal_sample.svg.png"
-            alt="bayes_theorem_formula_wikipedia" style="width: 65%;">
-          <i class="img_credit">Credits: <a href="https://en.wikipedia.org/wiki/Joint_probability_distribution">
-              Wikipedia</a>
-          </i>
+            <b>Probability</b> is a metric for determining the likelihood of an event occurring, in terms of percentage.
+            Many things are
+            impossible to predict with 100% certainty. One can only predict the probability of such events occurring,
+            i.e., how likely it is to occur.
+          <ol>
+            <li>
+              <b>Random Experiment</b>: Random Experiment is an experiment in which, the ouctome is not known with
+              certainty. Predictive Analytics mainly deals
+              with random experiment, where the outcome is not known, with certainity, e.g. attirition rate, customer
+              churn, demand forecasting, etc.
+            </li>
+            <br><br>
+            <li>
+              <b>Sampel Space</b>: Sample space is the universal set that consists of all possible outcomes of an
+              experiment, represented by letter 'S', and
+              individual outcomes are called as 'elementary events'.
+              <br><br>
+              E.g. Outcome of a football match: S = {Win, Draw, Lose} <br>
+              Customer Churn: s = {Churn, Won't Churn} <br>
+              Life of a turbine balde in an aircraft engine: S = {X | X∈R, 0<=X<∞} </li>
+                <br><br>
+            <li>
+              <b>Event</b>: Event is the subset of sample space, and probability is calculate w.r.t. an event
+              <img src="https://www.jobilize.com/ocw/mirror/col11239_1.2_complete/m39881/MG10C17_001.png"
+                alt="events_and_sample_space" style="width: 45%;">
 
-          <br><br>
-          <b>Conditional Probability</b> is known as the possibility of an event or outcome happening, based on the
-          existence of a previous event or outcome.
-          <br><br>
-          P(A|B): Probability of event A happening, given, event B has already happened
-          <br><br>
-          For example, we might expect the probability that it will rain tomorrow (in general) to be smaller than the
-          probability it will rain tomorrow given that it is cloudy today. This latter probability is a conditional
-          probability, since it accounts for relevant information that we possess.
-          <br><br>
-          Mathematically, computing a conditional probability amounts to shrinking our sample space to a particular
-          event. So in our rain example, instead of looking at how often it rains on any day in general, we "pretend"
-          that our sample space consists of only those days for which the previous day was cloudy.
+              <div style="text-align: center;">
+                <i>Credits: <a href="https://www.jobilize.com/course/section/outcome-random-experiments-by-openstax">
+                    Jobilize.com</a></i>
+              </div>
+            </li>
+            <br><br>
+            <li>
+              <b>Probability Estimation</b>: Probability of an event A, P(A), is given by:
+              <img src="/assets/imgs/blog/probability/00_probability_estimation.jpg"
+                alt="probability_estimation_formula" style="width: 95%;">
+              <br><br>
+              E.g. in an organization of 1000 employees, if every year 200 employess leave their job, then the
+              probability of attririon of
+              an employee per annum is 200/1000 = 0.2
+              <br>
+              * <i>If the probability for an event to happen is p and the probability for it to fail is q, then p + q =
+                1 </i>
+            </li>
+            <br><br>
+            <li>
+              <b>Algebra of Events</b>: For multiple events from a sample space, we can apply and use following algebric
+              expressions, to either directly achieve
+              or to derive results:
+              <br><br>
+              <ul>
+                <li>
+                  <b>Addition Rule</b>: The probability that events A or B will occur is given by
+                  <br>
+                  P(A ∪ B) = P(A) + P(B) – P(A ∩ B)
+                  <br>
+                  P(A or B) = P(A) + P(B) – P(A and B)
+                  <br>
+                  If A, B and C are mutually exclusive events, then P(A or B or C) = P(A) + P(B) + P(C)
+                </li>
+                <li>
+                  <b>Multiplication Rule</b>: The probability that two events A and B will occur in sequence is
+                  <br>
+                  P(A∩B) = P(A) × P(B/A) = P(B) × P(A/B)
+                  <br>
+                  P(A and B) = P(A) × P(B/A) = P(B) × P(A/B)
+                  <br>
+                  If A, B and C are independent events, then
+                  <br>
+                  P(A and B and C) = P(A) × P(B) × P(C)
+                </li>
+                <li>
+                  <b>Commulative Rule</b>:
+                  <br>
+                  A ∪ B = B ∪ A, and A ∩ B = B ∩ A
+                </li>
+                <li>
+                  <b>Associative Rule</b>:
+                  <br>
+                  (A ∪ B) ∪ C = A ∪ (B ∪ C), and
+                  <br>
+                  (A ∩ B) ∪ C = A ∩ (B ∩ C)
+                </li>
+                <li>
+                  <b>Distributive Rule</b>:
+                  <br>
+                  A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C), and
+                  <br>
+                  A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
+                </li>
+              </ul>
+            </li>
+          </ol>
           </p>
         </div>
+        <br><br>
+        <div id="axioms">
+          <h1>Axioms of Probability</h1>
+          <ol>
+            <li>
+              Probability of an event always lies between 0 & 1
+            </li>
+            <li>
+              Probability of the universal set S is always 1
+            </li>
+            <li>
+              For any event A(e.g. probability of observing a fraudlent transaction), probability of the complementary
+              event(e.g. probability of
+              observing a non-fraudlent transaction), written as A <sup>C</sup> is given by:
+              <br>
+              P(A<sup>c</sup>) = 1 - P(A)
+            </li>
+            <li>
+              The probability that either event A or B occurs, or both occurs, is given by
+              <br>
+              P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+            </li>
+            <li>
+              <b>Marginal Probability</b>: Marginal Probability is simply a probability of an event X, denoted by P(X),
+              without any conditions
+              <img src="/assets/imgs/blog/probability/01_marginal_probability.jpg" alt="marginal_probability"
+                style="width: 95%;">
+              <br>
+            </li>
+            <li>
+              <b>Joint Probability</b>: Joint probability is the likelihood that two events will happen at the same
+              time. It's the probability that event X occurs at the same time as event Y.
+              <img src="/assets/imgs/blog/probability/01_joint_probability.jpg" alt="joint_probability"
+                style="width: 95%;">
+              <br>
+              Conditions being:
+              <ul>
+                <li>events A and B must happen at the same time</li>
+                <li>events A and B must be independent (non-interfering) of each other</li>
+              </ul>
+              e.g. throwing two dices
+              <br> <br>
+              <img src="/assets/imgs/blog/probability/01_01_joint_probability.jpg" alt="joint_probability_example"
+                style="width: 98%;">
+              <br><br>
+              The word <b>joint</b> comes from the fact that we’re interested in the probability of two things happening
+              at once, like here, male & baseball
+              <br>
+              So, according to our above statd Joint Probability forumula
+              <img src="/assets/imgs/blog/probability/01_02_joint_probability.jpg" alt="joint_probability_example"
+                style="width: 98%;">
+              <br><br>
+            </li>
+            <br><br>
+            <li>
+              <b>Conditional Probability</b> is known as the possibility of an event or outcome happening, based on the
+              existence of a previous event or outcome
+              <br>
+              If events A & B are events in a sample space, then the conditional probability of the event B, given that
+              the event A has already happened, is denoted by
+              P(B|A), and is defined as:
+              <img src="/assets/imgs/blog/probability/02_conditional_probability.jpg" alt="conditional_probability"
+                style="width: 98%;">
+              <br><br>
+              For example, we might expect the probability that it will rain tomorrow (in general) to be smaller than
+              the
+              probability it will rain tomorrow given that it is cloudy today. This latter probability is a conditional
+              probability, since it accounts for relevant information that we possess.
+              <br><br>
+              Mathematically, computing a conditional probability amounts to shrinking our sample space to a particular
+              event. So in our rain example, instead of looking at how often it rains on any day in general, we
+              "pretend"
+              that our sample space consists of only those days for which the previous day was cloudy.
+            </li>
+          </ol>
+        </div>
+
+        <h1>Application of Probability</h1>
+        <b>Association Rule Learning</b>: Market Basket Analysis is used frequently by retailers, to predict items
+        frequenlty bought together
+        by the customers, to improve thier product promotions. And, Association Rule Learning is a method of finding
+        associations between different entities.
+        <br>
+        And the Strength-of-Association between 2 items can be measured using Support, Confidence & Lift
+        <ol>
+          <li>
+            <b>Support</b>:
+            <img src="/assets/imgs/blog/probability/03_support.jpg" alt="support_formula" style="width: 98%;">
+          </li>
+          <li>
+            <b>Confidence</b>:
+            <img src="/assets/imgs/blog/probability/03_confidence.jpg" alt="confidence_formula" style="width: 98%;">
+          </li>
+          <li>
+            <b>Lift</b>:
+            <img src="/assets/imgs/blog/probability/03_lift.jpg" alt="lift_forumla" style="width: 98%;">
+          </li>
+        </ol>
+        <br><br>
+
         <div id="bayes">
-          <h3>Bayes Theorem</h3>
+          <h1>Bayes Theorem</h1>
           <p>
             <b>Bayes Theorem</b> can be understood as the description of the probability of any event which is
             obtained by prior knowledge about the event
@@ -170,11 +355,11 @@
             <li>prior information about the event</li>
             <li>with the prior knowledge about the conditions related to the event</li>
           </ul>
-          <img src="/assets/imgs/blog/stats/bayes_theorem_luminousmen.jpg" alt="bayes_theorem_formula_wikipedia"
-            style="width: 95%;">
-          <i class="img_credit">Credits: <a href="https://luminousmen.com/post/data-science-bayes-theorem">
-              Luminousmen.com</a>
-          </i>
+          <br>
+          As per Conditional Probability, we know that
+          <img src="/assets/imgs/blog/probability/04_01_bayes_derivation.jpg" alt="bayes_derivation"
+            style="width: 98%;">
+
           <ul>
             <li>
               <i>Prior Probability</i>:
@@ -202,9 +387,19 @@
               <b>P(A|B)</b> is the posterior probability or the probability of A to occur given event B already occurred
             </li>
           </ul>
-          credits: <a href="https://analyticsindiamag.com/a-guide-to-bayesian-statistics-in-python-for-beginners/">
-            AIM: Bayesian Statistics in Python
-          </a>
+
+          <img src="/assets/imgs/blog/stats/bayes_theorem_luminousmen.jpg" alt="bayes_theorem_formula_wikipedia"
+            style="width: 95%;">
+
+          <div style="text-align: center;">
+            <i>Credits: <a href="https://luminousmen.com/post/data-science-bayes-theorem">
+                Luminousmen.com</a></i>
+          </div>
+          <br>
+          A great article on <a href="https://towardsdatascience.com/the-monty-hall-problem-9c4053ef0640">Monty Hall
+            Problem</a>, which is solved using Bayes Theorem.
+          Go through it once before proceeding further about <a href="#random_variable">Random Variables</a> and <a
+            href="#distributions">Distribution Functions</a>
           </p>
           <br><br>
           <div id="difference">
@@ -214,6 +409,49 @@
             <br>
             And from the concept of Conditional Probability, the denominator <b>P(B)</b> says, P(Numerator|B), i.e.
             Probability of Numerator happening, give event B has already happened
+          </div>
+
+          <br><br>
+          
+          <div id="random_variable">
+            <h1>Random Variable</h1>
+            <b>Random Variable</b>: A random variable is a variable whose value depends on unknown events.
+            We can summarize the unknown events as "state", and then the random variable is a function of the state
+
+            <img src="/assets/imgs/blog/probability/05_01_random_variables.jpg" alt="random_variable"
+              style="width: 65%;">
+
+            <div style="text-align: center;">
+              <i>Credits:
+                <a href="https://stats.stackexchange.com/a/85">Paul</a>
+              </i>
+            </div>
+              A <b>variable</b> is a symbol that represents some quantity, whereas, a <b>random variable</b> is a value that follows some probability distribution.
+            <br>
+            <b>Discrete Random Variable</b>: If a random variable can assume only a finite, or countably infinite set of values, then it is called as a Discrete Random Variable
+            <br>
+            E.g. 5 pencils, 100 vehicles, 10,000 user registraions
+            <b>Continous Random Variable</b>: If a rancom variable can take a value from an infinite set of values, it is called as Continous Random Variable
+            <br>
+            E.g. length of pencil (7cm or 7.32cm or 7.321456894123cm)
+          </div>
+          
+          <br><br>
+          
+          <div id="distributions">
+            <h1>Distributions</h1>
+            <ul>
+              <li>Binomial Distribution </li>
+              <li>Poisson Distribution</li>
+              <li>Geometric Distribution</li>
+              <li>Continous Distribution</li>
+              <li>Uniform Distribution</li>
+              <li>Exponential Distribution</li>
+              <li>Normal Distribution</li>
+              <li>Chi-Squared Distribution</li>
+              <li>Student's t-Distribution</li>
+              <li>F-Distribution</li>
+            </ul>
           </div>
         </div>
         <br><br>
@@ -246,8 +484,8 @@
 
   <div class="footer" id="footer">
     <div id="page_change_btns">
-      <a href="#">
-        <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+      <a href="/blog/statistics/stats_gloss">
+        <button class="pagination_button previous_button" style="vertical-align:middle;">
           <span>Previous </span>
         </button>
       </a>

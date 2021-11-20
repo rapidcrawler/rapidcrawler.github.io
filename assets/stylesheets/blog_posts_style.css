@@ -128,7 +128,7 @@ a {
   color: #84817a;
 }
 
-.blog_content p, a, b, i {
+.blog_content p, a, b, i, ol li, ul li {
   line-height: 150%;
 }
 
