@@ -65,7 +65,6 @@ a {
 
 .column_left a:hover, .column_right a:hover, .column_center a:hover {
   font-weight: bold;
-  text-align: left;
   color: #00FFBB; /*Green headings color*/
   text-decoration: underline;
 }
@@ -133,7 +132,7 @@ a {
 }
 
 .blog_content p{
-  justify-content: center;
+  text-align: justify;
 }
 
 .blog_content p a, i a {
@@ -150,9 +149,10 @@ a {
 }
 
 .blog_content i {
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 15px;
-  color: #6c7a89; /* font  color for italics */
+  color: #bebebe; /* font  color for italics */
+  font-weight: bold;
 }
 
 .blog_content img {

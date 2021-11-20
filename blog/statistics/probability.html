@@ -412,7 +412,7 @@
           </div>
 
           <br><br>
-          
+
           <div id="random_variable">
             <h1>Random Variable</h1>
             <b>Random Variable</b>: A random variable is a variable whose value depends on unknown events.
@@ -426,18 +426,97 @@
                 <a href="https://stats.stackexchange.com/a/85">Paul</a>
               </i>
             </div>
-              A <b>variable</b> is a symbol that represents some quantity, whereas, a <b>random variable</b> is a value that follows some probability distribution.
+            A <b>variable</b> is a symbol that represents some quantity, whereas, a <b>random variable</b> is a value
+            that follows some probability distribution.
             <br>
-            <b>Discrete Random Variable</b>: If a random variable can assume only a finite, or countably infinite set of values, then it is called as a Discrete Random Variable
+            <b>Discrete Random Variable</b>: If a random variable can assume only a finite, or countably infinite set of
+            values, then it is called as a Discrete Random Variable
             <br>
             E.g. 5 pencils, 100 vehicles, 10,000 user registraions
-            <b>Continous Random Variable</b>: If a rancom variable can take a value from an infinite set of values, it is called as Continous Random Variable
+            <br>
+            <b>Continous Random Variable</b>: If a rancom variable can take a value from an infinite set of values, it
+            is called as Continous Random Variable
             <br>
             E.g. length of pencil (7cm or 7.32cm or 7.321456894123cm)
+            <br> <br>
+            Functions to consider when we have
+            <ul>
+              <li>Discrete Random Variable: <b>Probability Mass Function</b></li>
+              <li>Continous Random Variable: <b>Probability Density Function</b></li>
+              <li>Both cases: <b>Cumulative Distribution Function</b></li>
+            </ul>
+            The <i>distribution</i> is simply, the assignment of probabilities, to sets of possible values of the random
+            variable.
+            And, a <i>probability distribution </i>is a statistical function that describes all the possible values and
+            likelihoods that a random variable can take within a given range.
+            <br><br>
+            The term <i>probability</i> relates is to an event and probability distribution relates is to a random
+            variable.
+            <br>
+            It is a convention that the term <i>probability mass function</i> refers to the probability distribution of
+            a discrete random variable and the term <i>probability density function</i> refers to the probability
+            function of a continuous random variable
+
+            <br><br>
+            <ol>
+              <li><b>PMF</b>: When the random variable is discrete, probability distribution means, how
+                the total probability is distributed over various possible values of the random variable
+                <br>
+                Consider the experiment of tossing two unbiased coins simultaneously. Then, sample space S associated
+                with this experiment is:
+                <br>
+                S = {HH, HT, TH, TT}
+                <br>
+                If we define a random variable X as: the number of heads on this sample space S, then
+                <br>
+                X(HH) = 2, X(HT) = X(TH)=1, X(TT) = 0
+                <br>
+                The probability distribution of X is then given by
+                P(x) = x/n
+                <br>
+                P(2) = 1/4; P(1) = 2/4; P(0) = 1/4
+                <br>
+                Which could be represented as in
+                <img
+                  src="/assets/imgs/blog/probability/05_pmf_chart.jpg"
+                  alt="pmf_visualization" style="width: 65%;">
+                  <br><br>
+                  For a discrete random variable, we consider events of the type {X=x} and compute probabilities of such events to describe the distribution of the random variable. 
+                  This probability, P{X=x}=p(x) is called the <i>probability mass function</i>
+              </li>
+              <br>
+              <li>
+                <b>PDF</b>: A continuous random variable is described by considering probabilities for events of the type (a&lt;X&lt;b). 
+                The probability function of a continuous random variable is usually denoted by f(x) and is called a <i>probability density function</i>
+                <img src="/assets/imgs/blog/probability/05_pdf_formula.jpg" 
+                alt="pdf_formula" style="width: 65%;">
+                <br>
+                It is a function whose value at any given sample (or point) in the sample space (the set of possible values taken by the random variable) can 
+                be interpreted as providing a relative likelihood that the value of the random variable would be close to that sample.
+                <img
+                  src="/assets/imgs/blog/probability/05_pdf_chart.png"
+                  alt="pdf_visualization" style="width: 65%;">
+
+                  <div style="text-align: center;">
+                    <i>Credits: <a href="https://en.wikipedia.org/wiki/File:Boxplot_vs_PDF.svg">
+                      Wikipedia.com</a></i>
+                  </div>
+              </li>
+              <br>
+              <li>
+                <b>CDF</b>: Cumulative Distribution Function, F(Xi), is the probability that the random variable X takes values less than or equal
+                to Xi, i.e. 
+                <img
+                  src="/assets/imgs/blog/probability/05_cdf.jpg"
+                  alt="cdf" style="width: 85%;">
+                  <br><br>
+                
+              </li>
+            </ol>
           </div>
-          
+
           <br><br>
-          
+
           <div id="distributions">
             <h1>Distributions</h1>
             <ul>
