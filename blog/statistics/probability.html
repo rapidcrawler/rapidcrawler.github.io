@@ -107,9 +107,11 @@
           the key performance indicators of importance of a business.
           Probability theory is the foundation on which descriptive and predictive analytics models are built.
           <br>
+        <div style="text-align: center;">
           <i>Credits: <a href="https://www.amazon.in/Business-Analytics-Science-Driven-Decision/dp/8126568771">Business
               Analytics: U Dinesh Kumar </a></i>
-          <hr>
+        </div>
+        <hr>
 
         </p>
       </div>
@@ -445,12 +447,20 @@
               <li>Continous Random Variable: <b>Probability Density Function</b></li>
               <li>Both cases: <b>Cumulative Distribution Function</b></li>
             </ul>
-            
+
             The term <i>probability</i> relates is to an event and probability distribution relates is to a random
             variable.
             <br>
-            It is a convention that the term <i>probability mass function</i> refers to the probability function of a discrete random variable and the
-             term <i>probability density function</i> refers to the probability function of a continuous random variable
+            A great video about probability distribution: <br>
+            <iframe width="95%" height="315" src="https://www.youtube-nocookie.com/embed/CfZa1daLjwo?start=123"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+            <br>
+            It is a convention that the term <i>probability mass function</i> refers to the probability function of a
+            discrete random variable and the
+            term <i>probability density function</i> refers to the probability function of a continuous random variable
 
             <br><br>
             <ol>
@@ -472,40 +482,39 @@
                 P(2) = 1/4; P(1) = 2/4; P(0) = 1/4
                 <br>
                 Which could be represented as in
-                <img
-                  src="/assets/imgs/blog/probability/05_pmf_chart.jpg"
-                  alt="pmf_visualization" style="width: 65%;">
-                  <br><br>
-                  For a discrete random variable, we consider events of the type {X=x} and compute probabilities of such events to describe the distribution of the random variable. 
-                  This probability, P{X=x}=p(x) is called the <i>probability mass function</i>
+                <img src="/assets/imgs/blog/probability/05_pmf_chart.jpg" alt="pmf_visualization" style="width: 65%;">
+                <br><br>
+                For a discrete random variable, we consider events of the type {X=x} and compute probabilities of such
+                events to describe the distribution of the random variable.
+                This probability, P{X=x}=p(x) is called the <i>probability mass function</i>
               </li>
               <br>
               <li>
-                <b>PDF</b>: A continuous random variable is described by considering probabilities for events of the type (a&lt;X&lt;b). 
-                The probability function of a continuous random variable is usually denoted by f(x) and is called a <i>probability density function</i>
-                <img src="/assets/imgs/blog/probability/05_pdf_formula.jpg" 
-                alt="pdf_formula" style="width: 65%;">
+                <b>PDF</b>: A continuous random variable is described by considering probabilities for events of the
+                type (a&lt;X&lt;b).
+                The probability function of a continuous random variable is usually denoted by f(x) and is called a
+                <i>probability density function</i>
+                <img src="/assets/imgs/blog/probability/05_pdf_formula.jpg" alt="pdf_formula" style="width: 65%;">
                 <br>
-                It is a function whose value at any given sample (or point) in the sample space (the set of possible values taken by the random variable) can 
-                be interpreted as providing a relative likelihood that the value of the random variable would be close to that sample.
-                <img
-                  src="/assets/imgs/blog/probability/05_pdf_chart.png"
-                  alt="pdf_visualization" style="width: 65%;">
+                It is a function whose value at any given sample (or point) in the sample space (the set of possible
+                values taken by the random variable) can
+                be interpreted as providing a relative likelihood that the value of the random variable would be close
+                to that sample.
+                <img src="/assets/imgs/blog/probability/05_pdf_chart.png" alt="pdf_visualization" style="width: 65%;">
 
-                  <div style="text-align: center;">
-                    <i>Credits: <a href="https://en.wikipedia.org/wiki/File:Boxplot_vs_PDF.svg">
+                <div style="text-align: center;">
+                  <i>Credits: <a href="https://en.wikipedia.org/wiki/File:Boxplot_vs_PDF.svg">
                       Wikipedia.com</a></i>
-                  </div>
+                </div>
               </li>
               <br>
               <li>
-                <b>CDF</b>: Cumulative Distribution Function, F(Xi), is the probability that the random variable X takes values less than or equal
-                to Xi, i.e. 
-                <img
-                  src="/assets/imgs/blog/probability/05_cdf.jpg"
-                  alt="cdf" style="width: 85%;">
-                  <br><br>
-                
+                <b>CDF</b>: Cumulative Distribution Function, F(Xi), is the probability that the random variable X takes
+                values less than or equal
+                to Xi, i.e.
+                <img src="/assets/imgs/blog/probability/05_cdf.jpg" alt="cdf" style="width: 85%;">
+                <br><br>
+
               </li>
             </ol>
           </div>
@@ -516,53 +525,208 @@
             <h1>Distributions</h1>
             The <i>distribution</i> is simply, the assignment of probabilities, to sets of possible values of the random
             variable.
-            And, a <i>probability distribution </i>is a statistical function, that describes all the possible values and likelihoods that a random 
+            And, a <i>probability distribution </i>is a statistical function, that describes all the possible values and
+            likelihoods that a random
             variable can take within a given range
             <br><br>
             <ul>
               <li>
-                <b>Binomial Distribution</b>: In order for a random variable to be considered following Binomial DIstributio, it needs to satisfy following conditions: 
+                <b>Bernoulli Distribution</b>: Any event, which has 1 trial with 2 possible events, follows Bernoulli
+                Distribution, e.g. Coin Flip
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bernoulli_Distribution.PNG/640px-Bernoulli_Distribution.PNG"
+                  alt="bernouli_distribution" style="width: 75%;">
+
+                <div style="text-align: center;">
+                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">
+                      Wikipedia</a></i>
+                </div>
+                <br>
+
+              </li>
+              <li>
+                <b>Binomial Distribution</b>: Binomial Distribution helps in getting number of times we expect to get a
+                specific outcome. As,
+                its graph represents our likelihood of attaining our desired outcome, a specific number of times
+                <br>
+                <img src="/assets/imgs/blog/probability/06_01_binomial_distribution_graph.png" alt="binomial_graph"
+                  style="width: 75%;">
+
+                <div style="text-align: center;">
+                  <i>Binomial probability mass function and normal probability density function approximation for n = 6
+                    and p = 0.5</i>
+                  <br>
+                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Binomial_distribution">
+                      Wikipedia</a></i>
+                </div>
+                <br>
+                In order for a random variable to be considered for Binomial Distribution, it needs to satisfy following
+                conditions:
                 <br>
                 <ul>
                   <li>Only 2 unique outomes possible, i.e. Bernoulli Trials</li>
                   <li>Objective: probability of getting k successes, out of n trials</li>
-                  <li>Each trial is a yes-no asking independent event</li>
-                  <li>Probability P is constant, and doesn't varies between trials (probability of getting tails doesn't changes after some trials)</li>
+                  <li>Each trial is a "yes-no asking" independent event</li>
+                  <li>Probability P is constant, and doesn't varies between trials (probability of getting tails doesn't
+                    changes after some n-p trials)</li>
                 </ul>
                 PMF of Binomial Distribution
-                <img
-                  src="/assets/imgs/blog/probability/06_01_binomial_distribution_formula.png"
-                  alt="cdf" style="width: 45%;">
-                E.g. few good examples include <i>binary classifications</i> like churn and wont churn, fraud transaction & non-fraud transactions, loan emi default and no default, etc
+                <img src="/assets/imgs/blog/probability/06_01_binomial_distribution_formula.png" alt="cdf"
+                  style="width: 45%;">
+                Few good examples include <i>binary classifications</i> like churn and wont churn, fraud
+                transaction & non-fraud transactions, loan emi default and no default, etc
               </li>
               <br><br>
               <li>
-                <b>Poisson Distribution</b>: Sometimes we are interested in the count of events, e.g. number of orders in an ecommerce website, number of cancelled orders,
-                number of customer complaints in a telecom company, etc. In such cases, we need probaility distribution of number of events, i.e. <i>Poisson Distribution</i>.
+                <b>Poisson Distribution</b>: Sometimes we are interested in the count of events, e.g. number of orders
+                in an ecommerce website, number of cancelled orders,
+                number of customer complaints in a telecom company, etc. In such cases, we need probaility distribution
+                of number of events, i.e. <i>Poisson Distribution</i>.
+                <br>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Binomial_versus_poisson.svg/1024px-Binomial_versus_poisson.svg.png"
+                  alt="poisson_distribution" style="width: 75%;">
+
+                <div style="text-align: center;">
+                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Poisson_distribution">
+                      Wikipedia</a></i>
+                </div>
+                <br>
+                E.g. the number of mails you receive monthly, are countable and independent of each other.
+                <br>
+                It is a poisson distribution event, as it deals with the frequency at which an event occurs in a
+                specific interval, instead of
+                the probability of the event, it wants to know how often an event occurs, for a period of time
+                <br>
+                Another example, firefly lighting up 3 times in 10seconds
               </li>
               <li>
-                <b>Geometric Distribution</b>: 
+                <b>Geometric Distribution</b>: Sometimes, we're more interested to discover about the number of failures
+                between 2 success in Bernoulli Distribution, e.g. as
+                in case of duration between 2 purchse of visit to the store. Here, if each day is 1 trial, and the
+                outcome is purchased & not-purchsaed, then each point in
+                x-axis of the bernouli graph would be a unique single day, which could be either purchased or
+                not-purchsaed. And Geometric Distribution will help us in knowing
+                what is the duration between 2 purchases
+                <br>
+                I.e. <b>Geometric Distribution</b> si the number of Bernoulli Trials required to achieve success. It
+                represents a random experiment in which
+                the random variable predicts the number of failures before the success.
+                <br>
+                A great explanation of Geometric Distribution:
+                <img src="/assets/imgs/blog/probability/06_04_geometric_distribution_formula.png.jpg"
+                  alt="geometric_distribution" style="width: 75%;">
+
+                <div style="text-align: center;">
+                  <i>Credits: <a href="https://math.stackexchange.com/a/3716176">
+                      K. A. Buhr</a></i>
+                </div>
+                <br>
               </li>
               <li>
-                <b>Continous Distribution</b>: 
+                <b>Continous Distribution</b>:
               </li>
               <li>
-                <b>Uniform Distribution</b>: 
+                <b>Uniform Distribution</b>: In statistics, uniform distribution refers to a type of probability
+                distribution in which all outcomes are equally
+                likely. E.g. A deck of cards has within it uniform distributions because the likelihood of drawing a
+                heart, a club, a diamond, or a spade is
+                equally likely. A coin also has a uniform distribution because the probability of getting either heads
+                or tails in a coin toss is the same.
+                <br>
+
+                <i>There are two types of uniform distributions: discrete and continuous</i>. The possible results of
+                rolling a die provide an example of a <b>discrete uniform distribution</b> : it is possible to roll
+                a 1, 2, 3, 4, 5, or 6, but it is not possible to
+                roll a 2.3, 4.7, or 5.5. Therefore, the
+                roll of a die generates a discrete distribution with p = 1/6 for each outcome. There are only 6 possible
+                values to return and nothing in between<sup><a
+                    href="https://www.investopedia.com/terms/u/uniform-distribution.asp">[1]</a></sup>.
+
+                <img src="/assets/imgs/blog/probability/06_05_discrete_uniform_distribution.png"
+                  alt="discrete_uniform_distribution" style="width: 45%;">
+
+                <div style="text-align: center;">
+                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Discrete_uniform_distribution">
+                      Wikipedia</a></i>
+                </div>
+                <br>
+
+                Some uniform distributions are continuous rather than discrete. An idealized random number generator
+                would be considered a <b>continuous uniform distribution</b> . With this type of distribution, every
+                point in the continuous range between 0.0 and 1.0 has an equal opportunity of appearing, yet there
+                is an infinite number of points between 0.0 and 1.0<sup><a
+                    href="https://www.investopedia.com/terms/u/uniform-distribution.asp">[2]</a></sup>.
+
+                <img src="/assets/imgs/blog/probability/06_05_continous_uniform_distribution.png"
+                  alt="continous_uniform_distribution" style="width: 45%;">
+
+                <div style="text-align: center;">
+                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Discrete_uniform_distribution">
+                      Wikipedia</a></i>
+                </div>
+                <br>
+
               </li>
               <li>
-                <b>Exponential Distribution</b>
+                <b>Exponential Distribution</b>: In Exponential Distribution, the events occur continuously and
+                independently at a constant average rate.
+                The exponential distribution, Erlang distribution, and chi-square distribution are special cases of the
+                gamma distribution
+
+                <img src="https://sasnrd.com/wp-content/uploads/2017/08/Exponential_PDF.png"
+                  alt="exponential_distribution" style="width: 45%;">
+
+                <div style="text-align: center;">
+                  <i>Credits: <a href="https://sasnrd.com/wp-content/uploads/2017/08/Exponential_PDF.png">
+                      Sasnrd.com</a></i>
+                </div>
+                <br>
+
               </li>
               <li>
-                <b>Normal Distribution</b>
+                <b>Normal Distribution</b>: Normal distribution, also known as the Gaussian distribution, is a
+                probability distribution that is symmetric about the mean, showing that data near the mean are more
+                frequent in occurrence than data far from the mean. In graph form, normal distribution will appear as a
+                bell curve<sup><a href="https://www.investopedia.com/terms/n/normaldistribution.asp">[3]</a></sup>.
+
+                <img
+                  src="https://www.investopedia.com/thmb/CcUiIoXJac8-i1_52cCNDDah1bk=/3274x0/filters:no_upscale():max_bytes(150000):strip_icc()/dotdash_Final_The_Normal_Distribution_Table_Explained_Jan_2020-03-a2be281ebc644022bc14327364532aed.jpg"
+                  alt="exponential_distribution" style="width: 95%;">
+
+                <div style="text-align: center;">
+                  <i>Credits: <a
+                      href="https://www.investopedia.com/articles/active-trading/092914/normal-distribution-table-explained.asp">
+                      Investopedia.com</a></i>
+                </div>
+
+                <br>
+                A normal random variable with mean = 0 & standard deviation = 1 is called as <b>Standard Normal
+                  Variable</b>, and usually represented by Z
+                <br>
               </li>
               <li>
-                <b>Chi-Squared Distribution</b>
+                <b>Chi-Squared Distribution</b>: When k independent standard normal random variable are squared and
+                summed together, the non-parametric distribution
+                obtained is called as Chi-Square Distribution with K-Degrees of Freedom.
+                <br>
+                Used to check the relationships between categorical variables, to study the sample variance where the
+                underlying distribution is normal,
+                and most importantly, to conduct a The chi-square test (a goodness of fit test)
               </li>
               <li>
-                <b>Student's t-Distribution</b>
+                <b>Student's t-Distribution</b>: The distribution arise when estimating the mean of a normally
+                distributed population in situations where the sample size is small and the population's standard
+                deviation is unknown
+                <img src="/assets/imgs/blog/probability/06_06_students_t_distribution.jpg"
+                  alt="exponential_distribution" style="width: 45%;">
               </li>
               <li>
-                <b>F-Distribution</b>
+                <b>F-Distribution</b>: is a continuous probability distribution that arises frequently as the null
+                distribution of a test statistic, most notably in the analysis of variance (ANOVA) and other F-tests.
+                <br>
+                <i>Null Distribution</i> is the probability distribution of the test statistic when the null hypothesis
+                is true
               </li>
             </ul>
           </div>
@@ -606,7 +770,7 @@
       <!-- ####################
                 Link in nxt-btn needs update
                 #################### -->
-      <a href="/blog/statistics/hypothesis_testing">
+      <a href="/blog/statistics/sampling">
         <button class="pagination_button next_button" style="">
           <span>Next </span>
         </button>
