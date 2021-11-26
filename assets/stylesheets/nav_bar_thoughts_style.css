@@ -1,0 +1,27 @@
+.nav_bar_thoughts{
+  background-color: #121215;                  /* background color */   
+  padding-left: 10px;
+  padding-top: 20px;
+}
+.nav_bar_thoughts span{
+  padding: 10px;
+}
+.nav_bar_thoughts a{
+  color: #f4d47c;            /* blog card background color */
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Comfortaa', cursive;
+}
+.nav_bar_thoughts a:hover{
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #f4d47c;            /* blog card background color */
+  padding: 10px;
+  border-radius: 20px;
+  text-decoration: underline;
+  font-size: 30px;
+  font-family: 'Comfortaa', cursive;
+}
+
+/* ========================================================================================= */
+
+
