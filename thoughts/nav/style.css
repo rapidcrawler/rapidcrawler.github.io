@@ -1,220 +1,119 @@
 * {
     margin: 0;
-    padding: 0;
-    outline: none;
-    box-sizing: border-box;
 }
 
-body {
-    background: #eee;
-    color: #444;
-    -webkit-font-smoothing: antialiased;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 300;
-    font-weight: 400;
-    height: auto !important;
-    height: 100%;
-    min-height: 100%;
-    text-rendering: optimizeLegibility;
-}
-
-header {
-    background-color: rgb(140, 193, 193);
-    border-bottom: 1px solid rgba(0,0,0,.15);
-    display: flex;
-    flex-direction: column;
+/* Add a black background color to the top navigation */
+ .topnav {
+    background-color: #121215;                  /* background color */   
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
     text-align: center;
-}
-
-    header > div#logo {
-        line-height: 70px;
-        position: relative;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .active {
+    background-color: #04AA6D;
+    color: black;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+  
+  /* Dropdown container - needed to position the dropdown content */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Style the dropdown button to fit inside the topnav */
+  .dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  /* Style the dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Style the links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a dark background on topnav links and the dropdown button on hover */
+  .topnav a:hover, .dropdown:hover .dropbtn {
+    background-color: #121215;                  /* background color */   
+    color: white;
+  }
+  
+  /* Add a grey background to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Show the dropdown menu when the user moves the mouse over the dropdown button */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child), .dropdown .dropbtn {
+      display: none;
     }
-    
-    header > .menuDown {
-        box-shadow: 0 3px 5px rgba(0,0,0,.15);
+    .topnav a.icon {
+      float: right;
+      display: block;
     }
-    
-    header > .menuUp {
-        box-shadow: none;
+  }
+  
+  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
     }
-    
-        header > div#logo > h1 {
-            color: white;
-            font-weight: 300;
-            text-transform: lowercase;
-        }
-        
-        header > div#logo > div#navToggle {
-            background-color: rgba(0,0,0,.15);
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: 300ms all ease;
-        }
-            
-            header > div#logo > div#navToggle:hover {
-                background-color: rgba(0,0,0,.1);
-            }
-            
-            header > div#logo > div#navToggle > a {
-                color: rgba(255,255,255,.85);
-                display: block;
-                font-size: 0.85em;
-                font-weight: 600;
-                padding: 0 2.5rem;
-                text-decoration: none;
-                transition: 300ms all ease;
-            }
-            
-                header > div#logo > div#navToggle:hover > a {
-                    color: rgba(255,255,255,1);
-                }
-
-    header > nav {
-        background-color: white;
-        display: none;
-        flex: 1;
-        transform: 300ms all ease;
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
     }
-    
-        header nav > ul {
-            list-style-type: none;    
-        }
-        
-            header nav > ul > li {
-                border-bottom: 1px dotted rgba(0,0,0,.1);
-                position: relative;
-            }
-            
-                header nav > ul > li:last-of-type {
-                    border-bottom: none;    
-                }
-            
-                header nav > ul > li > a {
-                    display: block;
-                    color: rgba(0,0,0,.65);
-                    font-weight: 700;
-                    padding: 1.5rem 0;
-                    text-decoration: none;
-                    transition: 250ms all ease;
-                }
-				
-					header nav > ul > li > a span.toggle {
-						background-color: rgba(0,0,0,.05);
-						border-radius: 3rem;
-						color: rgba(0,0,0,.25);
-						font-size: 0.75em;
-						font-weight: 500;
-						padding: 2px 8px;
-						text-transform: lowercase;	
-					}
-					
-					header nav > ul > li > a span.caret {
-                        display: none;
-					}
-                
-                    header > nav > ul > li:hover > a {
-                        color: rgb(140, 193, 193);  
-                    }
-                
-            header > nav > ul > li > nav {
-                background-color: rgb(51,51,51);
-                border-radius: 1.5em;
-                box-shadow: 0 2px 8px rgba(0,0,0,.6);
-                display: none;
-                overflow: hidden;
-                position: absolute;
-                right: 5%;
-                width: 90%;
-                z-index: 100;
-            }
-            
-                header > nav > ul > li > nav > ul > li > a {
-                    color: rgba(255,255,255,.85);
-                    transition: 300ms all ease;
-                }
-                
-                    header > nav > ul > li > nav > ul > li:hover > a {
-                        background-color: rgba(0,0,0,.6);
-                        color: rgba(255,255,255,1);
-                    }
-
-/* Medium screens */
-@media all and (min-width: 600px) {
-    header > div#logo > div#navToggle {
-        display: none;    
+    .topnav.responsive .dropdown {float: none;}
+    .topnav.responsive .dropdown-content {position: relative;}
+    .topnav.responsive .dropdown .dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
     }
-    
-    header {
-        background-color: white;
-        flex-direction: row;
-        line-height: 90px;
-        padding: 0 3rem;
-		position: fixed;
-        text-align: left;
-		width: 100%;
-    }
-    
-        header > div#logo {
-            background-color: transparent;
-            line-height: 90px;
-        }
-    
-            header > div#logo > h1 {
-                color: rgb(140, 193, 193);
-            }
-            
-    header > nav {
-        background-color: transparent;
-        display: block;
-    }
-    
-        header > nav > ul {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: flex-end;    
-        }
-        
-            header nav > ul > li {
-                border-bottom: none;
-            }
-    
-                header nav > ul > li > a {
-                    padding: 0 1.25rem;
-                }
-					
-					header nav > ul > li > a span.toggle {
-						display: none;	
-					}
-					
-					header nav > ul > li > a span.caret {
-                        border-bottom: 4px solid transparent;
-                        border-top: 4px solid rgba(0,0,0,.65);
-                        border-right: 4px solid transparent;
-                        border-left: 4px solid transparent;
-						border-radius: 1px;
-						content: "";
-						display: inline-block;
-						height: 0;
-						margin: 0 0 0 .25rem;
-						transition: 250ms all ease;
-						width: 0;
-						vertical-align: middle;
-					}
-					
-						header nav > ul > li:hover > a span.caret {
-							border-top-color: rgb(140, 193, 193);
-							transform: rotate(270deg); 
-						}
-    
-    header > nav > ul > li:hover > nav {
-        background-color: rgb(51,51,51);
-        border-radius: .25em;
-        box-shadow: 0 2px 8px rgba(0,0,0,.6);
-        display: block;
-        line-height: 3em;
-        right: -50%;
-        width: 196px;
-    }
-}
+  } 
