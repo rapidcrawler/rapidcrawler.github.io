@@ -10,8 +10,8 @@
     <script>
         $(function () {
             $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
-            $("#LHSNavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
-            $("#Mobile_NavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
+            $("#LHSNavBar").load("/assets/scripts/LHSSidebar/py_concepts_LHSNavBar.html");
+            $("#Mobile_NavBar").load("/assets/scripts/LHSSidebar/py_concepts_LHSNavBar.html");
         });
     </script>
 
@@ -68,7 +68,7 @@
                 </span>
                 <span style="float: right;">
                     <p>
-                        Last Updated on: abcXyzpqr
+                        Last Updated on: Nov 30, 2021
                     </p>
                 </span>
             </div>
@@ -88,7 +88,7 @@
                 <!-- Also copy the part from start of <head> tag above -->
                 <div class="sharethis-inline-share-buttons"></div>
             </div>
-            <h1>Commonly Asked Interview Questions</h1>
+            <h1>Create Virtual Environment In Python</h1>
             <hr>
             <div class="hide_in_pc">
                 <h3>
@@ -100,24 +100,98 @@
             <!-- ####################
               ToC needs update
               #################### -->
-            <div class="toc">
+            <!-- <div class="toc">
                 <h1>Table of Contents</h1>
                 <ol>
                     <li><a href="#basics">Basics</a></li>
                     <li><a href="#intermediate">Intermediate</a></li>
                 </ol>
             </div>
-            <hr>
+            <hr> -->
 
             <div class="blog_content">
                 <br>
                 <div id="basics">
-                    <h1>1) Basics</h1>
+                    Having python virtual environment helps us to create 2 different environment (or ecosystem) of
+                    libraries, that don't interfer with each other. E.g.
+                    lets assume you have pandas (a python library) installed in your computer, version X.y, for the
+                    currenlty ongoing project, i.e. Project Y
+                    that you're working on. Now, if you start a new project, i.e. Project Z, you might want to install
+                    some new libraries for Project Z.
+                    <br>
+                    <br>
+                    The issue that could arise here could be, Project Z might have the requirement to use python library
+                    pandas X.z or greater. However, Project Y mandates
+                    the use of python library pandas X.y or lower. Now, this could cause a lot of problems when you try
+                    to switch between projects, as the library
+                    dependencies will make you constantly install-uninstall libraries, depending on which project you're
+                    working on.
+                    <br>
+                    <br>
+                    To avoid this hassle, for a single computer, we can host 2 (or more) isolated environments, where
+                    libraries of 1 environment wouldn't interfere with
+                    the libraries of the other environment, i.e. now you could use python library pandas X.y & pandas
+                    X.z simultaneously, without the need to reinstall
+                    again and again for project specific needs, as we've created isolated environments for our
+                    respective projects, as per thier needs.
+                    <br>
+                    Now, lets see how can we achieve it
+                </div>
+                <div id="create">
+                    <h1>1) CREATE</h1>
                     <p>
+                        Go to your project's root directory and open cmd prompt/terminal there
+                        <br>
+                        * In windows, go to project's root directory, press Alt+D and then Home, then enter "cmd" at the
+                        starting of the address bar and hit enter
+                        <script
+                            src="https://gist.github.com/juspreet51/eb020a85fcc3c58acb4b386890edc155.js?file=create.py"></script>
                     </p>
                 </div>
-                <div id="intermediate">
-                    <h1>2) Intermediate</h1>
+                <div id="activate">
+                    <h1>2) ACTIVATE</h1>
+                    <p>
+                        To use this environment and install any packages, type:
+                        <script
+                            src="https://gist.github.com/juspreet51/eb020a85fcc3c58acb4b386890edc155.js?file=activate.py"></script>
+                        This will activate the virtual environment, and now whatever package you install with pip, will
+                        stay inside this virtual environment.
+                    </p>
+                </div>
+                <div id="exit">
+                    <h1>3) EXIT</h1>
+                    <script
+                        src="https://gist.github.com/juspreet51/eb020a85fcc3c58acb4b386890edc155.js?file=exit.py"></script>
+                </div>
+                <div id="share">
+                    <h1>4) SHARE</h1>
+                    <p>
+                        If you wish to replicate this project or environment in some other system or directory, or wish
+                        to share this project
+                        with others and want them to smoothly run it, without going through any library dependencies
+                        related issue troubleshooting,
+                        along witht the code in your project, you may share with them the environment in which this
+                        project was built. This will help
+                        them to smoothly run it in thier own pc.
+                        <br><br>
+                        To do so simply copying this
+                        environment will not work. For that, first activate this environment and create a list of all
+                        packages by typing:
+                        <script
+                        src="https://gist.github.com/juspreet51/eb020a85fcc3c58acb4b386890edc155.js?file=share.py"></script>
+                        That is all you need to do to isolate your python project dependencies.
+                    </p>                    
+                </div>
+                <div>
+                    <h1>References</h1>
+                    <ul>
+                        <li>
+                            <a href="https://devrav.com/blog/create-virtual-env-python">How to create virtual environment in Python</a>
+                        </li>
+                        <li>
+                            <a href="https://docs.python.org/3/library/venv.html">venv — Creation of virtual environments</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
