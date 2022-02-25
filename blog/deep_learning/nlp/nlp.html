@@ -10,7 +10,7 @@
   <script>
     $(function () {
       $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
-      $("#NLP_LHSNavBar").load("/assets/scripts/LHSSidebar/NLP_LHSNavBar.html");
+      $("#LHSNavBar").load("/assets/scripts/LHSSidebar/NLP_LHSNavBar.html");
     });
   </script>
 
@@ -45,7 +45,10 @@
     <!-- ####################
     LHSNavBar . Also copy the part from start of <head> tag above
     #################### -->
-    <div id="NLP_LHSNavBar"></div>
+    <div class="column_left">
+      <h2 style="text-align: center;"> Chapters </h2>
+      <div id="LHSNavBar"></div>
+    </div>
 
     <!-- ####################
     Page Titke needs update
@@ -128,7 +131,7 @@
             <img src="/assets/imgs/blog/nlp/nlp_00.JPG" class="center" style="width: 80%">
             <i class="img_credit">Credits: <a
                 href="https://wac.colostate.edu/books/sound/chapter5.pdf">colostate.edu</a>
-              </i>
+            </i>
           </p>
           <p>
             <b>Free Morpheme</b>: A Morpheme which can which can stand alone as meaniungful word, is called as Free
