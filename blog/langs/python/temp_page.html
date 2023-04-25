@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type='text/javascript'
+        src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop'
+        async='async'></script>
+    <!-- NavBar . Also copy the part from start of <body> tag below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+            $("#LHSNavBar").load("/assets/scripts/LHSSidebar/py_concepts_LHSNavBar.html");
+            $("#Mobile_NavBar").load("/assets/scripts/LHSSidebar/py_concepts_LHSNavBar.html");
+        });
+    </script>
+
+    <title>Juspreet51.in</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css_dark_mode_gist_embed_code.css">
+
+    <!-- Google Fonts: Robot Black 900-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <!-- NavBar . Also copy the part from start of <head> tag above -->
+    <div id="nav_bar_dark"></div>
+
+    <div class="three_col_layout">
+
+        <!-- ####################
+        LHSNavBar . Also copy the part from start of <head> tag above
+        #################### -->
+        <div class="column_left">
+            <h2 style="text-align: center;"> Chapters </h2>
+            <div id="LHSNavBar"></div>
+        </div>
+
+        <!-- ####################
+        Page Titke needs update
+        #################### -->
+        <div class="column_center">
+            <h1>Python</h1>
+            <div class="meta_info">
+                <span style="float: left;">
+                    <p>
+                        <!-- ####################
+                        Date-Posted needs update
+                        #################### -->
+                        Posted by: <a href="/index" target="_blank" class="blog_links">Juspreet51</a>
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        Last Updated on: Nov 30, 2021
+                    </p>
+                </span>
+            </div>
+
+
+            <!-- ####################
+            Banner img needs update
+            #################### -->
+            <div class="banner">
+                <img src="/assets/imgs/banners/generic_banner.jpg">
+            </div>
+
+            <br>
+
+            <div class="share_this_plugin">
+                <br>
+                <!-- Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+            <h1>Create Virtual Environment In Python</h1>
+            <hr>
+            <div class="hide_in_pc">
+                <h3>
+                    Chapters
+                </h3>
+                <div id="Mobile_NavBar"></div>
+                <hr>
+            </div>
+            <!-- ####################
+              ToC needs update
+              #################### -->
+            <!-- <div class="toc">
+                <h1>Table of Contents</h1>
+                <ol>
+                    <li><a href="#basics">Basics</a></li>
+                    <li><a href="#intermediate">Intermediate</a></li>
+                </ol>
+            </div>
+            <hr> -->
+
+            <div class="blog_content">
+                <br>
+                <div id="basics">
+                    Having python virtual environment helps us to create 2 different environment (or ecosystem) of
+                    libraries, that don't interfer with each other. E.g.
+                    lets assume you have pandas (a python library) installed in your computer, version X.y, for the
+                    currenlty ongoing project, i.e. Project Y
+                    that you're working on. Now, if you start a new project, i.e. Project Z, you might want to install
+                    some new libraries for Project Z.
+                    <br>
+                    <br>
+                    The issue that could arise here could be, Project Z might have the requirement to use python library
+                    pandas X.z or greater. However, Project Y mandates
+                    the use of python library pandas X.y or lower. Now, this could cause a lot of problems when you try
+                    to switch between projects, as the library
+                    dependencies will make you constantly install-uninstall libraries, depending on which project you're
+                    working on.
+                    <br>
+                    <br>
+                    To avoid this hassle, for a single computer, we can host 2 (or more) isolated environments, where
+                    libraries of 1 environment wouldn't interfere with
+                    the libraries of the other environment, i.e. now you could use python library pandas X.y & pandas
+                    X.z simultaneously, without the need to reinstall
+                    again and again for project specific needs, as we've created isolated environments for our
+                    respective projects, as per thier needs.
+                    <br>
+                    Now, lets see how can we achieve it
+                </div>
+                <div id="create">
+                    <h1>1) CREATE</h1>
+                    <p>
+                        Go to your project's root directory and open cmd prompt/terminal there
+                        <br>
+                        * In windows, go to project's root directory, press Alt+D and then Home, then enter "cmd" at the
+                        starting of the address bar and hit enter
+                        <script
+                            src="https://gist.github.com/juspreet51/eb020a85fcc3c58acb4b386890edc155.js?file=create.py"></script>
+                        ** If facing with "PATH not found" or "Add directory folder to the PATH", you need to add the
+                        directory, where the 'pip install virtual env' installed your library in. The folder where the
+                        library has been installed would be displayed in the cmd prompt or terminal.
+                        <br> <br>
+                        Follow <a
+                            href="https://idojo.co/how-to-add-a-folder-to-the-path-environment-variable-in-windows-10/">this
+                            tutorial </a> for guided steps, and then re-enter the command <i>virtualenv myenv</i>
+                    </p>
+                </div>
+                <div id="activate">
+                    <h1>2) ACTIVATE</h1>
+                    <p>
+                        To use this environment and install any packages, type:
+                        <script
+                            src="https://gist.github.com/juspreet51/eb020a85fcc3c58acb4b386890edc155.js?file=activate.py"></script>
+                        This will activate the virtual environment, and now whatever package you install with pip, will
+                        stay inside this virtual environment.
+                    </p>
+                </div>
+                <div id="exit">
+                    <h1>3) EXIT</h1>
+                    <script
+                        src="https://gist.github.com/juspreet51/eb020a85fcc3c58acb4b386890edc155.js?file=exit.py"></script>
+                </div>
+                <div id="share">
+                    <h1>4) SHARE</h1>
+                    <p>
+                        If you wish to replicate this project or environment in some other system or directory, or wish
+                        to share this project
+                        with others and want them to smoothly run it, without going through any library dependencies
+                        related issue troubleshooting,
+                        along witht the code in your project, you may share with them the environment in which this
+                        project was built. This will help
+                        them to smoothly run it in thier own pc.
+                        <br><br>
+                        To do so simply copying this
+                        environment will not work. For that, first activate this environment and create a list of all
+                        packages by typing:
+                        <script
+                            src="https://gist.github.com/juspreet51/eb020a85fcc3c58acb4b386890edc155.js?file=share.py"></script>
+                        That is all you need to do to isolate your python project dependencies.
+                    </p>
+                </div>
+                <div>
+                    <h1>References</h1>
+                    <ul>
+                        <li>
+                            <a href="https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/"
+                                target="_blank">Creating Python Virtual Environment in Windows and Linux |
+                                geeksforgeeks.org</a>
+                        </li>
+                        <li>
+                            <a href="https://devrav.com/blog/create-virtual-env-python" target="_blank">How to create
+                                virtual environment in Python | devrav.com</a>
+                        </li>
+                        <li>
+                            <a href="https://docs.python.org/3/library/venv.html" target="_blank">venv — Creation of
+                                virtual environments | docs.python.org</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column_right">
+            </div>
+            <!-- ########################################### -->
+            <!-- ############## RHS Sidebar ################ -->
+            <!-- ########################################### -->
+
+        </div>
+        <!-- ################################################### -->
+        <!-- ############ three_col_layout Ends Here ########### -->
+        <!-- ################################################### -->
+
+        <div style="height: 50px;">
+            <h1></h1>
+        </div>
+
+        <div class="footer" id="footer">
+            <div id="page_change_btns">
+                <a href="#">
+                    <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+                        <span>Previous </span>
+                    </button>
+                </a>
+
+                <!-- ####################
+                Link in nxt-btn needs update
+                #################### -->
+                <a href="#">
+                    <button class="pagination_button next_button" style="">
+                        <span>Next </span>
+                    </button>
+                </a>
+            </div>
+            <br> <br> <br> <br>
+            <div class="share_this_plugin">
+                <h1>Share This</h1>
+                <p>Share it with your friends and colleagues whom you think it can help</p>
+                <!-- Footer . Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+
+            <div class="comment_box">
+                <!-- ########################################### -->
+                <!-- ############# Needs updates ############### -->
+                <!-- ########################################### -->
+                <!-- begin wwww.htmlcommentbox.com -->
+                <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
+                </div>
+                <link rel="stylesheet" type="text/css"
+                    href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                <script type="text/javascript"
+                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+                <!-- end www.htmlcommentbox.com -->
+            </div>
+        </div>
+
+</body>
+
+</html>
