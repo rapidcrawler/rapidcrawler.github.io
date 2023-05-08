@@ -63,8 +63,7 @@
                         <!-- ####################
                     Date-Posted needs update
                     #################### -->
-                        Posted by: <a href="/index" target="_blank"
-                            class="blog_links">Juspreet51</a>
+                        Posted by: <a href="/index" target="_blank" class="blog_links">Juspreet51</a>
                     </p>
                 </span>
                 <span style="float: right;">
@@ -97,6 +96,12 @@
                     <!-- <p> <script src="https://gist.github.com/juspreet51/35aebcd2fe66679bfc98953f215f90c0.js?file=test2.py"></script> </p> -->
                     <p>
                         <b>Biomimicry</b>:
+                    <ol>
+                        <li>Neurophysiologist Warren McCulloch and Walter Pitts introduced in 1943 a paper discussing
+                            about design of <i>Artificial</i> Neuron inspired from the working of Bilogical Neuron </li>
+                        <li>Paper was titled <b><a href="https://link.springer.com/article/10.1007/bf02459570">A logical
+                                    calculus of the ideas immanent in nervous activity</a></b></li>
+                    </ol>
                     </p>
                     <p>
                         <b>Propositional Logic</b>:
@@ -106,23 +111,86 @@
                     </p>
                     <p>
                         <b>Perceptron</b>:
+                    <ol>
+                        <li>Invented in 1957 by Frank Rosenblatt, by introducing <i>Threshold Logic Unit</i> in
+                            Artificial Neural Network</li>
+                        <li>Idea was inspired from Hebb's Rule, i.e. Neurons that fire together, wire together</li>
+                        <li>Multiple TLU are placed in a layer, with each TLU connected to every input</li>
+                    </ol>
+                    </p>
+                    <p>
+                        <b>Dense Layer</b>:
+                    <ol>
+                        <li>A layer where each node is fully connected to all previous and next layer's nodes/units</li>
+                    </ol>
+                    </p>
+                    <p>
+                        <b>Multi Layer Perceptron</b>:
+                    <ol>
+                        <li>Limitations of Perceptron, i.e. <i>XOR Problem</i>, can be eliminated by stacking multiple
+                            perceptrons</li>
+                        <li>ANN where multiple perceptrons are stacked over each other is called as Multi Layer
+                            Perceptron</li>
+                    </ol>
                     </p>
                     <p>
                         <b>Step Function</b>:
                         <br>
-                        Heavside Step Function & Sign Step Function
+                    <ol>
+                        <li>Heavside Step Function</li>
+                    </ol>
                     </p>
                     <p>
-                        <b>Dense Layer</b>:
+                        <b>Gradient Descent</b>:
+                    <ol>
+                        <li>Gradient Descent is a (first order) optimization algorithm for finding a local minimum of a
+                            differentiable function</li>
+                        <li>i.e. "A gradient measures how much the output of a function changes if you change the inputs
+                            a little bit." — <i>Lex Fridman</i></li>
+                    </ol>
+                    <b>Reverse Mode Auto Diff</b>
+                    <ol>
+                        <li>However, it was hard to compute Gradient Descent of a neural network, due to its complexity
+                            w.r.t. number of parameters</li>
+                        <li>Later <i>Reverse Mode Automatic Differentiation</i> was introduced, which takes 2 passes
+                            through the network to compute network's gradient error</li>
+                            <ul>
+                                <li><b>Forward Pass</b>: </li>
+                                <li><b>Reverse Pass</b>: </li>
+                                <li><b>Epoch</b>: 1 Forward and 1 Reverse pass through the network is called as 1 Epoch </li>
+                            </ul>
+                            
+                        <li>This helped to tweak network's each bias and weight in order to reduce the neural network's
+                            error</li>
+                    </ol>
+                    <b>Backpropagation</b>
+                    <ol>
+                        <li><i>Backpropagation</i> = Reverse Mode Automatic Differentiation <i>+</i> Gradient Descent
+                        </li>
+                        <li>This was achieved by replacing Step Function with <i>Sigmoid Function</i>, as Sigmoid function is non-linear in nature, and thus allows chain-rule differentiation to reach local minimum</li>
+                        <i>Steps involved in running Backpropagation through a neural network:</i> <a
+                            href="https://www.amazon.in/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/9355421982">Homl:3e
+                            CH10 Page311</a>                        
+                    </ol>
+                    </p>
+                    <p>
+                        <b>Activation Function</b>:
+                        <ol>
+                            <li>Relu, Leaky Relu, Tanh, etc</li>
+                        </ol>
+                    </p>
+                    <p>
+                        <b>Regression Multi Layer Perceptron</b>:
+                        <ol>
+                            <li>Single Variate Regression: Predictingsingle values at a time, e.g. Predicting house value requires one value prediction, the cost</li>
+                            <li>Multi Variate Regression: Predicting multiple values at once, e.g. Predicting coordinate of a point in a graph requires 2 points predictions, X & Y coordinates</li>
+                        </ol>
                     </p>
                     <p>
                         <b>Bias Neuron</b>:
                     </p>
                     <p>
                         <b>O/P Calculation</b>:
-                    </p>
-                    <p>
-                        <b>Activation Function</b>:
                     </p>
                     <p>
                         <b>Weight Updates</b>:
@@ -141,9 +209,6 @@
 
                     <p>
                         <b>Backpropagation Training Algorithm</b>:
-                        <br>
-                        <b>Auto-diff, Epoch, Forward Pass, Reverse Pass, Activation Function: Sigmoid</b>
-                        <br>
                         <b>Other Activation Functions</b>
                     </p>
                     <p>
@@ -228,7 +293,7 @@
             <link rel="stylesheet" type="text/css"
                 href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
             <script type="text/javascript"
-                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*--> */</script>
             <!-- end www.htmlcommentbox.com -->
         </div>
 
