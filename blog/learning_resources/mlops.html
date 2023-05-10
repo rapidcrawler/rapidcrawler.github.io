@@ -15,7 +15,7 @@
         });
     </script>
     <!-- page specific edits -->
-    <title>Classification Resources</title>
+    <title>MLOps Resources</title>
 
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -92,7 +92,7 @@
                 <div class="sharethis-inline-share-buttons"></div>
             </div>
             <!-- page specific edits -->
-            <h1>Recomended Classification Learning Resources</h1>
+            <h1>Recomended MLOps Resources</h1>
             <hr>
             <div class="hide_in_pc">
                 <h3>
@@ -104,11 +104,15 @@
             </div>
             <!-- ####################
               page specific edits
-              #################### -->              
+              #################### -->
             <div class="toc">
                 <h1>Table of Contents</h1>
-                <a href="#fundamentals">1) Fundamentals</a> <br>
-                <a href="#classics">2) Classics</a> <br>
+                <ol>
+                    <li><a href="#fundamentals">Fundamentals</a></li>
+                    <li><a href="#pipeline">Building Pipeline</a></li>
+                </ol>
+
+
                 <!-- <a href="#footer">3) Fun</a> <br> -->
             </div>
             <hr>
@@ -116,33 +120,66 @@
             <div class="blog_content">
                 <br>
                 <div id="fundamentals">
-                    <h1>1) Fundamentals</h1>
+                    <h1>Fundamentals</h1>
                     <p>
-                        <ol>
-                            <a target="_blank" href="https://jalammar.github.io/visual-numpy/">
-                                <li>
-                                    <b>A Visual Intro to NumPy and Data Representation</b> 
-                                    by Jay Alammar
-                                </li>
+                    <ol>
+                        <li>
+                            <a target="_blank" href="https://neptune.ai/blog/building-end-to-end-ml-pipeline">
+                                <b>How to Build an End-To-End ML Pipeline </b> by Neptune.AI
                             </a>
-                        </ol>
-                    </p>                    
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://neptune.ai/blog/building-ml-pipelines-common-pitfalls">
+                                <b>Building Machine Learning Pipelines: Common Pitfalls </b>by Neptune.AI
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://neptune.ai/blog/ml-model-packaging">
+                                <b>ML Model Packaging</b> [The Ultimate Guide]
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://neptune.ai/blog/build-ci-cd-mlops-pipeline">
+                                <b>How to Build a CI/CD MLOps Pipeline</b> [Case Study]
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://neptune.ai/blog/nlp-models-infrastructure-cost-optimization">
+                                <b>Deploying Large NLP Models</b>: Infrastructure Cost Optimization
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://neptune.ai/blog/how-to-monitor-your-models-in-production-guide">
+                                <b>A Comprehensive Guide on How to Monitor Your Models in Production </b>by Neptune.AI
+                            </a>
+                        </li>
+
+                        <li>
+                            <a target="_blank" href="https://neptune.ai/blog/must-do-error-analysis">
+                                <b>5 Must-Do Error Analysis Before You Put Your Model in Production </b>by Neptune.AI
+                            </a>
+                        </li>
+                    </ol>
+                    </p>
                 </div>
 
-                <div id="classics">
-                    <h1>Guides</h1>
+                <div id="pipeline">
+                    <h1>Building Pipeline</h1>
                     <p>
-                        <ol>
-                            <li>
-                                <a target="_blank" href="https://neptune.ai/blog/how-to-deal-with-imbalanced-classification-and-regression-data">
-                                    <b>How to Deal With Imbalanced Classification and Regression Data</b>
-                                </a>
-                            </li>
+                    <ol>
+                        <li>
+                            <a target="_blank" href="https://neptune.ai/blog/mlops-pipeline-for-computer-vision-image-classification">
+                                <b>Building MLOps Pipeline for Computer Vision: Image Classification Task </b>by
+                                Neptune.AI
                             </a>
-                        </ol>
-                    </p>                    
-                </div>
-                
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://neptune.ai/blog/mlops-pipeline-for-time-series-prediction-tutorial">
+                                <b>Building MLOps Pipeline for Time Series Prediction</b> by Neptune.AI
+                            </a>
+                        </li>
+                    </ol>
+                    </p>
                 </div>
             </div>
 
@@ -163,8 +200,8 @@
 
         <div class="footer" id="footer">
             <div id="page_change_btns">
-                <a href="/blog/learning_resources/reg_resources">
-                <!-- page specific edits -->
+                <a href="/blog/learning_resources/time_series">
+                    <!-- page specific edits -->
                     <button class="pagination_button previous_button" style="vertical-align:middle;">
                         <span>Previous </span>
                     </button>
@@ -174,8 +211,8 @@
                 Link in nxt-btn needs update
                 #################### -->
                 <!-- page specific edits -->
-                <a href="/blog/learning_resources/nnets_resources">
-                    <button class="pagination_button next_button" style="">
+                <a href="#">
+                    <button class="pagination_button next_button disabled_btn" style="">
                         <span>Next </span>
                     </button>
                 </a>
@@ -198,7 +235,7 @@
                 <link rel="stylesheet" type="text/css"
                     href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
                 <script type="text/javascript"
-                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*--> */</script>
                 <!-- end www.htmlcommentbox.com -->
             </div>
         </div>
