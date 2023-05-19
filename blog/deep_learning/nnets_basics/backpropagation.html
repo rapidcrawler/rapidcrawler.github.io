@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type='text/javascript'
+        src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop'
+        async='async'></script>
+    <!-- NavBar . Also copy the part from start of <body> tag below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- page specific edits -->
+    <script>
+        $(function () {
+            $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+            $("#rlr_Mobile_NavBar").load("/assets/scripts/LHSSidebar/nnets_LHSNavBar.html");
+        });
+    </script>
+    <!-- page specific edits -->
+    <title>Neural Networks: Backpropagation</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css_dark_mode_gist_embed_code.css">
+
+    <!-- Google Fonts: Robot Black 900-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <!-- NavBar . Also copy the part from start of <head> tag above -->
+    <div id="nav_bar_dark"></div>
+
+    <div class="three_col_layout">
+
+        <!-- ####################
+        LHSNavBar . Also copy the part from start of <head> tag above
+        #################### -->
+        <div class="column_left">
+            <h2 style="text-align: center;"> Chapters </h2>
+            <!-- page specific edits -->
+            <div id="rlr_Mobile_NavBar"></div>
+        </div>
+
+        <!-- ####################
+        Page Titke needs update
+        #################### -->
+        <div class="column_center">
+            <h1>Neural Networks</h1>
+            <div class="meta_info">
+                <span style="float: left;">
+                    <p>
+                        <!-- ####################
+                        Date-Posted needs update
+                        #################### -->
+                        Posted by: <a href="/index" target="_blank" class="blog_links">Juspreet51</a>
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        <!-- page specific edits -->
+                        Last Updated on: 18 Oct, 2022
+                    </p>
+                </span>
+            </div>
+
+
+            <!-- ####################
+            Banner img
+            #################### -->
+            <div class="banner">
+                <!-- page specific edits -->
+                <img src="/assets/imgs/banners/banner_deep_learnigng.png">
+            </div>
+
+            <br>
+
+            <div class="share_this_plugin">
+                <br>
+                <!-- Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+            <!-- page specific edits -->
+            <h1>Neural Networks: Backpropagation</h1>
+            <!-- <hr> -->
+            <div class="hide_in_pc">
+                <!-- <h3>Chapters</h3> -->
+                <!-- page specific edits -->
+                <!-- <div id="rlr_Mobile_NavBar"></div> -->
+                <!-- <hr> -->
+            </div>
+            <!-- ####################
+              page specific edits
+              #################### -->
+            <div class="toc">
+            </div>
+            <hr>
+
+            <div class="blog_content">
+                <br>
+                <div id="basics">
+                    <h1>What is Backpropagation?</h1>
+                    <p>
+                        Backpropagation is a key algorithm used in training artificial neural networks, and
+                        understanding it is essential in the field of machine learning. Let's break it down in a simple
+                        and fun way!
+
+                        <br><br>
+
+                        Neural networks are like mathematical models inspired by the human brain. They consist of layers
+                        of interconnected nodes called neurons. Each neuron takes inputs, performs some calculations,
+                        and produces an output. These calculations involve multiplying the inputs by weights and
+                        applying an activation function.
+
+                        <br><br>
+
+                        Now, imagine you have a neural network that needs to learn how to recognize handwritten numbers.
+                        Initially, the network doesn't know which weights to assign to its neurons to make accurate
+                        predictions. This is where backpropagation comes in to help it learn.
+
+                        <br><br>
+                    <ul>
+                        <li><b>Forward Pass</b>:
+                            During the forward pass, the network takes an input, such as an image of a handwritten
+                            number,
+                            and processes it through its layers. Each neuron calculates its weighted sum of inputs,
+                            applies
+                            the activation function, and passes the output to the next layer. This process continues
+                            until
+                            the final layer produces the predicted result.</li>
+                        <li><b>Calculating the Error</b>:
+                            Once the network makes a prediction, we compare it to the correct answer, which is called
+                            the
+                            ground truth. The difference between the predicted output and the ground truth is the error.
+                            The
+                            goal of backpropagation is to minimize this error and make the network's predictions more
+                            accurate.</li>
+                        <li><b>Backward Pass</b>:
+                            In the backward pass, the network starts adjusting its weights by propagating the error back
+                            through the layers. This is where backpropagation gets its name.</li>
+                    </ul>
+
+                    The process goes like this:
+
+                    <ol>
+                        <li><b>Error Gradients</b>:
+                            For each neuron in the output layer, we calculate the gradient of the error with respect to
+                            its
+                            output. This gradient indicates how much changing the neuron's output would affect the
+                            overall
+                            error.</li>
+                        <li><b>Updating Weights</b>:
+                            The network then adjusts the weights of the neurons in the output layer based on their
+                            gradients. This step helps the network correct its predictions by changing the strength of
+                            connections between neurons.</li>
+                        <li><b>Error Backpropagation</b>:
+                            The adjusted weights in the output layer are then used to calculate the gradients for the
+                            previous layer. This process continues layer by layer, propagating the error gradients
+                            backward
+                            through the network.</li>
+                        <li><b>Weight Updates</b>:
+                            Finally, the network updates the weights in each layer based on the gradients calculated in
+                            the
+                            previous step. This updating of weights fine-tunes the network's parameters to reduce the
+                            error
+                            and improve the accuracy of its predictions.</li>
+                    </ol>
+
+                    <b>Iterative Process</b>: <br>
+                    The forward pass, calculating the error, and the backward pass are repeated multiple times,
+                    adjusting the weights after each iteration. This iterative process allows the network to learn
+                    from its mistakes, gradually reducing the error and improving its predictions.
+
+                    <br><br>
+
+                    Through the repeated forward and backward passes, backpropagation enables the network to
+                    fine-tune its weights, learning patterns and improving its ability to recognize handwritten
+                    numbers or perform other tasks it was trained on.
+
+                    <br><br>
+
+                    In summary, backpropagation is an algorithm that enables a neural network to adjust its weights
+                    by propagating the error backward through its layers. By iteratively updating the weights based
+                    on these error gradients, the network learns to make more accurate predictions over time.
+                    </p>
+
+                    <p>
+                    <h2>How Backpropagation Calculates and Improves Errors in Neural Network?</h2>
+                    Backpropagation calculates and improves errors in a neural network through a process of gradient
+                    descent. Let's break it down step by step:
+                    <ol>
+                        <li>
+                            <b>Forward Pass</b>:
+                            During the forward pass, the input data is fed into the neural network, and it propagates
+                            through
+                            the layers, from the input layer to the output layer. Each neuron in the network receives
+                            input signals, performs calculations, and produces an output.
+                        </li>
+                        <li>
+                            <b>Calculating Loss</b>:
+                            Once the forward pass is complete and the network produces an output, we compare that output
+                            to the desired or ground truth output. The difference between the predicted output and the
+                            ground
+                            truth is the error or loss. There are various loss functions used depending on the task,
+                            such as mean
+                            squared error for regression or categorical cross-entropy for classification.
+                        </li>
+                        <li>
+                            <b>Backward Pass</b>:
+                            In the backward pass, the network starts propagating the error gradients back through the
+                            layers.
+                            This process involves calculating the gradient of the loss with respect to the weights and
+                            biases of
+                            the neurons in the network.
+                        </li>
+                        <li>
+                            <b>Chain Rule and Gradient Calculation</b>:
+                            To calculate the gradients, the chain rule from calculus is used. The chain rule allows us
+                            to find
+                            how small changes in the weights and biases of a neuron affect the overall loss. It breaks
+                            down the
+                            calculation into smaller steps.
+                            <br>
+                            <i>Partial Derivatives</i>:
+                            For each neuron in the network, we calculate the partial derivatives of the loss with
+                            respect to its
+                            weights and biases. These partial derivatives indicate how changing the neuron's weights or
+                            biases
+                            affects the overall loss.
+                            <br>
+                            <i>Error Propagation</i>:
+                            The gradients calculated in the previous step are then propagated backward through the
+                            layers of the
+                            network. Each neuron receives the gradients from the neurons in the next layer and uses them
+                            to
+                            calculate its own gradients. This process continues until the gradients reach the input
+                            layer.
+                        </li>
+                        <li>
+                            <b>Weight and Bias Updates</b>:
+                            Once the gradients have been calculated for all the neurons, the network updates the weights
+                            and
+                            biases to minimize the error. This is where the idea of gradient descent comes into play.
+                        </li>
+                    </ol>
+                    <br><br>
+                    <b>Learning Rate</b>:
+                    The learning rate is a hyperparameter that determines the step size for weight and bias updates. It
+                    controls how much the weights and biases are adjusted based on the calculated gradients.
+
+                    <br><br>
+
+                    <b>Weight and Bias Adjustments</b>:
+                    The weights and biases of the neurons are adjusted by subtracting a fraction of the gradients
+                    multiplied by the learning rate. This adjustment is performed to move the network's parameters in
+                    the direction that reduces the error.
+
+                    <br><br>
+
+                    <b>Iterative Process</b>:
+                    The steps of the forward pass, error calculation, backward pass, and weight updates are repeated
+                    multiple times, typically over batches of training data. Each iteration is called an epoch. The
+                    repetition allows the network to gradually minimize the error and improve its predictions.
+
+                    <br><br>
+
+                    Through this iterative process, backpropagation calculates the gradients of the loss with respect to
+                    the weights and biases, and the weight updates gradually adjust the parameters of the network to
+                    reduce the error. Over time, the network learns to make better predictions and improve its
+                    performance on the given task.
+
+                    <br><br>
+
+                    <u>It's worth noting</u> that modern variants of backpropagation, such as <i>stochastic gradient
+                        descent (SGD)
+                        or adaptive optimization algorithms (e.g., Adam)</i>, introduce additional techniques to enhance
+                    the training process and improve the convergence of the network.
+                    </p>
+                </div>
+            </div>
+
+            <div class="column_right">
+            </div>
+            <!-- ########################################### -->
+            <!-- ############## RHS Sidebar ################ -->
+            <!-- ########################################### -->
+
+        </div>
+        <!-- ################################################### -->
+        <!-- ############ three_col_layout Ends Here ########### -->
+        <!-- ################################################### -->
+
+        <div style="height: 50px;">
+            <h1></h1>
+        </div>
+
+        <div class="footer" id="footer">
+            <div id="page_change_btns">
+                <a href="/blog/deep_learning/nnets_basics/perceptron_basics">
+                    <button class="pagination_button previous_button" style="vertical-align:middle;">
+                        <span>Previous </span>
+                    </button>
+                </a>
+
+                <!-- ####################
+                Link in nxt-btn needs update
+                #################### -->
+                <a href="/blog/deep_learning/nnets_basics/adam">
+                    <button class="pagination_button next_button" style="">
+                        <span>Next </span>
+                    </button>
+                </a>
+            </div>
+            <br> <br> <br> <br>
+            <div class="share_this_plugin">
+                <h1>Share This</h1>
+                <p>Share it with your friends and colleagues whom you think it can help</p>
+                <!-- Footer . Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+
+            <div class="comment_box">
+                <!-- ########################################### -->
+                <!-- ############# Needs updates ############### -->
+                <!-- ########################################### -->
+                <!-- begin wwww.htmlcommentbox.com -->
+                <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
+                </div>
+                <link rel="stylesheet" type="text/css"
+                    href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                <script type="text/javascript"
+                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->              */</script>
+                <!-- end www.htmlcommentbox.com -->
+            </div>
+        </div>
+
+</body>
+
+</html>

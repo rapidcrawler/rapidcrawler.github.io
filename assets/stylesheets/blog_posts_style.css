@@ -16,6 +16,11 @@ p {
   font-size: 16px;
   text-align: justify;
 }
+u{
+  color: chartreuse;
+  font-size: 14px;
+  font-family: 'Courier New', Courier;
+}
 
 ul {
   color: #84817a;

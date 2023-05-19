@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type='text/javascript'
+        src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop'
+        async='async'></script>
+    <!-- NavBar . Also copy the part from start of <body> tag below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- page specific edits -->
+    <script>
+        $(function () {
+            $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+            $("#rlr_Mobile_NavBar").load("/assets/scripts/LHSSidebar/nnets_LHSNavBar.html");
+        });
+    </script>
+    <!-- page specific edits -->
+    <title>Neural Networks: Adam</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css_dark_mode_gist_embed_code.css">
+
+    <!-- Google Fonts: Robot Black 900-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <!-- NavBar . Also copy the part from start of <head> tag above -->
+    <div id="nav_bar_dark"></div>
+
+    <div class="three_col_layout">
+
+        <!-- ####################
+        LHSNavBar . Also copy the part from start of <head> tag above
+        #################### -->
+        <div class="column_left">
+            <h2 style="text-align: center;"> Chapters </h2>
+            <!-- page specific edits -->
+            <div id="rlr_Mobile_NavBar"></div>
+        </div>
+
+        <!-- ####################
+        Page Titke needs update
+        #################### -->
+        <div class="column_center">
+            <h1>Neural Networks</h1>
+            <div class="meta_info">
+                <span style="float: left;">
+                    <p>
+                        <!-- ####################
+                        Date-Posted needs update
+                        #################### -->
+                        Posted by: <a href="/index" target="_blank" class="blog_links">Juspreet51</a>
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        <!-- page specific edits -->
+                        Last Updated on: 18 Oct, 2022
+                    </p>
+                </span>
+            </div>
+
+
+            <!-- ####################
+            Banner img
+            #################### -->
+            <div class="banner">
+                <!-- page specific edits -->
+                <img src="/assets/imgs/banners/banner_deep_learnigng.png">
+            </div>
+
+            <br>
+
+            <div class="share_this_plugin">
+                <br>
+                <!-- Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+            <!-- page specific edits -->
+            <h1>Neural Networks: Adam</h1>
+            <!-- <hr> -->
+            <div class="hide_in_pc">
+                <!-- <h3>Chapters</h3> -->
+                <!-- page specific edits -->
+                <!-- <div id="rlr_Mobile_NavBar"></div> -->
+                <!-- <hr> -->
+            </div>
+            <!-- ####################
+              page specific edits
+              #################### -->
+            <div class="toc">
+            </div>
+            <hr>
+
+            <div class="blog_content">
+                <br>
+                <div id="basics">
+                    <h1>What is Adam Optimizer?</h1>
+                    <p>
+                        Let's explain how the Adam optimizer works to a 5-year-old. <br>
+
+                        Imagine you have a helpful robot named Adam. Adam's job is to help us solve puzzles and find the
+                        best solutions. <br>
+
+                        When we have a really big puzzle, Adam wants to make sure we find the best solution as quickly
+                        as possible. So, Adam uses a special strategy called the Adam optimizer. <br> <br>
+
+                        Here's how it works: <br>
+
+                    <ol>
+                        <li>Adam starts by taking a look at the puzzle. It measures how well we're doing and how close
+                            we
+                            are to finding the best solution.</li>
+                        <li>Based on this information, Adam decides how big of steps we should take to find the
+                            solution.
+                            If we're really far from the best solution, Adam tells us to take big steps. If we're
+                            getting
+                            close, Adam suggests taking smaller steps.</li>
+                        <li>Adam also remembers how the steps we took previously worked out. If a step took us closer to
+                            the best solution, Adam thinks it was a good step and encourages us to take more steps like
+                            that. But if a step didn't get us closer, Adam tells us to try a different direction next
+                            time.</li>
+                        <li>As we keep trying different steps, Adam keeps track of which steps are good and which ones
+                            are not so good. Adam uses this information to guide us towards the best solution.</li>
+                        <li>Over time, with Adam's help, we get better and better at finding the best solution. Adam
+                            adjusts our steps based on how well we're doing, and we learn from our previous attempts to
+                            make
+                            smarter choices.</li>
+                    </ol>
+                    <br>
+                    By using the Adam optimizer, Adam helps us find the best solution to the puzzle more quickly and
+                    efficiently. It guides us with the right step sizes and remembers which steps were good or bad,
+                    so we keep improving until we solve the puzzle.
+
+                    <br> <br>
+
+                    Just like Adam helps us with puzzles, the Adam optimizer is a helpful tool for computers and
+                    algorithms. It helps them find the best solutions faster by adjusting the step sizes and
+                    remembering which steps worked well in the past.
+
+                    <br> <br>
+                    </p>
+
+                    <h1>How does Adam Optimizer works?</h1>
+                    <p>
+                        The Adam optimizer combines concepts from both momentum-based optimization and root mean square
+                        propagation
+                        (RMSprop). Here's a step-by-step explanation:
+                    <ol>
+                        <li><b>Initialization</b>:
+                            To start, we set some initial values for Adam's internal variables. These variables keep
+                            track of past gradients and steps taken during the optimization process.</li>
+                        <li><b>Gradient Calculation</b>:
+                            During the training of a neural network, the gradients of the loss function with respect to
+                            the model's parameters are calculated using a method called backpropagation. These gradients
+                            indicate the direction and magnitude of the changes needed to minimize the loss.</li>
+                        <li><b>Moving Average of Gradients</b>:
+                            Adam maintains a moving average of the past gradients. It calculates two exponential moving
+                            averages: one for the gradients themselves (called the first moment) and another for the
+                            squared gradients (called the second moment).</li>
+                        <li><b>Bias Correction</b>:
+                            In the early stages of training, the moving averages may be biased towards zero since they
+                            are initialized as zero vectors. To counteract this bias, Adam performs a bias correction
+                            step. It adjusts the moving averages by dividing them by a correction term that depends on
+                            the number of iterations performed.</li>
+                        <li><b>Adaptive Learning Rate</b>:
+                            Adam adapts the learning rate for each parameter in the neural network based on the first
+                            and second moment estimates calculated in steps 3 and 4.</li>
+                        <li><b>Parameter Updates</b>:
+                            Finally, Adam updates the model's parameters using the adapted learning rates. It combines
+                            the information from the gradients, the moving averages, and the learning rates to determine
+                            the appropriate step size for each parameter. The updated parameters move the model closer
+                            to the optimal solution.</li>
+                    </ol>
+                    By incorporating the concepts of momentum and RMSprop, Adam offers several advantages:
+                    <ol>
+                        <li><u>Adaptive Learning Rate</u>: Adam adjusts the learning rate individually for each parameter,
+                            taking into account the past gradients and their magnitudes. This helps avoid large updates
+                            that may overshoot the optimal solution.</li>
+                        <li><u>Momentum</u>: Adam introduces momentum by utilizing the moving averages of the gradients. This
+                            helps smooth out fluctuations in the gradients and accelerates convergence, especially in
+                            scenarios where the gradients change rapidly.</li>
+                        <li><u>Bias Correction</u>: The bias correction step ensures that the moving averages are unbiased
+                            estimates of the gradients, improving the initial accuracy of the optimization process.</li>
+                    </ol>
+                    Overall, the Adam optimizer combines these techniques to provide an effective and efficient way to
+                    update the parameters of a neural network during training. It helps the model converge faster and
+                    find better solutions to the optimization problem at hand.
+                    </p>
+
+                    <h1>What is the difference between Backpropagation & Adam?</h1>
+                    <p>
+                        Adaptive optimization algorithms, such as Adam (Adaptive Moment Estimation) or RMSprop (Root
+                        Mean Square Propagation), and backpropagation are both techniques used in training neural
+                        networks, but they serve different purposes and operate at different levels. Let's explore their
+                        differences:
+                    <ol>
+                        <li><u>Backpropagation</u> is specifically designed for updating the weights and biases of
+                            neurons in a
+                            neural network during the training process. It calculates the gradients of the loss function
+                            with respect to the network's parameters and adjusts them to minimize the error. Its primary
+                            goal is to optimize the learning process within the neural network.</li>
+                        <li><u>Adaptive optimization algorithms</u>, on the other hand, focus on optimizing the
+                            optimization
+                            process itself. They determine how the network's parameters are updated during training.
+                            These algorithms adaptively adjust the learning rate or other hyperparameters to enhance the
+                            efficiency and speed of convergence during training.</li>
+                    </ol>
+                    <br>
+                    Updating Mechanisms:
+                    <ol>
+                        <li><u>Backpropagation</u> uses the calculated gradients of the loss function with respect to
+                            the
+                            network's parameters to perform weight updates. It typically uses gradient descent-based
+                            methods, such as stochastic gradient descent (SGD), to adjust the weights and biases.</li>
+                        <li><u>Adaptive optimization algorithms</u> introduce additional mechanisms to adaptively adjust
+                            the
+                            learning rate or other hyperparameters. These algorithms often incorporate techniques like
+                            momentum, adaptive learning rates, or running averages of gradients to improve convergence
+                            speed and stability during training.</li>
+                    </ol>
+                    </p>
+
+
+                </div>
+            </div>
+
+            <div class="column_right">
+            </div>
+            <!-- ########################################### -->
+            <!-- ############## RHS Sidebar ################ -->
+            <!-- ########################################### -->
+
+        </div>
+        <!-- ################################################### -->
+        <!-- ############ three_col_layout Ends Here ########### -->
+        <!-- ################################################### -->
+
+        <div style="height: 50px;">
+            <h1></h1>
+        </div>
+
+        <div class="footer" id="footer">
+            <div id="page_change_btns">
+                <a href="/blog/deep_learning/nnets_basics/backpropagation">
+                    <button class="pagination_button previous_button" style="vertical-align:middle;">
+                        <span>Previous </span>
+                    </button>
+                </a>
+
+                <!-- ####################
+                Link in nxt-btn needs update
+                #################### -->
+                <a href="#">
+                    <button class="pagination_button next_button disabled_btn" style="">
+                        <span>Next </span>
+                    </button>
+                </a>
+            </div>
+            <br> <br> <br> <br>
+            <div class="share_this_plugin">
+                <h1>Share This</h1>
+                <p>Share it with your friends and colleagues whom you think it can help</p>
+                <!-- Footer . Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+
+            <div class="comment_box">
+                <!-- ########################################### -->
+                <!-- ############# Needs updates ############### -->
+                <!-- ########################################### -->
+                <!-- begin wwww.htmlcommentbox.com -->
+                <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
+                </div>
+                <link rel="stylesheet" type="text/css"
+                    href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                <script type="text/javascript"
+                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                     */</script>
+                <!-- end www.htmlcommentbox.com -->
+            </div>
+        </div>
+
+</body>
+
+</html>

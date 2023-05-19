@@ -102,7 +102,7 @@
             </div>
             <!-- ####################
               page specific edits
-              #################### -->              
+              #################### -->
             <div class="toc">
             </div>
             <hr>
@@ -110,8 +110,64 @@
             <div class="blog_content">
                 <br>
                 <div id="basics">
+                    <h1>What are Neural Networks?</h1>
+                    <p>
+                        Imagine you have a magical drawing board that can learn and recognize different shapes. You want
+                        to teach it to recognize a circle, a square, and a triangle. How can you do that?
+
+                        <br>
+
+                    <ol>
+                        <li>First, you draw lots of different circles, squares, and triangles on the board. Each shape
+                            has
+                            its own special colors and patterns. These are the examples that will help the board learn.
+
+                        </li>
+                        <br>
+                        <li>
+
+                            Now, the magical drawing board has something called a "brain" called a neural network. It's
+                            like
+                            the board's super-smart friend who can understand and remember things.
+
+                        </li><br>
+                        <li>
+                            The brain of the drawing board is made up of lots of little parts called "neurons." These
+                            neurons work together to figure out what shape you drew.
+
+                        </li><br>
+                        <li>
+                            When you draw a shape on the board, the neurons in the brain wake up and start looking at
+                            it.
+                            They look at all the colors, patterns, and lines of the shape. Each neuron thinks about a
+                            specific part of the shape, like the color of the lines or how many sides it has.
+
+                        </li><br>
+                        <li>
+                            The neurons talk to each other and share their thoughts. They pass messages to help each
+                            other understand the shape. They say things like, "Hey, I think this is a circle because I
+                            see a
+                            round line and it has no corners!" or "Wait, I see a triangle because I see three straight
+                            lines
+                            and it has pointy corners!"</li>
+                    </ol>
+                    <br>
+                    The more examples of shapes you show the drawing board, the smarter its brain becomes. It learns
+                    from all the different shapes and figures out what makes each one special.
+
+                    <br><br>
+
+                    Once the drawing board's brain learns enough, it can recognize shapes all by itself. You can
+                    draw a new shape, and the board will say, "Oh, I know this! It's a triangle!" or "That's a
+                    square, I'm sure!"
+
+                    <br><br>
+
+                    So, just like how you learn by looking at and understanding different things, a neural network
+                    learns by looking at examples and figuring out patterns. It's like a magical friend that helps
+                    the drawing board understand and recognize shapes.
+                    </p>
                     <h1>Neural Network: Glossary</h1>
-                    <!-- <p> <script src="https://gist.github.com/juspreet51/35aebcd2fe66679bfc98953f215f90c0.js?file=test2.py"></script> </p> -->
                     <p>
                         <b>Biomimicry</b>:
                     <ol>
@@ -172,12 +228,13 @@
                             w.r.t. number of parameters</li>
                         <li>Later <i>Reverse Mode Automatic Differentiation</i> was introduced, which takes 2 passes
                             through the network to compute network's gradient error</li>
-                            <ul>
-                                <li><b>Forward Pass</b>: </li>
-                                <li><b>Reverse Pass</b>: </li>
-                                <li><b>Epoch</b>: 1 Forward and 1 Reverse pass through the network is called as 1 Epoch </li>
-                            </ul>
-                            
+                        <ul>
+                            <li><b>Forward Pass</b>: </li>
+                            <li><b>Reverse Pass</b>: </li>
+                            <li><b>Epoch</b>: 1 Forward and 1 Reverse pass through the network is called as 1 Epoch
+                            </li>
+                        </ul>
+
                         <li>This helped to tweak network's each bias and weight in order to reduce the neural network's
                             error</li>
                     </ol>
@@ -185,24 +242,28 @@
                     <ol>
                         <li><i>Backpropagation</i> = Reverse Mode Automatic Differentiation <i>+</i> Gradient Descent
                         </li>
-                        <li>This was achieved by replacing Step Function with <i>Sigmoid Function</i>, as Sigmoid function is non-linear in nature, and thus allows chain-rule differentiation to reach local minimum</li>
+                        <li>This was achieved by replacing Step Function with <i>Sigmoid Function</i>, as Sigmoid
+                            function is non-linear in nature, and thus allows chain-rule differentiation to reach local
+                            minimum</li>
                         <i>Steps involved in running Backpropagation through a neural network:</i> <a
                             href="https://www.amazon.in/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/9355421982">Homl:3e
-                            CH10 Page311</a>                        
+                            CH10 Page311</a>
                     </ol>
                     </p>
                     <p>
                         <b>Activation Function</b>:
-                        <ol>
-                            <li>Relu, Leaky Relu, Tanh, etc</li>
-                        </ol>
+                    <ol>
+                        <li>Relu, Leaky Relu, Tanh, etc</li>
+                    </ol>
                     </p>
                     <p>
                         <b>Regression Multi Layer Perceptron</b>:
-                        <ol>
-                            <li>Single Variate Regression: Predictingsingle values at a time, e.g. Predicting house value requires one value prediction, the cost</li>
-                            <li>Multi Variate Regression: Predicting multiple values at once, e.g. Predicting coordinate of a point in a graph requires 2 points predictions, X & Y coordinates</li>
-                        </ol>
+                    <ol>
+                        <li>Single Variate Regression: Predictingsingle values at a time, e.g. Predicting house value
+                            requires one value prediction, the cost</li>
+                        <li>Multi Variate Regression: Predicting multiple values at once, e.g. Predicting coordinate of
+                            a point in a graph requires 2 points predictions, X & Y coordinates</li>
+                    </ol>
                     </p>
                     <p>
                         <b>Bias Neuron</b>:
@@ -277,7 +338,7 @@
                 <!-- ####################
                 Link in nxt-btn needs update
                 #################### -->
-                <a href="/blog/deep_learning/perceptron_basics">
+                <a href="/blog/deep_learning/nnets_basics/perceptron_basics">
                     <button class="pagination_button next_button" style="">
                         <span>Next </span>
                     </button>
@@ -301,7 +362,7 @@
                 <link rel="stylesheet" type="text/css"
                     href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
                 <script type="text/javascript"
-                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->   */</script>
                 <!-- end www.htmlcommentbox.com -->
             </div>
         </div>
