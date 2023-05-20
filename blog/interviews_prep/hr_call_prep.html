@@ -7,15 +7,15 @@
         async='async'></script>
     <!-- NavBar . Also copy the part from start of <body> tag below -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- page specific edits -->
     <script>
         $(function () {
             $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
-            $("#Interviews_LHSNavBar").load("/assets/scripts/LHSSidebar/interviews_common_hr_questions.html");
-            $("#Interviews_Mobile_NavBar").load("/assets/scripts/LHSSidebar/interviews_common_hr_questions.html");
+            $("#rlr_Mobile_NavBar").load("/assets/scripts/LHSSidebar/interviews_common_hr_questions.html");
         });
     </script>
-
-    <title>HR Questions | Juspreet51.in</title>
+    <!-- page specific edits -->
+    <title>Interview Prepartion</title>
 
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -49,14 +49,15 @@
         #################### -->
         <div class="column_left">
             <h2 style="text-align: center;"> Chapters </h2>
-            <div id="Interviews_LHSNavBar"></div>
+            <!-- page specific edits -->
+            <div id="rlr_Mobile_NavBar"></div>
         </div>
 
         <!-- ####################
-        Page Title needs update
+        Page Titke needs update
         #################### -->
         <div class="column_center">
-            <h1>Interview Preparation</h1>
+            <h1>Interview Prepartion</h1>
             <div class="meta_info">
                 <span style="float: left;">
                     <p>
@@ -68,16 +69,18 @@
                 </span>
                 <span style="float: right;">
                     <p>
-                        Last Updated on: 23 Oct, 2021
+                        <!-- page specific edits -->
+                        Last Updated on: 03 Oct, 2022
                     </p>
                 </span>
             </div>
 
 
             <!-- ####################
-            Banner img needs update
+            Banner img
             #################### -->
             <div class="banner">
+                <!-- page specific edits -->
                 <img src="/assets/imgs/banners/generic_banner.jpg">
             </div>
 
@@ -88,48 +91,49 @@
                 <!-- Also copy the part from start of <head> tag above -->
                 <div class="sharethis-inline-share-buttons"></div>
             </div>
+            <!-- page specific edits -->
             <h1>Commonly Asked HR Questions</h1>
             <hr>
-            <!-- ####################
-            ToC needs update
-            #################### -->
-            <div class="toc">
-                <h1>Table of Contents</h1>
-                <ol>
-                    <li><a href="#basics">Basic HR Questions</a></li>
-                    <li><a href="#salnego">Salary Negotiation</a></li>
-
-                </ol>
+            <div class="hide_in_pc">
+                <h3>
+                    Chapters
+                </h3>
+                <!-- page specific edits -->
+                <div id="rlr_Mobile_NavBar"></div>
+                <hr>
             </div>
-            <hr>
+            <!-- ####################
+              page specific edits
+              #################### -->
+            <div class="toc">
+                <!-- <h1>Table of Contents</h1> -->
+                
+            </div>
+            <!-- <hr> -->
 
             <div class="blog_content">
-                <div id="basics">
-                    <h1>Basic HR Questions</h1>
-                    <b>Introduction</b> <br>
-                    <b>Salary Expectations</b> <br>
+                <br>
+                <div id="fundamentals">
+                    <h1>Basic</h1>
+                    <p>
+                    </p>
                 </div>
 
-                <div id="salnego">
-                    <h1>Salary Negotiation</h1>
-                    <b>Understanding CTC Components</b> <br>
-                    <b>Adjusting CTC Components</b> <br>
+                <div id="guides">
+                    <h1>Guidelines</h1>
+                    <p>
+                    </p>
                 </div>
 
             </div>
-
-            <div class="column_right">
-                <!-- <h2 style="text-align: center;"> Topics </h2>
-                <a href="#basics">a) Basics</a> <br>
-                <a href="#sample">b) Distributions</a> <br>
-                <a href="#summary">c) Data Summary</a> <br>
-                <a href="#distribution">d)Shape of Distribution</a> <br> -->
-            </div>
-            <!-- ########################################### -->
-            <!-- ############## RHS Sidebar ################ -->
-            <!-- ########################################### -->
-
         </div>
+
+        <div class="column_right">
+        </div>
+        <!-- ########################################### -->
+        <!-- ############## RHS Sidebar ################ -->
+        <!-- ########################################### -->
+
     </div>
     <!-- ################################################### -->
     <!-- ############ three_col_layout Ends Here ########### -->
@@ -142,15 +146,17 @@
     <div class="footer" id="footer">
         <div id="page_change_btns">
             <a href="#">
-                <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+                <!-- page specific edits -->
+                <button class="pagination_button previous_button" style="vertical-align:middle;">
                     <span>Previous </span>
                 </button>
             </a>
 
             <!-- ####################
-            Link in nxt-btn needs update
-            #################### -->
-            <a href="/blog/interviews_prep/sql_questions">
+                Link in nxt-btn needs update
+                #################### -->
+            <!-- page specific edits -->
+            <a href="/blog/interviews_prep/sql_questions.html">
                 <button class="pagination_button next_button" style="">
                     <span>Next </span>
                 </button>
@@ -174,7 +180,7 @@
             <link rel="stylesheet" type="text/css"
                 href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
             <script type="text/javascript"
-                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->       */</script>
             <!-- end www.htmlcommentbox.com -->
         </div>
     </div>
