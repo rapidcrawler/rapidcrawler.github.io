@@ -10,6 +10,7 @@ u{
   color: chartreuse;
   font-size: 14px;
   font-family: 'Courier New', Courier;
+  text-decoration: none;
 }
 
 ul {
@@ -137,6 +138,10 @@ a {
 .blog_content b {
   font-family: 'Tahoma';
   font-size: 12px;
+  color:#1E5128  /* font  color for bold blog content */
+}
+
+div.blog_content li {
   color:#1E5128  /* font  color for bold blog content */
 }
 
