@@ -53,7 +53,7 @@
         LHSNavBar . Also copy the part from start of <head> tag above
         #################### -->
         <div class="column_left">
-            <h2 style="text-align: center;"> Chapters </h2>
+            <h2 style="text-align: left;"> &nbsp;&nbsp; Chapters </h2>
             <!-- page specific edits -->
             <div id="rlr_Mobile_NavBar"></div>
         </div>
@@ -136,39 +136,45 @@
                     </i>
                     <br><br>
                     <p>
-                        We can represent data in a <b>Natural Language</b> form, e.g. Words and alphabets, or we can
-                        represent data in a <b>Numerical</b> form, i.e. numbers. Numerical data can be represented as
-                        <b>Vector</b>, and a table of Vectors is called as
-                        <b>Matrix</b>
+                        <b>What are these blocks and how are they supporting Machine Learning?</b> <br>
+                        Machine Learning works on <b>Data</b>. We can represent data either in <b>Natural Language</b>
+                        form, e.g. Words and alphabets, or we can
+                        represent data in a <b>Numerical</b> form, i.e. numbers. <br>
+                        Collection of Numerical data can be represented as <b>Vector</b>, and a table of Vectors is
+                        called as <b>Matrix</b>
                     </p>
                     <img src="/assets/imgs/blog/maths/lin_algebra/00_Vector_Matrix.jpg" alt="foundation_of_ml"
                         style="width: 95%;">
 
                     <p>
+                        And, the study of vectors and set of rules that can be applied to them in order to
+                        manipulate them is called as <b>Linear Algebra</b>, one of the block in the bottom layer of
+                        Machine Learning foundation figure.
+                        <br><br>
                         When provided with 2 vectors or matrix, we often would want to learn about those 2 vectors or
                         matrices, i.e. to know what kind of realationship exsists between them. One way of knowing the
                         relationship between 2 such vectors or mtrices could be finding out about the similarity between
-                        them. And <b>Analytic Geometry</b> deals with the study and finding out of similarities.
+                        them. And <b>Analytic Geometry</b> (another supporting block from figure above) deals with the
+                        study and finding out of similarities.
                     </p>
-                    <br>
                     <p>
-                        Moreover, to better understand a matrix, in terms of its intuitive interpretation, helps in
+                        While working with Machine Learning, and making predictions, we often want to know of the
+                        certanities or confidence of the predictions. <b>Probability Theory</b> helps to quantifiy the
+                        uncertainity of Machine Learning's algorithms.
+                        <br><br>
+                        Machine Learning algorithms are trained to find solution via model training. Training is about
+                        finding the right value of parameters that maximizes the performance measure. And many
+                        optimization techniques
+                        require the concept of a <i>gradient</i>, which tell us the direction in which to find the
+                        optimal solution, i.e. optimized paramter or optimal cost function value. It is achieved using
+                        <b>Vector Calculus</b>
+                    </p>
+                    <p>
+                        Moreover, to better understanding of a matrix, in terms of its intuitive interpretation, helps
+                        in
                         various operations of machine learning, thus we need <b>Matrix Decomposition</b> for better
                         interpretation of Matrices (and thus data) and more efficient learning.
                     </p>
-                    <br>
-                    <p>
-                        While working with Machine Learning, and making predictions, we often want to know of the
-                        certanities or confidence of the predictions. Quantification of uncertainity is the realm of
-                        <b>Probability Theory</b>.
-                        <br><br>
-                        Machine Learning algorithms are trained to find solution via model training. Training is about
-                        finding the
-                        parameters that maximizes the performance measure. And many optimization techniques require the
-                        concepts of a gradient, which tell us the direction in which to find the solution, i.e.
-                        optimized paramter or optimal cost function value. It is achieved using <b>Vector Calculus</b>
-                    </p>
-                    <br>
                     <p>
                         Using all these foundation of mathematics, i.e. the lower part of the figure above, Machine
                         Learning algorithms can be built and used to solve different kind of problems.
@@ -221,17 +227,20 @@
                         In Mathematics, Vector could be anything that satisfies the notion of adding and/or multiplying
                         2 vector together
                         <br><br>
+
                         Vector has a <b>tail</b>, a <b>head</b> & the <b>co-ordinates</b>, i.e. how to reach from tail
                         of the vector to its head.
                         <br>
                         <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_00_1.jpg" alt="02_Vector_00_1"
                             style="width: 95%;">
                         <br><br>
+
                         Co-Odrinates are simply the way to reach the head of the Vector, i.e.
                         <br>
                         <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_00_2.jpg" alt="02_Vector_00_2"
                             style="width: 95%;">
                         <br><br>
+
                         Lets suppose we haev 2 vectors, <i><var class="vector">&nbsp;a
                                 <span>&#8407;&nbsp;</span></var></i> & <i>
                             <var class="vector"> b <span>&#8407;</span>&nbsp;</var></i> ( vectors are denoted by<i>
@@ -241,43 +250,46 @@
                         <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_01_00.jpg" alt="02_Vector_01"
                             style="width: 95%;">
                         <br><br>
+
                         Being able to add 2 vectors would mean, lets suppose you had to walk a path, then walking the
                         path in vector a means walking from the tail of vector a to it head. And similarly
                         for vector b.
                         <br><br>
+
                         However, <b>addition of <i><var class="vector">&nbsp;a <span>&#8407;&nbsp;</span></var></i> &
                             <i>
                                 <var class="vector"> b <span>&#8407;</span>&nbsp;</var></i></b>, you have to walk from
-                        tail of <var class="vector">&nbsp;a <span>&#8407;&nbsp;</span>
-                            to its
-                            top, and from its top begins the tail
-                            of <var class="vector">&nbsp;b <span>&#8407;&nbsp;</span>, and you have to walk from tail of
-                                vector b to top of <var class="vector">&nbsp;b <span>&#8407;&nbsp;</span>, which could be
-                                    symbollically be represented as:
-                                    <br>
-                                    <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_02.jpg" alt="02_Vector_02"
-                                        style="width: 95%;">
-                                    <br><br>
-                                    Another way of depicting the final destination of the above formed path would be:
-                                    <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_03.jpg" alt="02_Vector_03"
-                                        style="width: 95%;">
-                                    <br><br>
-                                    Thus, the shortest path from the source (usually origin, or the point where x-axis
-                                    and
-                                    y-axis
-                                    interesect) to destination is the addition of vector a and vector b
-                                    can be represented directly as:
-                                    <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_04.jpg" alt="02_Vector_04"
-                                        style="width: 95%;">
-                                    <br><br>
-                                    Or simply:
-                                    <br>
-                                    <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_05.jpg" alt="02_Vector_04"
-                                        style="width: 95%;"> 
-                                    <br><br>
+                        tail of <i><var class="vector">&nbsp;a <span>&#8407;&nbsp;</span></i>
+                        to its top, and from its top begins the tail
+                        of <i><var class="vector">&nbsp;b <span>&#8407;&nbsp;</span></i>, and you have to walk from tail
+                        of vector b to top of <i><var class="vector">&nbsp;b <span>&#8407;&nbsp;</span></i>, which could
+                        be symbollically be represented as:
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_02.jpg" alt="02_Vector_02"
+                            style="width: 95%;">
+                        <br><br>
+
+                        Another way of depicting the final destination of the above formed path would be:
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_03.jpg" alt="02_Vector_03"
+                            style="width: 95%;">
+                        <br><br>
+
+                        Thus, the shortest path from the source (usually origin, or the point where x-axis
+                        and y-axis interesect) to destination is the addition of<i><var class="vector">&nbsp;a
+                                <span>&#8407;&nbsp;</span></i> and<i><var class="vector">&nbsp;b
+                                <span>&#8407;&nbsp;</span></i>
+                        can be represented directly as:
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_04.jpg" alt="02_Vector_04"
+                            style="width: 95%;">
+                        <br><br>
+                        Or simply:
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_05.jpg" alt="02_Vector_04"
+                            style="width: 95%;">
+                        <br><br>
                     </p>
                 </div>
-
+                 
                 <hr>
 
                 <div id="ref">
@@ -359,7 +371,7 @@
             <link rel="stylesheet" type="text/css"
                 href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
             <script type="text/javascript"
-                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                                                                                     */</script>
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                                                                                                    */</script>
             <!-- end www.htmlcommentbox.com -->
         </div>
     </div>

@@ -31,7 +31,7 @@ h1, h2, h3, h4 {
 
 .column_left {
   float: left;
-  width: 19%;
+  width: 30%;
   margin-top: 125px;
   margin-left: 5px;
   padding-left: 15px;
@@ -39,11 +39,19 @@ h1, h2, h3, h4 {
 
 .column_right {
   float: right;
-  width: 19%;
   margin-top: 125px;
   margin-right: 5px;
   padding-right: 15px;
 }
+
+.column_center {
+  display: inline-block;
+  width: 40%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: auto;
+}
+
 
 .column_left h1, h2, h3, .column_center h1, h2, h3, .column_right h1, h2, h3 {
   text-align: center;
@@ -63,13 +71,6 @@ a {
   font-weight: bold;
   color: #ee6c4d; /*Green headings color*/
   text-decoration: underline;
-}
-
-.column_center {
-  display: inline-block;
-  width: 58%;
-  padding-left: 10px;
-  margin: auto;
 }
 
 .banner img {
