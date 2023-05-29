@@ -203,7 +203,8 @@
                         symbols or set of symbols or objects, and apply some rules to manipulate the objects. This is
                         known as Algebra
                         <b>Linear Algebra</b>: Study of vectors and set of rules that can be applied to them in order to
-                        manipulate them.
+                        manipulate them. It provides a language to understand space, elements in a space, and
+                        manipulation of space.
                         <br><br>
                         <b>Vectors</b>: In field of computer science, Vectors are ordered list of numbers, sometimes
                         also refered as array or lists. Vectors are cakked as <i>ordered</i> list because, <i>Order</i>
@@ -288,8 +289,56 @@
                             style="width: 95%;">
                         <br><br>
                     </p>
+                    <p>
+                        Other than Addition, Vectors also support <b>Multiplication</b>. Vector multiplication are
+                        equivalent to <b>Stretching</b> or <b>Shrinking</b> of vectors, e.g. if we have a <i><var
+                                class="vector">&nbsp;v<span>&#8407;&nbsp;&nbsp;&nbsp;</span></i>
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_06_01.jpg" alt="02_Vector_04"
+                            style="width: 95%;">
+                        <br><br>
+                        And we multiply <i><var class="vector">&nbsp;v<span>&#8407;&nbsp;&nbsp;&nbsp;</span></i> with 2,
+                        the vector gets transformed to
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_06_02.jpg" alt="02_Vector_04"
+                            style="width: 95%;">
+                        <br><br>
+                        Here, the vector has been stretched to become twice of its actual size as it was multiplied by
+                        2. Similar thing will occur if the same vector get multiplied by 0.5, i.e. it becomes half of
+                        its original size (shrinks)
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_06_03.jpg" alt="02_Vector_04"
+                            style="width: 95%;">
+                        <br><br>
+                        But what happend if the vector is multiplied by a negative number? First it will get flipped, as
+                        the sign is negative, and then it will get multiplied by the number
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_06_04.jpg" alt="02_Vector_04"
+                            style="width: 95%;">
+                        <br><br>
+                        This process of stretching and shrinking of vectors is called as <b>Scaling</b>, and the number
+                        used to perform the scaling operation is called as <b>Scalers</b>, i.e. 2 or 0.5 in above
+                        example.
+                    </p>
+                    <p>
+                        Mathematically, the Scalers and the operation of Scaling is expressed as
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_06_05.jpg" alt="02_Vector_04"
+                            style="width: 95%;">
+                        <br><br>
+                    </p>
+                    <br>
+                    <h2>System of Linear Equations</h2>
+                    <br>
+                    <iframe width="640" height="315" src="https://www.youtube.com/embed/J7DzL2_Na80"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    <br>
+                    <p>
+                    </p>
                 </div>
-                 
+
                 <hr>
 
                 <div id="ref">
@@ -371,7 +420,7 @@
             <link rel="stylesheet" type="text/css"
                 href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
             <script type="text/javascript"
-                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                                                                                                    */</script>
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                                                                                                                    */</script>
             <!-- end www.htmlcommentbox.com -->
         </div>
     </div>
