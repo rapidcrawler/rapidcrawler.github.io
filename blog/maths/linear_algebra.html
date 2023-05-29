@@ -123,9 +123,158 @@
                 <br>
                 <div id="lin_algb">
                     <h1>Introduction</h1>
+                    <h2> Why Linear Algebra (or infact, Mathematics)?</h2>
                     <p>
-                        <h4> Why Linear Algebra (or infact, Mathematics)?</h4>
-                        <b>Pillars of Machine Learning</b>:
+                        <b>Foundation of Machine Learning</b>: <br>
+                    </p>
+                    <br>
+                    <img src="/assets/imgs/blog/maths/lin_algebra/00_foundation_of_ml.jpg" alt="foundation_of_ml"
+                        style="width: 95%;">
+
+                    <i class="img_credit">Credits: <a href="https://mml-book.github.io/">Mathematics for Machine
+                            Learning</a>
+                    </i>
+                    <br><br>
+                    <p>
+                        We can represent data in a <b>Natural Language</b> form, e.g. Words and alphabets, or we can
+                        represent data in a <b>Numerical</b> form, i.e. numbers. Numerical data can be represented as
+                        <b>Vector</b>, and a table of Vectors is called as
+                        <b>Matrix</b>
+                    </p>
+                    <img src="/assets/imgs/blog/maths/lin_algebra/00_Vector_Matrix.jpg" alt="foundation_of_ml"
+                        style="width: 95%;">
+
+                    <p>
+                        When provided with 2 vectors or matrix, we often would want to learn about those 2 vectors or
+                        matrices, i.e. to know what kind of realationship exsists between them. One way of knowing the
+                        relationship between 2 such vectors or mtrices could be finding out about the similarity between
+                        them. And <b>Analytic Geometry</b> deals with the study and finding out of similarities.
+                    </p>
+                    <br>
+                    <p>
+                        Moreover, to better understand a matrix, in terms of its intuitive interpretation, helps in
+                        various operations of machine learning, thus we need <b>Matrix Decomposition</b> for better
+                        interpretation of Matrices (and thus data) and more efficient learning.
+                    </p>
+                    <br>
+                    <p>
+                        While working with Machine Learning, and making predictions, we often want to know of the
+                        certanities or confidence of the predictions. Quantification of uncertainity is the realm of
+                        <b>Probability Theory</b>.
+                        <br><br>
+                        Machine Learning algorithms are trained to find solution via model training. Training is about
+                        finding the
+                        parameters that maximizes the performance measure. And many optimization techniques require the
+                        concepts of a gradient, which tell us the direction in which to find the solution, i.e.
+                        optimized paramter or optimal cost function value. It is achieved using <b>Vector Calculus</b>
+                    </p>
+                    <br>
+                    <p>
+                        Using all these foundation of mathematics, i.e. the lower part of the figure above, Machine
+                        Learning algorithms can be built and used to solve different kind of problems.
+                        One very common among all is <b>Linear Regression</b>, First Pillar in the diagram above. Linear
+                        Regression is a linear approach for modelling the relationship between a scalar response and one
+                        or more explanatory variable.
+                    </p>
+                    <br>
+                    <p>
+                        Other application can be <b>Dimensionality Reduction</b>,third pillar in the figure, to
+                        find a compact, lower
+                        dimensional representation of a high dimensional data, which makes it easier to analyze data.
+                        <br>
+                        Machine learning can also help in <b>Density Estimation</b>, fourth pillar in the figure, to
+                        find a probability distribution that describes the given dataset.
+                        <br>
+                        <b>Dimensionality Reduction</b> & <b>Density Estimation</b> are both unsupervised learning i.e.
+                        they don't have labels associated with the dataset. However in Density Estimation we're not
+                        looking to achieve a lower
+                        dimensional data representation, but a density model that describes data.
+                    </p>
+                    <br>
+                    <h2>Linear Algebra</h2>
+                    <p>
+                        <b>Algebra</b>: When trying to understand to work around intuition, it's common to make use of
+                        symbols or set of symbols or objects, and apply some rules to manipulate the objects. This is
+                        known as Algebra
+                        <b>Linear Algebra</b>: Study of vectors and set of rules that can be applied to them in order to
+                        manipulate them.
+                        <br><br>
+                        <b>Vectors</b>: In field of computer science, Vectors are ordered list of numbers, sometimes
+                        also refered as array or lists. Vectors are cakked as <i>ordered</i> list because, <i>Order</i>
+                        of the elements in the list matters. E.g. if we have a vector representing the attributes of
+                        a house, i.e. area in Sq ft,
+                        number of rooms, number of bathrooms and price, then it can be represented as:
+                    </p>
+                    <br>
+                    <img src="/assets/imgs/blog/maths/lin_algebra/01_Ordered_Vector_01.jpg" alt="ordered_vectors"
+                        style="width: 95%;">
+                    <p>
+                        However, if we were to not follow a order in the formation of vector, than the representation
+                        and the meaning that is held by vector, to represent as a collection of attribute of something,
+                        break. E.g.
+                    </p>
+                    <br>
+                    <img src="/assets/imgs/blog/maths/lin_algebra/01_Ordered_Vector_02.jpg" alt="01_Ordered_Vector_02"
+                        style="width: 95%;">
+                    <br><br>
+                    <p>
+                        In Mathematics, Vector could be anything that satisfies the notion of adding and/or multiplying
+                        2 vector together
+                        <br><br>
+                        Vector has a <b>tail</b>, a <b>head</b> & the <b>co-ordinates</b>, i.e. how to reach from tail
+                        of the vector to its head.
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_00_1.jpg" alt="02_Vector_00_1"
+                            style="width: 95%;">
+                        <br><br>
+                        Co-Odrinates are simply the way to reach the head of the Vector, i.e.
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_00_2.jpg" alt="02_Vector_00_2"
+                            style="width: 95%;">
+                        <br><br>
+                        Lets suppose we haev 2 vectors, <i><var class="vector">&nbsp;a
+                                <span>&#8407;&nbsp;</span></var></i> & <i>
+                            <var class="vector"> b <span>&#8407;</span>&nbsp;</var></i> ( vectors are denoted by<i>
+                            &rarr;
+                        </i>over thier name ), with following co-ordinates in a space:
+                        <br>
+                        <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_01_00.jpg" alt="02_Vector_01"
+                            style="width: 95%;">
+                        <br><br>
+                        Being able to add 2 vectors would mean, lets suppose you had to walk a path, then walking the
+                        path in vector a means walking from the tail of vector a to it head. And similarly
+                        for vector b.
+                        <br><br>
+                        However, <b>addition of <i><var class="vector">&nbsp;a <span>&#8407;&nbsp;</span></var></i> &
+                            <i>
+                                <var class="vector"> b <span>&#8407;</span>&nbsp;</var></i></b>, you have to walk from
+                        tail of <var class="vector">&nbsp;a <span>&#8407;&nbsp;</span>
+                            to its
+                            top, and from its top begins the tail
+                            of <var class="vector">&nbsp;b <span>&#8407;&nbsp;</span>, and you have to walk from tail of
+                                vector b to top of <var class="vector">&nbsp;b <span>&#8407;&nbsp;</span>, which could be
+                                    symbollically be represented as:
+                                    <br>
+                                    <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_02.jpg" alt="02_Vector_02"
+                                        style="width: 95%;">
+                                    <br><br>
+                                    Another way of depicting the final destination of the above formed path would be:
+                                    <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_03.jpg" alt="02_Vector_03"
+                                        style="width: 95%;">
+                                    <br><br>
+                                    Thus, the shortest path from the source (usually origin, or the point where x-axis
+                                    and
+                                    y-axis
+                                    interesect) to destination is the addition of vector a and vector b
+                                    can be represented directly as:
+                                    <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_04.jpg" alt="02_Vector_04"
+                                        style="width: 95%;">
+                                    <br><br>
+                                    Or simply:
+                                    <br>
+                                    <img src="/assets/imgs/blog/maths/lin_algebra/02_Vector_05.jpg" alt="02_Vector_04"
+                                        style="width: 95%;"> 
+                                    <br><br>
                     </p>
                 </div>
 
@@ -133,7 +282,6 @@
 
                 <div id="ref">
                     <h1>Refrence</h1>
-                    <p>
                     <ol>
                         <li>Math 201: Linear Algebra
                             <a href="https://math.jhu.edu/~bernstein/math201/" target="_blank"
@@ -154,7 +302,6 @@
                             </a>
                         </li>
                     </ol>
-                    </p>
                 </div>
 
             </div>
@@ -212,7 +359,7 @@
             <link rel="stylesheet" type="text/css"
                 href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
             <script type="text/javascript"
-                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->            */</script>
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                                                                                     */</script>
             <!-- end www.htmlcommentbox.com -->
         </div>
     </div>

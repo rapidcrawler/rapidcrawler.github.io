@@ -1,7 +1,7 @@
 body {
   background-color: #121212;
   /*Dark Theme Background*/
-  color: #84817a;
+  color: green;
   /* body font color */
 }
 
@@ -49,14 +49,14 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
-.column_left a, .column_right a {
-  color: white;
-}
-
 a {
   text-decoration: none;
   color:#00509d ;
   /*Green headings color*/
+}
+
+.column_left a, .column_right a {
+  color: white;
 }
 
 .column_left a:hover, .column_right a:hover, .column_center a:hover {
@@ -132,24 +132,20 @@ a {
   color: #84817a;
   /* body font color */
   font-family: 'Calibri';
-  font-size: 14px;
+  font-size: 22px;
   text-align: justify;
 }
 
 .blog_content b {
   font-family: 'Tahoma';
-  font-size: 12px;
+  font-size: 22px;
   color:#1E5128  /* font  color for bold blog content */
-}
-
-div.blog_content li {
-  color:#84817a ;  /* font  color for bold blog content */
 }
 
 .blog_content i {
   font-family: 'Baskerville Italic','Orpheus Italic';
-  font-size: 13px;
-  color:sienna; /* font  color for italics blog content*/
+  font-size: 23px;
+  color:lightgrey; /* font  color for italics blog content*/
 }
 
 .blog_content img {
@@ -170,6 +166,15 @@ div.blog_content li {
   /* margin-left: 25px; */
   width: 90%;
   margin-left: 25px;
+}
+
+/* for a arrow symbol over character to represent vectors in linear algebra */
+var.vector {
+  font-style : normal;
+}
+var.vector span {
+  margin-left: -.55em;   /* shift the arrow back over the letter */
+  vertical-align : .2em; /* tune the arrow vertical position */
 }
 
 /*Hide sidebars, when screen size too small*/
