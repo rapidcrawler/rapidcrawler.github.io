@@ -2,803 +2,922 @@
 <html>
 
 <head>
-  <script type='text/javascript'
-    src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop'
-    async='async'></script>
-  <!-- NavBar . Also copy the part from start of <body> tag below -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $(function () {
-      $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
-      $("#stats_LHSNavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
-      $("#stats_refs").load("/assets/scripts/refrences/stats_refs.html");
-      $("#stats_Mobile_NavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
-    });
-  </script>
+    <script type='text/javascript'
+        src='https://platform-api.sharethis.com/js/sharethis.js#property=61684b19e876080012645f8a&product=sop'
+        async='async'></script>
+    <!-- NavBar . Also copy the part from start of <body> tag below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- page specific edits -->
+    <script>
+        $(function () {
+            $("#nav_bar_dark").load("/assets/scripts/nav_bar_dark.html");
+            $("#stats_LHSNavBar").load("/assets/scripts/LHSSidebar/stats_LHSNavBar.html");
+            $("#stats_refs").load("/assets/scripts/refrences/stats_refs.html");
+        });
+    </script>
+    <!-- page specific edits -->
+    <title>JaspreetBlogs.in: Probability</title>
 
-  <title>Juspreet51.in</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-  <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css_dark_mode_gist_embed_code.css">
 
-  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/nav_bar_dark_style.css">
-  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
-  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/blog_posts_style.css">
-  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/button_style.css">
-  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/css_dark_mode_gist_embed_code.css">
+    <!-- Google Fonts: Robot Black 900-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts: Robot Black 900-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .li {
+            color: #1E5128;
+        }
+    </style>
 
 </head>
 
 <body>
-  <!-- NavBar . Also copy the part from start of <head> tag above -->
-  <div id="nav_bar_dark"></div>
+    <!-- NavBar . Also copy the part from start of <head> tag above -->
+    <div id="nav_bar_dark"></div>
 
-  <div class="three_col_layout">
+    <div class="three_col_layout">
 
-    <!-- ####################
-    LHSNavBar . Also copy the part from start of <head> tag above
-    #################### -->
-    <div class="column_left">
-      <h2 style="text-align: left;"> &nbsp;&nbsp; Chapters </h2>
-      <div id="stats_LHSNavBar"></div>
-    </div>
-
-
-    <!-- ####################
-    Page Titke needs update
-    #################### -->
-    <div class="column_center">
-      <h1>Statistics</h1>
-      <div class="meta_info">
-        <span style="float: left;">
-          <p>
-            <!-- ####################
-            Date-Posted needs update
-            #################### -->
-            Posted by: <a href="/index" target="_blank" class="blog_links">Jaspreet</a>
-          </p>
-        </span>
-        <span style="float: right;">
-          <p>
-            Last Updated on: 04 Nov, 2021
-          </p>
-        </span>
-      </div>
-
-
-      <!-- ####################
-        Banner img needs update
-        #################### -->
-      <div class="banner">
-        <img src="/assets/imgs/banners/generic_banner.jpg">
-      </div>
-
-      <br>
-
-      <div class="share_this_plugin">
-        <br>
-        <!-- Also copy the part from start of <head> tag above -->
-        <div class="sharethis-inline-share-buttons"></div>
-      </div>
-      <h1>Probability</h1>
-      <hr>
-      <div class="hide_in_pc">
-        <h3>
-          Chapters
-        </h3>
-        <div id="stats_Mobile_NavBar"></div>
-        <hr>
-      </div>
-      <div>
-        <p>
-          One of the primary objkective of analytics is to measure the uncertainity associated with an event or key
-          performance indicatorr. Axioms of probability and the concept of random
-          variable are fundamental bulding blocks for analytics that are used for measuring uncertainity associated with
-          the key performance indicators of importance of a business.
-          Probability theory is the foundation on which descriptive and predictive analytics models are built.
-          <br>
-        <div style="text-align: center;">
-          <i>Credits: <a href="https://www.amazon.in/Business-Analytics-Science-Driven-Decision/dp/8126568771">Business
-              Analytics: U Dinesh Kumar </a></i>
-        </div>
-        <hr>
-
-        </p>
-      </div>
-      <!-- ####################
-        ToC needs update
-        #################### -->
-      <div class="toc">
-        <h1>Table of Contents</h1>
-        <ol>
-          <li><a href="#basics">Basics of Probability</a></li>
-          <li><a href="#axioms">Axioms of Probability</a></li>
-          <li><a href="#bayes">Bayes Theorem</a></li>
-          <li><a href="#difference">Difference Between Conditional Probability and Bayes Theorem</a></li>
-          <li><a href="#random_variable">Random Variable</a></li>
-          <li><a href="#distributions"> Distributions</a></li>
-          <ul>
-            <li>Binomial Distribution </li>
-            <li>Poisson Distribution</li>
-            <li>Geometric Distribution</li>
-            <li>Continous Distribution</li>
-            <li>Uniform Distribution</li>
-            <li>Exponential Distribution</li>
-            <li>Normal Distribution</li>
-            <li>Chi-Squared Distribution</li>
-            <li>Student's t-Distribution</li>
-            <li>F-Distribution</li>
-          </ul>
-          <li><a href="#refs">References</a></li>
-        </ol>
-      </div>
-      <hr>
-
-      <div class="blog_content">
-        <div id="basics">
-          <h1>1. Basics of Probability</h1>
-          <p>
-            <b>Probability</b> is a metric for determining the likelihood of an event occurring, in terms of percentage.
-            Many things are
-            impossible to predict with 100% certainty. One can only predict the probability of such events occurring,
-            i.e., how likely it is to occur.
-          <ol>
-            <li>
-              <b>Random Experiment</b>: Random Experiment is an experiment in which, the ouctome is not known with
-              certainty. Predictive Analytics mainly deals
-              with random experiment, where the outcome is not known, with certainity, e.g. attirition rate, customer
-              churn, demand forecasting, etc.
-            </li>
-            <br><br>
-            <li>
-              <b>Sampel Space</b>: Sample space is the universal set that consists of all possible outcomes of an
-              experiment, represented by letter 'S', and
-              individual outcomes are called as 'elementary events'.
-              <br><br>
-              E.g. Outcome of a football match: S = {Win, Draw, Lose} <br>
-              Customer Churn: s = {Churn, Won't Churn} <br>
-              Life of a turbine balde in an aircraft engine: S = {X | X∈R, 0<=X<∞} </li>
-                <br><br>
-            <li>
-              <b>Event</b>: Event is the subset of sample space, and probability is calculate w.r.t. an event
-              <img src="https://www.jobilize.com/ocw/mirror/col11239_1.2_complete/m39881/MG10C17_001.png"
-                alt="events_and_sample_space" style="width: 45%;">
-
-              <div style="text-align: center;">
-                <i>Credits: <a href="https://www.jobilize.com/course/section/outcome-random-experiments-by-openstax">
-                    Jobilize.com</a></i>
-              </div>
-            </li>
-            <br><br>
-            <li>
-              <b>Probability Estimation</b>: Probability of an event A, P(A), is given by:
-              <img src="/assets/imgs/blog/probability/00_probability_estimation.jpg"
-                alt="probability_estimation_formula" style="width: 95%;">
-              <br><br>
-              E.g. in an organization of 1000 employees, if every year 200 employess leave their job, then the
-              probability of attririon of
-              an employee per annum is 200/1000 = 0.2
-              <br>
-              * <i>If the probability for an event to happen is p and the probability for it to fail is q, then p + q =
-                1 </i>
-            </li>
-            <br><br>
-            <li>
-              <b>Algebra of Events</b>: For multiple events from a sample space, we can apply and use following algebric
-              expressions, to either directly achieve
-              or to derive results:
-              <br><br>
-              <ul>
-                <li>
-                  <b>Addition Rule</b>: The probability that events A or B will occur is given by
-                  <br>
-                  P(A ∪ B) = P(A) + P(B) – P(A ∩ B)
-                  <br>
-                  P(A or B) = P(A) + P(B) – P(A and B)
-                  <br>
-                  If A, B and C are mutually exclusive events, then P(A or B or C) = P(A) + P(B) + P(C)
-                </li>
-                <li>
-                  <b>Multiplication Rule</b>: The probability that two events A and B will occur in sequence is
-                  <br>
-                  P(A∩B) = P(A) × P(B/A) = P(B) × P(A/B)
-                  <br>
-                  P(A and B) = P(A) × P(B/A) = P(B) × P(A/B)
-                  <br>
-                  If A, B and C are independent events, then
-                  <br>
-                  P(A and B and C) = P(A) × P(B) × P(C)
-                </li>
-                <li>
-                  <b>Commulative Rule</b>:
-                  <br>
-                  A ∪ B = B ∪ A, and A ∩ B = B ∩ A
-                </li>
-                <li>
-                  <b>Associative Rule</b>:
-                  <br>
-                  (A ∪ B) ∪ C = A ∪ (B ∪ C), and
-                  <br>
-                  (A ∩ B) ∪ C = A ∩ (B ∩ C)
-                </li>
-                <li>
-                  <b>Distributive Rule</b>:
-                  <br>
-                  A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C), and
-                  <br>
-                  A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
-                </li>
-              </ul>
-            </li>
-          </ol>
-          </p>
-        </div>
-        <br><br>
-        <div id="axioms">
-          <h1>Axioms of Probability</h1>
-          <ol>
-            <li>
-              Probability of an event always lies between 0 & 1
-            </li>
-            <li>
-              Probability of the universal set S is always 1
-            </li>
-            <li>
-              For any event A(e.g. probability of observing a fraudlent transaction), probability of the complementary
-              event(e.g. probability of
-              observing a non-fraudlent transaction), written as A <sup>C</sup> is given by:
-              <br>
-              P(A<sup>c</sup>) = 1 - P(A)
-            </li>
-            <li>
-              The probability that either event A or B occurs, or both occurs, is given by
-              <br>
-              P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
-            </li>
-            <li>
-              <b>Marginal Probability</b>: Marginal Probability is simply a probability of an event X, denoted by P(X),
-              without any conditions
-              <img src="/assets/imgs/blog/probability/01_marginal_probability.jpg" alt="marginal_probability"
-                style="width: 95%;">
-              <br>
-            </li>
-            <li>
-              <b>Joint Probability</b>: Joint probability is the likelihood that two events will happen at the same
-              time. It's the probability that event X occurs at the same time as event Y.
-              <img src="/assets/imgs/blog/probability/01_joint_probability.jpg" alt="joint_probability"
-                style="width: 95%;">
-              <br>
-              Conditions being:
-              <ul>
-                <li>events A and B must happen at the same time</li>
-                <li>events A and B must be independent (non-interfering) of each other</li>
-              </ul>
-              e.g. throwing two dices
-              <br> <br>
-              <img src="/assets/imgs/blog/probability/01_01_joint_probability.jpg" alt="joint_probability_example"
-                style="width: 98%;">
-              <br><br>
-              The word <b>joint</b> comes from the fact that we’re interested in the probability of two things happening
-              at once, like here, male & baseball
-              <br>
-              So, according to our above statd Joint Probability forumula
-              <img src="/assets/imgs/blog/probability/01_02_joint_probability.jpg" alt="joint_probability_example"
-                style="width: 98%;">
-              <br><br>
-            </li>
-            <br><br>
-            <li>
-              <b>Conditional Probability</b> is known as the possibility of an event or outcome happening, based on the
-              existence of a previous event or outcome
-              <br>
-              If events A & B are events in a sample space, then the conditional probability of the event B, given that
-              the event A has already happened, is denoted by
-              P(B|A), and is defined as:
-              <img src="/assets/imgs/blog/probability/02_conditional_probability.jpg" alt="conditional_probability"
-                style="width: 98%;">
-              <br><br>
-              For example, we might expect the probability that it will rain tomorrow (in general) to be smaller than
-              the
-              probability it will rain tomorrow given that it is cloudy today. This latter probability is a conditional
-              probability, since it accounts for relevant information that we possess.
-              <br><br>
-              Mathematically, computing a conditional probability amounts to shrinking our sample space to a particular
-              event. So in our rain example, instead of looking at how often it rains on any day in general, we
-              "pretend"
-              that our sample space consists of only those days for which the previous day was cloudy.
-            </li>
-          </ol>
-        </div>
-
-        <h1>Application of Probability</h1>
-        <b>Association Rule Learning</b>: Market Basket Analysis is used frequently by retailers, to predict items
-        frequenlty bought together
-        by the customers, to improve thier product promotions. And, Association Rule Learning is a method of finding
-        associations between different entities.
-        <br>
-        And the Strength-of-Association between 2 items can be measured using Support, Confidence & Lift
-        <ol>
-          <li>
-            <b>Support</b>:
-            <img src="/assets/imgs/blog/probability/03_support.jpg" alt="support_formula" style="width: 98%;">
-          </li>
-          <li>
-            <b>Confidence</b>:
-            <img src="/assets/imgs/blog/probability/03_confidence.jpg" alt="confidence_formula" style="width: 98%;">
-          </li>
-          <li>
-            <b>Lift</b>:
-            <img src="/assets/imgs/blog/probability/03_lift.jpg" alt="lift_forumla" style="width: 98%;">
-          </li>
-        </ol>
-        <br><br>
-
-        <div id="bayes">
-          <h1>Bayes Theorem</h1>
-          <p>
-            <b>Bayes Theorem</b> can be understood as the description of the probability of any event which is
-            obtained by prior knowledge about the event
-            <br><br>
-            We can say that Bayes’ theorem can be used to describe the conditional probability of any event where we
-            have
-            <br>
-          <ul>
-            <li>data about the event</li>
-            <li>prior information about the event</li>
-            <li>with the prior knowledge about the conditions related to the event</li>
-          </ul>
-          <br>
-          As per Conditional Probability, we know that
-          <img src="/assets/imgs/blog/probability/04_01_bayes_derivation.jpg" alt="bayes_derivation"
-            style="width: 98%;">
-
-          <ul>
-            <li>
-              <i>Prior Probability</i>:
-              In the formula of the Bayes theorem, <b>P(A)</b> is the Prior Probability
-              <br>
-              According to Bayesian statistical inference we can define the Prior Probability or Prior, of an uncertain
-              quantity as the probability distribution that would express one's beliefs about this quantity before some
-              evidence is taken into account
-              <br>
-              For example, the relative proportions of voters, who will vote for a particular politician in a future
-              election
-              <br>
-              P(A) expresses one’s belief of occurrence of A before any evidence is taken into account
-            </li>
-            <li>
-              <i>Likelihood Function</i>:
-              <b>P(B|A)</b> is the likelihood function which can be simply called the likelihood
-              <br>
-              It can be defined as the probability of B when it is known that A is true
-              <br>
-              Numerically it is the support value where the support to proposition A is given by evidence B
-            </li>
-            <li>
-              <i>Posterior Probability</i>:
-              <b>P(A|B)</b> is the posterior probability or the probability of A to occur given event B already occurred
-            </li>
-          </ul>
-
-          <img src="/assets/imgs/blog/stats/bayes_theorem_luminousmen.jpg" alt="bayes_theorem_formula_wikipedia"
-            style="width: 95%;">
-
-          <div style="text-align: center;">
-            <i>Credits: <a href="https://luminousmen.com/post/data-science-bayes-theorem">
-                Luminousmen.com</a></i>
-          </div>
-          <br>
-          A great article on <a href="https://towardsdatascience.com/the-monty-hall-problem-9c4053ef0640">Monty Hall
-            Problem</a>, which is solved using Bayes Theorem.
-          Go through it once before proceeding further about <a href="#random_variable">Random Variables</a> and <a
-            href="#distributions">Distribution Functions</a>
-          </p>
-          <br><br>
-          <div id="difference">
-            <h3>Relationship Between Conditional Probability and Bayes Theorem</h3>
-            <i>**</i> The numerator, i.e. <b>P(B|A)*P(A)</b> says that, both the event has occured, i.e. Event (A) &
-            Event (B|A)
-            <br>
-            And from the concept of Conditional Probability, the denominator <b>P(B)</b> says, P(Numerator|B), i.e.
-            Probability of Numerator happening, give event B has already happened
-          </div>
-
-          <br><br>
-
-          <div id="random_variable">
-            <h1>Random Variable</h1>
-            <b>Random Variable</b>: A random variable is a variable whose value depends on unknown events.
-            We can summarize the unknown events as "state", and then the random variable is a function of the state
-
-            <img src="/assets/imgs/blog/probability/05_01_random_variables.jpg" alt="random_variable"
-              style="width: 65%;">
-
-            <div style="text-align: center;">
-              <i>Credits:
-                <a href="https://stats.stackexchange.com/a/85">Paul</a>
-              </i>
-            </div>
-            A <b>variable</b> is a symbol that represents some quantity, whereas, a <b>random variable</b> is a value
-            that follows some probability distribution.
-            <br>
-            <b>Discrete Random Variable</b>: If a random variable can assume only a finite, or countably infinite set of
-            values, then it is called as a Discrete Random Variable
-            <br>
-            E.g. 5 pencils, 100 vehicles, 10,000 user registraions
-            <br>
-            <b>Continous Random Variable</b>: If a rancom variable can take a value from an infinite set of values, it
-            is called as Continous Random Variable
-            <br>
-            E.g. length of pencil (7cm or 7.32cm or 7.321456894123cm)
-            <br> <br>
-            Functions to consider when we have
-            <ul>
-              <li>Discrete Random Variable: <b>Probability Mass Function</b></li>
-              <li>Continous Random Variable: <b>Probability Density Function</b></li>
-              <li>Both cases: <b>Cumulative Distribution Function</b></li>
-            </ul>
-
-            The term <i>probability</i> relates is to an event and probability distribution relates is to a random
-            variable.
-            <br>
-            A great video about probability distribution: <br>
-            <iframe width="95%" height="315" src="https://www.youtube-nocookie.com/embed/CfZa1daLjwo?start=123"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <br>
-            It is a convention that the term <i>probability mass function</i> refers to the probability function of a
-            discrete random variable and the
-            term <i>probability density function</i> refers to the probability function of a continuous random variable
-
-            <br><br>
-            <ol>
-              <li><b>PMF</b>: When the random variable is discrete, probability distribution means, how
-                the total probability is distributed over various possible values of the random variable
-                <br>
-                Consider the experiment of tossing two unbiased coins simultaneously. Then, sample space S associated
-                with this experiment is:
-                <br>
-                S = {HH, HT, TH, TT}
-                <br>
-                If we define a random variable X as: the number of heads on this sample space S, then
-                <br>
-                X(HH) = 2, X(HT) = X(TH)=1, X(TT) = 0
-                <br>
-                The probability distribution of X is then given by
-                P(x) = x/n
-                <br>
-                P(2) = 1/4; P(1) = 2/4; P(0) = 1/4
-                <br>
-                Which could be represented as in
-                <img src="/assets/imgs/blog/probability/05_pmf_chart.jpg" alt="pmf_visualization" style="width: 65%;">
-                <br><br>
-                For a discrete random variable, we consider events of the type {X=x} and compute probabilities of such
-                events to describe the distribution of the random variable.
-                This probability, P{X=x}=p(x) is called the <i>probability mass function</i>
-              </li>
-              <br>
-              <li>
-                <b>PDF</b>: A continuous random variable is described by considering probabilities for events of the
-                type (a&lt;X&lt;b).
-                The probability function of a continuous random variable is usually denoted by f(x) and is called a
-                <i>probability density function</i>
-                <img src="/assets/imgs/blog/probability/05_pdf_formula.jpg" alt="pdf_formula" style="width: 65%;">
-                <br>
-                It is a function whose value at any given sample (or point) in the sample space (the set of possible
-                values taken by the random variable) can
-                be interpreted as providing a relative likelihood that the value of the random variable would be close
-                to that sample.
-                <img src="/assets/imgs/blog/probability/05_pdf_chart.png" alt="pdf_visualization" style="width: 65%;">
-
-                <div style="text-align: center;">
-                  <i>Credits: <a href="https://en.wikipedia.org/wiki/File:Boxplot_vs_PDF.svg">
-                      Wikipedia.com</a></i>
-                </div>
-              </li>
-              <br>
-              <li>
-                <b>CDF</b>: Cumulative Distribution Function, F(Xi), is the probability that the random variable X takes
-                values less than or equal
-                to Xi, i.e.
-                <img src="/assets/imgs/blog/probability/05_cdf.jpg" alt="cdf" style="width: 85%;">
-                <br><br>
-
-              </li>
-            </ol>
-          </div>
-
-          <br><br>
-
-          <div id="distributions">
-            <h1>Distributions</h1>
-            The <i>distribution</i> is simply, the assignment of probabilities, to sets of possible values of the random
-            variable.
-            And, a <i>probability distribution </i>is a statistical function, that describes all the possible values and
-            likelihoods that a random
-            variable can take within a given range
-            <br><br>
-            <ul>
-              <li>
-                <b>Bernoulli Distribution</b>: Any event, which has 1 trial with 2 possible events, follows Bernoulli
-                Distribution, e.g. Coin Flip
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bernoulli_Distribution.PNG/640px-Bernoulli_Distribution.PNG"
-                  alt="bernouli_distribution" style="width: 75%;">
-
-                <div style="text-align: center;">
-                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">
-                      Wikipedia</a></i>
-                </div>
-                <br>
-
-              </li>
-              <li>
-                <b>Binomial Distribution</b>: Binomial Distribution helps in getting number of times we expect to get a
-                specific outcome. As,
-                its graph represents our likelihood of attaining our desired outcome, a specific number of times
-                <br>
-                <img src="/assets/imgs/blog/probability/06_01_binomial_distribution_graph.png" alt="binomial_graph"
-                  style="width: 75%;">
-
-                <div style="text-align: center;">
-                  <i>Binomial probability mass function and normal probability density function approximation for n = 6
-                    and p = 0.5</i>
-                  <br>
-                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Binomial_distribution">
-                      Wikipedia</a></i>
-                </div>
-                <br>
-                In order for a random variable to be considered for Binomial Distribution, it needs to satisfy following
-                conditions:
-                <br>
-                <ul>
-                  <li>Only 2 unique outomes possible, i.e. Bernoulli Trials</li>
-                  <li>Objective: probability of getting k successes, out of n trials</li>
-                  <li>Each trial is a "yes-no asking" independent event</li>
-                  <li>Probability P is constant, and doesn't varies between trials (probability of getting tails doesn't
-                    changes after some n-p trials)</li>
-                </ul>
-                PMF of Binomial Distribution
-                <img src="/assets/imgs/blog/probability/06_01_binomial_distribution_formula.png" alt="cdf"
-                  style="width: 45%;">
-                Few good examples include <i>binary classifications</i> like churn and wont churn, fraud
-                transaction & non-fraud transactions, loan emi default and no default, etc
-              </li>
-              <br><br>
-              <li>
-                <b>Poisson Distribution</b>: Sometimes we are interested in the count of events, e.g. number of orders
-                in an ecommerce website, number of cancelled orders,
-                number of customer complaints in a telecom company, etc. In such cases, we need probaility distribution
-                of number of events, i.e. <i>Poisson Distribution</i>.
-                <br>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Binomial_versus_poisson.svg/1024px-Binomial_versus_poisson.svg.png"
-                  alt="poisson_distribution" style="width: 75%;">
-
-                <div style="text-align: center;">
-                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Poisson_distribution">
-                      Wikipedia</a></i>
-                </div>
-                <br>
-                E.g. the number of mails you receive monthly, are countable and independent of each other.
-                <br>
-                It is a poisson distribution event, as it deals with the frequency at which an event occurs in a
-                specific interval, instead of
-                the probability of the event, it wants to know how often an event occurs, for a period of time
-                <br>
-                Another example, firefly lighting up 3 times in 10seconds
-              </li>
-              <li>
-                <b>Geometric Distribution</b>: Sometimes, we're more interested to discover about the number of failures
-                between 2 success in Bernoulli Distribution, e.g. as
-                in case of duration between 2 purchse of visit to the store. Here, if each day is 1 trial, and the
-                outcome is purchased & not-purchsaed, then each point in
-                x-axis of the bernouli graph would be a unique single day, which could be either purchased or
-                not-purchsaed. And Geometric Distribution will help us in knowing
-                what is the duration between 2 purchases
-                <br>
-                I.e. <b>Geometric Distribution</b> si the number of Bernoulli Trials required to achieve success. It
-                represents a random experiment in which
-                the random variable predicts the number of failures before the success.
-                <br>
-                A great explanation of Geometric Distribution:
-                <img src="/assets/imgs/blog/probability/06_04_geometric_distribution_formula.png.jpg"
-                  alt="geometric_distribution" style="width: 75%;">
-
-                <div style="text-align: center;">
-                  <i>Credits: <a href="https://math.stackexchange.com/a/3716176">
-                      K. A. Buhr</a></i>
-                </div>
-                <br>
-              </li>
-              <li>
-                <b>Continous Distribution</b>:
-              </li>
-              <li>
-                <b>Uniform Distribution</b>: In statistics, uniform distribution refers to a type of probability
-                distribution in which all outcomes are equally
-                likely. E.g. A deck of cards has within it uniform distributions because the likelihood of drawing a
-                heart, a club, a diamond, or a spade is
-                equally likely. A coin also has a uniform distribution because the probability of getting either heads
-                or tails in a coin toss is the same.
-                <br>
-
-                <i>There are two types of uniform distributions: discrete and continuous</i>. The possible results of
-                rolling a die provide an example of a <b>discrete uniform distribution</b> : it is possible to roll
-                a 1, 2, 3, 4, 5, or 6, but it is not possible to
-                roll a 2.3, 4.7, or 5.5. Therefore, the
-                roll of a die generates a discrete distribution with p = 1/6 for each outcome. There are only 6 possible
-                values to return and nothing in between<sup><a
-                    href="https://www.investopedia.com/terms/u/uniform-distribution.asp">[1]</a></sup>.
-
-                <img src="/assets/imgs/blog/probability/06_05_discrete_uniform_distribution.png"
-                  alt="discrete_uniform_distribution" style="width: 45%;">
-
-                <div style="text-align: center;">
-                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Discrete_uniform_distribution">
-                      Wikipedia</a></i>
-                </div>
-                <br>
-
-                Some uniform distributions are continuous rather than discrete. An idealized random number generator
-                would be considered a <b>continuous uniform distribution</b> . With this type of distribution, every
-                point in the continuous range between 0.0 and 1.0 has an equal opportunity of appearing, yet there
-                is an infinite number of points between 0.0 and 1.0<sup><a
-                    href="https://www.investopedia.com/terms/u/uniform-distribution.asp">[2]</a></sup>.
-
-                <img src="/assets/imgs/blog/probability/06_05_continous_uniform_distribution.png"
-                  alt="continous_uniform_distribution" style="width: 45%;">
-
-                <div style="text-align: center;">
-                  <i>Credits: <a href="https://en.wikipedia.org/wiki/Discrete_uniform_distribution">
-                      Wikipedia</a></i>
-                </div>
-                <br>
-
-              </li>
-              <li>
-                <b>Exponential Distribution</b>: In Exponential Distribution, the events occur continuously and
-                independently at a constant average rate.
-                The exponential distribution, Erlang distribution, and chi-square distribution are special cases of the
-                gamma distribution
-
-                <img src="https://sasnrd.com/wp-content/uploads/2017/08/Exponential_PDF.png"
-                  alt="exponential_distribution" style="width: 45%;">
-
-                <div style="text-align: center;">
-                  <i>Credits: <a href="https://sasnrd.com/wp-content/uploads/2017/08/Exponential_PDF.png">
-                      Sasnrd.com</a></i>
-                </div>
-                <br>
-
-              </li>
-              <li>
-                <b>Normal Distribution</b>: Normal distribution, also known as the Gaussian distribution, is a
-                probability distribution that is symmetric about the mean, showing that data near the mean are more
-                frequent in occurrence than data far from the mean. In graph form, normal distribution will appear as a
-                bell curve<sup><a href="https://www.investopedia.com/terms/n/normaldistribution.asp">[3]</a></sup>.
-
-                <img
-                  src="https://www.investopedia.com/thmb/CcUiIoXJac8-i1_52cCNDDah1bk=/3274x0/filters:no_upscale():max_bytes(150000):strip_icc()/dotdash_Final_The_Normal_Distribution_Table_Explained_Jan_2020-03-a2be281ebc644022bc14327364532aed.jpg"
-                  alt="exponential_distribution" style="width: 95%;">
-
-                <div style="text-align: center;">
-                  <i>Credits: <a
-                      href="https://www.investopedia.com/articles/active-trading/092914/normal-distribution-table-explained.asp">
-                      Investopedia.com</a></i>
-                </div>
-
-                <br>
-                A normal random variable with mean = 0 & standard deviation = 1 is called as <b>Standard Normal
-                  Variable</b>, and usually represented by Z
-                <br>
-              </li>
-              <li>
-                <b>Chi-Squared Distribution</b>: When k independent standard normal random variable are squared and
-                summed together, the non-parametric distribution
-                obtained is called as Chi-Square Distribution with K-Degrees of Freedom.
-                <br>
-                Used to check the relationships between categorical variables, to study the sample variance where the
-                underlying distribution is normal,
-                and most importantly, to conduct a The chi-square test (a goodness of fit test)
-              </li>
-              <li>
-                <b>Student's t-Distribution</b>: The distribution arise when estimating the mean of a normally
-                distributed population in situations where the sample size is small and the population's standard
-                deviation is unknown
-                <img src="/assets/imgs/blog/probability/06_06_students_t_distribution.jpg"
-                  alt="exponential_distribution" style="width: 45%;">
-              </li>
-              <li>
-                <b>F-Distribution</b>: is a continuous probability distribution that arises frequently as the null
-                distribution of a test statistic, most notably in the analysis of variance (ANOVA) and other F-tests.
-                <br>
-                <i>Null Distribution</i> is the probability distribution of the test statistic when the null hypothesis
-                is true
-              </li>
-            </ul>
-          </div>
-        </div>
-        <br><br>
         <!-- ####################
-        Refs . Also copy the part from start of <head> tag above
+        LHSNavBar . Also copy the part from start of <head> tag above
         #################### -->
-        <div id="stats_refs"></div>
-      </div>
+        <div class="column_left">
+            <h2 style="text-align: left;"> &nbsp;&nbsp; Chapters </h2>
+            <div id="stats_LHSNavBar"></div>
+        </div>
 
-      <div class="column_right">
-        <!-- <h2 style="text-align: center;"> Topics </h2>
-                <a href="#basics">a) Basics</a> <br>
-                <a href="#sample">b) Distributions</a> <br>
-                <a href="#summary">c) Data Summary</a> <br>
-                <a href="#distribution">d)Shape of Distribution</a> <br> -->
-      </div>
-      <!-- ########################################### -->
-      <!-- ############## RHS Sidebar ################ -->
-      <!-- ########################################### -->
+        <!-- ####################
+        Page Titke needs update
+        #################### -->
+        <div class="column_center">
+            <h1>Mathematics For Machine Learning</h1>
+            <div class="meta_info">
+                <span style="float: left;">
+                    <p>
+                        <!-- ####################
+                        Date-Posted needs update
+                        #################### -->
+                        Posted by: <a href="/index" target="_blank" class="blog_links">Jaspreet</a>
+                    </p>
+                </span>
+                <span style="float: right;">
+                    <p>
+                        <!-- page specific edits -->
+                        Last Updated on: 03 Oct, 2022
+                    </p>
+                </span>
+            </div>
+
+
+            <!-- ####################
+            Banner img
+            #################### -->
+            <div class="banner">
+                <!-- page specific edits -->
+                <img src="/assets/imgs/banners/generic_banner.jpg">
+            </div>
+
+            <br>
+
+            <div class="share_this_plugin">
+                <br>
+                <!-- Also copy the part from start of <head> tag above -->
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
+            <!-- page specific edits -->
+            <h1>Probability</h1>
+            <hr>
+            <div class="hide_in_pc">
+                <h3>
+                    Chapters
+                </h3>
+                <!-- page specific edits -->
+                <div id="rlr_Mobile_NavBar"></div>
+                <hr>
+            </div>
+            <!-- ####################
+              page specific edits
+              #################### -->
+            <div class="toc" id="toc">
+                <h1>Table of Contents</h1>
+                <ol>
+                    <li><a href="#basics">Basics</a></li>
+                    <li><a href="#ref">Refrence</a></li>
+                </ol>
+            </div>
+            <hr>
+
+            <div class="blog_content">
+                <br>
+                <div id="basics">
+                    <h1>Introduction</h1>
+                    <p>
+                        One of the primary objkective of analytics is to measure the uncertainity associated with an
+                        event or key performance indicatorr. Axioms of probability and the concept of random variable
+                        are fundamental bulding blocks for analytics that are used for measuring uncertainity associated
+                        with the key performance indicators of importance of a business. Probability theory is the
+                        foundation on which descriptive and predictive analytics models are built. <br>
+                        ~ <i>Credits: <a
+                                href="https://www.amazon.in/Business-Analytics-Science-Driven-Decision/dp/8126568771">Business
+                                Analytics: U Dinesh Kumar </a></i>
+                    </p>
+                    <h1>1. Basics of Probability</h1>
+                    <p>
+                        <b>Probability</b> is a metric for determining the likelihood of an event occurring, in terms of
+                        percentage.
+                        Many things are
+                        impossible to predict with 100% certainty. One can only predict the probability of such events
+                        occurring,
+                        i.e., how likely it is to occur.
+                    <ol>
+                        <li>
+                            <b>Random Experiment</b>: Random Experiment is an experiment in which, the ouctome is not
+                            known with
+                            certainty. Predictive Analytics mainly deals
+                            with random experiment, where the outcome is not known, with certainity, e.g. attirition
+                            rate, customer
+                            churn, demand forecasting, etc.
+                        </li>
+                        <br><br>
+                        <li>
+                            <b>Sampel Space</b>: Sample space is the universal set that consists of all possible
+                            outcomes of an
+                            experiment, represented by letter 'S', and
+                            individual outcomes are called as 'elementary events'.
+                            <br><br>
+                            E.g. Outcome of a football match: S = {Win, Draw, Lose} <br>
+                            Customer Churn: s = {Churn, Won't Churn} <br>
+                            Life of a turbine balde in an aircraft engine: S = {X | X∈R, 0<=X<∞} </li>
+                                <br><br>
+                        <li>
+                            <b>Event</b>: Event is the subset of sample space, and probability is calculate w.r.t. an
+                            event
+                            <img src="https://www.jobilize.com/ocw/mirror/col11239_1.2_complete/m39881/MG10C17_001.png"
+                                alt="events_and_sample_space" style="width: 45%;">
+
+                            <div style="text-align: center;">
+                                <i>Credits: <a
+                                        href="https://www.jobilize.com/course/section/outcome-random-experiments-by-openstax">
+                                        Jobilize.com</a></i>
+                            </div>
+                        </li>
+                        <br><br>
+                        <li>
+                            <b>Probability Estimation</b>: Probability of an event A, P(A), is given by:
+                            <img src="/assets/imgs/blog/probability/00_probability_estimation.jpg"
+                                alt="probability_estimation_formula" style="width: 95%;">
+                            <br><br>
+                            E.g. in an organization of 1000 employees, if every year 200 employess leave their job, then
+                            the
+                            probability of attririon of
+                            an employee per annum is 200/1000 = 0.2
+                            <br>
+                            * <i>If the probability for an event to happen is p and the probability for it to fail is q,
+                                then p + q =
+                                1 </i>
+                        </li>
+                        <br><br>
+                        <li>
+                            <b>Algebra of Events</b>: For multiple events from a sample space, we can apply and use
+                            following algebric
+                            expressions, to either directly achieve
+                            or to derive results:
+                            <br><br>
+                            <ul>
+                                <li>
+                                    <b>Addition Rule</b>: The probability that events A or B will occur is given by
+                                    <br>
+                                    P(A ∪ B) = P(A) + P(B) – P(A ∩ B)
+                                    <br>
+                                    P(A or B) = P(A) + P(B) – P(A and B)
+                                    <br>
+                                    If A, B and C are mutually exclusive events, then P(A or B or C) = P(A) + P(B) +
+                                    P(C)
+                                </li>
+                                <li>
+                                    <b>Multiplication Rule</b>: The probability that two events A and B will occur in
+                                    sequence is
+                                    <br>
+                                    P(A∩B) = P(A) × P(B/A) = P(B) × P(A/B)
+                                    <br>
+                                    P(A and B) = P(A) × P(B/A) = P(B) × P(A/B)
+                                    <br>
+                                    If A, B and C are independent events, then
+                                    <br>
+                                    P(A and B and C) = P(A) × P(B) × P(C)
+                                </li>
+                                <li>
+                                    <b>Commulative Rule</b>:
+                                    <br>
+                                    A ∪ B = B ∪ A, and A ∩ B = B ∩ A
+                                </li>
+                                <li>
+                                    <b>Associative Rule</b>:
+                                    <br>
+                                    (A ∪ B) ∪ C = A ∪ (B ∪ C), and
+                                    <br>
+                                    (A ∩ B) ∪ C = A ∩ (B ∩ C)
+                                </li>
+                                <li>
+                                    <b>Distributive Rule</b>:
+                                    <br>
+                                    A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C), and
+                                    <br>
+                                    A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    </p>
+                    <p>
+                    <h1>2. Axioms of Probability</h1>
+                    <ol>
+                        <li>
+                            Probability of an event always lies between 0 & 1
+                        </li>
+                        <li>
+                            Probability of the universal set S is always 1
+                        </li>
+                        <li>
+                            For any event A(e.g. probability of observing a fraudlent transaction), probability of the
+                            complementary
+                            event(e.g. probability of
+                            observing a non-fraudlent transaction), written as A <sup>C</sup> is given by:
+                            <br>
+                            P(A<sup>c</sup>) = 1 - P(A)
+                        </li>
+                        <li>
+                            The probability that either event A or B occurs, or both occurs, is given by
+                            <br>
+                            P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+                        </li>
+                        <li>
+                            <b>Marginal Probability</b>: Marginal Probability is simply a probability of an event X,
+                            denoted by P(X),
+                            without any conditions
+                            <img src="/assets/imgs/blog/probability/01_marginal_probability.jpg"
+                                alt="marginal_probability" style="width: 95%;">
+                            <br>
+                        </li>
+                        <li>
+                            <b>Joint Probability</b>: Joint probability is the likelihood that two events will happen at
+                            the same
+                            time. It's the probability that event X occurs at the same time as event Y.
+                            <img src="/assets/imgs/blog/probability/01_joint_probability.jpg" alt="joint_probability"
+                                style="width: 95%;">
+                            <br>
+                            Conditions being:
+                            <ul>
+                                <li>events A and B must happen at the same time</li>
+                                <li>events A and B must be independent (non-interfering) of each other</li>
+                            </ul>
+                            e.g. throwing two dices
+                            <br> <br>
+                            <img src="/assets/imgs/blog/probability/01_01_joint_probability.jpg"
+                                alt="joint_probability_example" style="width: 98%;">
+                            <br><br>
+                            The word <b>joint</b> comes from the fact that we’re interested in the probability of two
+                            things happening
+                            at once, like here, male & baseball
+                            <br>
+                            So, according to our above statd Joint Probability forumula
+                            <img src="/assets/imgs/blog/probability/01_02_joint_probability.jpg"
+                                alt="joint_probability_example" style="width: 98%;">
+                            <br><br>
+                        </li>
+                        <br><br>
+                        <li>
+                            <b>Conditional Probability</b> is known as the possibility of an event or outcome happening,
+                            based on the
+                            existence of a previous event or outcome
+                            <br>
+                            If events A & B are events in a sample space, then the conditional probability of the event
+                            B, given that
+                            the event A has already happened, is denoted by
+                            P(B|A), and is defined as:
+                            <img src="/assets/imgs/blog/probability/02_conditional_probability.jpg"
+                                alt="conditional_probability" style="width: 98%;">
+                            <br><br>
+                            For example, we might expect the probability that it will rain tomorrow (in general) to be
+                            smaller than
+                            the
+                            probability it will rain tomorrow given that it is cloudy today. This latter probability is
+                            a conditional
+                            probability, since it accounts for relevant information that we possess.
+                            <br><br>
+                            Mathematically, computing a conditional probability amounts to shrinking our sample space to
+                            a particular
+                            event. So in our rain example, instead of looking at how often it rains on any day in
+                            general, we
+                            "pretend"
+                            that our sample space consists of only those days for which the previous day was cloudy.
+                        </li>
+                    </ol>
+                    </p>
+                    <h1>3. Application of Probability</h1>
+                    <p>
+                        <b>Association Rule Learning</b>: Market Basket Analysis is used frequently by retailers, to
+                        predict items
+                        frequenlty bought together
+                        by the customers, to improve thier product promotions. And, Association Rule Learning is a
+                        method of finding
+                        associations between different entities.
+                        <br>
+                        And the Strength-of-Association between 2 items can be measured using Support, Confidence & Lift
+                    <ol>
+                        <li>
+                            <b>Support</b>:
+                            <img src="/assets/imgs/blog/probability/03_support.jpg" alt="support_formula"
+                                style="width: 98%;">
+                        </li>
+                        <li>
+                            <b>Confidence</b>:
+                            <img src="/assets/imgs/blog/probability/03_confidence.jpg" alt="confidence_formula"
+                                style="width: 98%;">
+                        </li>
+                        <li>
+                            <b>Lift</b>:
+                            <img src="/assets/imgs/blog/probability/03_lift.jpg" alt="lift_forumla" style="width: 98%;">
+                        </li>
+                    </ol>
+                    </p>
+                    <h1>4. Bayes Theorem</h1>
+                    <p>
+                        <b>Bayes Theorem</b> can be understood as the description of the probability of any event which
+                        is
+                        obtained by prior knowledge about the event
+                        <br><br>
+                        We can say that Bayes’ theorem can be used to describe the conditional probability of any event
+                        where we
+                        have
+                        <br>
+                    <ul>
+                        <li>data about the event</li>
+                        <li>prior information about the event</li>
+                        <li>with the prior knowledge about the conditions related to the event</li>
+                    </ul>
+                    <br>
+                    As per Conditional Probability, we know that
+                    <img src="/assets/imgs/blog/probability/04_01_bayes_derivation.jpg" alt="bayes_derivation"
+                        style="width: 98%;">
+
+                    <ul>
+                        <li>
+                            <i>Prior Probability</i>:
+                            In the formula of the Bayes theorem, <b>P(A)</b> is the Prior Probability
+                            <br>
+                            According to Bayesian statistical inference we can define the Prior Probability or Prior, of
+                            an uncertain
+                            quantity as the probability distribution that would express one's beliefs about this
+                            quantity before some
+                            evidence is taken into account
+                            <br>
+                            For example, the relative proportions of voters, who will vote for a particular politician
+                            in a future
+                            election
+                            <br>
+                            P(A) expresses one’s belief of occurrence of A before any evidence is taken into account
+                        </li>
+                        <li>
+                            <i>Likelihood Function</i>:
+                            <b>P(B|A)</b> is the likelihood function which can be simply called the likelihood
+                            <br>
+                            It can be defined as the probability of B when it is known that A is true
+                            <br>
+                            Numerically it is the support value where the support to proposition A is given by evidence
+                            B
+                        </li>
+                        <li>
+                            <i>Posterior Probability</i>:
+                            <b>P(A|B)</b> is the posterior probability or the probability of A to occur given event B
+                            already occurred
+                        </li>
+                    </ul>
+
+                    <img src="/assets/imgs/blog/stats/bayes_theorem_luminousmen.jpg"
+                        alt="bayes_theorem_formula_wikipedia" style="width: 95%;">
+
+                    <div style="text-align: center;">
+                        <i>Credits: <a href="https://luminousmen.com/post/data-science-bayes-theorem">
+                                Luminousmen.com</a></i>
+                    </div>
+                    <br>
+                    <p>
+                        A great article on <a
+                            href="https://towardsdatascience.com/the-monty-hall-problem-9c4053ef0640">Monty Hall
+                            Problem</a>, which is solved using Bayes Theorem.
+                        Go through it once before proceeding further about <a href="#random_variable">Random
+                            Variables</a> and <a href="#distributions">Distribution Functions</a>
+                    </p>
+                    <br><br>
+                    <div id="difference">
+                        <h3>Relationship Between Conditional Probability and Bayes Theorem</h3>
+                        <p>
+                            <i>**</i> The numerator, i.e. <b>P(B|A)*P(A)</b> says that, both the event has occured, i.e.
+                            Event (A) &
+                            Event (B|A)
+                            <br>
+                            And from the concept of Conditional Probability, the denominator <b>P(B)</b> says,
+                            P(Numerator|B), i.e.
+                            Probability of Numerator happening, give event B has already happened
+                        </p>
+
+                    </div>
+
+                    <br><br>
+
+                    <div id="random_variable">
+                        <h1>Random Variable</h1>
+                        <p>
+                            <b>Random Variable</b>: A random variable is a variable whose value depends on unknown
+                            events.
+                            We can summarize the unknown events as "state", and then the random variable is a function
+                            of
+                            the state
+
+                            <img src="/assets/imgs/blog/probability/05_01_random_variables.jpg" alt="random_variable"
+                                style="width: 65%;">
+                        </p>
+
+                        <div style="text-align: center;">
+                            <i>Credits:
+                                <a href="https://stats.stackexchange.com/a/85">Paul</a>
+                            </i>
+                            </p>
+                            <p>
+                                A <b>variable</b> is a symbol that represents some quantity, whereas, a <b>random
+                                    variable</b>
+                                is a value
+                                that follows some probability distribution.
+                                <br>
+                                <b>Discrete Random Variable</b>: If a random variable can assume only a finite, or
+                                countably
+                                infinite set of
+                                values, then it is called as a Discrete Random Variable
+                                <br>
+                                E.g. 5 pencils, 100 vehicles, 10,000 user registraions
+                                <br>
+                                <b>Continous Random Variable</b>: If a rancom variable can take a value from an infinite
+                                set of
+                                values, it
+                                is called as Continous Random Variable
+                                <br>
+                                E.g. length of pencil (7cm or 7.32cm or 7.321456894123cm)
+                                <br> <br>
+                                Functions to consider when we have
+                            <ul>
+                                <li>Discrete Random Variable: <b>Probability Mass Function</b></li>
+                                <li>Continous Random Variable: <b>Probability Density Function</b></li>
+                                <li>Both cases: <b>Cumulative Distribution Function</b></li>
+                            </ul>
+                            <p>
+                                The term <i>probability</i> relates is to an event and probability distribution relates
+                                is
+                                to a random variable.
+                            </p>
+                        </div>
+
+                        <br>
+                        A great video about probability distribution: <br>
+                        <iframe width="95%" height="315"
+                            src="https://www.youtube-nocookie.com/embed/CfZa1daLjwo?start=123"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <br>
+                        <p>
+                            It is a convention that the term <i>probability mass function</i> refers to the probability
+                            function of a
+                            discrete random variable and the
+                            term <i>probability density function</i> refers to the probability function of a continuous
+                            random variable
+
+                        </p>
+
+                        <br><br>
+
+                        <ol>
+                            <li><b>PMF</b>: When the random variable is discrete, probability distribution means, how
+                                the total probability is distributed over various possible values of the random variable
+                                <br>
+                                Consider the experiment of tossing two unbiased coins simultaneously. Then, sample space
+                                S associated
+                                with this experiment is:
+                                <br>
+                                S = {HH, HT, TH, TT}
+                                <br>
+                                If we define a random variable X as: the number of heads on this sample space S, then
+                                <br>
+                                X(HH) = 2, X(HT) = X(TH)=1, X(TT) = 0
+                                <br>
+                                The probability distribution of X is then given by
+                                P(x) = x/n
+                                <br>
+                                P(2) = 1/4; P(1) = 2/4; P(0) = 1/4
+                                <br>
+                                Which could be represented as in
+                                <img src="/assets/imgs/blog/probability/05_pmf_chart.jpg" alt="pmf_visualization"
+                                    style="width: 65%;">
+                                <br><br>
+                                For a discrete random variable, we consider events of the type {X=x} and compute
+                                probabilities of such
+                                events to describe the distribution of the random variable.
+                                This probability, P{X=x}=p(x) is called the <i>probability mass function</i>
+                            </li>
+                            <br>
+                            <li>
+                                <b>PDF</b>: A continuous random variable is described by considering probabilities for
+                                events of the
+                                type (a&lt;X&lt;b).
+                                The probability function of a continuous random variable is usually denoted by f(x) and
+                                is called a
+                                <i>probability density function</i>
+                                <img src="/assets/imgs/blog/probability/05_pdf_formula.jpg" alt="pdf_formula"
+                                    style="width: 65%;">
+                                <br>
+                                It is a function whose value at any given sample (or point) in the sample space (the set
+                                of possible
+                                values taken by the random variable) can
+                                be interpreted as providing a relative likelihood that the value of the random variable
+                                would be close
+                                to that sample.
+                                <img src="/assets/imgs/blog/probability/05_pdf_chart.png" alt="pdf_visualization"
+                                    style="width: 65%;">
+
+                                <div style="text-align: center;">
+                                    <i>Credits: <a href="https://en.wikipedia.org/wiki/File:Boxplot_vs_PDF.svg">
+                                            Wikipedia.com</a></i>
+                                </div>
+                            </li>
+                            <br>
+                            <li>
+                                <b>CDF</b>: Cumulative Distribution Function, F(Xi), is the probability that the random
+                                variable X takes
+                                values less than or equal
+                                to Xi, i.e.
+                                <img src="/assets/imgs/blog/probability/05_cdf.jpg" alt="cdf" style="width: 85%;">
+                                <br><br>
+
+                            </li>
+                        </ol>
+                    </div>
+
+                    <br><br>
+
+                    <div id="distributions">
+                        <h1>Distributions</h1>
+                        <p>
+                            The <i>distribution</i> is simply, the assignment of probabilities, to sets of possible values
+                            of the random
+                            variable.
+                            And, a <i>probability distribution </i>is a statistical function, that describes all the
+                            possible values and
+                            likelihoods that a random
+                            variable can take within a given range
+                        </p>
+                        <br><br>
+                        <ul>
+                            <li>
+                                <b>Bernoulli Distribution</b>: Any event, which has 1 trial with 2 possible events,
+                                follows Bernoulli
+                                Distribution, e.g. Coin Flip
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bernoulli_Distribution.PNG/640px-Bernoulli_Distribution.PNG"
+                                    alt="bernouli_distribution" style="width: 75%;">
+
+                                <div style="text-align: center;">
+                                    <i>Credits: <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">
+                                            Wikipedia</a></i>
+                                </div>
+                                <br>
+
+                            </li>
+                            <li>
+                                <b>Binomial Distribution</b>: Binomial Distribution helps in getting number of times we
+                                expect to get a
+                                specific outcome. As,
+                                its graph represents our likelihood of attaining our desired outcome, a specific number
+                                of times
+                                <br>
+                                <img src="/assets/imgs/blog/probability/06_01_binomial_distribution_graph.png"
+                                    alt="binomial_graph" style="width: 75%;">
+
+                                <div style="text-align: center;">
+                                    <i>Binomial probability mass function and normal probability density function
+                                        approximation for n = 6
+                                        and p = 0.5</i>
+                                    <br>
+                                    <i>Credits: <a href="https://en.wikipedia.org/wiki/Binomial_distribution">
+                                            Wikipedia</a></i>
+                                </div>
+                                <br>
+                                In order for a random variable to be considered for Binomial Distribution, it needs to
+                                satisfy following
+                                conditions:
+                                <br>
+                                <ul>
+                                    <li>Only 2 unique outomes possible, i.e. Bernoulli Trials</li>
+                                    <li>Objective: probability of getting k successes, out of n trials</li>
+                                    <li>Each trial is a "yes-no asking" independent event</li>
+                                    <li>Probability P is constant, and doesn't varies between trials (probability of
+                                        getting tails doesn't
+                                        changes after some n-p trials)</li>
+                                </ul>
+                                PMF of Binomial Distribution
+                                <img src="/assets/imgs/blog/probability/06_01_binomial_distribution_formula.png"
+                                    alt="cdf" style="width: 45%;">
+                                Few good examples include <i>binary classifications</i> like churn and wont churn, fraud
+                                transaction & non-fraud transactions, loan emi default and no default, etc
+                            </li>
+                            <br><br>
+                            <li>
+                                <b>Poisson Distribution</b>: Sometimes we are interested in the count of events, e.g.
+                                number of orders
+                                in an ecommerce website, number of cancelled orders,
+                                number of customer complaints in a telecom company, etc. In such cases, we need
+                                probaility distribution
+                                of number of events, i.e. <i>Poisson Distribution</i>.
+                                <br>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Binomial_versus_poisson.svg/1024px-Binomial_versus_poisson.svg.png"
+                                    alt="poisson_distribution" style="width: 75%;">
+
+                                <div style="text-align: center;">
+                                    <i>Credits: <a href="https://en.wikipedia.org/wiki/Poisson_distribution">
+                                            Wikipedia</a></i>
+                                </div>
+                                <br>
+                                E.g. the number of mails you receive monthly, are countable and independent of each
+                                other.
+                                <br>
+                                It is a poisson distribution event, as it deals with the frequency at which an event
+                                occurs in a
+                                specific interval, instead of
+                                the probability of the event, it wants to know how often an event occurs, for a period
+                                of time
+                                <br>
+                                Another example, firefly lighting up 3 times in 10seconds
+                            </li>
+                            <li>
+                                <b>Geometric Distribution</b>: Sometimes, we're more interested to discover about the
+                                number of failures
+                                between 2 success in Bernoulli Distribution, e.g. as
+                                in case of duration between 2 purchse of visit to the store. Here, if each day is 1
+                                trial, and the
+                                outcome is purchased & not-purchsaed, then each point in
+                                x-axis of the bernouli graph would be a unique single day, which could be either
+                                purchased or
+                                not-purchsaed. And Geometric Distribution will help us in knowing
+                                what is the duration between 2 purchases
+                                <br>
+                                I.e. <b>Geometric Distribution</b> si the number of Bernoulli Trials required to achieve
+                                success. It
+                                represents a random experiment in which
+                                the random variable predicts the number of failures before the success.
+                                <br>
+                                A great explanation of Geometric Distribution:
+                                <img src="/assets/imgs/blog/probability/06_04_geometric_distribution_formula.png.jpg"
+                                    alt="geometric_distribution" style="width: 75%;">
+
+                                <div style="text-align: center;">
+                                    <i>Credits: <a href="https://math.stackexchange.com/a/3716176">
+                                            K. A. Buhr</a></i>
+                                </div>
+                                <br>
+                            </li>
+                            <li>
+                                <b>Continous Distribution</b>:
+                            </li>
+                            <li>
+                                <b>Uniform Distribution</b>: In statistics, uniform distribution refers to a type of
+                                probability
+                                distribution in which all outcomes are equally
+                                likely. E.g. A deck of cards has within it uniform distributions because the likelihood
+                                of drawing a
+                                heart, a club, a diamond, or a spade is
+                                equally likely. A coin also has a uniform distribution because the probability of
+                                getting either heads
+                                or tails in a coin toss is the same.
+                                <br>
+
+                                <i>There are two types of uniform distributions: discrete and continuous</i>. The
+                                possible results of
+                                rolling a die provide an example of a <b>discrete uniform distribution</b> : it is
+                                possible to roll
+                                a 1, 2, 3, 4, 5, or 6, but it is not possible to
+                                roll a 2.3, 4.7, or 5.5. Therefore, the
+                                roll of a die generates a discrete distribution with p = 1/6 for each outcome. There are
+                                only 6 possible
+                                values to return and nothing in between<sup><a
+                                        href="https://www.investopedia.com/terms/u/uniform-distribution.asp">[1]</a></sup>.
+
+                                <img src="/assets/imgs/blog/probability/06_05_discrete_uniform_distribution.png"
+                                    alt="discrete_uniform_distribution" style="width: 45%;">
+
+                                <div style="text-align: center;">
+                                    <i>Credits: <a href="https://en.wikipedia.org/wiki/Discrete_uniform_distribution">
+                                            Wikipedia</a></i>
+                                </div>
+                                <br>
+
+                                Some uniform distributions are continuous rather than discrete. An idealized random
+                                number generator
+                                would be considered a <b>continuous uniform distribution</b> . With this type of
+                                distribution, every
+                                point in the continuous range between 0.0 and 1.0 has an equal opportunity of appearing,
+                                yet there
+                                is an infinite number of points between 0.0 and 1.0<sup><a
+                                        href="https://www.investopedia.com/terms/u/uniform-distribution.asp">[2]</a></sup>.
+
+                                <img src="/assets/imgs/blog/probability/06_05_continous_uniform_distribution.png"
+                                    alt="continous_uniform_distribution" style="width: 45%;">
+
+                                <div style="text-align: center;">
+                                    <i>Credits: <a href="https://en.wikipedia.org/wiki/Discrete_uniform_distribution">
+                                            Wikipedia</a></i>
+                                </div>
+                                <br>
+
+                            </li>
+                            <li>
+                                <b>Exponential Distribution</b>: In Exponential Distribution, the events occur
+                                continuously and
+                                independently at a constant average rate.
+                                The exponential distribution, Erlang distribution, and chi-square distribution are
+                                special cases of the
+                                gamma distribution
+
+                                <img src="https://sasnrd.com/wp-content/uploads/2017/08/Exponential_PDF.png"
+                                    alt="exponential_distribution" style="width: 45%;">
+
+                                <div style="text-align: center;">
+                                    <i>Credits: <a
+                                            href="https://sasnrd.com/wp-content/uploads/2017/08/Exponential_PDF.png">
+                                            Sasnrd.com</a></i>
+                                </div>
+                                <br>
+
+                            </li>
+                            <li>
+                                <b>Normal Distribution</b>: Normal distribution, also known as the Gaussian
+                                distribution, is a
+                                probability distribution that is symmetric about the mean, showing that data near the
+                                mean are more
+                                frequent in occurrence than data far from the mean. In graph form, normal distribution
+                                will appear as a
+                                bell curve<sup><a
+                                        href="https://www.investopedia.com/terms/n/normaldistribution.asp">[3]</a></sup>.
+
+                                <img src="https://www.investopedia.com/thmb/CcUiIoXJac8-i1_52cCNDDah1bk=/3274x0/filters:no_upscale():max_bytes(150000):strip_icc()/dotdash_Final_The_Normal_Distribution_Table_Explained_Jan_2020-03-a2be281ebc644022bc14327364532aed.jpg"
+                                    alt="exponential_distribution" style="width: 95%;">
+
+                                <div style="text-align: center;">
+                                    <i>Credits: <a
+                                            href="https://www.investopedia.com/articles/active-trading/092914/normal-distribution-table-explained.asp">
+                                            Investopedia.com</a></i>
+                                </div>
+
+                                <br>
+                                A normal random variable with mean = 0 & standard deviation = 1 is called as <b>Standard
+                                    Normal
+                                    Variable</b>, and usually represented by Z
+                                <br>
+                            </li>
+                            <li>
+                                <b>Chi-Squared Distribution</b>: When k independent standard normal random variable are
+                                squared and
+                                summed together, the non-parametric distribution
+                                obtained is called as Chi-Square Distribution with K-Degrees of Freedom.
+                                <br>
+                                Used to check the relationships between categorical variables, to study the sample
+                                variance where the
+                                underlying distribution is normal,
+                                and most importantly, to conduct a The chi-square test (a goodness of fit test)
+                            </li>
+                            <li>
+                                <b>Student's t-Distribution</b>: The distribution arise when estimating the mean of a
+                                normally
+                                distributed population in situations where the sample size is small and the population's
+                                standard
+                                deviation is unknown
+                                <img src="/assets/imgs/blog/probability/06_06_students_t_distribution.jpg"
+                                    alt="exponential_distribution" style="width: 45%;">
+                            </li>
+                            <li>
+                                <b>F-Distribution</b>: is a continuous probability distribution that arises frequently
+                                as the null
+                                distribution of a test statistic, most notably in the analysis of variance (ANOVA) and
+                                other F-tests.
+                                <br>
+                                <i>Null Distribution</i> is the probability distribution of the test statistic when the
+                                null hypothesis
+                                is true
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div id="books">
+                    <h1>Books</h1>
+                    <p>
+                    <ol>
+                        <li>Math 201: Linear Algebra
+                            <a href="https://math.jhu.edu/~bernstein/math201/" target="_blank"
+                                rel="noopener noreferrer">
+                                <b></b> by Jacob Bernstein
+                            </a>
+                        </li>
+                        <li>Mathematics for Machine Learning
+                            <a href="https://www.amazon.in/gp/product/B09RWWBN1T/" target="_blank"
+                                rel="noopener noreferrer">
+                                <b></b> authored by Marc Peter Deisenroth
+                            </a>
+                        </li>
+                        <li>Linear Algebra and Optimization for Machine Learning
+                            <a href="https://www.amazon.in/gp/product/3030403432/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1"
+                                target="_blank" rel="noopener noreferrer">
+                                <b></b> authored by Charu Aggarwal
+                            </a>
+                        </li>
+                    </ol>
+                    </p>
+                </div>
+
+            </div>
+            <br><br>
+            <!-- ####################
+            Refs . Also copy the part from start of <head> tag above
+            #################### -->
+            <div id="stats_refs"></div>
+        </div>
+
+        <div class="column_right">
+        </div>
+        <!-- ########################################### -->
+        <!-- ############## RHS Sidebar ################ -->
+        <!-- ########################################### -->
 
     </div>
-  </div>
-  <!-- ################################################### -->
-  <!-- ############ three_col_layout Ends Here ########### -->
-  <!-- ################################################### -->
+    <!-- ################################################### -->
+    <!-- ############ three_col_layout Ends Here ########### -->
+    <!-- ################################################### -->
 
-  <div style="height: 50px;">
-    <h1></h1>
-  </div>
+    <div style="height: 50px;">
+        <h1></h1>
+    </div>
 
-  <div class="footer" id="footer">
-    <div id="page_change_btns">
-      <a href="/blog/statistics/stats_gloss">
-        <button class="pagination_button previous_button" style="vertical-align:middle;">
-          <span>Previous </span>
-        </button>
-      </a>
+    <div class="footer" id="footer">
+        <div id="page_change_btns">
+            <a href="#">
+                <!-- page specific edits -->
+                <button class="pagination_button previous_button disabled_btn" style="vertical-align:middle;">
+                    <span>Previous </span>
+                </button>
+            </a>
 
-      <!-- ####################
+            <!-- ####################
                 Link in nxt-btn needs update
                 #################### -->
-      <a href="/blog/statistics/sampling">
-        <button class="pagination_button next_button" style="">
-          <span>Next </span>
-        </button>
-      </a>
-    </div>
-    <br> <br> <br> <br>
-    <div class="share_this_plugin">
-      <h1>Share This</h1>
-      <p>Share it with your friends and colleagues whom you think it can help</p>
-      <!-- Footer . Also copy the part from start of <head> tag above -->
-      <div class="sharethis-inline-share-buttons"></div>
-    </div>
+            <!-- page specific edits -->
+            <a href="/blog/learning_resources/maths/stats.html">
+                <button class="pagination_button next_button" style="">
+                    <span>Next </span>
+                </button>
+            </a>
+        </div>
+        <br> <br> <br> <br>
+        <div class="share_this_plugin">
+            <h1>Share This</h1>
+            <p>Share it with your friends and colleagues whom you think it can help</p>
+            <!-- Footer . Also copy the part from start of <head> tag above -->
+            <div class="sharethis-inline-share-buttons"></div>
+        </div>
 
-    <div class="comment_box">
-      <!-- ########################################### -->
-      <!-- ############# Needs updates ############### -->
-      <!-- ########################################### -->
-      <!-- begin wwww.htmlcommentbox.com -->
-      <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
-      </div>
-      <link rel="stylesheet" type="text/css"
-        href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-      <script type="text/javascript"
-        id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
-      <!-- end www.htmlcommentbox.com -->
+        <div class="comment_box">
+            <!-- ########################################### -->
+            <!-- ############# Needs updates ############### -->
+            <!-- ########################################### -->
+            <!-- begin wwww.htmlcommentbox.com -->
+            <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...
+            </div>
+            <link rel="stylesheet" type="text/css"
+                href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+            <script type="text/javascript"
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                           */</script>
+            <!-- end www.htmlcommentbox.com -->
+        </div>
     </div>
-
-  </div>
 
 </body>
 
