@@ -119,9 +119,7 @@
                 <div id="funamental">
                     <h1>Introduction</h1>
                     <p><b>Probability</b> is the study of randomness and uncertainity. Probability theory is the
-                        foundation on which descriptive and predictive analytics models
-                        are built. Probability helps in providing ways of gaining new insights into the behavior of many
-                        phenomena.
+                        foundation on which descriptive and predictive analytics models are built.
                     </p>
                     <p>
                         <b>Statistics</b> provides methods for organizing and summarizing data, for drawing conclusions
@@ -167,8 +165,8 @@
                     <br>
                     <h1>Sample Space & Events</h1>
                     <p>
-                        As stated above, <b>Probability</b> is the study of randomness and uncertainity. And Probability
-                        helps in providing ways of gaining new insights into the behavior of many phenomena.
+                        As stated above, <b>Probability</b> is the study of randomness and uncertainity. Probability
+                        theory is the foundation on which descriptive and predictive analytics models are built.
                     </p>
                     <p>
                         And any activity or process whose outcome is subject to uncertainity or randomness is called as
@@ -176,7 +174,58 @@
                         bread, measuring strength of metal beams, etc.
                     </p>
                     <p>
-                        And the set of all possible outcomes from an experiment is called as <b>Sample Space</b>.
+                        And the set of all possible outcomes from an experiment is called as <b>Sample Space</b> often
+                        denoted by S, Ω(Omega), or U (for "universal set"). E.g. if you toss a fair coin, the Sample
+                        Space <i>S = (Heads, Tails)</i> <br>
+                        And if you toss 2 coins, <i>S = (Heads-Heads, Heads-Tails, Tails-Heads, Tails-Tails)</i> <br>
+                    </p>
+                    <p>
+                        Now we saw that, <i>S = (Heads-Heads, Heads-Tails, Tails-Heads, Tails-Tails)</i> is Sample Space
+                        of 2 coins being tossed. However, if we want to take only those results into consideration,
+                        where there must exists atleast 1 Tail, then our set would look something like: <br>
+                        <i>S = (Heads-Tails, Tails-Heads, Tails-Tails)</i>
+                        <br>
+                        This is an <b>Event</b>, i.e. a subset of a Sample-Space S, i.e. E1=Heads-Tails, E2=Tails-Heads
+                        & E3=Tails-Tails.
+                    </p>
+                    <p>
+                        We have been calling event as <i>set</i> in above example of atleast 1 Tail. Which means is
+                        Event is considered as a <i>Set</i>, then it must satisfy the <b>Set-Theory</b> which states:
+                    </p>
+                    <ol>
+                        <li>
+                            <b>Complement</b>: If an Experiment has a Sample Space, which has an Event E1, then the
+                            E1 complement (E1') must be all the ouctomes other than E1
+                        </li>
+                        <li>
+                            <b>Intersection</b>: Intersection of 2 events A & B is denoted by A ⋂ B, and read as A and
+                            B, is an Event
+                            consisting of all the events that are in both A and B
+                        </li>
+                        <li>
+                            <b>Union</b>: Union of 2 events A & B is denoted by A U B, and read as A or B, is an Event
+                            consisting of all the outcome of either Event A, or in Event B, or in both events
+                        </li>
+                    </ol>
+                    <br>
+                    E.g. If A = {0,1,2,3,4}, B = {3,4,5,6} & C = {1,3,5}, then
+                    <ol>
+                        <li>
+                            <b>A ⋂ B</b> = {3,4}
+                        </li>
+                        <li>
+                            <b>A U B</b> = {0,1,2,3,4,5,6}
+                        </li>
+                        <li>
+                            <b>A'</b>= S-A = {5,6}
+                        </li>
+                        <li>
+                            <b>A U C</b> = {0,1,2,3,4,5}
+                        </li>
+                    </ol>
+                    <p>
+                        There can also exists a scenario where the Event can have no outcome, e.g. if A = {0,1,2,3,4}, B
+                        = {5,6} then <b>A ⋂ B</b> = ϕ, i.e.  <i>null event, or disjoint event, or mutually exclusive events</i>
                     </p>
                 </div>
 
@@ -255,7 +304,7 @@
             <link rel="stylesheet" type="text/css"
                 href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
             <script type="text/javascript"
-                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                                                                                                                                                   */</script>
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                                                                                                                                                               */</script>
             <!-- end www.htmlcommentbox.com -->
         </div>
     </div>
