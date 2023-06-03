@@ -219,14 +219,18 @@ when a screen is smaller than the 1200px */
 }
 
 .rhs_sidenav {
-  width: 250px;
+  background-color: #121212;
+  width: 300px;
   position: fixed;
   z-index: 1;
   top: 95px;
   right: 50px;
-  background-color: #121212;
   overflow-x: hidden;
   padding: 8px 0;
+}
+
+.rhs_sidenav ol li a{
+  text-align: left;
 }
 
 .rhs_sidenav a {
