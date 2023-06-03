@@ -39,10 +39,11 @@ h1, h2, h3, h4 {
 }
 
 .column_right {
-  float: right;
+  position: fixed;
   margin-top: 125px;
   margin-right: 5px;
   padding-right: 15px;
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
 }
 
 .column_center {
@@ -179,7 +180,6 @@ var.vector span {
   vertical-align : .2em; /* tune the arrow vertical position */
 }
 
-/*Hide sidebars, when screen size too small*/
 
 /* We're using max-width, because we want to make an exception to the CSS, 
 when a screen is smaller than the 1200px */
@@ -193,11 +193,18 @@ when a screen is smaller than the 1200px */
   }
 }
 
+/*Hide Left & Right sidebars, when screen size too small, e.g. 600px*/
 @media only screen and (max-width: 600px) {
   .hide-mobile {
     display: none;
   }
   .column_left {
+    display: none;
+  }
+  .column_right {
+    display: none;
+  }
+  .rhs_sidenav{
     display: none;
   }
   .column_center {
@@ -209,4 +216,36 @@ when a screen is smaller than the 1200px */
   .hide_in_pc{
     display: none;
   }
+}
+
+.rhs_sidenav {
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 95px;
+  right: 50px;
+  background-color: #121212;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.rhs_sidenav a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #BFBFBF;
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.rhs_sidenav h1 h2 {
+  font-size: 25px;
+  color: #BFBFBF;
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.rhs_sidenav a:hover {
+  font-weight: bold;
+  color: #ee6c4d; /*Green headings color*/
+  text-decoration: underline;
 }
