@@ -15,7 +15,7 @@
         });
     </script>
 
-    <title>Juspreet51.in</title>
+    <title>Decision Tree - JaspreetBlogs.in</title>
 
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -102,8 +102,10 @@
               #################### -->
             <div class="toc">
                 <h1>Table of Contents</h1>
-                <a href="#dt_reg">1) Building Decision Tree Regressor</a> <br>
-                <a href="#dt_clf">2) Building Decision Tree Classifier</a> <br>
+                <ol>
+                    <li><a href="#dt_reg">Building Decision Tree Regressor</a></li>
+                    <li><a href="#dt_clf">Building Decision Tree Classifier</a></li>
+                </ol>
                 <!-- <a href="#footer">3) Fun</a> <br> -->
             </div>
             <hr>
@@ -111,27 +113,34 @@
             <div class="blog_content">
                 <br>
                 <div id="dt_reg">
-                    <h1>1) Building Decision Tree Regressor</h1>
+                    <h1>Building Decision Tree Regressor</h1>
                     <p>
                         Roughly Speaking, thier are 2 steps involved:
                         <br>
-                        <ol>
-                            <li>We divide the predictor space — that is, the set of possible values for X1,X2, . . . ,Xp — into J distinct and non-overlapping regions,
-                                R1,R2, . . . ,RJ .</li>
-                            <li>For every observation that falls into the region Rj , we make the same prediction, which is simply the mean of the response values for the
-                                training observations in Rj</li>
-                        </ol>
+                    <ol>
+                        <li>We divide the predictor space — that is, the set of possible values for X1,X2, . . . ,Xp —
+                            into J distinct and non-overlapping regions,
+                            R1,R2, . . . ,RJ .</li>
+                        <li>For every observation that falls into the region Rj , we make the same prediction, which is
+                            simply the mean of the response values for the
+                            training observations in Rj</li>
+                    </ol>
+                    </p>
+                    <p>
                         The goal is to find boxes R1, . . . ,RJ that minimize the RSS, i.e. Residual Square of Sum
                         <br><br>
                         How many partitions in partitions R1....Rj? We can make use of <b>Recursive Binary Splitting</b>
                         <br>
-                        Recursive Binary Splitting says, we first select the predictor Xj and the cutpoint s such that splitting the predictor space into
-                        the regions {X|Xj < s} and {X|Xj ≥ s} leads to the greatest possible reduction in RSS.
-                        <br><br>
-                        That is, we consider all predictors X1, . . . ,Xp, and all possible values of the cutpoint s for each of
-                        the predictors, and then choose the predictor and cutpoint such that the resulting tree has the lowest RSS.
-                        <br><br>
-                        And this step is repitively done, one 1 region less every time, until a stopping criterion is reached
+                        Recursive Binary Splitting says, we first select the predictor Xj and the cutpoint s such that
+                        splitting the predictor space into
+                        the regions {X|Xj < s} and {X|Xj ≥ s} leads to the greatest possible reduction in RSS. <br><br>
+                            That is, we consider all predictors X1, . . . ,Xp, and all possible values of the cutpoint s
+                            for each of
+                            the predictors, and then choose the predictor and cutpoint such that the resulting tree has
+                            the lowest RSS.
+                            <br><br>
+                            And this step is repitively done, one 1 region less every time, until a stopping criterion
+                            is reached
                     </p>
                     <h3>Tree Pruning</h3>
                     <p>
@@ -144,43 +153,65 @@
                         a way to do just this. Rather than considering every possible subtree, we
                         consider a sequence of trees indexed by a nonnegative tuning parameter α.
                         For each value of α there corresponds a subtree T ⊂ T0 such that
-                        <img src="/assets/imgs/blog/trees_based_models/pruning_formula.jpg" alt="pruning_formula" style="width: 65%;">
-                        <div style="text-align: center;">
-                            <i>Credits: <a href="https://www.statlearning.com/">ISL</a></i>
-                        </div>
-                        <br>
-                        Here |T| indicates the number of terminal nodes
+                        <img src="/assets/imgs/blog/trees_based_models/pruning_formula.jpg" alt="pruning_formula"
+                            style="width: 65%;">
+                    <div style="text-align: center;">
+                        <i>Credits: <a href="https://www.statlearning.com/">ISL</a></i>
+                    </div>
+                    <br>
+                    <p>
+                        Here <i>|T|</i> indicates the number of terminal nodes
                         of the tree T, Rm is the rectangle (i.e. the subset of predictor space) corresponding
                         to the mth terminal node, and ˆyRm is the predicted response
                         associated with Rm—that is, the mean of the training observations in Rm.
                         The tuning parameter α controls a trade-off between the subtree’s complexity
                         and its fit to the training data.
-                        <br>
-                        <img src="/assets/imgs/blog/trees_based_models/reg_tree_algo.jpg" alt="reg_tree_algo" style="width: 65%;">
-                        <div style="text-align: center;">
-                            <i>Credits: <a href="https://www.statlearning.com/">ISL</a></i>
-                        </div>
-                        <br>
+                    </p>
+                    <br>
+                    <img src="/assets/imgs/blog/trees_based_models/reg_tree_algo.jpg" alt="reg_tree_algo"
+                        style="width: 65%;">
+                    <div style="text-align: center;">
+                        <i>Credits: <a href="https://www.statlearning.com/">ISL</a></i>
+                    </div>
+                    <br>
                     </p>
                 </div>
                 <div id="dt_clf">
-                    <h1>2) Building Decision Tree Classifier</h1>
+                    <h1>Building Decision Tree Classifier</h1>
                     <p>
                         For a classification tree, we predict that
                         each observation belongs to the most commonly occurring class of training
                         observations in the region to which it belongs.
                         <br> <br>
-                        In interpreting the results of a classification tree, we are often interested not only in the class prediction
-                        corresponding to a particular terminal node region, but also in the class proportions among the training observations that fall into that region.
-                        
-                        <img src="/assets/imgs/blog/trees_based_models/eval_metrics_0.png" alt="eval_metrics_gini_entropy" style="width: 55%;">
-                        <div style="text-align: center;">
-                            <i>Credits: <a href="https://www.statlearning.com/">ISL</a></i>
-                        </div>
-                        <br>
+                        In interpreting the results of a classification tree, we are often interested not only in the
+                        class prediction
+                        corresponding to a particular terminal node region, but also in the class proportions among the
+                        training observations that fall into that region.
+                    </p>
+
+                    <img src="/assets/imgs/blog/trees_based_models/eval_metrics_0.png" alt="eval_metrics_gini_entropy"
+                        style="width: 55%;">
+                    <div style="text-align: center;">
+                        <i>Credits: <a href="https://www.statlearning.com/">ISL</a></i>
+                    </div>
+                    <br>
+
+                    <p>
                         <b>Gini index</b> is referred to as a measure of
                         node purity—a small value indicates that a node contains predominantly
-                        observations from a single class. An alternative to the Gini index is <b>entropy</b>
+                        observations from a single class. An alternative to the Gini index is <b>Entropy</b>
+                    </p>
+                </div>
+                <div id="refs">
+                    <h1>Refrences</h1>
+                    <p>
+                    <ol>
+                        <li>
+                            In-Depth: Decision Trees and Random Forests by <a
+                                href="https://jakevdp.github.io/PythonDataScienceHandbook/05.08-random-forests.html">
+                                jakevdp.github.io </a>
+                        </li>
+                    </ol>
                     </p>
                 </div>
             </div>
@@ -235,10 +266,19 @@
                 <link rel="stylesheet" type="text/css"
                     href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
                 <script type="text/javascript"
-                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->*/</script>
+                    id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->      */</script>
                 <!-- end www.htmlcommentbox.com -->
             </div>
         </div>
+    </div>
+    
+    <div class="rhs_sidenav">
+        <h2>Topics</h2>
+        <ol>
+            <li><a href="#dt_reg">Building Decision Tree Regressor</a></li>
+            <li><a href="#dt_clf">Building Decision Tree Classifier</a></li>
+        </ol>
+    </div>
 
 </body>
 
