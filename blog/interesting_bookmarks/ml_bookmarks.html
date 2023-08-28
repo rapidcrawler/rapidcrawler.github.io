@@ -40,6 +40,43 @@
         .li {
             color: #1E5128;
         }
+
+        .collapsible {
+            background-color: #121212;
+            color: #BFBFBF;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
     </style>
 
 </head>
@@ -114,12 +151,69 @@
                 <div>
                     <h1 id="machine-learning">Machine Learning</h1>
                     <ul>
+                        <li>
+                            <div id="ravit">
+                                <button class="collapsible">
+                                    Important ML Algorithms:
+                                    <a target="_blank"
+                                        href="https://www.linkedin.com/feed/update/urn:li:activity:7099419971612471296/">
+                                        <b>Ravit Jain</b>
+                                    </a>
+                                </button>
+                                <div class="content">
+                                    <div>
+                                        <p>
+                                            Important ML Algorithms
+                                            <img src="/assets/imgs/blog/bookmarks/ml/imp_ml_algos.gif" alt=""
+                                                style="width:98%">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li>Difference between <a
                                 href="https://stats.stackexchange.com/questions/20523/difference-between-logit-and-probit-models">logit
-                                and probit models</a></li>
+                                and probit models</a>
+                        </li>
+                        <li>
+                            <div id="pearsonvsspearman">
+                                <button class="collapsible">
+                                    Correlation can be highly misleading.:
+                                    <a target="_blank"
+                                        href="https://www.linkedin.com/feed/update/urn:li:activity:7097216046935257088/">
+                                        <b>Avi Chawla</b>
+                                    </a>
+                                </button>
+                                <div class="content">
+                                    <div>
+                                        <p>
+                                        <p>Correlation can be highly misleading. . . Many solely rely on the correlation
+                                            matrix to study the association between variables.</p>
+
+                                        <p>But unknown to them, the obtained statistic can be heavily driven by
+                                            outliers.</p>
+
+                                        <p>This is evident from the image below.</p>
+
+                                        <p>The addition of just two outliers drastically changed: - the correlation -
+                                            the regression fit</p>
+
+                                        <p>Thus, plotting the data is highly important.</p>
+
+                                        <p>This can save you from drawing wrong conclusions, which you may have drawn
+                                            otherwise by solely looking at the summary statistics.</p>
+
+                                        <img src="/assets/imgs/blog/bookmarks/ml/correlations.jpg" alt=""
+                                            style="width:98%">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li>Why <a
                                 href="https://stats.stackexchange.com/questions/1149/is-there-an-intuitive-explanation-why-multicollinearity-is-a-problem-in-linear-r">
-                                multi-collinearity is a problem in linear regression?</a></li>
+                                multi-collinearity is a problem in linear regression?</a>
+                        </li>
                         <li><a
                                 href="https://stats.stackexchange.com/questions/19048/what-is-the-difference-between-test-set-and-validation-set">What
                                 is the difference between test set and validation set?</a></li>
@@ -240,8 +334,8 @@
                 Link in nxt-btn needs update
                 #################### -->
             <!-- page specific edits -->
-            <a href="#">
-                <button class="pagination_button next_button disabled_btn" style="">
+            <a href="/blog/interesting_bookmarks/resume_building.html">
+                <button class="pagination_button next_button" style="">
                     <span>Next </span>
                 </button>
             </a>
@@ -264,11 +358,28 @@
             <link rel="stylesheet" type="text/css"
                 href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
             <script type="text/javascript"
-                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                                                                                                                                                  */</script>
+                id="hcb"> /*<!--*/ if (!window.hcb_user) { hcb_user = {}; } hcb_user.PAGE = "https://juspreet51.github.io/blog/deep_learning/network_understanding_basic"; (function () { var s = document.createElement("script"), l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"), h = "https://www.htmlcommentbox.com"; s.setAttribute("type", "text/javascript"); s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24WGLJ0qbFjhsr.BXys0KRJ%2F" + "&opts=16406&num=5&ts=1633641065176"); if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s); })(); /*-->                                                                                                                                                        */</script>
             <!-- end www.htmlcommentbox.com -->
         </div>
     </div>
 
+    <script>
+        // script for collapsible text body
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
