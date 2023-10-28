@@ -1,13 +1,13 @@
 function draw() {
   // create some nodes
   var nodes = [
-    { id: 0, label: "Project", font: "80px arial white", face: "sans serief", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
-    { id: 1, label: "Library", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
-    { id: 2, label: "Variants", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
-    { id: 3, label: "Hypothesis", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
-    { id: 4, label: "Computational", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
-    { id: 5, label: "Runs", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
-    { id: 6, label: "Protocols", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
+    { id: 0, label: "Up Selling", font: "80px arial white", face: "sans serief", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
+    { id: 1, label: "Cross Selling", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
+    { id: 2, label: "Dynamic Credit Limit", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
+    { id: 3, label: "Anit Money Laundering", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
+    { id: 4, label: "AI Assistant", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
+    { id: 5, label: "Churn Prediction", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
+    { id: 6, label: "Default Predictions", font: "80px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
     { id: 7, label: "Experiments", font: "36px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
     { id: 8, label: "Templates", font: "36px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
     { id: 9, label: "Plate Data", font: "36px arial white", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
