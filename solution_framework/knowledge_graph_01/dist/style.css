@@ -1,0 +1,56 @@
+body {
+  background-color: #121212;
+}
+
+h1 {
+  text-align: center;
+  /* color: #D62C58; */
+  font-family: "Arial";
+  font-size: 40px;
+  color: rgb(0, 47, 177);  
+  text-shadow: 1.8px 0.8px white;
+}
+
+h2 {
+  font-family: "Garamond", "Arial";
+  font-size: 30px;
+  color: #2da59d;  
+}
+
+#mynetwork {
+  margin: auto;
+  width: 80%;
+  height: 1000px;
+  border: dotted;
+  padding: 10px;
+
+  /* width: 1000px;
+  height: 1000px; */
+  /* border: 1px; */
+  color: white;
+}
+
+.header-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header-section>div {
+  width: calc(100% / 3);
+}
+
+.site-logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 200px;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .header-section>div {
+    width: 100%;
+    text-align: center;
+  }
+}

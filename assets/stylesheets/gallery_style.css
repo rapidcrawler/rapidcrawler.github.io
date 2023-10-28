@@ -3,8 +3,8 @@ body{
 }
 h1{
   text-align:center;
-  margin-bottom:50px;
-  margin-top:50px;
+  margin-bottom:36px;
+  margin-top:36px;
   color: #E0E0E0;                                /* H1 color */
   font-family: 'Comfortaa', cursive;
 }
@@ -57,7 +57,7 @@ h1{
 }
 .blog-card-caption {
     font-weight: 700;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'arial', sans-serif;
 }
 .blog-card-description {
     font-family: 'Comfortaa', cursive;           /* blog card image description font family*/

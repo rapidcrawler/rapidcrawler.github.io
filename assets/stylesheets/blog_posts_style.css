@@ -19,7 +19,7 @@ ul {
 }
 
 h1, h2, h3, h4 {
-  color: white font-family: 'Roboto', sans-serif;
+  color: white font-family: 'arial', sans-serif;
 }
 
 
@@ -224,7 +224,7 @@ when a screen is smaller than the 1200px */
   position: fixed;
   z-index: 1;
   top: 95px;
-  right: 50px;
+  right: 36px;
   overflow-x: hidden;
   padding: 8px 0;
 }

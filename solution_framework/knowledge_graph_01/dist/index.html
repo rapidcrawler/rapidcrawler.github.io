@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Knowledge Graph - 02</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./tab_trial.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="header-section">
+        <div class="header-section-1">
+            <div class="site-logo">
+                <a href="https://magnoos.com/" title="YOUR SITE NAME" rel="home">
+                    <img class="header-image" width="150"
+                        src="/solution_framework/assets/imgs/cover_image_magnoos_white.png" alt="YOUR SITE NAME"
+                        title="YOUR SITE NAME">
+                </a>
+            </div>
+        </div>
+
+        <div class="header-section-2">
+            <h1 style="text-align: left;">
+                <b style="color: lightgrey; text-shadow: #2da59d 5px 2px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                    Mag-Niverse
+                </b>
+            </h1>
+            <p style="text-align: left; color: aliceblue; font-family: cursive;">Magnoos: Universe of Problems
+            </p>
+        </div>
+
+        <div class="header-section-3">
+            <!-- <h1>Header right content</h1> -->
+        </div>
+    </div>
+
+    <button class="tablink" onclick="openPage('Supply_Chain', this, 'red')">Supply Chain</button>
+    <button class="tablink" onclick="openPage('BFSI', this, 'green')" id="defaultOpen">BFSI</button>
+    <button class="tablink" onclick="openPage('Retail', this, 'blue')">Retail</button>
+    <button class="tablink" onclick="openPage('ONG', this, 'orange')">Oil & Natural Gas</button>
+
+    <div id="Supply_Chain" class="tabcontent">
+        <h3>Supply Chain</h3>
+        <p>Home is where the heart is..</p>
+    </div>
+
+    <div id="BFSI" class="tabcontent">
+        <h3>BFSI</h3>
+        <p>Banking, Financial Services and Insurance</p>
+        <!-- For nodes and edges of knowledge-graph -->
+        <div id="mynetwork"></div>
+        <script src='https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js'></script>
+        <script src="./kgraphs/kg_BFSI.js">  </script>
+    </div>
+
+    <div id="Retail" class="tabcontent">
+        <h3>BFSI</h3>
+        <p>Banking, Financial Services and Insurance</p>
+        <!-- For nodes and edges of knowledge-graph -->
+        <div id="mynetwork"></div>
+        <script src='https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js'></script>
+        <script src="./kgraphs/kg_BFSI.js">  </script>
+    </div>
+
+    <div id="ONG" class="tabcontent">
+        <h3>Oil & Natural Gas</h3>
+        <p>Who we are and what we do.</p>
+    </div>
+
+    <script src="./tab_trial.js"></script>
+</body>
+
+</html>
