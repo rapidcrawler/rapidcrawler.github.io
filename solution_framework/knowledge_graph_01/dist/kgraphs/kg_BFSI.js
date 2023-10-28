@@ -71,6 +71,7 @@ function draw() {
     { id: 76, label: "Injection", font: "36px arial #c2b4ae", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 7 },
     { id: 77, label: "Plate 1", font: "24px arial solid light grey", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 8 },
     { id: 78, label: "Plate 2", font: "24px arial solid light grey", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 8 },
+    { id: 79, label: "Plate 3", font: "24px arial solid light grey", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 8 }
   ];
 
   // create some edges
@@ -149,7 +150,8 @@ function draw() {
     { from: 72, to: 5 },
     { from: 6, to: 31 },
     { from: 56, to: 31 },
-
+    { from: 9, to: 78 }, 
+    { from: 9, to: 79 }
   ];
 
   // create a network
