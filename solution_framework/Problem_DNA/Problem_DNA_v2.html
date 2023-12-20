@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Box Layout</title>
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center-align vertically */
+    gap: 20px;
+    height: 100vh; /* Full viewport height */
+  }
+
+  .box {
+    width: 200px; /* Smaller width for side boxes */
+    height: 300px; /* Smaller height for side boxes */
+    border: 3px solid black;
+    position: relative;
+  }
+
+  .box.large {
+    width: 300px; /* Larger width for the center box */
+    height: 500px; /* Larger height for the center box */
+  }
+
+  .box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px; /* Header height */
+    background-color: #900; /* Red header */
+  }
+</style>
+</head>
+<body>
+<h1>The Credit team wants to implement a Dynamic Credit Limit Assignment for its new credit card applicants</h1>
+<div class="container">
+  <div class="box">
+    <br><br><br>
+    <h1>H1</h1>
+  </div>
+  <div class="box large">
+    <br><br><br>
+    <h1>H2</h1>
+  </div>
+  <div class="box">
+    <br><br><br>
+    <h1>H4</h1>
+  </div>
+</div>
+
+</body>
+</html>
