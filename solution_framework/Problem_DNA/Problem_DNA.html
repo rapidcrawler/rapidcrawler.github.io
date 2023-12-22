@@ -4,222 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./Problem_DNA.css">
+  <!-- Add Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <title>MagNiverse</title>
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f0f0f0;
-    }
-
-    .navbar {
-      overflow: hidden;
-      background-color: #333;
-    }
-
-    .navbar a {
-      float: left;
-      display: block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-
-    .navbar a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-
-    .navbar a.active {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    .container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin: 20px;
-    }
-
-    .box,
-    .gap-box {
-      border: 2px solid #000;
-      padding: 20px;
-      width: calc(33% - 40px);
-      background-color: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      margin-bottom: 20px;
-    }
-
-    .header {
-      background-color: #4CAF50;
-      color: white;
-      padding: 5px;
-      text-align: center;
-    }
-
-    .header-gap {
-      background-color: #FFC107;
-      color: black;
-      text-align: center;
-    }
-
-    .questions-box {
-      width: 100%;
-      padding: 20px;
-      background-color: #FFEB3B;
-      border: 2px solid #000;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .tab-content {
-      display: none;
-      /* Hide all content by default */
-      padding: 20px;
-      border: 1px solid #ccc;
-      margin-top: 20px;
-    }
-
-    .active-content {
-      display: block;
-      /* Show active content */
-    }
-
-    .navigator-placeholder {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-
-    .questions-metrics {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .question {
-      background-color: #f9f9f9;
-      border-left: 5px solid #2196F3;
-      /* A blue accent bar */
-      margin-bottom: 10px;
-      padding: 10px;
-    }
-
-    .tree {
-      position: relative;
-      margin: 0 auto;
-      padding: 0;
-      width: 50%;
-      text-align: center;
-    }
-
-    .tree ul {
-      padding-top: 20px;
-      position: relative;
-      transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      -moz-transition: all 0.5s;
-    }
-
-    .tree li {
-      float: left;
-      text-align: center;
-      ;
-      list-style-type: none;
-      position: relative;
-      padding: 20px 5px 0 5px;
-      transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      -moz-transition: all 0.5s;
-    }
-
-    /*We will use ::before and ::after to draw the lines*/
-    .tree li::before,
-    .tree li::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 50%;
-      border-top: 1px solid #ccc;
-      width: 50%;
-      height: 20px;
-    }
-
-    .tree li::after {
-      right: auto;
-      left: 50%;
-      border-left: 1px solid #ccc;
-    }
-
-    /*We need to remove left line from first child and right line from last child*/
-    .tree li:first-child::before,
-    .tree li:last-child::after {
-      border: 0 none;
-    }
-
-    /*Remove space from the top of sub trees*/
-    .tree ul ul::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      border-left: 1px solid #ccc;
-      width: 0;
-      height: 20px;
-    }
-
-    .tree li a {
-      border: 1px solid #ccc;
-      padding: 5px 10px;
-      text-decoration: none;
-      color: #666;
-      font-family: arial, verdana, tahoma;
-      font-size: 11px;
-      display: inline-block;
-
-      border-radius: 5px;
-      transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      -moz-transition: all 0.5s;
-    }
-
-    /*Time for some hover effects*/
-    /*We will apply the hover effect the the lineage of the element also*/
-    .tree li a:hover,
-    .tree li a:hover+ul li a {
-      background: #c8e4f8;
-      color: #000;
-      border: 1px solid #94a0b4;
-    }
-
-    /*Connector styles on hover*/
-    .tree li a:hover+ul li::after,
-    .tree li a:hover+ul li::before,
-    .tree li a:hover+ul::before,
-    .tree li a:hover+ul ul::before {
-      border-color: #94a0b4;
-    }
-
-    #mynetwork {
-      margin: auto;
-      width: 80%;
-      height: 720px;
-      border: dotted;
-      padding: 20px;
-      color: white;
-      background-color: #333;
-      padding-bottom: 50px;
-    }
   </style>
 </head>
 
 <body>
 
   <div class="navbar">
-    <a class="tablinks" id="defaultOpen" onclick="openTab(event, 'MagNiverse')">MagNiverse</a>
+    <a class="tablinks"  id="defaultOpen" onclick="openTab(event, 'MagNiverse')">MagNiverse</a>
     <a class="tablinks" onclick="openTab(event, 'ProblemDNA')">Problem DNA</a>
     <a class="tablinks" onclick="openTab(event, 'FirstPrinciple')">First Principle Thinking</a>
     <a class="tablinks" onclick="openTab(event, 'DataBuckets')">Data Buckets</a>
@@ -246,7 +44,7 @@
       <script src="/solution_framework/knowledge_graph_01/dist/kgraphs/kg_BFSI.js">  </script>
     </div>
     <div>
-      <img src="/assets/imgs/solution_frameworks/MagNiverse.svg" width="50%" alt="" srcset="">
+      <img src="/assets/imgs/solution_frameworks/MagNiverse.svg" width="80%" alt="" srcset="">
     </div>
   </div>
 
@@ -255,90 +53,149 @@
     <p>An effective way of developing solutions is understanding the Problem's DNA, I.e. atomic level inspection and
       clarity about what is the problem being faced and by whom</p>
 
-    <div class="container">
-      <div class="box">
-        <div class="header">Current State</div>
-        <p>What are the undisputed facts about the client and project?</p>
-        <ul>
-          <li>The merchandizing team is responsible for making markup/markdown decisions</li>
-          <li>Current elasticity estimates do not account for in / out of season variance in demand</li>
-          <li>The team wants to refine the current elasticity estimates to improve its markup/markdown strategies</li>
-        </ul>
-      </div>
-
-      <div class="box gap-box">
-        <div class="header-gap">Gap</div>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <div class="header-gap" style="background-color: green;">Questions Which Need Ansers</div>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <p>Explain the cause of the gap between the current state and desired future state</p>
-        <!-- Placeholder for the bridge illustration or any other visual element -->
-      </div>
-
-      <div class="box">
-        <div class="header">Desired Future State</div>
-        <p>Where would the client like to be?</p>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="questions-box">
-        <div class="header">Questions – which need answers</div>
-      </div>
-    </div>
     <div>
-      <img src="/assets/imgs/solution_frameworks/PROBLEM_dna.svg" style="width: 80%;" alt="" srcset="">
+      <img src="/assets/imgs/solution_frameworks/PROBLEM_dna.svg" style="width: 50%;" alt="" srcset="">
     </div>
   </div>
 
   <div id="FirstPrinciple" class="tab-content">
     <h3>First Principle Thinking</h3>
-    <p>This section illustrates the interconnections and questions related to retail metrics planning.</p>
+    <p>
+      First Principle Thinking involves breaking down complex problems into their most basic, foundational elements and
+      then reassembling them from the ground up. This method is particularly effective in consulting use cases, where
+      challenges are often multifaceted and require innovative solutions.
+    </p>
+
     <br><br><br>
+    
+    <!-- Tree Structure -->
     <div class="tree" style="font-size:25px;">
       <ul>
         <li>
-          <a href="#">What factors determine high credit limit of a customer?</a>
+          <a href="#" class="root">What factors determine high credit limit of a
+            customer?</a>
           <ul>
             <li>
-              <a href="#">Credit Score</a>
+              <a href="#">Account Information</a>
               <ul>
-                <li><a href="#">Grand Child</a></li>
-                <li><a href="#">Grand Child</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Monthly Average Balance</a>
-              <ul>
-                <li><a href="#">Grand Child</a></li>
-                <li><a href="#">Grand Child</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Monthly Net Income</a>
-              <ul>
-                <li><a href="#">Grand Child</a></li>
-                <li><a href="#">Grand Child</a></li>
+                <li>
+                  <a href="#">Monthly Net Income</a>
+                  <ul>
+                    <li><a href="#" class="data_bucket">
+                      <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                      Latest Credit Application
+                    </a></li>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Monthly Average Balance
+                      </a></li>
+                      <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Average Transaction Volume
+                      </a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Customer Relationship</a>
+                  <ul>
+                    <li><a href="#" class="data_bucket">
+                      <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                      Tenure with Bank
+                    </a></li>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Product Holdings
+                      </a></li>
+                      <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Outstanding Loan Amount
+                      </a></li>
+                  </ul>
+                </li>
               </ul>
             </li>
 
+            <li>
+              <a href="#">Personal Information</a>
+              <ul>
+                <li>
+                  <a href="#">Demographic Data</a>
+                  <ul>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Age
+                      </a></li>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Gender
+                      </a></li>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        State/Province
+                      </a></li>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        City/District
+                      </a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Occupation</a>
+                  <ul>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Salaried
+                      </a></li>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Self Employed
+                      </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">Credit Data</a>
+              <ul>
+                <li>
+                  <a href="#">Credit Score</a>
+                  <ul>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Credit Bureau
+                      </a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Defaults</a>
+                  <ul>
+                    <li><a href="#" class="data_bucket">
+                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
+                        Credit Bureau
+                      </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
           </ul>
         </li>
       </ul>
     </div>
 
+
     <div style="align-items: last baseline;">
       <br> <br> <br>
-      <img src="/assets/imgs/solution_frameworks/first_principles_thinking.svg" style="width: 80%;" alt="">
+      <img src="/assets/imgs/solution_frameworks/transparent_img.png" style="width: 80%;" alt="">
     </div>
   </div>
+
+  <div style="align-items: last baseline;">
+    <img src="/assets/imgs/solution_frameworks/first_principles_thinking.svg" style="width: 80%;" alt="">
+  </div>
+  </div>
+
+
 
   <div id="DataBuckets" class="tab-content">
     <h3>Data Buckets</h3>
@@ -369,6 +226,19 @@
 
     // Get the element with id="defaultOpen" and click on it to open the default tab
     document.getElementById("defaultOpen").click();
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var tree = document.querySelector('.tree');
+      tree.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          var nextUl = e.target.nextElementSibling;
+          if (nextUl && nextUl.tagName === 'UL') {
+            nextUl.style.display = nextUl.style.display === 'block' ? 'none' : 'block';
+          }
+        }
+      });
+    });
   </script>
 </body>
 
