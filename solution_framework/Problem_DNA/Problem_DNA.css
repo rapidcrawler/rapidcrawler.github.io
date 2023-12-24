@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f0f0f0;
+    color: #ccc;
+    background-color: #000;
 }
 
 #mynetwork {
@@ -10,10 +11,9 @@ body {
     width: 80%;
     height: 720px;
     border: dotted;
-    padding: 20px;
+    padding: 5px;
     color: white;
-    background-color: #000000;
-    padding-bottom: 50px;
+    background-color: black;
 }
 
 .navbar {
@@ -135,7 +135,7 @@ body {
 }
 
 .tree li {
-    float:left;
+    float: left;
     text-align: center;
     ;
     list-style-type: none;
@@ -149,7 +149,7 @@ body {
 .tree ul ul ul ul li {
     display: block;
     float: none;
-  }
+}
 
 /* Style for the clickable elements */
 .tree a {
