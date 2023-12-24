@@ -1,4 +1,5 @@
 function draw() {
+
   // create some nodes
   var nodes = [
     { id: 0, label: "Up Selling", font: "80px arial white", face: "sans serief", strokeWidth: 3, strokeColor: "#ffffff", group: 1 },
@@ -73,7 +74,6 @@ function draw() {
     { id: 78, label: "Plate 2", font: "24px arial solid light grey", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 8 },
     { id: 79, label: "Plate 3", font: "24px arial solid light grey", face: "courier", strokeWidth: 3, strokeColor: "#ffffff", group: 8 }
   ];
-
   // create some edges
   var edges = [
     { from: 0, to: 1 },
@@ -151,13 +151,13 @@ function draw() {
     { from: 5, to: 74 },
     { from: 5, to: 75 },
     { from: 5, to: 76 },
-    { from: 72, to: 5 },    
+    { from: 72, to: 5 },
     { from: 9, to: 79 },
     { from: 6, to: 31 },
     { from: 56, to: 31 },
-    { from: 4, to: 73 }, 
-    { from: 9, to: 78 }, 
-    { from: 9, to: 48 }, 
+    { from: 4, to: 73 },
+    { from: 9, to: 78 },
+    { from: 9, to: 48 },
     { from: 3, to: 70 },
     { from: 3, to: 51 },
     { from: 3, to: 42 },
@@ -228,9 +228,11 @@ function draw() {
       stabilization: { iterations: 150 },
     },
   };
+
   var network = new vis.Network(container, data, options);
 }
 
 window.addEventListener("load", () => {
   draw();
 });
+

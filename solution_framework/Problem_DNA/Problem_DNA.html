@@ -67,9 +67,10 @@
   <div id="FirstPrinciple" class="tab-content">
     <h3>First Principle Thinking</h3>
     <p>
-      First Principle Thinking involves breaking down complex problems into their most basic, foundational elements and
-      then reassembling them from the ground up. This method is particularly effective in consulting use cases, where
-      challenges are often multifaceted and require innovative solutions.
+      Derived from cognitive toolkit, also called as mental models, First Principle Thinking involves breaking down
+      complex problems into their most basic, foundational elements and
+      then reassembling them from the ground up. It helps to break down complex problems into their most basic elements
+      and build up solutions from these foundational truths. It's about getting to the root of a problem.
     </p>
 
     <br><br><br>
@@ -213,13 +214,11 @@
       for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
       }
-
       // Get all elements with class="tablinks" and remove the class "active"
       tablinks = document.getElementsByClassName("tablinks");
       for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
       }
-
       // Show the current tab, and add an "active" class to the link that opened the tab
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
@@ -227,8 +226,6 @@
 
     // Get the element with id="defaultOpen" and click on it to open the default tab
     document.getElementById("defaultOpen").click();
-
-
     document.addEventListener("DOMContentLoaded", function () {
       var tree = document.querySelector('.tree');
       tree.addEventListener('click', function (e) {
