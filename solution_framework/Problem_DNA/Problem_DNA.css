@@ -9,8 +9,8 @@ body {
 #mynetwork {
     margin: auto;
     width: 80%;
-    height: 720px;
-    border: dotted;
+    height: 600px;
+    /* border:rgb(48, 104, 48); */
     padding: 5px;
     color: white;
     background-color: black;
