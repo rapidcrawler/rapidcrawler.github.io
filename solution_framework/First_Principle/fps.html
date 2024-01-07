@@ -4,6 +4,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <p>
@@ -27,111 +29,56 @@
 <br><br><br>
 
 <!-- Tree Structure -->
-<div class="tree" style="font-size:25px;">
+<div class="tree">
+    <!-- Toggle button for expanding and collapsing -->
+    <button id="toggleAll">Toggle All</button>
     <ul>
         <li>
-            <a href="#" class="root">What factors determine high credit limit of a
-                customer?</a>
+            <a href="#">Dynamic Credit Limit</a>
             <ul>
                 <li>
-                    <a href="#">Account Information</a>
-                    <ul>
-                        <li>
-                            <a href="#">Monthly Net Income</a>
-                            <ul>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Latest Credit Application
-                                    </a></li>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Monthly Average Balance
-                                    </a></li>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Average Transaction Volume
-                                    </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Customer Relationship</a>
-                            <ul>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Tenure with Bank
-                                    </a></li>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Product Holdings
-                                    </a></li>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Outstanding Loan Amount
-                                    </a></li>
-                            </ul>
-                        </li>
+                    <a href="#">Application Data</a>
+                    <ul class="vertical">
+                        <li><a href="#"><i class="fa fa-database"></i> Income Level</a></li>
+                        <li><a href="#"><i class="fa fa-database"></i> Employment Status</a></li>
+                        <li><a href="#"><i class="fa fa-database"></i> Marketing</a></li>
                     </ul>
                 </li>
-
                 <li>
-                    <a href="#">Personal Information</a>
-                    <ul>
-                        <li>
-                            <a href="#">Demographic Data</a>
-                            <ul>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Age
-                                    </a></li>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Gender
-                                    </a></li>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        State/Province
-                                    </a></li>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        City/District
-                                    </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Occupation</a>
-                            <ul>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Salaried
-                                    </a></li>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Self Employed
-                                    </a></li>
-                            </ul>
-                        </li>
+                    <a href="#">Account Data</a>
+                    <ul class="vertical">
+                        <li><a href="#"><i class="fa fa-database"></i> Debt-to-Income Ratio</a></li>
+                        <li><a href="#"><i class="fa fa-database"></i> Existing Debt Levels</a></li>
+                        <li><a href="#"><i class="fa fa-database"></i> Payment History</a></li>
+                        <li><a href="#"><i class="fa fa-database"></i> Utilization Ratio</a></li>
+                        <li><a href="#"><i class="fa fa-database"></i> Banking Relationship</a></li>
                     </ul>
                 </li>
-
                 <li>
-                    <a href="#">Credit Data</a>
+                    <a href="#">Personal Data</a>
+                    <ul class="vertical">
+                        <li><a href="#"><i class="fa fa-database"></i> Age</a></li>
+                        <li><a href="#"><i class="fa fa-database"></i> Gender</a></li>
+                        <li><a href="#"><i class="fa fa-database"></i> Marital Status</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Credit Beaurau Data</a>
                     <ul>
                         <li>
-                            <a href="#">Credit Score</a>
-                            <ul>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Credit Bureau
-                                    </a></li>
+                            <a href="#">Credit Report</a>
+                            <ul class="vertical">
+                                <li><a href="#"><i class="fa fa-database"></i> Credit Score</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Credit History</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Recent Credit Inquiries</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Defaults</a>
-                            <ul>
-                                <li><a href="#" class="data_bucket">
-                                        <i class="fa fa-database"></i> <!-- Font Awesome Database Icon -->
-                                        Credit Bureau
-                                    </a></li>
+                            <a href="#">Regulatory Requirements</a>
+                            <ul class="vertical">
+                                <li><a href="#"><i class="fa fa-database"></i> Team 1</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Team 2</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Team 3</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -139,12 +86,49 @@
             </ul>
         </li>
     </ul>
-    <div style="align-items: last baseline;">
-        <br> <br> <br>
-        <img src="/assets/imgs/solution_frameworks/transparent_img.png" style="width: 80%;" alt="">
-    </div>
 </div>
 
-<div style="align-items: last baseline;">
-    <img src="/assets/imgs/solution_frameworks/first_principles_thinking.svg" style="width: 80%;" alt="">
-</div>
+<br><br><br><br><br>
+
+<!-- <div style="align-items: last baseline;">
+    <img src="/assets/imgs/solution_frameworks/first_principles_thinking.svg" style="width: 80%;" alt=""> 
+</div> -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var treeLinks = document.querySelectorAll('.tree li > a');
+        var toggleAllButton = document.getElementById('toggleAll');
+        var isExpanded = false; // Track the state of the tree
+
+        treeLinks.forEach(function (link) {
+            var childUl = link.nextElementSibling;
+            if (childUl && childUl.tagName === 'UL') {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    childUl.classList.toggle('expanded');
+                });
+            }
+        });
+
+        toggleAllButton.addEventListener('click', function () {
+            if (!isExpanded) {
+                // Expand all nodes
+                treeLinks.forEach(function (link) {
+                    var childUl = link.nextElementSibling;
+                    if (childUl && childUl.tagName === 'UL') {
+                        childUl.classList.add('expanded');
+                    }
+                });
+            } else {
+                // Collapse all nodes
+                treeLinks.forEach(function (link) {
+                    var childUl = link.nextElementSibling;
+                    if (childUl && childUl.tagName === 'UL') {
+                        childUl.classList.remove('expanded');
+                    }
+                });
+            }
+            isExpanded = !isExpanded; // Toggle the state
+        });
+    });
+</script>
