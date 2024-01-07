@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAGniverse - Login</title>
+
+    <style>
+        body {
+            background-color: #080710;
+            margin: 0;
+
+            .user-login-wrap {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-image: url('https://res.cloudinary.com/diklvaj2n/image/upload/v1686658737/2080500_g2ouge.png');
+                background-size: cover;
+                background-position: center;
+
+                form {
+                    background-color: rgba(255, 255, 255, 0.07);
+                    margin: 0 auto;
+                    border-radius: 10px;
+                    backdrop-filter: blur(10px);
+                    border: 2px solid rgba(255, 255, 255, 0.1);
+                    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+                    padding: 50px 35px;
+                    font-family: "Poppins", sans-serif;
+                    color: #ffffff;
+                    letter-spacing: 0.5px;
+                    outline: none;
+                    border: none;
+                    max-width: 350px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0 15px;
+
+                    h3 {
+                        font-size: 27px;
+                        font-weight: 500;
+                        line-height: 42px;
+                        margin: 0;
+
+                        span {
+                            display: block;
+                            font-size: 16px;
+                            font-weight: 300;
+                            color: #e5e5e5;
+                        }
+                    }
+
+                    label {
+                        display: block;
+                        margin-top: 30px;
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+
+                    input {
+                        display: block;
+                        height: 50px;
+                        width: 100%;
+                        background-color: rgba(255, 255, 255, 0.07);
+                        border-radius: 3px;
+                        padding: 0 10px;
+                        margin-top: 8px;
+                        font-size: 14px;
+                        font-weight: 300;
+                        outline: none;
+                        border: none;
+                        color: #fff;
+                        box-sizing: border-box;
+
+                        &::placeholder {
+                            color: #e5e5e5;
+                        }
+                    }
+
+                    button {
+                        margin-top: 50px;
+                        width: 100%;
+                        background-color: #ffffff;
+                        color: #080710;
+                        padding: 15px 0;
+                        font-size: 18px;
+                        font-weight: 600;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        border: none;
+                    }
+
+                    .forgot-password {
+                        font-size: 12px;
+                        color: #fff;
+                        font-weight: 400;
+                        display: block;
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+
+        <div class="user-login-wrap">
+            <form>
+                <h3>Welcome Back!
+                    <span>User Login</span>
+                </h3>
+                <label for="username">Username</label>
+                <input type="text" placeholder="For ex. Prashantpatel" id="username">
+                <label for="password">Password</label>
+                <input type="password" placeholder="6 character compulsory " id="password">
+                <button>
+                    <a href="/solution_framework/magniverse_gallery.html" style="text-decoration: none;" target="_blank">Sign In</a>
+                </button>
+                <a class="forgot-password" href="url">Forgot password</a>
+            </form>
+        </div>
+
+    </body>
+</body>
+
+</html>
