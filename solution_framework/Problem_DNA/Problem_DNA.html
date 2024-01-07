@@ -5,35 +5,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="/solution_framework/magniverse/kg_Neighbourhood_Highlight.js">  </script>
+  <script src="/solution_framework/MAGniverse/kg_Neighbourhood_Highlight.js">  </script>
 
   <!-- Add Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="./Problem_DNA.css">
 
-  <title>MagNiverse</title>
+  <title>MAGniverse</title>
 
 </head>
 
 <body>
 
+
   <div class="navbar">
-    <a class="tablinks" id="defaultOpen" onclick="openTab(event, 'MagNiverse')">MagNiverse</a>
-    <a class="tablinks" onclick="openTab(event, 'ProblemDNA')">Problem DNA</a>
-    <a class="tablinks" onclick="openTab(event, 'FirstPrinciple')">First Principle Thinking</a>
+    <a href="#">
+      <img class="site-logo" width="50" src="/solution_framework/assets/imgs/m_logo.png" alt="Magnoos-Logo"
+        title="YOUR SITE NAME">
+    </a>
+    <a class="tablinks" id="defaultOpen" onclick="openTab(event, 'MAGniverse')">MAGniverse</a>
+    <a class="tablinks" onclick="openTab(event, 'Problem_DNA')">Problem DNA</a>
+    <a class="tablinks" onclick="openTab(event, 'First_Principle')">First Principle</a>
     <a class="tablinks" onclick="openTab(event, 'DataBuckets')">Data Buckets</a>
   </div>
 
-  <div>
-  </div>
-
-  <!-- Tab content -->
-  <div id="MagNiverse" class="tab-content">
-    <h1 style="color: chartreuse;">MagNiverse: Magnoos Universe of Probelm Solving</h1>
+  <!-- MagNiverse -->
+  <div id="MAGniverse" class="tab-content">
+    <h1>MagNiverse: Magnoos Universe of Probelm Solving</h1>
     <p>
-      MagNiverse offers a dynamic graphical interface that transforms intricate problems into clear, manageable visual
-      representations. By leveraging advanced AI algorithms, it provides a bird's-eye view of strategic challenges,
-      enabling consultants and businesses to identify key issues and opportunities swiftly.
+      MagNiverse offers a dynamic graphical interface that transforms <b class="bold-highlight">intricate problems into
+        clear</b>, <b class="bold-highlight">manageable visual
+        representations</b>. By leveraging advanced AI algorithms, it provides a bird's-eye view of strategic
+      challenges,
+      enabling consultants and businesses to identify <b class="bold-highlight">key issues</b> and <b
+        class="bold-highlight">opportunities</b> swiftly.
     </p>
 
     <!-- For nodes and edges of knowledge-graph -->
@@ -51,31 +56,36 @@
     </div>
   </div>
 
-  <div id="ProblemDNA" class="tab-content">
-    <h3 style="color: chartreuse;">Problem DNA</h3>
-    <p>An effective way of developing solutions is understanding the Problem's DNA, I.e. atomic level inspection and
-      clarity about what is the problem being faced and by whom</p>
+  <div id="Problem_DNA" class="tab-content">
+    <h3>Problem DNA</h3>
+    <p>An effective way of developing solutions is understanding the Problem's DNA, i.e. atomic level inspection and
+      clarity about <b class="bold-highlight">who is affected</b> by this problem and <b class="bold-highlight">what</b>
+      is the problem</p>
 
     <div>
+      <img src="/assets/imgs/solution_frameworks/PROBLEM_dna_template.svg" style="width: 80%;" alt="states_templates"
+        srcset="">
+      <br><br><br><br><br><br><br><br><br>
       <img src="/assets/imgs/solution_frameworks/PROBLEM_dna.svg" style="width: 80%;" alt="" srcset="">
     </div>
   </div>
 
-  <div id="FirstPrinciple" class="tab-content">
-    <h3 style="color: chartreuse;">First Principle Thinking</h3>
+  <div id="First_Principle" class="tab-content">
+    <h1>First Principle Thinking</h1>
     <p>
-      Derived from cognitive toolkit, also called as mental models, First Principle Thinking involves breaking down
-      complex problems into their most basic, foundational elements and
-      then reassembling them from the ground up. It helps to break down complex problems into their most basic elements
+      Derived from cognitive toolkit, also called as mental models, First Principle Thinking involves <b
+        class="bold-highlight">breaking down</b>
+      complex problems into their most basic, foundational elements <b class="bold-highlight">and then reassembling</b>
+      them from the ground up. It helps to break down complex problems into their most basic elements
       and build up solutions from these foundational truths. It's about getting to the root of a problem.
     </p>
-    <h3 style="color: chartreuse;">M.E.C.E.</h3>
+    <h3>M.E.C.E.</h3>
     <p>
-      <b style="color: chartreuse;">Mutually Exclusive</b> means that when you break down the problem into parts, each
+      <b class="bold-highlight">Mutually Exclusive</b> means that when you break down the problem into parts, each
       part should be separate and
       distinct from the others. This way you can analyze them one by one.
       <br>
-      <b style="color: chartreuse;">Collectively Exhaustive</b> means that when you consider all those separate parts
+      <b class="bold-highlight">Collectively Exhaustive</b> means that when you consider all those separate parts
       together, they cover the entire
       problem or topic.
     </p>
@@ -210,7 +220,6 @@
     <h3>Data Buckets</h3>
     <p>Data Buckets help in organizing and segmenting data for better analysis and decision-making.</p>
   </div>
-
 
   <script>
     function openTab(evt, tabName) {

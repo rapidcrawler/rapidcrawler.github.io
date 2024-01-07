@@ -19,25 +19,36 @@ body {
 .navbar {
     overflow: hidden;
     background-color: #333;
+    height: 50px;
+    display: flex; /* Set navbar as flex container */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.site-logo {
+    float: left; /* Remove if not necessary */
+    height: 50px; /* Example height, adjust as needed */
+    width: auto; /* Maintain aspect ratio */
+    /* Additional alignment styles if needed */
 }
 
 .navbar a {
-    float: left;
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 15px; /* Adjust padding to fill the navbar height */
     text-decoration: none;
     font-size: 17px;
+    line-height: 20px; /* Adjust line height for vertical centering */
+    align-self: center; /* Center align the text links vertically */
 }
 
 .navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: rgb(54, 99, 9);
+    color: whitesmoke;
 }
 
 .navbar a.active {
-    background-color: #4CAF50;
+    background-color: #A88805;
     color: white;
 }
 
@@ -92,6 +103,14 @@ body {
     /* Show active content */
 }
 
+.tab-content .bold-highlight {
+    color: #A88805;
+}
+
+.tab-content h1, h2, h3 {
+    color: #A88805;
+}
+
 .navigator-placeholder {
     border: 1px solid #ccc;
     padding: 10px;
@@ -113,9 +132,9 @@ body {
 
 .tree {
     position: relative;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
-    width: 50%;
+    width: 90%; /* Adjust width as needed */
     text-align: center;
 }
 
@@ -242,4 +261,3 @@ body {
 .tree li a:hover+ul ul::before {
     border-color: #94a0b4;
 }
-
