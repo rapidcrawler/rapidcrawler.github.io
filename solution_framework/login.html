@@ -20,86 +20,113 @@
                 background-size: cover;
                 background-position: center;
 
-                form {
-                    background-color: rgba(255, 255, 255, 0.07);
-                    margin: 0 auto;
-                    border-radius: 10px;
-                    backdrop-filter: blur(10px);
-                    border: 2px solid rgba(255, 255, 255, 0.1);
-                    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-                    padding: 50px 35px;
-                    font-family: "Poppins", sans-serif;
-                    color: #ffffff;
-                    letter-spacing: 0.5px;
-                    outline: none;
-                    border: none;
-                    max-width: 350px;
-                    width: 100%;
+
+                .container {
+                    width: 300px;
+                    position: relative;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    color: white;
+                    box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+                    background-color: rgba(12, 12, 15, 0.85);
+                }
+
+                .container .slider {
+                    width: 200%;
+                    position: relative;
+                    transition: transform ease-out 0.3s;
+                    display: flex;
+                }
+
+                #register_toggle {
+                    display: none;
+                }
+
+                .container #register_toggle:checked+.slider {
+                    transform: translateX(-50%);
+                }
+
+                .form {
                     display: flex;
                     flex-direction: column;
-                    margin: 0 15px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 30px;
+                    padding: 1.5em 3em;
+                    width: 50%;
+                }
 
-                    h3 {
-                        font-size: 27px;
-                        font-weight: 500;
-                        line-height: 42px;
-                        margin: 0;
+                .title {
+                    text-align: center;
+                    font-weight: 700;
+                    font-size: 2em;
+                }
 
-                        span {
-                            display: block;
-                            font-size: 16px;
-                            font-weight: 300;
-                            color: #e5e5e5;
-                        }
-                    }
+                form .form_control {
+                    width: 100%;
+                    position: relative;
+                    overflow: hidden;
+                }
 
-                    label {
-                        display: block;
-                        margin-top: 30px;
-                        font-size: 16px;
-                        font-weight: 500;
-                    }
+                form .form_control .label {
+                    position: absolute;
+                    top: 50%;
+                    left: 10px;
+                    transition: transform ease 0.2s;
+                    transform: translate(0%, -50%);
+                    font-size: 0.75em;
+                    user-select: none;
+                    pointer-events: none;
+                    color: #b0b0b0;
+                }
 
-                    input {
-                        display: block;
-                        height: 50px;
-                        width: 100%;
-                        background-color: rgba(255, 255, 255, 0.07);
-                        border-radius: 3px;
-                        padding: 0 10px;
-                        margin-top: 8px;
-                        font-size: 14px;
-                        font-weight: 300;
-                        outline: none;
-                        border: none;
-                        color: #fff;
-                        box-sizing: border-box;
+                form .form_control .input {
+                    width: 100%;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    color: #fff;
+                    padding: 0.5rem;
+                    font-size: 0.75rem;
+                    border-radius: 5px;
+                    transition: box-shadow ease 0.2s;
+                    box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+                }
 
-                        &::placeholder {
-                            color: #e5e5e5;
-                        }
-                    }
+                form .form_control .input:focus,
+                form .form_control .input:valid {
+                    box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 3px 3px 4px #0e0e0e, inset -3px -3px 4px #5f5e5e;
+                }
 
-                    button {
-                        margin-top: 50px;
-                        width: 100%;
-                        background-color: #ffffff;
-                        color: #080710;
-                        padding: 15px 0;
-                        font-size: 18px;
-                        font-weight: 600;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        border: none;
-                    }
+                form .form_control .input:focus+.label,
+                form .form_control .input:valid+.label {
+                    transform: translate(-150%, -50%);
+                }
 
-                    .forgot-password {
-                        font-size: 12px;
-                        color: #fff;
-                        font-weight: 400;
-                        display: block;
-                        margin-top: 30px;
-                    }
+                form button {
+                    width: 100%;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    color: #fff;
+                    padding: 0.5rem;
+                    font-size: 0.75rem;
+                    border-radius: 5px;
+                    transition: box-shadow ease 0.1s;
+                    box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+                }
+
+                form button:active {
+                    box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 3px 3px 4px #0e0e0e, inset -3px -3px 4px #5f5e5e;
+                }
+
+                .bottom_text {
+                    font-size: 0.65em;
+                }
+
+                .bottom_text .swtich {
+                    font-weight: 700;
+                    cursor: pointer;
                 }
             }
         }
@@ -107,26 +134,49 @@
 </head>
 
 <body>
+    <div class="user-login-wrap">
+        <div class="container">
+            <input type="checkbox" id="register_toggle">
+            <div class="slider">
+                <form class="form">
+                    <span class="title">Login</span>
+                    <div class="form_control">
+                        <input type="text" class="input" required="">
+                        <label class="label">Username</label>
+                    </div>
+                    <div class="form_control">
+                        <input type="password" class="input" required="">
+                        <label class="label">Password</label>
+                    </div>
+                    <button><a href="/solution_framework/magniverse_gallery.html" target="_blank"
+                            rel="noopener noreferrer" style="text-decoration: none; color: #fff;">Login</a></button>
 
-    <body>
+                    <span class="bottom_text">Don't have an account? <label for="register_toggle" class="swtich">Sign
+                            Up</label> </span>
+                </form>
+                <form class="form">
+                    <span class="title">Sign Up</span>
+                    <div class="form_control">
+                        <input type="text" class="input" required="">
+                        <label class="label">Username</label>
+                    </div>
+                    <div class="form_control">
+                        <input type="email" class="input" required="">
+                        <label class="label">Email</label>
+                    </div>
+                    <div class="form_control">
+                        <input type="password" class="input" required="">
+                        <label class="label">Password</label>
+                    </div>
+                    <button>Sign Up</button>
 
-        <div class="user-login-wrap">
-            <form>
-                <h3>Welcome Back!
-                    <span>User Login</span>
-                </h3>
-                <label for="username">Username</label>
-                <input type="text" placeholder="For ex. Prashantpatel" id="username">
-                <label for="password">Password</label>
-                <input type="password" placeholder="6 character compulsory " id="password">
-                <button>
-                    <a href="/solution_framework/magniverse_gallery.html" style="text-decoration: none;" target="_blank">Sign In</a>
-                </button>
-                <a class="forgot-password" href="url">Forgot password</a>
-            </form>
+                    <span class="bottom_text">Already have an account? <label for="register_toggle" class="swtich">Sign
+                            In</label> </span>
+                </form>
+            </div>
         </div>
+    </div>
 
-    </body>
 </body>
 
 </html>
