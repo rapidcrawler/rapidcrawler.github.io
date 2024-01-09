@@ -6,6 +6,20 @@ p {
     font-family: 'Roboto', sans-serif;
 }
 
+.title-definition {
+    display: flex;
+    /* Use flexbox */
+    justify-content: space-between;
+    /* Space elements out */
+    align-items: center;
+    /* Align items vertically */
+}
+
+.title-definition p {
+    margin-right: auto;
+    /* Pushes all following elements to the right */
+}
+
 .bold-highlight {
     color: #A88805;
 }
@@ -34,3 +48,86 @@ p {
     color: black;
 }
 
+.download__button {
+    --main-focus: #2d8cf0;
+    --font-color: #dedede;
+    --bg-color-sub: #222;
+    --bg-color: #323232;
+    --main-color: #dedede;
+    position: relative;
+    /* width: 150px; */
+    height: 40px;
+    cursor: pointer;
+    display: inline-flex;
+    /* Changed to inline-flex for inline appearance */
+    justify-content: flex-start;
+    /* Aligns children (text and icon) to the start */
+    align-items: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    /* Ensure the button doesn't stretch to fill the flex container */
+    align-self: flex-start;
+}
+
+.download__button,
+.download__button__icon,
+.download__button__text {
+    transition: all 0.3s;
+}
+
+.download__button .download__button__text {
+    transform: translateX(21px);
+    color: var(--font-color);
+    font-weight: 600;
+    transform: none;
+    /* Reset transform to keep the text in place */
+    margin-right: 10px;
+    /* Adds space between text and icon */
+}
+
+.download__button .download__button__icon {
+    position: relative;
+    /* Changed to relative */
+    transform: none;
+    /* Reset transform to keep the icon in place */
+    height: 100%;
+    width: auto;
+    /* Set width to auto to fit content */
+    margin-left: auto;
+    /* Pushes the icon to the end of the button */
+    background-color: var(--bg-color-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download__button .svg {
+    width: 20px;
+    fill: var(--main-color);
+}
+
+.download__button:hover {
+    background: var(--bg-color);
+    --bg-color: #222;
+}
+
+.download__button:hover .download__button__text {
+    color: transparent;
+}
+
+.download__button:hover .download__button__icon {
+    transform: translateX(-100%);
+    /* Moves the icon to the extreme left */
+    width: 100%;
+    /* Optional: Adjust the width if you want the background to fill the button */
+}
+
+.download__button:active {
+    box-shadow: 1px 1px var(--main-color);
+    /* Smaller shadow to simulate pressing down */
+    transform: translateY(2px);
+    /* Slight downward movement */
+}
