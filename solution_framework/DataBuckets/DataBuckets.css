@@ -11,8 +11,15 @@ p {
     /* Use flexbox */
     justify-content: space-between;
     /* Space elements out */
-    align-items: center;
-    /* Align items vertically */
+    flex-wrap: wrap;
+    /* Allows wrapping if the screen width is small */
+}
+
+.card-container {
+    margin: 65px;
+    /* Moved margin from .card to .card-container */
+    flex: 1;
+    /* This allows each container to grow but not to force equal height */
 }
 
 .title-definition p {
@@ -24,21 +31,6 @@ p {
     color: #A88805;
 }
 
-.diagram-container {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    padding: 20px;
-}
-
-.class-box {
-    border: 1px solid white;
-    margin: 10px;
-    padding: 10px;
-    width: 200px;
-    font-family: 'Roboto', sans-serif;
-}
-
 .title {
     text-align: center;
     font-weight: bold;
@@ -46,6 +38,7 @@ p {
     margin-bottom: 5px;
     background-color: #A88805;
     color: black;
+    border-radius: 25px;
 }
 
 .download__button {
@@ -130,4 +123,29 @@ p {
     /* Smaller shadow to simulate pressing down */
     transform: translateY(2px);
     /* Slight downward movement */
+}
+
+
+.card {
+    width: 200px;
+    height: auto;
+    margin-right: 5px;
+    color:#a8a8a8;
+    font-family: 'Roboto', sans-serif;
+    background-color: #1b1b1b;
+    box-shadow: -15px -15px 30px #131111;
+    /* Only left and top shadow */
+    /* Commented out or removed the second box-shadow */
+    /* transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
+                 transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s; */
+}
+
+.card:hover {
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    transform: scale(1.05);
+}
+
+.title:hover {
+    color: white;
 }
