@@ -1,6 +1,7 @@
 <head>
     <script src="/solution_framework/MAGniverse/kg_Neighbourhood_Highlight.js">  </script>
 
+    <link rel="stylesheet" href="/solution_framework/solution_framework.css">
     <link rel="stylesheet" href="/solution_framework/MAGniverse/MAGniverse.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -8,30 +9,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
-<p>
-    MagNiverse offers a dynamic graphical interface that transforms <b class="bold-highlight">intricate problems
-        into
-        clear</b>, <b class="bold-highlight">manageable visual
-        representations</b>.
-        <br>
-        By leveraging advanced AI algorithms, it provides a bird's-eye view of strategic
-    challenges,
-    enabling consultants and businesses to identify <b class="bold-highlight">key issues</b> and <b
-        class="bold-highlight">opportunities</b> swiftly.
-</p>
-
-<!-- For nodes and edges of knowledge-graph -->
-<div id="mynetwork" style="color: white;">
-    <script src='https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js'></script>
+<div style="float: right;">
+    <br>
+    <input type="text" name="text" class="search-bar" placeholder="Search Business Problem" />
+    <!-- <div>
+        <form class="form">
+            <label for="01">Completed</label>
+            <input id="01" type="radio" name="r" value="1" checked="">
+            <label for="02">Inprogress</label>
+            <input id="02" type="radio" name="r" value="2">
+            <label for="03">Started</label>
+            <input id="03" type="radio" name="r" value="3">
+        </form>
+    </div> -->
 </div>
 
-<div>
-    <img src="/assets/imgs/solution_frameworks/transparent_img.png" style="width: 80%;" alt="">
-    <!-- <img src="/assets/imgs/solution_frameworks/MagNiverse.svg" width="80%" alt="" srcset=""> -->
-    <img src="/assets/imgs/solution_frameworks/Screenshot 2023-12-22 142533.png" width="40%" alt="" srcset="">
-    <img src="/assets/imgs/solution_frameworks/Screenshot 2023-12-22 142641.png" width="40%" alt="" srcset="">
-    <img src="/assets/imgs/solution_frameworks/Screenshot 2023-12-22 143356.png" width="40%" alt="" srcset="">
-    <img src="/assets/imgs/solution_frameworks/Screenshot 2023-12-22 143458.png" width="40%" alt="" srcset="">
+<div id="content" class="content">
+    <p>
+        MagNiverse offers a dynamic graphical interface that transforms <b class="bold-highlight">intricate problems
+            into
+            clear</b>, <b class="bold-highlight">manageable visual
+            representations</b>.
+        <br>
+        By leveraging advanced AI algorithms, it provides a bird's-eye view of strategic
+        challenges,
+        enabling consultants and businesses to identify <b class="bold-highlight">key issues</b> and <b
+            class="bold-highlight">opportunities</b> swiftly.
+    </p>
+
+    <!-- For nodes and edges of knowledge-graph -->
+    <div id="mynetwork" style="color: white;">
+        <script src='https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js'></script>
+    </div>
+
+    <div>
+        <img src="/assets/imgs/solution_frameworks/transparent_img.png" style="width: 80%;" alt="">
+        <!-- <img src="/assets/imgs/solution_frameworks/MagNiverse.svg" width="80%" alt="" srcset=""> -->
+        <img src="/assets/imgs/solution_frameworks/Screenshot 2023-12-22 142533.png" width="40%" alt="" srcset="">
+        <img src="/assets/imgs/solution_frameworks/Screenshot 2023-12-22 142641.png" width="40%" alt="" srcset="">
+        <img src="/assets/imgs/solution_frameworks/Screenshot 2023-12-22 143356.png" width="40%" alt="" srcset="">
+        <img src="/assets/imgs/solution_frameworks/Screenshot 2023-12-22 143458.png" width="40%" alt="" srcset="">
+    </div>
 </div>
 
 <script>
