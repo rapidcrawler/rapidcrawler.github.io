@@ -6,6 +6,10 @@ body {
     background-color: #000;
 }
 
+iframe {
+    border: none; /* This will remove the border */
+  }
+
 #mynetwork {
     margin: auto;
     width: 80%;

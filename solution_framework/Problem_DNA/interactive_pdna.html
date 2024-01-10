@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probelm-DNA: Interactive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #470101;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .section {
+            width: 35%;
+            /* Adjusted width */
+            height: auto;
+            padding: 0;
+            /* top padding is now 0 */
+            border: 1px solid #413c3c;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .section h2 {
+            border-bottom: 1px solid #333336;
+            background-color: rgb(5, 29, 5);
+            color: aliceblue;
+            text-align: center;
+            margin: 0;
+            /* This will remove the gap */
+            /* padding-bottom: 10px; */
+            /* margin-bottom: 10px; */
+        }
+
+        form {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .input-group {
+            padding: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 90%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .bridge {
+            width: 30%;
+            /* Set a specific width */
+            align-self: center;
+            text-align: center;
+        }
+
+        .bridge img {
+            width: 100%;
+            height: auto;
+        }
+
+        .gap-input-group {
+            width: 50%;
+            /* Match width of the bridge */
+            margin: auto;
+            /* Center the div */
+        }
+    </style>
+</head>
+
+<body>
+    <form class="container">
+        <!-- Current State -->
+        <div class="section" style="width: 35%;">
+            <h2>Current State</h2>
+            <div class="input-group">
+                <label for="current-responsibility">Who is the client?</label>
+                <input type="text" id="current-responsibility" name="current_responsibility"
+                    placeholder="The merchandising team is responsible for making markup/markdown decisions.">
+            </div>
+            <div class="input-group">
+                <label for="current-elasticity">Struggling with which problem in their business?</label>
+                <textarea id="current-elasticity" name="current_elasticity"
+                    placeholder="Current elasticity estimates do not account for in/out of season variance in demand."></textarea>
+            </div>
+            <div class="input-group">
+                <label for="improvement-strategy">Need to implement what solution?</label>
+                <textarea id="improvement-strategy" name="improvement_strategy"
+                    placeholder="The team wants to refine the current elasticity estimates to improve its markup/markdown strategies."></textarea>
+            </div>
+        </div>
+
+        <!-- Bridge Image -->
+        <div class="bridge">
+            <!-- Gap input group -->
+            <div style="margin: 0; margin-left: 5px; margin-right: 5px; background-color: #f9f9f9; border-radius: 5px;">
+                <h2 style="background-color: #A88805; margin-top: 0; color: aliceblue;">Gap</h2>
+                <div class="input-group">
+                    <label for="gap-question">What question needs to be answered to facilitate the movement across
+                        the Gap?</label>
+                    <textarea id="gap-question" name="gap_question"
+                        placeholder="How to refine the elasticity estimates?"></textarea>
+                </div>
+            </div>
+            <div style="margin: 5px;">
+                <!-- Here you can place the bridge image if available or use a placeholder -->
+                <img src="/assets/imgs/solution_frameworks/PROBLEM_dna_bridge.png" alt="Bridge Graphic" style="border-radius: 5px;">
+            </div>
+        </div>
+
+
+        <!-- Desired Future State  -->
+        <div class="section" style="width: 35%;">
+            <h2>Desired Future State</h2>
+            <div class="input-group">
+                <label for="refined-estimates">Outcome client has achieved with the solution</label>
+                <textarea id="refined-estimates" name="refined_estimates"
+                    placeholder="The team has refined the current elasticity estimates."></textarea>
+            </div>
+            <div class="input-group">
+                <label for="strategy-improvement">Behavioral change that has occurred</label>
+                <textarea id="strategy-improvement" name="strategy_improvement"
+                    placeholder="The above understanding has helped them improve their markup/markdown strategies."></textarea>
+            </div>
+            <div class="input-group">
+                <label for="better-pricing">Insight accessible to client</label>
+                <textarea id="better-pricing" name="better_pricing"
+                    placeholder="The team is also able to undertake better pricing decisions for customer centric products and design better pricing programs."></textarea>
+            </div>
+        </div>
+    </form>
+    <!-- Questions input group -->
+    <div class="section" style="margin: auto">
+        <h2 style="background-color: #A88805">Questions</h2>
+        <div class="input-group">
+            <label for="refined-estimates">What question needs to be answered to facilitate the movement across the
+                Gap?</label>
+            <textarea id="refined-estimates" name="refined_estimates"
+                placeholder="How to refine the elasticity estimates?"></textarea>
+        </div>
+    </div>
+</body>
+
+</html>
