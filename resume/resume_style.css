@@ -1,0 +1,97 @@
+body {
+    background-color: rgb(255, 252, 223);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-align: justify;
+}
+
+strong {
+    color: #470101;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+}
+
+li {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.9px;
+    line-height: 1.5;    
+}
+
+code {
+    /* background-color: rgba(0, 0, 0, 0.836); */
+    /* color: chartreuse; */
+    font-family: monospace;
+}
+
+.resume_body {
+    width: 840px;
+    height: auto;
+    margin: 15px;
+    padding: 15px;
+    background-color: white;
+    margin: auto;
+}
+
+hr {
+    margin-top: 0;
+    /* Reduces the top margin of the <hr> */
+    margin-bottom: 10px;
+    /* Adjust this value as needed to reduce the bottom margin */
+}
+
+.headings {
+    background-color: rgb(208, 224, 255);
+}
+
+.header-container {
+    display: flexbox;
+    justify-content: space-between;
+}
+
+.left-header {
+    float: left;
+}
+
+.right-header {
+    float: right;
+}
+
+.org_info,
+.project_info {
+    padding-bottom: 10px;
+    /* Reduced from 10px to 5px */
+}
+
+.project_info {
+    margin-top: 5px;
+    /* Reduced from 10px to 5px */
+}
+
+.project_info {
+    margin-top: 8px;
+    /* Reduced from 10px */
+    padding-bottom: 5px;
+    /* Reduced from 10px */
+}
+
+.project_info p,
+.project_info ul,
+.project_info li {
+    margin-top: 0; 
+    margin-bottom: 0;
+    padding-left: 10;
+}
+
+.tech_stack {
+    color: lightslategray;
+    font-weight: bolder;
+    font-size: 12px;
+}
+
+.skills {
+    font-family: 'Roboto', sans-serif;
+}
+
+#education_and_achievements {
+    background-color: white;
+}
