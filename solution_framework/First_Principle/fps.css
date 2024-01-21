@@ -20,8 +20,6 @@ h3 {
     color: #A88805;
 }
 
-/* Code based on this sample http://thecodeplayer.com/walkthrough/css3-family-tree */
-
 .tree {
     display: flex;
     justify-content: center;
