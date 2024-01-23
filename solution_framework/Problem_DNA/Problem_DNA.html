@@ -13,13 +13,21 @@
   is the problem
 </p>
 
+<!-- Including the interactive section of the Probelm DNA -->
+<div id="interactive_section">
+  <iframe src="/solution_framework/Problem_DNA/interactive_pdna.html" width="100%" height="auto" id="pdna_iframe"></iframe>
+</div>
+
 <div>
   <img src="/assets/imgs/solution_frameworks/PROBLEM_dna_template.svg" style="width: 80%;" alt="states_templates"
     srcset="">
   <br><br><br><br><br><br><br><br><br>
   <img src="/assets/imgs/solution_frameworks/PROBLEM_dna.svg" style="width: 80%;" alt="" srcset="">
 </div>
-<div>
-  <br><br><br><br><br>
-  <iframe src="/solution_framework/Problem_DNA/interactive_pdna.html" width="100%" height="1600px"></iframe>
-</div>
+
+<script>
+  window.onload = function() {
+    var iframe = document.getElementById('pdna_iframe');
+    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
