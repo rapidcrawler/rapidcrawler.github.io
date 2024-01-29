@@ -20,6 +20,12 @@ h3 {
     color: #A88805;
 }
 
+#nodes {
+    width: 100vw;
+    height: 40vw;
+    background-color: white;
+}
+
 .tree {
     display: flex;
     justify-content: center;
@@ -33,7 +39,7 @@ h3 {
     display: block;
 }
 
-.tree > div {
+.tree>div {
     display: inline-block;
 }
 
@@ -282,17 +288,17 @@ div.tree>ul>li>a {
     width: 1.2em;
     height: 3.3em;
     margin-left: 35px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch .chk {
+}
+
+/* Hide default HTML checkbox */
+.switch .chk {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  /* The slider */
-  .slider {
+}
+
+/* The slider */
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -302,9 +308,9 @@ div.tree>ul>li>a {
     background-color: #ccc;
     transition: .4s;
     border-radius: 5px;
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
     position: absolute;
     content: "";
     height: .5em;
@@ -313,19 +319,19 @@ div.tree>ul>li>a {
     left: -0.6em;
     top: 0.2em;
     background-color: white;
-    box-shadow: 0 6px 7px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.3);
     transition: .4s;
-  }
-  
-  .slider:before, .slider:after {
+}
+
+.slider:before, .slider:after {
     content: "";
     display: block;
-  }
-  
-  .slider:after {
+}
+
+.slider:after {
     background: linear-gradient(transparent 50%, rgba(255, 255, 255, 0.15) 0) 0 50% / 50% 100%,
-          repeating-linear-gradient(90deg,rgb(255, 255, 255) 0,rgb(255, 255, 255),rgb(255, 255, 255) 20%,rgb(255, 255, 255) 20%,rgb(255, 255, 255) 40%) 0 50% / 50% 100%,
-          radial-gradient(circle at 50% 50%,rgb(255, 255, 255) 25%, transparent 26%);
+        repeating-linear-gradient(90deg, rgb(255, 255, 255) 0, rgb(255, 255, 255), rgb(255, 255, 255) 20%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 40%) 0 50% / 50% 100%,
+        radial-gradient(circle at 50% 50%, rgb(255, 255, 255) 25%, transparent 26%);
     background-repeat: no-repeat;
     border: 0.25em solid transparent;
     border-left: 0.4em solid #ffffff;
@@ -339,20 +345,61 @@ div.tree>ul>li>a {
     width: 2em;
     height: 1em;
     box-sizing: border-box;
-  }
-  
-  .chk:checked + .slider {
+}
+
+.chk:checked+.slider {
     background-color: limegreen;
-  }
-  
-  .chk:focus + .slider {
+}
+
+.chk:focus+.slider {
     box-shadow: 0 0 1px limegreen;
-  }
-  
-  .chk:checked + .slider:before {
+}
+
+.chk:checked+.slider:before {
     transform: translateY(2.3em);
-  }
-  
-  .chk:checked + .slider:after {
+}
+
+.chk:checked+.slider:after {
     transform: rotateZ(90deg) rotateY(180deg) translateY(0.45em) translateX(-1.4em);
-  }
+}
+
+.popper-container {
+    position: fixed;
+    inset: 0;
+    background-color: #00000034;
+    display: none;
+}
+
+.popper {
+    width: 300px;
+    height: 450px;
+    background: white;
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    display: none;
+    border-radius: 4px;
+}
+
+.popper.visible, .popper-container.visible {
+    display: block;
+}
+
+.add-node-type-container {
+    display: flex;
+    gap: 16px;
+    padding: 8px 12px;
+    overflow-x: auto;
+}
+
+.add-node-type-container>button {
+    position: relative;
+    border-radius: 50%;
+    border: 0px solid transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    font-size: 26px;
+    line-height: 1;
+}

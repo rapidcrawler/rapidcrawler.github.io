@@ -1,161 +1,190 @@
-<head>
-    <link rel="stylesheet" href="/solution_framework/First_Principle/fps.css">
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First principles thinking</title>
+    <link rel="stylesheet" href="/solution_framework/First_Principle/fps.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.28.1/dist/cytoscape.umd.js"></script>
 </head>
 
-<div style="display: flex;">
-    <div id="sample_fps_img" style="margin-right: 20px;">
-        <img src="https://i0.wp.com/vitalflux.com/wp-content/uploads/2021/04/Screenshot-2021-04-13-at-6.35.58-PM.png?w=452&ssl=1"
-            alt="" srcset="">
-        <p style="text-align: center;">
-            Image Credit: <a
-                href="https://vitalflux.com/first-principles-thinking-understanding-based-on-physics/">Analytics
-                Yogi</a>
-        </p>
-    </div>
-    <div id="fps_context">
-        <p>
-            Derived from cognitive toolkit, also called as mental models, First Principle Thinking involves <b
-                class="bold-highlight">breaking down</b>
-            complex problems into their most basic, foundational elements <b class="bold-highlight">and then
-                reassembling</b>
-            them from the ground up. It helps to break down complex problems into their most basic elements
-            and build up solutions from these foundational truths. It's about getting to the root of a problem.
-        </p>
-        <h3>M.E.C.E.</h3>
-        <p>
-            <b class="bold-highlight">Mutually Exclusive</b> means that when you break down the problem into parts, each
-            part should be separate and
-            distinct from the others. This way you can analyze them one by one.
-            <br>
-            <b class="bold-highlight">Collectively Exhaustive</b> means that when you consider all those separate parts
-            together, they cover the entire
-            problem or topic.
-        </p>
-    </div>
-</div>
+<body>
 
-<br><br><br>
 
-<!-- Tree Structure -->
-<div class="tree">
+    <div style="display: flex;">
+        <div id="sample_fps_img" style="margin-right: 20px;">
+            <img src="https://i0.wp.com/vitalflux.com/wp-content/uploads/2021/04/Screenshot-2021-04-13-at-6.35.58-PM.png?w=452&ssl=1"
+                alt="" srcset="">
+            <p style="text-align: center;">
+                Image Credit: <a
+                    href="https://vitalflux.com/first-principles-thinking-understanding-based-on-physics/">Analytics
+                    Yogi</a>
+            </p>
+        </div>
+        <div id="fps_context">
+            <p>
+                Derived from cognitive toolkit, also called as mental models, First Principle Thinking involves <b
+                    class="bold-highlight">breaking down</b>
+                complex problems into their most basic, foundational elements <b class="bold-highlight">and then
+                    reassembling</b>
+                them from the ground up. It helps to break down complex problems into their most basic elements
+                and build up solutions from these foundational truths. It's about getting to the root of a problem.
+            </p>
+            <h3>M.E.C.E.</h3>
+            <p>
+                <b class="bold-highlight">Mutually Exclusive</b> means that when you break down the problem into parts,
+                each
+                part should be separate and
+                distinct from the others. This way you can analyze them one by one.
+                <br>
+                <b class="bold-highlight">Collectively Exhaustive</b> means that when you consider all those separate
+                parts
+                together, they cover the entire
+                problem or topic.
+            </p>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <div id="nodes" />
+    <!-- Tree Structure -->
+    <!-- <div class="tree"> -->
     <!-- Toggle button for expanding and collapsing -->
-    <div id="expand_btn">
-        <button id="toggleAll" class="toggle-button">
-            Expand/Collapse All
-        </button>
-    </div>
+    <!-- <div id="expand_btn">
+            <button id="toggleAll" class="toggle-button">
+                Expand/Collapse All
+            </button>
+        </div> -->
 
     <!-- Tree node starts from here -->
-    <div id="tree-structure">
-        <ul>
-            <li>
-                <a href="#">Customer's Dynamic Credit Limit Determination</a>
-                <ul>
-                    <li>
-                        <a href="#">Application Data</a>
-                        <ul class="vertical">
-                            <li><a href="#"><i class="fa fa-database"></i> Income Level</a></li>
-                            <li><a href="#"><i class="fa fa-database"></i> Employment Status</a></li>
-                            <li><a href="#"><i class="fa fa-database"></i> Marketing</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Account Data</a>
-                        <ul class="vertical">
-                            <li><a href="#"><i class="fa fa-database"></i> Debt-to-Income Ratio</a></li>
-                            <li><a href="#"><i class="fa fa-database"></i> Existing Debt Levels</a></li>
-                            <li><a href="#"><i class="fa fa-database"></i> Payment History</a></li>
-                            <li><a href="#"><i class="fa fa-database"></i> Utilization Ratio</a></li>
-                            <li><a href="#"><i class="fa fa-database"></i> Banking Relationship</a></li>
-                            <li><a href="#"><i class="fa fa-database"></i> New Idea</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Personal Data</a>
-                        <ul class="vertical">
-                            <li><a href="#"><i class="fa fa-database"></i> Age</a></li>
-                            <li><a href="#"><i class="fa fa-database"></i> Gender</a></li>
-                            <li><a href="#"><i class="fa fa-database"></i> Marital Status</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Credit Beaurau Data</a>
-                        <ul>
-                            <li>
-                                <a href="#">Credit Report</a>
-                                <ul class="vertical">
-                                    <li><a href="#"><i class="fa fa-database"></i> Credit Score</a></li>
-                                    <li><a href="#"><i class="fa fa-database"></i> Credit History</a></li>
-                                    <li><a href="#"><i class="fa fa-database"></i> Recent Credit Inquiries</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Regulatory Requirements</a>
-                                <ul class="vertical">
-                                    <li><a href="#"><i class="fa fa-database"></i> Team 1</a></li>
-                                    <li><a href="#"><i class="fa fa-database"></i> Team 2</a></li>
-                                    <li><a href="#"><i class="fa fa-database"></i> Team 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+    <!-- <div id="tree-structure">
+            <ul>
+                <li>
+                    <a href="#">Customer's Dynamic Credit Limit Determination</a>
+                    <ul>
+                        <li>
+                            <a href="#">Application Data</a>
+                            <ul class="vertical">
+                                <li><a href="#"><i class="fa fa-database"></i> Income Level</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Employment Status</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Marketing</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Account Data</a>
+                            <ul class="vertical">
+                                <li><a href="#"><i class="fa fa-database"></i> Debt-to-Income Ratio</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Existing Debt Levels</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Payment History</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Utilization Ratio</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Banking Relationship</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> New Idea</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Personal Data</a>
+                            <ul class="vertical">
+                                <li><a href="#"><i class="fa fa-database"></i> Age</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Gender</a></li>
+                                <li><a href="#"><i class="fa fa-database"></i> Marital Status</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Credit Beaurau Data</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Credit Report</a>
+                                    <ul class="vertical">
+                                        <li><a href="#"><i class="fa fa-database"></i> Credit Score</a></li>
+                                        <li><a href="#"><i class="fa fa-database"></i> Credit History</a></li>
+                                        <li><a href="#"><i class="fa fa-database"></i> Recent Credit Inquiries</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Regulatory Requirements</a>
+                                    <ul class="vertical">
+                                        <li><a href="#"><i class="fa fa-database"></i> Team 1</a></li>
+                                        <li><a href="#"><i class="fa fa-database"></i> Team 2</a></li>
+                                        <li><a href="#"><i class="fa fa-database"></i> Team 3</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div> -->
     </div>
-</div>
 
-<br><br>
+    <br><br>
 
-<div id="idea_sketch">
-    <img src="/assets/imgs/solution_frameworks/draw_io/FPS_Sketch.drawio.svg" alt="" srcset="">
-</div>
+    <div id="idea_sketch">
+        <img src="/assets/imgs/solution_frameworks/draw_io/FPS_Sketch.drawio.svg" alt="" srcset="">
+    </div>
+    <div class="popper-container" id="popper-container"></div>
+    <div class="popper" id="popper">
+        <div class="add-node-type-container" id="add-nodes">
+            <button class="add-node" data-node-type="lightbulb"><i class="fa fa-lightbulb-o"></i></button>
+            <button class="add-node" data-node-type="question"><i class="fa fa-question"></i></button>
+            <button class="add-node" data-node-type="database"><i class="fa fa-database"></i></button>
+        </div>
+        <div id="node-options-container">
+            <ul>
 
-<!-- <div style="align-items: last baseline;">
+                <li class="option" data-option="edit"><i class="fa fa-pencil"></i> Rename node</li>
+            </ul>
+        </div>
+    </div>
+    <!-- <div style="align-items: last baseline;">
     <img src="/assets/imgs/solution_frameworks/first_principles_thinking.svg" style="width: 80%;" alt=""> 
 </div> -->
+    <script src="./fps.js" defer></script>
+    <script>
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     var treeLinks = document.querySelectorAll('.tree li > a');
+        //     var toggleAllButton = document.getElementById('toggleAll');
+        //     var isExpanded = false; // Track the state of the tree
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var treeLinks = document.querySelectorAll('.tree li > a');
-        var toggleAllButton = document.getElementById('toggleAll');
-        var isExpanded = false; // Track the state of the tree
+        //     treeLinks.forEach(function (link) {
+        //         var childUl = link.nextElementSibling;
+        //         if (childUl && childUl.tagName === 'UL') {
+        //             link.addEventListener('click', function (e) {
+        //                 e.preventDefault();
+        //                 childUl.classList.toggle('expanded');
+        //             });
+        //         }
+        //     });
 
-        treeLinks.forEach(function (link) {
-            var childUl = link.nextElementSibling;
-            if (childUl && childUl.tagName === 'UL') {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    childUl.classList.toggle('expanded');
-                });
-            }
-        });
+        //     toggleAllButton.addEventListener('click', function () {
+        //         if (!isExpanded) {
+        //             // Expand all nodes
+        //             treeLinks.forEach(function (link) {
+        //                 var childUl = link.nextElementSibling;
+        //                 if (childUl && childUl.tagName === 'UL') {
+        //                     childUl.classList.add('expanded');
+        //                 }
+        //             });
+        //         } else {
+        //             // Collapse all nodes
+        //             treeLinks.forEach(function (link) {
+        //                 var childUl = link.nextElementSibling;
+        //                 if (childUl && childUl.tagName === 'UL') {
+        //                     childUl.classList.remove('expanded');
+        //                 }
+        //             });
+        //         }
+        //         isExpanded = !isExpanded; // Toggle the state
+        //     });
+        // });
 
-        toggleAllButton.addEventListener('click', function () {
-            if (!isExpanded) {
-                // Expand all nodes
-                treeLinks.forEach(function (link) {
-                    var childUl = link.nextElementSibling;
-                    if (childUl && childUl.tagName === 'UL') {
-                        childUl.classList.add('expanded');
-                    }
-                });
-            } else {
-                // Collapse all nodes
-                treeLinks.forEach(function (link) {
-                    var childUl = link.nextElementSibling;
-                    if (childUl && childUl.tagName === 'UL') {
-                        childUl.classList.remove('expanded');
-                    }
-                });
-            }
-            isExpanded = !isExpanded; // Toggle the state
-        });
-    });
-</script>
+
+    </script>
+</body>
+
+</html>
