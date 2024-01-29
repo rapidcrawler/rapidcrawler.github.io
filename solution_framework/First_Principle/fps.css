@@ -403,3 +403,20 @@ div.tree>ul>li>a {
     font-size: 26px;
     line-height: 1;
 }
+
+#node-options-container {
+    list-style-type: none;
+    padding: 0;
+    color: black;
+}
+
+#node-options-container li.option {
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+#node-options-container li.option:hover, #add-nodes button:hover {
+    cursor: pointer;
+    background-color: #ecf0ec;
+}

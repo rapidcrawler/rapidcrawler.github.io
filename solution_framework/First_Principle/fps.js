@@ -85,6 +85,50 @@ const initialEdges = [
   },
 ];
 
+const layoutOptions = {
+  name: "breadthfirst",
+  fit: true,
+  directed: true,
+  padding: 20,
+  circle: false,
+  avoidOverlap: true,
+  spacingFactor: 2,
+  nodeDimensionsIncludeLabels: false,
+  root: "root-node",
+  ready: undefined,
+  stop: undefined,
+  transform: function (node, position) {
+    return position;
+  },
+};
+
+const tree = cytoscape({
+  container: document.getElementById("nodes"), // container to render in
+  layout: layoutOptions,
+  userZoomingEnabled: false,
+  elements: [...initialNodes, ...initialEdges], // list of graph elements to start with
+  style: [
+    {
+      selector: "node",
+      style: {
+        "background-color": "#666",
+        label: "data(label)",
+      },
+    },
+    {
+      selector: "edge",
+      style: {
+        width: 3,
+        "line-color": "#ccc",
+        "target-arrow-color": "#ccc",
+        "target-arrow-shape": "triangle",
+        "curve-style": "bezier",
+        "text-margin-y": -15,
+      },
+    },
+  ],
+});
+
 function getAllConnectedNodes(node) {
   let connectedNodes = [];
   const uniqueIds = [];
@@ -108,12 +152,6 @@ function getAllConnectedNodes(node) {
   return connectedNodes;
 }
 
-const isEdgeFromParent = (edgeNode, parentNodeIds) => {
-  return parentNodeIds.includes(edgeNode.source()?.data("id"));
-};
-const isNodeParent = (node, parentNodeIds) => {
-  return parentNodeIds.includes(node.data("id"));
-};
 const handleNodeClick = (e) => {
   const node = e.target;
   const connectedNodes = getAllConnectedNodes(node);
@@ -127,53 +165,39 @@ const handleNodeClick = (e) => {
   });
 };
 
+const enableZoomOnCtrlKeyDown = (e) => {
+  // console.log({ e });
+  if (e.key.toLowerCase() === "control" || e.key.toLowerCase() === "command") {
+    tree.userZoomingEnabled(true);
+  }
+};
+const disableZoomOnCtrlKeyup = (e) => {
+  if (e.key.toLowerCase() === "control" || e.key.toLowerCase() === "command") {
+    tree.userZoomingEnabled(false);
+  }
+};
+
+const handleMouseOver = () => {
+  // console.log("mouseover");
+  window.addEventListener("keydown", enableZoomOnCtrlKeyDown);
+  window.addEventListener("keyup", disableZoomOnCtrlKeyup);
+};
+const handleMouseOut = () => {
+  // console.log("mouseout");
+  window.removeEventListener("keydown", enableZoomOnCtrlKeyDown);
+  window.removeEventListener("keyup", disableZoomOnCtrlKeyup);
+};
+
 let currentSelectedNode = null;
 const handleNodeRightClick = (e) => {
+  e.preventDefault();
   showPopper(e.originalEvent.x, e.originalEvent.y);
   currentSelectedNode = e.target;
-  console.log(currentSelectedNode);
 };
-const layoutOptions = {
-  name: "breadthfirst",
-  fit: true,
-  directed: true,
-  padding: 20,
-  circle: false,
-  avoidOverlap: true,
-  spacingFactor: 2,
-  nodeDimensionsIncludeLabels: false,
-  root: "root-node",
-  ready: undefined,
-  stop: undefined,
-  transform: function (node, position) {
-    return position;
-  },
+const handleCanvasRightClick = () => {
+  e.preventDefault();
+  showPopper(e.originalEvent.x, e.originalEvent.y);
 };
-const tree = cytoscape({
-  container: document.getElementById("nodes"), // container to render in
-  layout: layoutOptions,
-  elements: [...initialNodes, ...initialEdges], // list of graph elements to start with
-  style: [
-    {
-      selector: "node",
-      style: {
-        "background-color": "#666",
-        label: "data(label)",
-      },
-    },
-    {
-      selector: "edge",
-      style: {
-        width: 3,
-        "line-color": "#ccc",
-        "target-arrow-color": "#ccc",
-        "target-arrow-shape": "triangle",
-        "curve-style": "bezier",
-        "text-margin-y": -15,
-      },
-    },
-  ],
-});
 
 const hidePopper = () => {
   popperContainer.classList.remove("visible");
@@ -226,6 +250,7 @@ const showPopper = (x, y) => {
   popper.style.top = `${finalY}px`;
   popper.style.left = `${finalX}px`;
 };
+
 const getElementFromEvent = (e, maxDepth = 1) => {
   let element = e.target;
   if (e.target.classList.contains("fa")) {
@@ -233,6 +258,7 @@ const getElementFromEvent = (e, maxDepth = 1) => {
   }
   return element;
 };
+
 const handleAddNode = (e) => {
   const element = getElementFromEvent(e);
   const type = element.dataset.nodeType;
@@ -255,17 +281,37 @@ const handleAddNode = (e) => {
   tree.layout(layoutOptions).run();
 };
 
+const handleRenameNode = () => {
+  const name = window.prompt(
+    "Enter a new name for this node",
+    currentSelectedNode.data("label")
+  );
+  if (name) {
+    currentSelectedNode.data("label", name);
+  }
+};
+
+const handleDeleteNode = () => {
+  const isConfirmed = window.confirm(
+    "Are you sure you want to delete this node?"
+  );
+  if (isConfirmed) {
+    currentSelectedNode.remove();
+  }
+};
 const handleEditOptions = (e) => {
   let element = getElementFromEvent(e);
-  if (element.dataset.option === "edit") {
-    const name = window.prompt(
-      "Enter a new name for this node",
-      currentSelectedNode.data("label")
-    );
-    if (name) {
-      currentSelectedNode.data("label", name);
-    }
+  switch (element.dataset.option) {
+    case "rename":
+      handleRenameNode();
+      break;
+    case "delete":
+      handleDeleteNode();
+      break;
+    default:
+      console.error(`${element.dataset.option} is not handled`);
   }
+
   hidePopper();
 };
 
@@ -276,3 +322,8 @@ nodeOptionsContainer.addEventListener("click", handleEditOptions);
 
 tree.on("click", "node", handleNodeClick);
 tree.on("cxttap", "node", handleNodeRightClick);
+// tree.on("cxttap", handleCanvasRightClick);
+// tree.on("change", "node", console.log);
+
+tree.on("mouseover", handleMouseOver);
+tree.on("mouseout", handleMouseOut);
