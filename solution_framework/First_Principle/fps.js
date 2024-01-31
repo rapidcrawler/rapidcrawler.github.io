@@ -153,9 +153,22 @@ function getAllConnectedNodes(node) {
   return connectedNodes;
 }
 
-const toggleNodeChildren = (e) => {
-  const node = e.target;
+const handleExpandNode = (node) => {
   const connectedNodes = getAllConnectedNodes(node);
+
+  connectedNodes.forEach((node) => {
+    node.show();
+  });
+};
+
+const handleCollapseNode = (node) => {
+  const connectedNodes = getAllConnectedNodes(node);
+  connectedNodes.forEach((node) => {
+    node.hide();
+  });
+};
+
+const toggleNodeChildren = (node) => {
   let shouldHide = false;
 
   if (!childrenHiddenNodes.includes(e.target.data("id"))) {
@@ -165,17 +178,18 @@ const toggleNodeChildren = (e) => {
     childrenHiddenNodes = childrenHiddenNodes.filter(
       (id) => id !== e.target.data("id")
     );
-    
   }
-  console.log({ shouldHide });
 
-  connectedNodes.forEach((node) => {
-    if (shouldHide) {
-      node.hide();
-    } else {
-      node.show();
-    }
-  });
+  if (shouldHide) {
+    handleCollapseNode(node);
+  } else {
+    handleExpandNode(node);
+  }
+};
+
+const handleNodeClick = (e) => {
+  const node = e.target;
+  toggleNodeChildren(node);
 };
 
 const enableZoomOnCtrlKeyDown = (e) => {
@@ -215,6 +229,7 @@ const handleCanvasRightClick = (e) => {
 const hidePopper = () => {
   popperContainer.classList.remove("visible");
   popper.classList.remove("visible");
+  currentSelectedNode = undefined;
 };
 
 const showPopper = (x, y) => {
@@ -316,6 +331,20 @@ const handleDeleteNode = () => {
     currentSelectedNode.remove();
   }
 };
+
+const handleCollapseAll = () => {
+  const root = tree.getElementById("root-node");
+
+  handleCollapseNode(root);
+  hidePopper();
+};
+
+const handleExpandAll = () => {
+  const root = tree.getElementById("root-node");
+  handleExpandNode(root);
+  hidePopper();
+};
+
 const handleEditOptions = (e) => {
   let element = getElementFromEvent(e);
   switch (element.dataset.option) {
@@ -324,6 +353,18 @@ const handleEditOptions = (e) => {
       break;
     case "delete":
       handleDeleteNode();
+      break;
+    case "expand":
+      handleExpandNode(currentSelectedNode);
+      break;
+    case "expand-all":
+      handleExpandAll();
+      break;
+    case "collapse":
+      handleCollapseNode(currentSelectedNode);
+      break;
+    case "collapse-all":
+      handleCollapseAll();
       break;
     default:
       console.error(`${element.dataset.option} is not handled`);
@@ -337,9 +378,9 @@ popperContainer.addEventListener("click", hidePopper);
 addNodesContainer.addEventListener("click", handleAddNode);
 nodeOptionsContainer.addEventListener("click", handleEditOptions);
 
-tree.on("click", "node", toggleNodeChildren);
+tree.on("click", "node", handleNodeClick);
 tree.on("cxttap", "node", handleNodeRightClick);
-tree.on("cxttap", handleCanvasRightClick);
+// tree.on("cxttap", handleCanvasRightClick);
 // tree.on("change", "node", console.log);
 
 tree.on("mouseover", handleMouseOver);
