@@ -1,5 +1,6 @@
 "use strict";
 
+let childrenHiddenNodes = [];
 const POPPER_WIDTH = 300;
 const POPPER_HEIGHT = 450;
 const popperContainer = document.querySelector("#popper-container");
@@ -152,12 +153,24 @@ function getAllConnectedNodes(node) {
   return connectedNodes;
 }
 
-const handleNodeClick = (e) => {
+const toggleNodeChildren = (e) => {
   const node = e.target;
   const connectedNodes = getAllConnectedNodes(node);
+  let shouldHide = false;
+
+  if (!childrenHiddenNodes.includes(e.target.data("id"))) {
+    childrenHiddenNodes.push(e.target.data("id"));
+    shouldHide = true;
+  } else {
+    childrenHiddenNodes = childrenHiddenNodes.filter(
+      (id) => id !== e.target.data("id")
+    );
+    
+  }
+  console.log({ shouldHide });
 
   connectedNodes.forEach((node) => {
-    if (node.visible()) {
+    if (shouldHide) {
       node.hide();
     } else {
       node.show();
@@ -194,7 +207,7 @@ const handleNodeRightClick = (e) => {
   showPopper(e.originalEvent.x, e.originalEvent.y);
   currentSelectedNode = e.target;
 };
-const handleCanvasRightClick = () => {
+const handleCanvasRightClick = (e) => {
   e.preventDefault();
   showPopper(e.originalEvent.x, e.originalEvent.y);
 };
@@ -264,10 +277,14 @@ const handleAddNode = (e) => {
   const type = element.dataset.nodeType;
   // TODO: Switch to generating id using uuid
   const id = "new-node" + nodesLength++;
-  const pos = currentSelectedNode.position();
+  let newNodePosition;
+  if (currentSelectedNode) {
+    const pos = currentSelectedNode.position();
+    newNodePosition = { x: pos.x, y: pos.y + 100 };
+  }
   tree.add({
     data: { id, label: "New Node", type },
-    position: { x: pos.x, y: pos.y + 100 },
+    position: newNodePosition,
   });
   if (currentSelectedNode) {
     tree.add({
@@ -320,9 +337,9 @@ popperContainer.addEventListener("click", hidePopper);
 addNodesContainer.addEventListener("click", handleAddNode);
 nodeOptionsContainer.addEventListener("click", handleEditOptions);
 
-tree.on("click", "node", handleNodeClick);
+tree.on("click", "node", toggleNodeChildren);
 tree.on("cxttap", "node", handleNodeRightClick);
-// tree.on("cxttap", handleCanvasRightClick);
+tree.on("cxttap", handleCanvasRightClick);
 // tree.on("change", "node", console.log);
 
 tree.on("mouseover", handleMouseOver);
