@@ -1,12 +1,42 @@
 "use strict";
 
 let childrenHiddenNodes = [];
+const baseURL = "http://localhost:4000";
 const POPPER_WIDTH = 300;
 const POPPER_HEIGHT = 450;
 const popperContainer = document.querySelector("#popper-container");
 const popper = document.querySelector("#popper");
 const addNodesContainer = document.querySelector("#add-nodes");
 const nodeOptionsContainer = document.querySelector("#node-options-container");
+
+/**
+ * Make a request to the back-end
+ * @param {ReqObject} param0 Request object
+ * @returns {Promise}
+ */
+const request = async ({ method, url, data }) => {
+  try {
+    const _baseURL =
+      baseURL[baseURL.length - 1] === "/" ? baseURL.slice(0, -1) : baseURL;
+    const _url = url[0] === "/" ? url : "/" + url;
+
+    const res = await fetch(`${_baseURL}${_url}`, {
+      method,
+      body: JSON.stringify(data),
+      headers: { ...this.commonHeaders },
+    });
+    if (res.status >= 400) {
+      const json = await res.json();
+      throw {
+        status: res.status,
+        message: json.message ?? res.message ?? res.statusText,
+      };
+    }
+    if (res.headers.get("content-length") !== "0") return res.json();
+  } catch (_err) {
+    throw err;
+  }
+};
 
 const initialNodes = [
   {
@@ -16,74 +46,122 @@ const initialNodes = [
     },
   },
   {
-    data: { label: "Application data", id: "application-data" },
+    data: {
+      type: "lightbulb",
+      label: "Application data",
+      id: "application-data",
+    },
+  },
+  { data: { type: "lightbulb", label: "Income level", id: "income-level" } },
+  {
+    data: {
+      type: "lightbulb",
+      label: "Employment Status",
+      id: "employment-status",
+    },
+  },
+  { data: { type: "lightbulb", label: "Marketing", id: "marketing" } },
+  { data: { type: "lightbulb", label: "Account Data", id: "account-data" } },
+  {
+    data: {
+      type: "lightbulb",
+      label: "Debt-to-Income Ratio",
+      id: "debt-to-income-ratio",
+    },
   },
   {
-    data: { label: "Income level", id: "income-level" },
+    data: {
+      type: "lightbulb",
+      label: "Existing Debt Levels",
+      id: "existing-debt-levels",
+    },
   },
   {
-    data: { label: "Employment Status", id: "employment-status" },
+    data: {
+      type: "lightbulb",
+      label: "Payment History",
+      id: "payment-history",
+    },
   },
   {
-    data: { label: "Marketing", id: "marketing" },
+    data: {
+      type: "lightbulb",
+      label: "Utilization Ratio",
+      id: "utilization-ratio",
+    },
   },
   {
-    data: { label: "Account Data", id: "account-data" },
+    data: {
+      type: "lightbulb",
+      label: "Banking Relationship",
+      id: "banking-relationship",
+    },
+  },
+  { data: { type: "lightbulb", label: "New Idea", id: "new-idea" } },
+  { data: { type: "lightbulb", label: "Personal Data", id: "personal-data" } },
+  { data: { type: "lightbulb", label: "Age", id: "age" } },
+  { data: { type: "lightbulb", label: "Gender", id: "gender" } },
+  {
+    data: { type: "lightbulb", label: "Marital Status", id: "marital-status" },
   },
   {
-    data: { label: "Debt-to-Income Ratio", id: "debt-to-income-ratio" },
+    data: {
+      type: "lightbulb",
+      label: "Credit Bureau data",
+      id: "credit-bureau-data",
+    },
+  },
+  { data: { type: "lightbulb", label: "Credit Report", id: "credit-report" } },
+  { data: { type: "lightbulb", label: "Credit Score", id: "credit-score" } },
+  {
+    data: { type: "lightbulb", label: "Credit History", id: "credit-history" },
   },
   {
-    data: { label: "Existing Debt Levels", id: "existing-debt-levels" },
+    data: {
+      type: "lightbulb",
+      label: "Recent credit inquiries",
+      id: "recent-credit-inquiries",
+    },
   },
   {
-    data: { label: "Payment History", id: "payment-history" },
+    data: {
+      type: "lightbulb",
+      label: "Regulatory requirements",
+      id: "regulatory-requirements",
+    },
   },
-  {
-    data: { label: "Utilization Ratio", id: "utilization-ratio" },
-  },
-  {
-    data: { label: "Banking Relationship", id: "banking-relationship" },
-  },
-  {
-    data: { label: "New Idea", id: "new-idea" },
-  },
+  { data: { type: "lightbulb", label: "Team 1", id: "team-1" } },
+  { data: { type: "lightbulb", label: "Team 2", id: "team-2" } },
+  { data: { type: "lightbulb", label: "Team 3", id: "team-3" } },
 ];
 
 let nodesLength = initialNodes.length;
 
 const initialEdges = [
-  {
-    data: { target: "application-data", source: "root-node" },
-  },
+  { data: { target: "application-data", source: "root-node" } },
   { data: { target: "account-data", source: "root-node" } },
-  {
-    data: { source: "application-data", target: "income-level" },
-  },
-  {
-    data: { source: "application-data", target: "employment-status" },
-  },
-  {
-    data: { source: "application-data", target: "marketing" },
-  },
-  {
-    data: { source: "account-data", target: "debt-to-income-ratio" },
-  },
-  {
-    data: { source: "account-data", target: "existing-debt-levels" },
-  },
-  {
-    data: { source: "account-data", target: "payment-history" },
-  },
-  {
-    data: { source: "account-data", target: "utilization-ratio" },
-  },
-  {
-    data: { source: "account-data", target: "banking-relationship" },
-  },
-  {
-    data: { source: "account-data", target: "new-idea" },
-  },
+  { data: { source: "application-data", target: "income-level" } },
+  { data: { source: "application-data", target: "employment-status" } },
+  { data: { source: "application-data", target: "marketing" } },
+  { data: { source: "account-data", target: "debt-to-income-ratio" } },
+  { data: { source: "account-data", target: "existing-debt-levels" } },
+  { data: { source: "account-data", target: "payment-history" } },
+  { data: { source: "account-data", target: "utilization-ratio" } },
+  { data: { source: "account-data", target: "banking-relationship" } },
+  { data: { source: "account-data", target: "new-idea" } },
+  { data: { source: "root-node", target: "personal-data" } },
+  { data: { source: "personal-data", target: "age" } },
+  { data: { source: "personal-data", target: "gender" } },
+  { data: { source: "personal-data", target: "marital-status" } },
+  { data: { source: "root-node", target: "credit-bureau-data" } },
+  { data: { source: "credit-bureau-data", target: "credit-report" } },
+  { data: { source: "credit-bureau-data", target: "regulatory-requirements" } },
+  { data: { source: "credit-report", target: "credit-score" } },
+  { data: { source: "credit-report", target: "credit-history" } },
+  { data: { source: "credit-report", target: "recent-credit-inquiries" } },
+  { data: { source: "regulatory-requirements", target: "team-1" } },
+  { data: { source: "regulatory-requirements", target: "team-2" } },
+  { data: { source: "regulatory-requirements", target: "team-3" } },
 ];
 
 const layoutOptions = {
@@ -112,8 +190,27 @@ const tree = cytoscape({
     {
       selector: "node",
       style: {
-        "background-color": "#666",
         label: "data(label)",
+        "background-color": "#000", // Set the background color to white
+        "background-opacity": 1, // Make the background color transparent
+        "text-valign": "bottom", // Align the icon to the bottom of the node
+        "text-halign": "center", // Center the icon horizontally
+        "font-size": 24, // Set the font size of the icon
+        "font-family": "FontAwesome", // Set the font family to Font Awesome
+        "text-color": "black",
+        "background-image": function (ele) {
+          const type = ele.data("type");
+          console.log({ type });
+          switch (type) {
+            case "lightbulb":
+              return "\uf007";
+            case "database":
+              return "url(https://picsum.photos/132)";
+            // more cases...
+            default:
+              return "url(/path/to/defaultImage.png)";
+          }
+        },
       },
     },
     {
@@ -125,6 +222,7 @@ const tree = cytoscape({
         "target-arrow-shape": "triangle",
         "curve-style": "bezier",
         "text-margin-y": -15,
+        "edge-distances": "node-position",
       },
     },
   ],
@@ -171,12 +269,12 @@ const handleCollapseNode = (node) => {
 const toggleNodeChildren = (node) => {
   let shouldHide = false;
 
-  if (!childrenHiddenNodes.includes(e.target.data("id"))) {
-    childrenHiddenNodes.push(e.target.data("id"));
+  if (!childrenHiddenNodes.includes(node.data("id"))) {
+    childrenHiddenNodes.push(node.data("id"));
     shouldHide = true;
   } else {
     childrenHiddenNodes = childrenHiddenNodes.filter(
-      (id) => id !== e.target.data("id")
+      (id) => id !== node.data("id")
     );
   }
 
@@ -373,6 +471,10 @@ const handleEditOptions = (e) => {
   hidePopper();
 };
 
+const handleNodeChange = (e) => {
+  console.log({ e });
+};
+
 /** All event listeners here */
 popperContainer.addEventListener("click", hidePopper);
 addNodesContainer.addEventListener("click", handleAddNode);
@@ -381,7 +483,7 @@ nodeOptionsContainer.addEventListener("click", handleEditOptions);
 tree.on("click", "node", handleNodeClick);
 tree.on("cxttap", "node", handleNodeRightClick);
 // tree.on("cxttap", handleCanvasRightClick);
-// tree.on("change", "node", console.log);
+tree.on("change", "node", handleNodeChange);
 
 tree.on("mouseover", handleMouseOver);
 tree.on("mouseout", handleMouseOut);
