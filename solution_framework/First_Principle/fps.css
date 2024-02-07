@@ -363,11 +363,63 @@ div.tree>ul>li>a {
     transform: rotateZ(90deg) rotateY(180deg) translateY(0.45em) translateX(-1.4em);
 }
 
-.popper-container {
+.popper-bg {
     position: fixed;
     inset: 0;
     background-color: #00000034;
     display: none;
+}
+
+.dialog-container {
+
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.dialog-container .dialog {
+    background-color: white;
+    z-index: 1;
+    position: relative;
+    padding: 20px;
+    color: black;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+form button {
+    width: fit-content;
+    background-color: #fff;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+form button:hover {
+    background-color: #ecf0ec;
+}
+
+.dialog-container .dialog button, .dialog-container .dialog select {
+    padding: 6px 8px;
+}
+
+.dialog-container.visible {
+    display: flex;
+}
+
+.dialog-bg {
+    position: fixed;
+    inset: 0;
+    background-color: #00000034;
 }
 
 .popper {
@@ -380,7 +432,7 @@ div.tree>ul>li>a {
     border-radius: 4px;
 }
 
-.popper.visible, .popper-container.visible {
+.popper.visible, .popper-bg.visible {
     display: block;
 }
 
@@ -419,4 +471,46 @@ div.tree>ul>li>a {
 #node-options-container li.option:hover, #add-nodes button:hover {
     cursor: pointer;
     background-color: #ecf0ec;
+}
+
+.graph-container {
+    position: relative;
+    z-index: 0;
+}
+
+.graph-container .spinner-container {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.graph-container .spinner-container.visible {
+    display: flex;
+}
+
+.spinner {
+    color: gray;
+    margin-left: -0.25rem;
+    margin-right: 0.75rem;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+.spinner circle {
+    opacity: 0.25;
+}
+
+.spinner path {
+    opacity: 0.75;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(1turn);
+    }
 }

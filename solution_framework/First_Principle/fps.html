@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.28.1/dist/cytoscape.umd.js"></script>
+
 </head>
 
 <body>
@@ -51,8 +52,17 @@
     </div>
 
     <br><br><br>
-
-    <div id="nodes" />
+    <div class="graph-container">
+        <div id="nodes"></div>
+        <div class="spinner-container" id="spinner-container">
+            <svg class="spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                </path>
+            </svg>
+        </div>
+    </div>
     <!-- Tree Structure -->
     <!-- <div class="tree"> -->
     <!-- Toggle button for expanding and collapsing -->
@@ -127,7 +137,11 @@
     <div id="idea_sketch">
         <img src="/assets/imgs/solution_frameworks/draw_io/FPS_Sketch.drawio.svg" alt="" srcset="">
     </div>
-    <div class="popper-container" id="popper-container"></div>
+    <div class="popper-bg" id="popper-bg"></div>
+    <div class="dialog-container" id="dialog-container">
+        <div class="dialog-bg"></div>
+        <div class="dialog"></div>
+    </div>
     <div class="popper" id="popper">
         <div class="add-node-type-container" id="add-nodes">
             <button class="add-node" data-node-type="lightbulb"><i class="fa fa-lightbulb-o"></i></button>
@@ -138,9 +152,10 @@
             <li class="option" data-option="rename"><i class="fa fa-pencil"></i> Rename node</li>
             <li class="option" data-option="delete"><i class="fa fa-trash"></i> Delete node</li>
             <li class="option" data-option="collapse"><i class="fa fa-compress"></i> Collapse</li>
-            <li class="option" data-option="expand"><i class="fa fa-expand"></i>Expand</li>
+            <li class="option" data-option="expand"><i class="fa fa-expand"></i> Expand</li>
             <li class="option" data-option="collapse-all"><i class="fa fa-minus"></i> Collapse all</li>
-            <li class="option" data-option="expand-all"><i class="fa fa-arrows-alt"></i>Expand all</li>
+            <li class="option" data-option="expand-all"><i class="fa fa-arrows-alt"></i> Expand all</li>
+            <li class="option" data-option="change-type"><i class="fa fa-refresh"></i>Change node type</li>
         </ul>
     </div>
     <!-- <div style="align-items: last baseline;">

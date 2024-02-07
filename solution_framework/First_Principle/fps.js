@@ -1,10 +1,45 @@
 "use strict";
 
+const spinnerContainer = document.querySelector("#spinner-container");
+const spinnerControl = new Proxy(
+  { isShown: false },
+  {
+    set(target, prop, value) {
+      if (value) {
+        spinnerContainer.classList.add("visible");
+      } else {
+        spinnerContainer.classList.remove("visible");
+      }
+
+      target[prop] = value;
+      return true;
+    },
+  }
+);
+
+const dialogContainer = document.querySelector("#dialog-container");
+const dialog = document.querySelector("#dialog-container .dialog");
+const dialogControl = new Proxy(
+  { isShown: false },
+  {
+    set(target, prop, value) {
+      if (value) {
+        dialogContainer.classList.add("visible");
+      } else {
+        dialogContainer.classList.remove("visible");
+      }
+
+      target[prop] = value;
+      return true;
+    },
+  }
+);
+
 let childrenHiddenNodes = [];
 const baseURL = "http://localhost:4000";
 const POPPER_WIDTH = 300;
 const POPPER_HEIGHT = 450;
-const popperContainer = document.querySelector("#popper-container");
+const popperBg = document.querySelector("#popper-bg");
 const popper = document.querySelector("#popper");
 const addNodesContainer = document.querySelector("#add-nodes");
 const nodeOptionsContainer = document.querySelector("#node-options-container");
@@ -343,7 +378,7 @@ const handleCanvasRightClick = (e) => {
 };
 
 const hidePopper = () => {
-  popperContainer.classList.remove("visible");
+  popperBg.classList.remove("visible");
   popper.classList.remove("visible");
   currentSelectedNode = undefined;
 };
@@ -390,7 +425,7 @@ const showPopper = (x, y) => {
   }
 
   popper.classList.add("visible");
-  popperContainer.classList.add("visible");
+  popperBg.classList.add("visible");
   popper.style.top = `${finalY}px`;
   popper.style.left = `${finalX}px`;
 };
@@ -461,47 +496,92 @@ const handleExpandAll = () => {
   hidePopper();
 };
 
+const handleNodeTypeChangeFormSubmit = (e) => {
+  e.preventDefault();
+  spinnerControl.isShown = true;
+  dialogControl.isShown = false;
+  const formData = new FormData(e.target); // Get form data
+  const dataObject = Object.fromEntries(formData.entries()); // Convert FormData to plain object
+  const newType = dataObject.type;
+  if (newType) {
+    currentSelectedNode.data("type", newType);
+  }
+  hidePopper();
+  setTimeout(() => {
+    spinnerControl.isShown = false;
+  }, 3000);
+};
+
+const handleNodeTypeChange = () => {
+  dialog.innerHTML = `<form onsubmit="handleNodeTypeChangeFormSubmit(event)">
+  <p>Current Type: ${currentSelectedNode.data("type")}</p>
+  Select new type:
+  <select name="type">
+  <option value="lightbulb">lightbulb</option>
+  <option value="question">question</option>
+  <option value="database">database</option>
+  </select>
+  <button>Save</button>
+  </form>`;
+  dialogControl.isShown = true;
+};
+
 const handleEditOptions = (e) => {
   let element = getElementFromEvent(e);
   switch (element.dataset.option) {
     case "rename":
       handleRenameNode();
+      hidePopper();
       break;
     case "delete":
       handleDeleteNode();
+      hidePopper();
       break;
     case "expand":
       handleExpandNode(currentSelectedNode);
+      hidePopper();
       break;
     case "expand-all":
       handleExpandAll();
+      hidePopper();
       break;
     case "collapse":
       handleCollapseNode(currentSelectedNode);
+      hidePopper();
       break;
     case "collapse-all":
       handleCollapseAll();
+      hidePopper();
+      break;
+    case "change-type":
+      handleNodeTypeChange();
       break;
     default:
       console.error(`${element.dataset.option} is not handled`);
   }
-
-  hidePopper();
 };
 
 const handleNodeChange = (e) => {
   console.log({ e });
 };
+const onAddNode = async (e) => {
+  con;
+};
+const onRemoveNode = (e) => {
+  console.log({ e });
+};
 
 /** All event listeners here */
-popperContainer.addEventListener("click", hidePopper);
+popperBg.addEventListener("click", hidePopper);
 addNodesContainer.addEventListener("click", handleAddNode);
 nodeOptionsContainer.addEventListener("click", handleEditOptions);
 
 tree.on("click", "node", handleNodeClick);
 tree.on("cxttap", "node", handleNodeRightClick);
-// tree.on("cxttap", handleCanvasRightClick);
-tree.on("change", "node", handleNodeChange);
+
+tree.on("data", "node", handleNodeChange);
+tree.on("add", "node", onAddNode);
+tree.on("remove", "node", onRemoveNode);
 
 tree.on("mouseover", handleMouseOver);
 tree.on("mouseout", handleMouseOut);
