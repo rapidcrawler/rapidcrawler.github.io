@@ -43,11 +43,12 @@ const initialNodes = [
     data: {
       label: "Customer's Dynamic Credit Limit Determination",
       id: "root-node",
+      type: "lightbulb",
     },
   },
   {
     data: {
-      type: "lightbulb",
+      type: "database",
       label: "Application data",
       id: "application-data",
     },
@@ -191,24 +192,25 @@ const tree = cytoscape({
       selector: "node",
       style: {
         label: "data(label)",
-        "background-color": "#000", // Set the background color to white
-        "background-opacity": 1, // Make the background color transparent
-        "text-valign": "bottom", // Align the icon to the bottom of the node
-        "text-halign": "center", // Center the icon horizontally
-        "font-size": 24, // Set the font size of the icon
-        "font-family": "FontAwesome", // Set the font family to Font Awesome
-        "text-color": "black",
+        "background-color": "wheat",
+        "text-valign": "bottom",
+        "text-halign": "center",
+        "font-size": 24,
         "background-image": function (ele) {
           const type = ele.data("type");
-          console.log({ type });
+          // The height and width are decided based on the height and width properties in the svg itself.
+          //  Setting those styles here did not seem to work.
           switch (type) {
             case "lightbulb":
-              return "\uf007";
+              return "url(/assets/imgs/solution_frameworks/lightbulb.svg)";
             case "database":
-              return "url(https://picsum.photos/132)";
-            // more cases...
+              return "url(/assets/imgs/solution_frameworks/database.svg)";
+
+            case "question":
+              return "url(/assets/imgs/solution_frameworks/question.svg)";
+
             default:
-              return "url(/path/to/defaultImage.png)";
+              return "url(/assets/imgs/solution_frameworks/lightbulb.svg)";
           }
         },
       },
@@ -220,7 +222,23 @@ const tree = cytoscape({
         "line-color": "#ccc",
         "target-arrow-color": "#ccc",
         "target-arrow-shape": "triangle",
-        "curve-style": "bezier",
+        "curve-style": "unbundled-bezier",
+        "control-point-step-size": 40,
+        "control-point-distances": function (ele) {
+          const sourcePos = ele.source().position();
+          const targetPos = ele.target().position();
+          const dx = targetPos.x - sourcePos.x;
+          const dy = targetPos.y - sourcePos.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          // Now we decide the control point distances based on the calculated distance
+          // You can adjust the formula to suit your needs
+          const controlPointDistance = distance * 0.03;
+          return `${(dx < 0 ? -1 : 1) * controlPointDistance}  ${
+            (dy < 0 ? -1 : 1) * controlPointDistance
+          }`;
+        },
+        "control-point-weights": "0.2 0.6 0.2",
         "text-margin-y": -15,
         "edge-distances": "node-position",
       },
