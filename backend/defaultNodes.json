@@ -1,0 +1,325 @@
+{
+	"nodes": [
+		{
+			"data": {
+				"label": "Customer's Dynamic Credit Limit Determination",
+				"id": "root-node",
+				"type": "lightbulb"
+			}
+		},
+		{
+			"data": {
+				"type": "database",
+				"label": "Application data",
+				"id": "application-data"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Income level",
+				"id": "income-level"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Employment Status",
+				"id": "employment-status"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Marketing",
+				"id": "marketing"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Account Data",
+				"id": "account-data"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Debt-to-Income Ratio",
+				"id": "debt-to-income-ratio"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Existing Debt Levels",
+				"id": "existing-debt-levels"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Payment History",
+				"id": "payment-history"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Utilization Ratio",
+				"id": "utilization-ratio"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Banking Relationship",
+				"id": "banking-relationship"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "New Idea",
+				"id": "new-idea"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Personal Data",
+				"id": "personal-data"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Age",
+				"id": "age"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Gender",
+				"id": "gender"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Marital Status",
+				"id": "marital-status"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Credit Bureau data",
+				"id": "credit-bureau-data"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Credit Report",
+				"id": "credit-report"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Credit Score",
+				"id": "credit-score"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Credit History",
+				"id": "credit-history"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Recent credit inquiries",
+				"id": "recent-credit-inquiries"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Regulatory requirements",
+				"id": "regulatory-requirements"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Team 1",
+				"id": "team-1"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Team 2",
+				"id": "team-2"
+			}
+		},
+		{
+			"data": {
+				"type": "lightbulb",
+				"label": "Team 3",
+				"id": "team-3"
+			}
+		}
+	],
+	"edges": [
+		{
+			"data": {
+				"target": "application-data",
+				"source": "root-node"
+			}
+		},
+		{
+			"data": {
+				"target": "account-data",
+				"source": "root-node"
+			}
+		},
+		{
+			"data": {
+				"source": "application-data",
+				"target": "income-level"
+			}
+		},
+		{
+			"data": {
+				"source": "application-data",
+				"target": "employment-status"
+			}
+		},
+		{
+			"data": {
+				"source": "application-data",
+				"target": "marketing"
+			}
+		},
+		{
+			"data": {
+				"source": "account-data",
+				"target": "debt-to-income-ratio"
+			}
+		},
+		{
+			"data": {
+				"source": "account-data",
+				"target": "existing-debt-levels"
+			}
+		},
+		{
+			"data": {
+				"source": "account-data",
+				"target": "payment-history"
+			}
+		},
+		{
+			"data": {
+				"source": "account-data",
+				"target": "utilization-ratio"
+			}
+		},
+		{
+			"data": {
+				"source": "account-data",
+				"target": "banking-relationship"
+			}
+		},
+		{
+			"data": {
+				"source": "account-data",
+				"target": "new-idea"
+			}
+		},
+		{
+			"data": {
+				"source": "root-node",
+				"target": "personal-data"
+			}
+		},
+		{
+			"data": {
+				"source": "personal-data",
+				"target": "age"
+			}
+		},
+		{
+			"data": {
+				"source": "personal-data",
+				"target": "gender"
+			}
+		},
+		{
+			"data": {
+				"source": "personal-data",
+				"target": "marital-status"
+			}
+		},
+		{
+			"data": {
+				"source": "root-node",
+				"target": "credit-bureau-data"
+			}
+		},
+		{
+			"data": {
+				"source": "credit-bureau-data",
+				"target": "credit-report"
+			}
+		},
+		{
+			"data": {
+				"source": "credit-bureau-data",
+				"target": "regulatory-requirements"
+			}
+		},
+		{
+			"data": {
+				"source": "credit-report",
+				"target": "credit-score"
+			}
+		},
+		{
+			"data": {
+				"source": "credit-report",
+				"target": "credit-history"
+			}
+		},
+		{
+			"data": {
+				"source": "credit-report",
+				"target": "recent-credit-inquiries"
+			}
+		},
+		{
+			"data": {
+				"source": "regulatory-requirements",
+				"target": "team-1"
+			}
+		},
+		{
+			"data": {
+				"source": "regulatory-requirements",
+				"target": "team-2"
+			}
+		},
+		{
+			"data": {
+				"source": "regulatory-requirements",
+				"target": "team-3"
+			}
+		}
+	]
+}
