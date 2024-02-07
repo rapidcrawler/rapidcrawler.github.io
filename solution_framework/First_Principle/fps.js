@@ -564,9 +564,7 @@ const handleEditOptions = (e) => {
 const handleNodeChange = (e) => {
   console.log({ e });
 };
-const onAddNode = async (e) => {
-  con;
-};
+const onAddNode = async (e) => {};
 const onRemoveNode = (e) => {
   console.log({ e });
 };
