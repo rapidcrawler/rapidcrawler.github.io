@@ -3,16 +3,19 @@ const { Schema, model } = mongoose;
 
 const nodeSchema = new Schema({
   data: {
-    label: { type: String },
-    id: { type: String },
-    type: { type: String },
+    label: { type: String, required: true },
+    id: { type: String, required: true },
+    type: {
+      type: String,
+      enum: ["lightbulb", "database", "question"],
+    },
   },
 });
 
 const edgeSchema = new Schema({
   data: {
-    target: { type: String },
-    source: { type: String },
+    target: { type: String, required: true },
+    source: { type: String, required: true },
   },
 });
 
