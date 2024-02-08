@@ -91,7 +91,7 @@ const initialNodes = [
   { data: { type: "lightbulb", label: "Income level", id: "income-level" } },
   {
     data: {
-      type: "lightbulb",
+      type: "question",
       label: "Employment Status",
       id: "employment-status",
     },
@@ -107,7 +107,7 @@ const initialNodes = [
   },
   {
     data: {
-      type: "lightbulb",
+      type: "question",
       label: "Existing Debt Levels",
       id: "existing-debt-levels",
     },
@@ -350,6 +350,7 @@ const layoutOptions = {
   root: "root-node",
   ready: undefined,
   stop: undefined,
+  fit: false,
   transform: function (node, position) {
     return position;
   },
@@ -365,7 +366,11 @@ const tree = cytoscape({
       selector: "node",
       style: {
         label: "data(label)",
-        "background-color": "wheat",
+        "background-color": "white",
+        "border-color": "black",
+        "border-width": "2px",
+        width: "60px",
+        height: "60px",
         "text-valign": "bottom",
         "text-halign": "center",
         "font-size": 24,
