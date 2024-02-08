@@ -4,6 +4,7 @@ const port = 3000;
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -13,6 +14,9 @@ mongoose.connect(DB_CONNECTION_STRING);
 
 const { nodeModel, edgeModel } = require("./models");
 
+app.use(cors({ origin: "*" }));
+app.use(bodyParser.json({ strict: false }));
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
@@ -20,8 +24,6 @@ app.listen(port, () => {
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-
-app.use(bodyParser.json({ strict: false }));
 
 app.get("/nodes", async (req, res) => {
   res.json(await nodeModel.find({}));
