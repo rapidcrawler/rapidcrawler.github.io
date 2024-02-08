@@ -14,6 +14,7 @@ const nodeSchema = new Schema({
 
 const edgeSchema = new Schema({
   data: {
+    id: { type: String, required: true },
     target: { type: String, required: true },
     source: { type: String, required: true },
   },

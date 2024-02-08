@@ -63,7 +63,12 @@ app.delete("/nodes/:id", async (req, res) => {
 app.post("/edges", async (req, res) => {
   try {
     const edgeData = req.body.edge;
-    if (!edgeData || !edgeData.data.source || !edgeData.data.target) {
+    if (
+      !edgeData ||
+      !edgeData.data.source ||
+      !edgeData.data.target ||
+      !edgeData.data.id
+    ) {
       res.status(400).json({ message: "Malformed data" });
     }
     const newEdge = new edgeModel(edgeData);
