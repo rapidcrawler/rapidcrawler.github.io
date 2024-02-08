@@ -579,8 +579,8 @@ const getElementFromEvent = (e, maxDepth = 1) => {
 const handleAddNode = (e) => {
   const element = getElementFromEvent(e);
   const type = element.dataset.nodeType;
-  // TODO: Switch to generating id using uuid
-  const id = "new-node" + nodesLength++;
+
+  const id = uuid.v4();
   let newNodePosition;
   if (currentSelectedNode) {
     const pos = currentSelectedNode.position();
@@ -595,6 +595,7 @@ const handleAddNode = (e) => {
       data: {
         source: currentSelectedNode.data("id"),
         target: id,
+        id: uuid.v4(),
       },
     });
   }
