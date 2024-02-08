@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const bodyParser = require("body-parser");
 
 dotenv.config();
 
@@ -11,15 +12,16 @@ const DB_CONNECTION_STRING = `${process.env.DB_CONNECTION_STRING}`;
 mongoose.connect(DB_CONNECTION_STRING);
 
 const { nodeModel, edgeModel } = require("./models");
-const bodyParser = require("body-parser");
-app.use(bodyParser.json({ strict: false }));
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.use(bodyParser.json({ strict: false }));
 
 app.get("/nodes", async (req, res) => {
   res.json(await nodeModel.find({}));
@@ -39,6 +41,7 @@ app.post("/nodes", async (req, res) => {
     !nodeData.data.type
   ) {
     res.status(400).json({ message: "Malformed data" });
+    return;
   }
   try {
     const newNode = new nodeModel(nodeData);
@@ -70,6 +73,7 @@ app.post("/edges", async (req, res) => {
       !edgeData.data.id
     ) {
       res.status(400).json({ message: "Malformed data" });
+      return;
     }
     const newEdge = new edgeModel(edgeData);
     await newEdge.save();
@@ -85,6 +89,31 @@ app.delete("/edges/:id", async (req, res) => {
   try {
     await nodeModel.findOneAndDelete({ data: { id } });
     res.status(200).json({ message: "Success" });
+  } catch (err) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+app.put("/nodes/:id", async (req, res) => {
+  const nodeData = req.body.node;
+  if (!nodeData.label && !nodeData.type) {
+    res.status(400).json({
+      message:
+        "'label' or 'type' needs to be defined. Only they can be updated.",
+    });
+    return;
+  }
+  const id = req.params.id;
+  try {
+    const node = await nodeModel.findOne({ "data.id": { $eq: id } }).exec();
+    if (nodeData.type) {
+      node.data.type = nodeData.type;
+    }
+    if (nodeData.label) {
+      node.data.label = nodeData.label;
+    }
+    await node.save();
+    res.json({ message: "Success" });
   } catch (err) {
     res.status(500).json({ message: "Internal server error" });
   }
