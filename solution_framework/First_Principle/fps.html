@@ -53,8 +53,11 @@
     </div>
 
     <br><br><br>
+    <!-- Graph and supporting stuff starts here -->
     <div class="graph-container">
+        <!-- Graph is shown within the "nodes" div here -->
         <div id="nodes"></div>
+        <!-- This shows a spinner overlay on the graph -->
         <div class="spinner-container" id="spinner-container">
             <svg class="spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -62,88 +65,17 @@
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
                 </path>
             </svg>
-            <p style="font-size: 24px; color: black">Simulated updates. Not actually saved.</p>
         </div>
     </div>
-    <!-- Tree Structure -->
-    <!-- <div class="tree"> -->
-    <!-- Toggle button for expanding and collapsing -->
-    <!-- <div id="expand_btn">
-            <button id="toggleAll" class="toggle-button">
-                Expand/Collapse All
-            </button>
-        </div> -->
 
-    <!-- Tree node starts from here -->
-    <!-- <div id="tree-structure">
-            <ul>
-                <li>
-                    <a href="#">Customer's Dynamic Credit Limit Determination</a>
-                    <ul>
-                        <li>
-                            <a href="#">Application Data</a>
-                            <ul class="vertical">
-                                <li><a href="#"><i class="fa fa-database"></i> Income Level</a></li>
-                                <li><a href="#"><i class="fa fa-database"></i> Employment Status</a></li>
-                                <li><a href="#"><i class="fa fa-database"></i> Marketing</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Account Data</a>
-                            <ul class="vertical">
-                                <li><a href="#"><i class="fa fa-database"></i> Debt-to-Income Ratio</a></li>
-                                <li><a href="#"><i class="fa fa-database"></i> Existing Debt Levels</a></li>
-                                <li><a href="#"><i class="fa fa-database"></i> Payment History</a></li>
-                                <li><a href="#"><i class="fa fa-database"></i> Utilization Ratio</a></li>
-                                <li><a href="#"><i class="fa fa-database"></i> Banking Relationship</a></li>
-                                <li><a href="#"><i class="fa fa-database"></i> New Idea</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Personal Data</a>
-                            <ul class="vertical">
-                                <li><a href="#"><i class="fa fa-database"></i> Age</a></li>
-                                <li><a href="#"><i class="fa fa-database"></i> Gender</a></li>
-                                <li><a href="#"><i class="fa fa-database"></i> Marital Status</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Credit Beaurau Data</a>
-                            <ul>
-                                <li>
-                                    <a href="#">Credit Report</a>
-                                    <ul class="vertical">
-                                        <li><a href="#"><i class="fa fa-database"></i> Credit Score</a></li>
-                                        <li><a href="#"><i class="fa fa-database"></i> Credit History</a></li>
-                                        <li><a href="#"><i class="fa fa-database"></i> Recent Credit Inquiries</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Regulatory Requirements</a>
-                                    <ul class="vertical">
-                                        <li><a href="#"><i class="fa fa-database"></i> Team 1</a></li>
-                                        <li><a href="#"><i class="fa fa-database"></i> Team 2</a></li>
-                                        <li><a href="#"><i class="fa fa-database"></i> Team 3</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div> -->
-    </div>
-
-    <br><br>
-
-    <div id="idea_sketch">
-        <img src="/assets/imgs/solution_frameworks/draw_io/FPS_Sketch.drawio.svg" alt="" srcset="">
-    </div>
-    <div class="popper-bg" id="popper-bg"></div>
+    <!-- Dialog for changing node type -->
     <div class="dialog-container" id="dialog-container">
         <div class="dialog-bg"></div>
         <div class="dialog"></div>
     </div>
+
+    <!-- Right click menu on nodes -->
+    <div class="popper-bg" id="popper-bg"></div>
     <div class="popper" id="popper">
         <div class="add-node-type-container" id="add-nodes">
             <button class="add-node" data-node-type="lightbulb"><i class="fa fa-lightbulb-o"></i></button>
@@ -160,50 +92,15 @@
             <li class="option" data-option="change-type"><i class="fa fa-refresh"></i>Change node type</li>
         </ul>
     </div>
-    <!-- <div style="align-items: last baseline;">
-    <img src="/assets/imgs/solution_frameworks/first_principles_thinking.svg" style="width: 80%;" alt=""> 
-</div> -->
-    <script src="./fps.js" defer></script>
-    <script>
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     var treeLinks = document.querySelectorAll('.tree li > a');
-        //     var toggleAllButton = document.getElementById('toggleAll');
-        //     var isExpanded = false; // Track the state of the tree
+    <!-- All graph and supporting stuff ended above -->
 
-        //     treeLinks.forEach(function (link) {
-        //         var childUl = link.nextElementSibling;
-        //         if (childUl && childUl.tagName === 'UL') {
-        //             link.addEventListener('click', function (e) {
-        //                 e.preventDefault();
-        //                 childUl.classList.toggle('expanded');
-        //             });
-        //         }
-        //     });
+    <br><br>
 
-        //     toggleAllButton.addEventListener('click', function () {
-        //         if (!isExpanded) {
-        //             // Expand all nodes
-        //             treeLinks.forEach(function (link) {
-        //                 var childUl = link.nextElementSibling;
-        //                 if (childUl && childUl.tagName === 'UL') {
-        //                     childUl.classList.add('expanded');
-        //                 }
-        //             });
-        //         } else {
-        //             // Collapse all nodes
-        //             treeLinks.forEach(function (link) {
-        //                 var childUl = link.nextElementSibling;
-        //                 if (childUl && childUl.tagName === 'UL') {
-        //                     childUl.classList.remove('expanded');
-        //                 }
-        //             });
-        //         }
-        //         isExpanded = !isExpanded; // Toggle the state
-        //     });
-        // });
+    <div id="idea_sketch">
+        <img src="/assets/imgs/solution_frameworks/draw_io/FPS_Sketch.drawio.svg" alt="" srcset="">
+    </div>
 
-
-    </script>
+    <script src="./fps.js" defer type="module"></script>
 </body>
 
 </html>
