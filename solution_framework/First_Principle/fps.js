@@ -174,30 +174,168 @@ const initialNodes = [
 let nodesLength = initialNodes.length;
 
 const initialEdges = [
-  { data: { target: "application-data", source: "root-node" } },
-  { data: { target: "account-data", source: "root-node" } },
-  { data: { source: "application-data", target: "income-level" } },
-  { data: { source: "application-data", target: "employment-status" } },
-  { data: { source: "application-data", target: "marketing" } },
-  { data: { source: "account-data", target: "debt-to-income-ratio" } },
-  { data: { source: "account-data", target: "existing-debt-levels" } },
-  { data: { source: "account-data", target: "payment-history" } },
-  { data: { source: "account-data", target: "utilization-ratio" } },
-  { data: { source: "account-data", target: "banking-relationship" } },
-  { data: { source: "account-data", target: "new-idea" } },
-  { data: { source: "root-node", target: "personal-data" } },
-  { data: { source: "personal-data", target: "age" } },
-  { data: { source: "personal-data", target: "gender" } },
-  { data: { source: "personal-data", target: "marital-status" } },
-  { data: { source: "root-node", target: "credit-bureau-data" } },
-  { data: { source: "credit-bureau-data", target: "credit-report" } },
-  { data: { source: "credit-bureau-data", target: "regulatory-requirements" } },
-  { data: { source: "credit-report", target: "credit-score" } },
-  { data: { source: "credit-report", target: "credit-history" } },
-  { data: { source: "credit-report", target: "recent-credit-inquiries" } },
-  { data: { source: "regulatory-requirements", target: "team-1" } },
-  { data: { source: "regulatory-requirements", target: "team-2" } },
-  { data: { source: "regulatory-requirements", target: "team-3" } },
+  {
+    data: {
+      source: "root-node",
+      target: "application-data",
+      id: "root-node-application-data",
+    },
+  },
+  {
+    data: {
+      source: "root-node",
+      target: "account-data",
+      id: "root-node-account-data",
+    },
+  },
+  {
+    data: {
+      source: "application-data",
+      target: "income-level",
+      id: "application-data-income-level",
+    },
+  },
+  {
+    data: {
+      source: "application-data",
+      target: "employment-status",
+      id: "application-data-employment-status",
+    },
+  },
+  {
+    data: {
+      source: "application-data",
+      target: "marketing",
+      id: "application-data-marketing",
+    },
+  },
+  {
+    data: {
+      source: "account-data",
+      target: "debt-to-income-ratio",
+      id: "account-data-debt-to-income-ratio",
+    },
+  },
+  {
+    data: {
+      source: "account-data",
+      target: "existing-debt-levels",
+      id: "account-data-existing-debt-levels",
+    },
+  },
+  {
+    data: {
+      source: "account-data",
+      target: "payment-history",
+      id: "account-data-payment-history",
+    },
+  },
+  {
+    data: {
+      source: "account-data",
+      target: "utilization-ratio",
+      id: "account-data-utilization-ratio",
+    },
+  },
+  {
+    data: {
+      source: "account-data",
+      target: "banking-relationship",
+      id: "account-data-banking-relationship",
+    },
+  },
+  {
+    data: {
+      source: "account-data",
+      target: "new-idea",
+      id: "account-data-new-idea",
+    },
+  },
+  {
+    data: {
+      source: "root-node",
+      target: "personal-data",
+      id: "root-node-personal-data",
+    },
+  },
+  { data: { source: "personal-data", target: "age", id: "personal-data-age" } },
+  {
+    data: {
+      source: "personal-data",
+      target: "gender",
+      id: "personal-data-gender",
+    },
+  },
+  {
+    data: {
+      source: "personal-data",
+      target: "marital-status",
+      id: "personal-data-marital-status",
+    },
+  },
+  {
+    data: {
+      source: "root-node",
+      target: "credit-bureau-data",
+      id: "root-node-credit-bureau-data",
+    },
+  },
+  {
+    data: {
+      source: "credit-bureau-data",
+      target: "credit-report",
+      id: "credit-bureau-data-credit-report",
+    },
+  },
+  {
+    data: {
+      source: "credit-bureau-data",
+      target: "regulatory-requirements",
+      id: "credit-bureau-data-regulatory-requirements",
+    },
+  },
+  {
+    data: {
+      source: "credit-report",
+      target: "credit-score",
+      id: "credit-report-credit-score",
+    },
+  },
+  {
+    data: {
+      source: "credit-report",
+      target: "credit-history",
+      id: "credit-report-credit-history",
+    },
+  },
+  {
+    data: {
+      source: "credit-report",
+      target: "recent-credit-inquiries",
+      id: "credit-report-recent-credit-inquiries",
+    },
+  },
+  {
+    data: {
+      source: "regulatory-requirements",
+      target: "team-1",
+      id: "regulatory-requirements-team-1",
+    },
+  },
+  {
+    data: {
+      source: "regulatory-requirements",
+      target: "team-2",
+      id: "regulatory-requirements-team-2",
+    },
+  },
+  {
+    data: {
+      source: "regulatory-requirements",
+      target: "team-3",
+      id: "regulatory-requirements-team-3",
+    },
+  },
 ];
 
 const layoutOptions = {
