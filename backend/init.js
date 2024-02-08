@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const DB_CONNECTION_STRING = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.8gz2ol3.mongodb.net/?retryWrites=true&w=majority`;
+const DB_CONNECTION_STRING = `${process.env.DB_CONNECTION_STRING}`;
 
 mongoose.connect(DB_CONNECTION_STRING);
 
