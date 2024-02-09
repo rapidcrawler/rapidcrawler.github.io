@@ -43,6 +43,7 @@ const popperBg = document.querySelector("#popper-bg");
 const popper = document.querySelector("#popper");
 const addNodesContainer = document.querySelector("#add-nodes");
 const nodeOptionsContainer = document.querySelector("#node-options-container");
+const nodeContainer = document.querySelector("#nodes");
 
 /**
  * Make a request to the back-end
@@ -357,7 +358,7 @@ const layoutOptions = {
 };
 
 const tree = cytoscape({
-  container: document.getElementById("nodes"), // container to render in
+  container: nodeContainer,
   layout: layoutOptions,
   userZoomingEnabled: false,
   elements: [...initialNodes, ...initialEdges], // list of graph elements to start with
@@ -713,10 +714,22 @@ const onRemoveNode = (e) => {
   console.log({ e });
 };
 
+const stopEvent = (e) => {
+  e.preventDefault();
+}
+
 /** All event listeners here */
 popperBg.addEventListener("click", hidePopper);
 addNodesContainer.addEventListener("click", handleAddNode);
 nodeOptionsContainer.addEventListener("click", handleEditOptions);
+
+nodeContainer.addEventListener('mouseout', () => {
+  document.removeEventListener('contextmenu', stopEvent);
+})
+nodeContainer.addEventListener("mouseover", () => {
+  document.addEventListener('contextmenu', stopEvent);
+});
+
 
 tree.on("click", "node", handleNodeClick);
 tree.on("cxttap", "node", handleNodeRightClick);
