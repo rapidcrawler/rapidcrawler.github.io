@@ -17,8 +17,22 @@ const spinnerControl = new Proxy(
   }
 );
 
+const errorMessageContainer = document.querySelector("#error-msg-container");
+const errorMessageControl = new Proxy(
+  { message: "" },
+  {
+    set(target, prop, value) {
+      errorMessageContainer.innerText = value;
+      target[prop] = value;
+      return true;
+    },
+  }
+);
+
 const dialogContainer = document.querySelector("#dialog-container");
+const dialogBg = document.querySelector("#dialog-container .dialog-bg");
 const dialog = document.querySelector("#dialog-container .dialog");
+
 const dialogControl = new Proxy(
   { isShown: false },
   {
@@ -36,7 +50,7 @@ const dialogControl = new Proxy(
 );
 
 let childrenHiddenNodes = [];
-const baseURL = "http://localhost:4000";
+const baseURL = "http://localhost:3000";
 const POPPER_WIDTH = 300;
 const POPPER_HEIGHT = 450;
 const popperBg = document.querySelector("#popper-bg");
@@ -44,22 +58,28 @@ const popper = document.querySelector("#popper");
 const addNodesContainer = document.querySelector("#add-nodes");
 const nodeOptionsContainer = document.querySelector("#node-options-container");
 const nodeContainer = document.querySelector("#nodes");
+const authCodeInput = document.querySelector("input[name=auth-code]");
 
+const COMMON_HEADERS = { "content-type": "application/json" };
 /**
  * Make a request to the back-end
  * @param {ReqObject} param0 Request object
  * @returns {Promise}
  */
-const request = async ({ method, url, data }) => {
+const request = async ({ method, url, data, token }) => {
   try {
     const _baseURL =
       baseURL[baseURL.length - 1] === "/" ? baseURL.slice(0, -1) : baseURL;
     const _url = url[0] === "/" ? url : "/" + url;
 
+    spinnerControl.isShown = true;
     const res = await fetch(`${_baseURL}${_url}`, {
       method,
-      body: JSON.stringify(data),
-      headers: { ...this.commonHeaders },
+      body: data ? JSON.stringify(data) : undefined,
+      headers: {
+        ...COMMON_HEADERS,
+        ...(token ? { authorization: token } : {}),
+      },
     });
     if (res.status >= 400) {
       const json = await res.json();
@@ -68,276 +88,34 @@ const request = async ({ method, url, data }) => {
         message: json.message ?? res.message ?? res.statusText,
       };
     }
-    if (res.headers.get("content-length") !== "0") return res.json();
-  } catch (_err) {
-    throw err;
+    if (res.headers.get("content-length") !== "0") {
+      if (token) {
+        errorMessageControl.message = "";
+      }
+      return res.json();
+    }
+  } catch (err) {
+    console.error(err);
+    errorMessageControl.message = "Auth code not supplied or invalid";
+  } finally {
+    spinnerControl.isShown = false;
   }
 };
 
-const initialNodes = [
-  {
-    data: {
-      label: "Customer's Dynamic Credit Limit Determination",
-      id: "root-node",
-      type: "lightbulb",
-    },
-  },
-  {
-    data: {
-      type: "database",
-      label: "Application data",
-      id: "application-data",
-    },
-  },
-  { data: { type: "lightbulb", label: "Income level", id: "income-level" } },
-  {
-    data: {
-      type: "question",
-      label: "Employment Status",
-      id: "employment-status",
-    },
-  },
-  { data: { type: "lightbulb", label: "Marketing", id: "marketing" } },
-  { data: { type: "lightbulb", label: "Account Data", id: "account-data" } },
-  {
-    data: {
-      type: "lightbulb",
-      label: "Debt-to-Income Ratio",
-      id: "debt-to-income-ratio",
-    },
-  },
-  {
-    data: {
-      type: "question",
-      label: "Existing Debt Levels",
-      id: "existing-debt-levels",
-    },
-  },
-  {
-    data: {
-      type: "lightbulb",
-      label: "Payment History",
-      id: "payment-history",
-    },
-  },
-  {
-    data: {
-      type: "lightbulb",
-      label: "Utilization Ratio",
-      id: "utilization-ratio",
-    },
-  },
-  {
-    data: {
-      type: "lightbulb",
-      label: "Banking Relationship",
-      id: "banking-relationship",
-    },
-  },
-  { data: { type: "lightbulb", label: "New Idea", id: "new-idea" } },
-  { data: { type: "lightbulb", label: "Personal Data", id: "personal-data" } },
-  { data: { type: "lightbulb", label: "Age", id: "age" } },
-  { data: { type: "lightbulb", label: "Gender", id: "gender" } },
-  {
-    data: { type: "lightbulb", label: "Marital Status", id: "marital-status" },
-  },
-  {
-    data: {
-      type: "lightbulb",
-      label: "Credit Bureau data",
-      id: "credit-bureau-data",
-    },
-  },
-  { data: { type: "lightbulb", label: "Credit Report", id: "credit-report" } },
-  { data: { type: "lightbulb", label: "Credit Score", id: "credit-score" } },
-  {
-    data: { type: "lightbulb", label: "Credit History", id: "credit-history" },
-  },
-  {
-    data: {
-      type: "lightbulb",
-      label: "Recent credit inquiries",
-      id: "recent-credit-inquiries",
-    },
-  },
-  {
-    data: {
-      type: "lightbulb",
-      label: "Regulatory requirements",
-      id: "regulatory-requirements",
-    },
-  },
-  { data: { type: "lightbulb", label: "Team 1", id: "team-1" } },
-  { data: { type: "lightbulb", label: "Team 2", id: "team-2" } },
-  { data: { type: "lightbulb", label: "Team 3", id: "team-3" } },
-];
+const initialNodes = await request({
+  method: "get",
+  url: "/nodes",
+});
 
 let nodesLength = initialNodes.length;
 
-const initialEdges = [
-  {
-    data: {
-      source: "root-node",
-      target: "application-data",
-      id: "root-node-application-data",
-    },
-  },
-  {
-    data: {
-      source: "root-node",
-      target: "account-data",
-      id: "root-node-account-data",
-    },
-  },
-  {
-    data: {
-      source: "application-data",
-      target: "income-level",
-      id: "application-data-income-level",
-    },
-  },
-  {
-    data: {
-      source: "application-data",
-      target: "employment-status",
-      id: "application-data-employment-status",
-    },
-  },
-  {
-    data: {
-      source: "application-data",
-      target: "marketing",
-      id: "application-data-marketing",
-    },
-  },
-  {
-    data: {
-      source: "account-data",
-      target: "debt-to-income-ratio",
-      id: "account-data-debt-to-income-ratio",
-    },
-  },
-  {
-    data: {
-      source: "account-data",
-      target: "existing-debt-levels",
-      id: "account-data-existing-debt-levels",
-    },
-  },
-  {
-    data: {
-      source: "account-data",
-      target: "payment-history",
-      id: "account-data-payment-history",
-    },
-  },
-  {
-    data: {
-      source: "account-data",
-      target: "utilization-ratio",
-      id: "account-data-utilization-ratio",
-    },
-  },
-  {
-    data: {
-      source: "account-data",
-      target: "banking-relationship",
-      id: "account-data-banking-relationship",
-    },
-  },
-  {
-    data: {
-      source: "account-data",
-      target: "new-idea",
-      id: "account-data-new-idea",
-    },
-  },
-  {
-    data: {
-      source: "root-node",
-      target: "personal-data",
-      id: "root-node-personal-data",
-    },
-  },
-  { data: { source: "personal-data", target: "age", id: "personal-data-age" } },
-  {
-    data: {
-      source: "personal-data",
-      target: "gender",
-      id: "personal-data-gender",
-    },
-  },
-  {
-    data: {
-      source: "personal-data",
-      target: "marital-status",
-      id: "personal-data-marital-status",
-    },
-  },
-  {
-    data: {
-      source: "root-node",
-      target: "credit-bureau-data",
-      id: "root-node-credit-bureau-data",
-    },
-  },
-  {
-    data: {
-      source: "credit-bureau-data",
-      target: "credit-report",
-      id: "credit-bureau-data-credit-report",
-    },
-  },
-  {
-    data: {
-      source: "credit-bureau-data",
-      target: "regulatory-requirements",
-      id: "credit-bureau-data-regulatory-requirements",
-    },
-  },
-  {
-    data: {
-      source: "credit-report",
-      target: "credit-score",
-      id: "credit-report-credit-score",
-    },
-  },
-  {
-    data: {
-      source: "credit-report",
-      target: "credit-history",
-      id: "credit-report-credit-history",
-    },
-  },
-  {
-    data: {
-      source: "credit-report",
-      target: "recent-credit-inquiries",
-      id: "credit-report-recent-credit-inquiries",
-    },
-  },
-  {
-    data: {
-      source: "regulatory-requirements",
-      target: "team-1",
-      id: "regulatory-requirements-team-1",
-    },
-  },
-  {
-    data: {
-      source: "regulatory-requirements",
-      target: "team-2",
-      id: "regulatory-requirements-team-2",
-    },
-  },
-  {
-    data: {
-      source: "regulatory-requirements",
-      target: "team-3",
-      id: "regulatory-requirements-team-3",
-    },
-  },
-];
+const initialEdges = await request({
+  method: "get",
+  url: "/edges",
+});
+
+const allEdges = [...initialEdges];
+const allNodes = [...initialNodes];
 
 const layoutOptions = {
   name: "breadthfirst",
@@ -352,6 +130,7 @@ const layoutOptions = {
   ready: undefined,
   stop: undefined,
   fit: false,
+  zoom: 0.9,
   transform: function (node, position) {
     return position;
   },
@@ -366,12 +145,15 @@ const tree = cytoscape({
     {
       selector: "node",
       style: {
+        // styles for node are applied here.
         label: "data(label)",
         "background-color": "white",
         "border-color": "black",
         "border-width": "2px",
+        // node size
         width: "60px",
         height: "60px",
+        // Align text vertically to the bottom and horizontally centered.
         "text-valign": "bottom",
         "text-halign": "center",
         "font-size": 24,
@@ -397,10 +179,12 @@ const tree = cytoscape({
     {
       selector: "edge",
       style: {
+        // Styles for "edge" or connecting lines are applied here.
         width: 3,
         "line-color": "#ccc",
         "target-arrow-color": "#ccc",
         "target-arrow-shape": "triangle",
+        // "unbundled-bezier" allows us to use curved connecting lines and adjust the curves to our preference.
         "curve-style": "unbundled-bezier",
         "control-point-step-size": 40,
         "control-point-distances": function (ele) {
@@ -411,7 +195,10 @@ const tree = cytoscape({
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           // Now we decide the control point distances based on the calculated distance
-          // You can adjust the formula to suit your needs
+          // First number decides control point distance from source node.
+          // Second number decides control point distance from targe node.
+          // For more information on bezier curves and control points, refer: https://en.wikipedia.org/wiki/B%C3%A9zier_curve
+          //  You can adjust the formula to suit your needs
           const controlPointDistance = distance * 0.03;
           return `${(dx < 0 ? -1 : 1) * controlPointDistance}  ${
             (dy < 0 ? -1 : 1) * controlPointDistance
@@ -513,6 +300,7 @@ const handleMouseOut = () => {
 let currentSelectedNode = null;
 const handleNodeRightClick = (e) => {
   e.preventDefault();
+  e.stopPropagation();
   showPopper(e.originalEvent.x, e.originalEvent.y);
   currentSelectedNode = e.target;
 };
@@ -525,6 +313,10 @@ const hidePopper = () => {
   popperBg.classList.remove("visible");
   popper.classList.remove("visible");
   currentSelectedNode = undefined;
+};
+
+const hideDialog = () => {
+  dialogControl.isShown = false;
 };
 
 const showPopper = (x, y) => {
@@ -621,7 +413,7 @@ const handleRenameNode = () => {
 
 const handleDeleteNode = () => {
   const isConfirmed = window.confirm(
-    "Are you sure you want to delete this node?"
+    "Are you sure you want to delete this node? All child nodes connected to this will also be deleted!"
   );
   if (isConfirmed) {
     currentSelectedNode.remove();
@@ -641,9 +433,8 @@ const handleExpandAll = () => {
   hidePopper();
 };
 
-const handleNodeTypeChangeFormSubmit = (e) => {
+const handleNodeTypeChangeFormSubmit = async (e) => {
   e.preventDefault();
-  spinnerControl.isShown = true;
   dialogControl.isShown = false;
   const formData = new FormData(e.target); // Get form data
   const dataObject = Object.fromEntries(formData.entries()); // Convert FormData to plain object
@@ -652,22 +443,26 @@ const handleNodeTypeChangeFormSubmit = (e) => {
     currentSelectedNode.data("type", newType);
   }
   hidePopper();
-  setTimeout(() => {
-    spinnerControl.isShown = false;
-  }, 3000);
 };
 
 const handleNodeTypeChange = () => {
-  dialog.innerHTML = `<form onsubmit="handleNodeTypeChangeFormSubmit(event)">
-  <p>Current Type: ${currentSelectedNode.data("type")}</p>
-  Select new type:
+  dialog.innerHTML = `<form>
+  <label>Select new type for <span style="color: #005d25"> ${currentSelectedNode.data(
+    "label"
+  )}</span>:</label>
   <select name="type">
-  <option value="lightbulb">lightbulb</option>
-  <option value="question">question</option>
-  <option value="database">database</option>
+  ${["question", "lightbulb", "database"].map(
+    (val) =>
+      `<option value="${val}" ${
+        currentSelectedNode.data("type") === val ? 'selected=""' : ""
+      }>${val.charAt(0).toUpperCase() + val.slice(1)}</option>`
+  )}
   </select>
   <button>Save</button>
   </form>`;
+  dialog
+    .querySelector("form")
+    .addEventListener("submit", handleNodeTypeChangeFormSubmit);
   dialogControl.isShown = true;
 };
 
@@ -706,36 +501,127 @@ const handleEditOptions = (e) => {
   }
 };
 
-const handleNodeChange = (e) => {
-  console.log({ e });
+const handleNodeChange = async (e) => {
+  const data = e.target.data();
+  const { id, ...rest } = data;
+
+  await request({
+    method: "put",
+    url: `/nodes/${id}`,
+    data: {
+      node: {
+        ...rest,
+      },
+    },
+    token: authCodeInput.value,
+  });
 };
-const onAddNode = async (e) => {};
-const onRemoveNode = (e) => {
-  console.log({ e });
+
+const onAddNode = async (e) => {
+  const data = e.target.data();
+  allNodes.push({ data });
+  await request({
+    method: "post",
+    url: `/nodes/`,
+    data: {
+      node: {
+        data,
+      },
+    },
+    token: authCodeInput.value,
+  });
+};
+
+const onAddEdge = async (e) => {
+  const data = e.target.data();
+  allEdges.push({ data });
+  await request({
+    method: "post",
+    url: `/edges/`,
+    data: {
+      edge: {
+        data,
+      },
+    },
+    token: authCodeInput.value,
+  });
+};
+const deleteEdgeInDB = (id) => {
+  return request({
+    method: "delete",
+    url: `/edges/${id}`,
+    token: authCodeInput.value,
+  });
+};
+const deleteNodeInDB = (id) => {
+  return request({
+    method: "delete",
+    url: `/nodes/${id}`,
+    token: authCodeInput.value,
+  });
+};
+
+const onRemoveNode = async (e) => {
+  const data = e.target.data();
+  deleteNodeInDB(data.id);
+  const edgesToDeleteIds = allEdges
+    .filter(function (edge) {
+      return edge.data.target === data.id || edge.data.source === data.id;
+    })
+    .map(({ data: { id } }) => id);
+
+  const directlyConnectedNodeIds = allEdges
+    .filter(function (edge) {
+      return edge.data.source === data.id;
+    })
+    .map(({ data: { target } }) => target);
+
+  const nodesToDelete = directlyConnectedNodeIds
+    .map((id) => tree.$id(id))
+    .concat(
+      directlyConnectedNodeIds.flatMap((id) =>
+        getAllConnectedNodes(tree.$id(id))
+      )
+    );
+
+  nodesToDelete.forEach((node) => node.remove());
+  edgesToDeleteIds.forEach(deleteEdgeInDB);
+
+  allEdges.forEach((item, index) => {
+    if (edgesToDeleteIds.includes(item.data.id)) {
+      allEdges.splice(index, 1);
+    }
+  });
+};
+
+const onRemoveEdge = async (e) => {
+  const data = e.target.data();
+  deleteEdgeInDB(data.id);
 };
 
 const stopEvent = (e) => {
   e.preventDefault();
-}
+};
 
 /** All event listeners here */
 popperBg.addEventListener("click", hidePopper);
+dialogBg.addEventListener("click", hideDialog);
 addNodesContainer.addEventListener("click", handleAddNode);
 nodeOptionsContainer.addEventListener("click", handleEditOptions);
 
-nodeContainer.addEventListener('mouseout', () => {
-  document.removeEventListener('contextmenu', stopEvent);
-})
-nodeContainer.addEventListener("mouseover", () => {
-  document.addEventListener('contextmenu', stopEvent);
+nodeContainer.addEventListener("mouseout", () => {
+  document.removeEventListener("contextmenu", stopEvent);
 });
-
+nodeContainer.addEventListener("mouseover", () => {
+  document.addEventListener("contextmenu", stopEvent);
+});
 
 tree.on("click", "node", handleNodeClick);
 tree.on("cxttap", "node", handleNodeRightClick);
 
 tree.on("data", "node", handleNodeChange);
 tree.on("add", "node", onAddNode);
+tree.on("add", "edge", onAddEdge);
 tree.on("remove", "node", onRemoveNode);
 
 tree.on("mouseover", handleMouseOver);
