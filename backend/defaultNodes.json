@@ -4,173 +4,173 @@
 			"data": {
 				"label": "Customer's Dynamic Credit Limit Determination",
 				"id": "root-node",
-				"type": "lightbulb"
+				"type": "assumption"
 			}
 		},
 		{
 			"data": {
-				"type": "database",
+				"type": "datapoints",
 				"label": "Application data",
 				"id": "application-data"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Income level",
 				"id": "income-level"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Employment Status",
 				"id": "employment-status"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Marketing",
 				"id": "marketing"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Account Data",
 				"id": "account-data"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Debt-to-Income Ratio",
 				"id": "debt-to-income-ratio"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Existing Debt Levels",
 				"id": "existing-debt-levels"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Payment History",
 				"id": "payment-history"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Utilization Ratio",
 				"id": "utilization-ratio"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Banking Relationship",
 				"id": "banking-relationship"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "New Idea",
 				"id": "new-idea"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Personal Data",
 				"id": "personal-data"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Age",
 				"id": "age"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Gender",
 				"id": "gender"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Marital Status",
 				"id": "marital-status"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Credit Bureau data",
 				"id": "credit-bureau-data"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Credit Report",
 				"id": "credit-report"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Credit Score",
 				"id": "credit-score"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Credit History",
 				"id": "credit-history"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Recent credit inquiries",
 				"id": "recent-credit-inquiries"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Regulatory requirements",
 				"id": "regulatory-requirements"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Team 1",
 				"id": "team-1"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Team 2",
 				"id": "team-2"
 			}
 		},
 		{
 			"data": {
-				"type": "lightbulb",
+				"type": "assumption",
 				"label": "Team 3",
 				"id": "team-3"
 			}

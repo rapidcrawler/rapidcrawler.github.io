@@ -147,9 +147,27 @@ const tree = cytoscape({
       style: {
         // styles for node are applied here.
         label: "data(label)",
-        "background-color": "white",
-        "border-color": "black",
-        "border-width": "2px",
+        "background-color": function (ele) {
+          const type = ele.data("type");
+          // The height and width are decided based on the height and width properties in the svg itself.
+          //  Setting those styles here did not seem to work.
+          switch (type) {
+            case "assumption":
+              // return "#fa4550";
+              return "#820300";
+            case "datapoints":
+              return "#0D4C92";
+
+            case "questions":
+              return "#0D9276";
+
+            default:
+              // return "#fa4550";
+              return "#820300";
+          }
+        },
+        "border-color": "transparent",
+        "border-width": "0px",
         // node size
         width: "60px",
         height: "60px",
@@ -162,12 +180,12 @@ const tree = cytoscape({
           // The height and width are decided based on the height and width properties in the svg itself.
           //  Setting those styles here did not seem to work.
           switch (type) {
-            case "lightbulb":
+            case "assumption":
               return "url(/assets/imgs/solution_frameworks/lightbulb.svg)";
-            case "database":
+            case "datapoints":
               return "url(/assets/imgs/solution_frameworks/database.svg)";
 
-            case "question":
+            case "questions":
               return "url(/assets/imgs/solution_frameworks/question.svg)";
 
             default:
@@ -451,7 +469,7 @@ const handleNodeTypeChange = () => {
     "label"
   )}</span>:</label>
   <select name="type">
-  ${["question", "lightbulb", "database"].map(
+  ${["questions", "assumption", "datapoints"].map(
     (val) =>
       `<option value="${val}" ${
         currentSelectedNode.data("type") === val ? 'selected=""' : ""

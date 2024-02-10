@@ -7,7 +7,7 @@ const nodeSchema = new Schema({
     id: { type: String, required: true },
     type: {
       type: String,
-      enum: ["lightbulb", "database", "question"],
+      enum: ["assumption", "datapoints", "questions"],
     },
   },
 });
