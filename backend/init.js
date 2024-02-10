@@ -9,20 +9,27 @@ mongoose.connect(DB_CONNECTION_STRING);
 
 const { nodeModel, edgeModel } = require("./models");
 
-
 const { nodes, edges } = require("./defaultNodes.json");
 const init = async () => {
-  let initNodeCount = 0;
-  let initEdgeCount = 0;
+  let addedNodesCount = 0;
+  let addedEdgesCount = 0;
+  const { deletedCount: deletedNodesCount } = await nodeModel.deleteMany({});
+  const { deletedCount: deletedEdgesCount } = await edgeModel.deleteMany({});
+
   for (const node of nodes) {
     await new nodeModel(node).save();
-    initNodeCount++;
+    addedNodesCount++;
   }
   for (const edge of edges) {
     await new edgeModel(edge).save();
-    initEdgeCount++;
+    addedEdgesCount++;
   }
-  console.log({ initNodeCount, initEdgeCount });
+  console.log({
+    deletedEdgesCount,
+    deletedNodesCount,
+    addedNodesCount,
+    addedEdgesCount,
+  });
 };
 
 init().then(() => {
