@@ -14,6 +14,17 @@ mongoose.connect(DB_CONNECTION_STRING);
 
 const { nodeModel, edgeModel } = require("./models");
 
+const authMiddleWare = (req, res, next) => {
+  if (
+    req.headers.authorization &&
+    req.headers.authorization === process.env.AUTH_CODE
+  ) {
+    next();
+  } else {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+};
+
 app.use(cors({ origin: "*" }));
 app.use(bodyParser.json({ strict: false }));
 
@@ -25,15 +36,15 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+/**********************/
+/* All Node endpoints */
+/**********************/
+
 app.get("/nodes", async (req, res) => {
   res.json(await nodeModel.find({}));
 });
 
-app.get("/edges", async (req, res) => {
-  res.json(await edgeModel.find({}));
-});
-
-app.post("/nodes", async (req, res) => {
+app.post("/nodes", authMiddleWare, async (req, res) => {
   const nodeData = req.body.node;
   if (
     !nodeData ||
@@ -55,48 +66,22 @@ app.post("/nodes", async (req, res) => {
   }
 });
 
-app.delete("/nodes/:id", async (req, res) => {
+app.delete("/nodes/:id", authMiddleWare, async (req, res) => {
   const id = req.params.id;
   try {
-    await nodeModel.findOneAndDelete({ data: { id } });
-    res.status(200).json({ message: "Success" });
-  } catch (err) {
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
-app.post("/edges", async (req, res) => {
-  try {
-    const edgeData = req.body.edge;
-    if (
-      !edgeData ||
-      !edgeData.data.source ||
-      !edgeData.data.target ||
-      !edgeData.data.id
-    ) {
-      res.status(400).json({ message: "Malformed data" });
+    const node = await nodeModel.findOne({ "data.id": { $eq: id } });
+    if (!node) {
+      res.status(404).json({ message: "Could not find node" });
       return;
     }
-    const newEdge = new edgeModel(edgeData);
-    await newEdge.save();
-    res.json({ message: "Success" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json("Internal server error");
-  }
-});
-
-app.delete("/edges/:id", async (req, res) => {
-  const id = req.params.id;
-  try {
-    await nodeModel.findOneAndDelete({ data: { id } });
+    await node.deleteOne();
     res.status(200).json({ message: "Success" });
   } catch (err) {
     res.status(500).json({ message: "Internal server error" });
   }
 });
 
-app.put("/nodes/:id", async (req, res) => {
+app.put("/nodes/:id", authMiddleWare, async (req, res) => {
   const nodeData = req.body.node;
   if (!nodeData.label && !nodeData.type) {
     res.status(400).json({
@@ -117,6 +102,51 @@ app.put("/nodes/:id", async (req, res) => {
     await node.save();
     res.json({ message: "Success" });
   } catch (err) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+/**********************/
+/* All Edge endpoints */
+/**********************/
+
+app.get("/edges", async (req, res) => {
+  res.json(await edgeModel.find({}));
+});
+
+app.post("/edges", authMiddleWare, async (req, res) => {
+  try {
+    const edgeData = req.body.edge;
+    if (
+      !edgeData ||
+      !edgeData.data.source ||
+      !edgeData.data.target ||
+      !edgeData.data.id
+    ) {
+      res.status(400).json({ message: "Malformed data" });
+      return;
+    }
+    const newEdge = new edgeModel(edgeData);
+    await newEdge.save();
+    res.json({ message: "Success" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json("Internal server error");
+  }
+});
+
+app.delete("/edges/:id", authMiddleWare, async (req, res) => {
+  const id = req.params.id;
+  try {
+    const edge = await edgeModel.findOne({ "data.id": { $eq: id } });
+    if (!edge) {
+      res.status(404).json({ message: "Could not find edge" });
+      return;
+    }
+    await edge.deleteOne();
+    res.status(200).json({ message: "Success" });
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Internal server error" });
   }
 });
