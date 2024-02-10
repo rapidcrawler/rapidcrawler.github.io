@@ -50,7 +50,7 @@ const dialogControl = new Proxy(
 );
 
 let childrenHiddenNodes = [];
-const baseURL = "http://localhost:3000";
+const baseURL = "https://rapidcrawler-aniganesh.koyeb.app";
 const POPPER_WIDTH = 300;
 const POPPER_HEIGHT = 450;
 const popperBg = document.querySelector("#popper-bg");
