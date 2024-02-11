@@ -469,11 +469,15 @@ const handleNodeTypeChange = () => {
     "label"
   )}</span>:</label>
   <select name="type">
-  ${["questions", "assumption", "datapoints"].map(
-    (val) =>
+  ${[
+    { label: "Question", value: "questions" },
+    { label: "Assumption", value: "assumption" },
+    { label: "Datapoint", value: "datapoints" },
+  ].map(
+    ({ label, value: val }) =>
       `<option value="${val}" ${
         currentSelectedNode.data("type") === val ? 'selected=""' : ""
-      }>${val.charAt(0).toUpperCase() + val.slice(1)}</option>`
+      }>${label}</option>`
   )}
   </select>
   <button>Save</button>
