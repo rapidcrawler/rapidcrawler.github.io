@@ -20,229 +20,6 @@ h3 {
     color: #A88805;
 }
 
-.tree {
-    display: flex;
-    justify-content: center;
-    /* Center horizontally */
-    align-items: center;
-    /* Center vertically */
-    flex-direction: column;
-    /* Stack children vertically */
-    white-space: nowrap;
-    overflow-x: auto;
-    display: block;
-}
-
-.tree > div {
-    display: inline-block;
-}
-
-.tree-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.tree ul {
-    display: flex;
-    justify-content: center;
-    /* Center horizontally */
-    flex-wrap: wrap;
-    /* Allow items to wrap as needed */
-    padding-top: 20px;
-    position: relative;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-}
-
-.tree li {
-    float: left;
-    text-align: center;
-    list-style-type: none;
-    position: relative;
-    padding: 20px 5px 0 5px;
-
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-}
-
-/* Initially hide the child ul */
-.tree li>ul {
-    display: none;
-}
-
-/* Class to expand the ul */
-.tree li .expanded {
-    display: block;
-}
-
-/*We will use ::before and ::after to draw the connectors*/
-
-.tree li::before,
-.tree li::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 50%;
-    border-top: 1px solid #8dc63f;
-    width: 50%;
-    height: 20px;
-}
-
-.tree li::after {
-    right: auto;
-    left: 50%;
-    border-left: 1px solid #8dc63f;
-}
-
-/*We need to remove left-right connectors from elements without 
-any siblings*/
-.tree li:only-child::after,
-.tree li:only-child::before {
-    display: none;
-}
-
-/*Remove space from the top of single children*/
-.tree li:only-child {
-    padding-top: 0;
-}
-
-/*Remove left connector from first child and 
-right connector from last child*/
-.tree li:first-child::before,
-.tree li:last-child::after {
-    border: 0 none;
-}
-
-/*Adding back the vertical connector to the last nodes*/
-.tree li:last-child::before {
-    border-right: 1px solid #8dc63f;
-    border-radius: 0 5px 0 0;
-    -webkit-border-radius: 0 5px 0 0;
-    -moz-border-radius: 0 5px 0 0;
-}
-
-.tree li:first-child::after {
-    border-radius: 5px 0 0 0;
-    -webkit-border-radius: 5px 0 0 0;
-    -moz-border-radius: 5px 0 0 0;
-}
-
-/*Time to add downward connectors from parents*/
-.tree ul ul::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    border-left: 1px solid #8dc63f;
-    width: 0;
-    height: 20px;
-}
-
-.tree li a {
-    border: 1px solid #8dc63f;
-    padding: 1em 0.75em;
-    text-decoration: none;
-    color: #666767;
-    font-family: arial, verdana, tahoma;
-    font-size: 0.85em;
-    display: inline-block;
-
-    /*
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-  */
-
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-}
-
-/* -------------------------------- */
-/* Now starts the vertical elements */
-/* -------------------------------- */
-
-.tree ul.vertical,
-ul.vertical ul {
-    padding-top: 0px;
-    left: 50%;
-}
-
-/* Remove the downward connectors from parents */
-.tree ul ul.vertical::before {
-    display: none;
-}
-
-.tree ul.vertical li {
-    float: none;
-    text-align: left;
-}
-
-.tree ul.vertical li::before {
-    right: auto;
-    border: none;
-}
-
-.tree ul.vertical li::after {
-    display: none;
-}
-
-.tree ul.vertical li a {
-    padding: 10px 0.75em;
-    margin-left: 16px;
-    background-color: rgba(18, 27, 160, 0.226);
-    color: whitesmoke;
-}
-
-.tree ul.vertical li::before {
-    top: -20px;
-    left: 0px;
-    border-bottom: 1px solid #8dc63f;
-    border-left: 1px solid #8dc63f;
-    width: 20px;
-    height: 60px;
-}
-
-.tree ul.vertical li:first-child::before {
-    top: 0px;
-    height: 40px;
-}
-
-/* Lets add some extra styles */
-
-div.tree>ul>li>ul>li>a {
-    width: 11em;
-}
-
-div.tree>ul>li>a {
-    font-size: 1em;
-    font-weight: bold;
-}
-
-
-/* ------------------------------------------------------------------ */
-/* Time for some hover effects                                        */
-/* We will apply the hover effect the the lineage of the element also */
-/* ------------------------------------------------------------------ */
-.tree li a:hover,
-.tree li a:hover+ul li a {
-    background: #8dc63f;
-    color: white;
-    font-size: 101%;
-    /* border: 1px solid #aaa; */
-}
-
-/*Connector styles on hover*/
-.tree li a:hover+ul li::after,
-.tree li a:hover+ul li::before,
-.tree li a:hover+ul::before,
-.tree li a:hover+ul ul::before {
-    border-color: #aaa;
-}
-
 /* Toggle Button */
 .toggle-button {
     padding: 17px 40px;
@@ -282,17 +59,17 @@ div.tree>ul>li>a {
     width: 1.2em;
     height: 3.3em;
     margin-left: 35px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch .chk {
+}
+
+/* Hide default HTML checkbox */
+.switch .chk {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  /* The slider */
-  .slider {
+}
+
+/* The slider */
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -302,9 +79,9 @@ div.tree>ul>li>a {
     background-color: #ccc;
     transition: .4s;
     border-radius: 5px;
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
     position: absolute;
     content: "";
     height: .5em;
@@ -313,19 +90,19 @@ div.tree>ul>li>a {
     left: -0.6em;
     top: 0.2em;
     background-color: white;
-    box-shadow: 0 6px 7px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.3);
     transition: .4s;
-  }
-  
-  .slider:before, .slider:after {
+}
+
+.slider:before, .slider:after {
     content: "";
     display: block;
-  }
-  
-  .slider:after {
+}
+
+.slider:after {
     background: linear-gradient(transparent 50%, rgba(255, 255, 255, 0.15) 0) 0 50% / 50% 100%,
-          repeating-linear-gradient(90deg,rgb(255, 255, 255) 0,rgb(255, 255, 255),rgb(255, 255, 255) 20%,rgb(255, 255, 255) 20%,rgb(255, 255, 255) 40%) 0 50% / 50% 100%,
-          radial-gradient(circle at 50% 50%,rgb(255, 255, 255) 25%, transparent 26%);
+        repeating-linear-gradient(90deg, rgb(255, 255, 255) 0, rgb(255, 255, 255), rgb(255, 255, 255) 20%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 40%) 0 50% / 50% 100%,
+        radial-gradient(circle at 50% 50%, rgb(255, 255, 255) 25%, transparent 26%);
     background-repeat: no-repeat;
     border: 0.25em solid transparent;
     border-left: 0.4em solid #ffffff;
@@ -339,20 +116,189 @@ div.tree>ul>li>a {
     width: 2em;
     height: 1em;
     box-sizing: border-box;
-  }
-  
-  .chk:checked + .slider {
+}
+
+.chk:checked+.slider {
     background-color: limegreen;
-  }
-  
-  .chk:focus + .slider {
+}
+
+.chk:focus+.slider {
     box-shadow: 0 0 1px limegreen;
-  }
-  
-  .chk:checked + .slider:before {
+}
+
+.chk:checked+.slider:before {
     transform: translateY(2.3em);
-  }
-  
-  .chk:checked + .slider:after {
+}
+
+.chk:checked+.slider:after {
     transform: rotateZ(90deg) rotateY(180deg) translateY(0.45em) translateX(-1.4em);
-  }
+}
+
+#nodes {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+
+.popper-bg {
+    position: fixed;
+    inset: 0;
+    background-color: #00000034;
+    display: none;
+}
+
+.dialog-container {
+
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.dialog-container .dialog {
+    background-color: white;
+    z-index: 1;
+    position: relative;
+    padding: 20px;
+    color: black;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+form button {
+    width: fit-content;
+    background-color: #fff;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+form button:hover {
+    background-color: #ecf0ec;
+}
+
+.dialog-container .dialog button, .dialog-container .dialog select {
+    padding: 6px 8px;
+}
+
+.dialog-container.visible {
+    display: flex;
+}
+
+.dialog-bg {
+    position: fixed;
+    inset: 0;
+    background-color: #00000034;
+}
+
+.popper {
+    width: 300px;
+    height: 450px;
+    background: white;
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    display: none;
+    border-radius: 4px;
+}
+
+.popper.visible, .popper-bg.visible {
+    display: block;
+}
+
+.add-node-type-container {
+    display: flex;
+    gap: 16px;
+    padding: 8px 12px;
+    overflow-x: auto;
+}
+
+.add-node-type-container>button {
+    position: relative;
+    border-radius: 50%;
+    border: 0px solid transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    font-size: 26px;
+    line-height: 1;
+}
+
+#node-options-container {
+    list-style-type: none;
+    padding: 0;
+    color: black;
+}
+
+#node-options-container li.option {
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+#node-options-container li.option:hover, #add-nodes button:hover {
+    cursor: pointer;
+    background-color: #ecf0ec;
+}
+
+.graph-container {
+    position: relative;
+    z-index: 0;
+}
+
+.graph-container .spinner-container {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.graph-container .spinner-container.visible {
+    display: flex;
+}
+
+.spinner {
+    color: gray;
+    margin-left: -0.25rem;
+    margin-right: 0.75rem;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+.spinner circle {
+    opacity: 0.25;
+}
+
+.spinner path {
+    opacity: 0.75;
+}
+
+#error-msg-container:empty {
+    margin: 0;
+}
+
+#error-msg-container {
+    margin: 0;
+    padding: 4px;
+    color: #ff6060;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(1turn);
+    }
+}
