@@ -118,7 +118,7 @@ const allEdges = [...initialEdges];
 const allNodes = [...initialNodes];
 
 const layoutOptions = {
-  name: "breadthfirst",
+  name: "dagre",
   fit: true,
   directed: true,
   padding: 20,
@@ -129,12 +129,11 @@ const layoutOptions = {
   root: "root-node",
   ready: undefined,
   stop: undefined,
-  fit: false,
-  zoom: 0.9,
   transform: function (node, position) {
     return position;
   },
 };
+
 
 const tree = cytoscape({
   container: nodeContainer,
@@ -202,27 +201,28 @@ const tree = cytoscape({
         "line-color": "#ccc",
         "target-arrow-color": "#ccc",
         "target-arrow-shape": "triangle",
+        "curve-style": "bezier",
         // "unbundled-bezier" allows us to use curved connecting lines and adjust the curves to our preference.
-        "curve-style": "unbundled-bezier",
-        "control-point-step-size": 40,
-        "control-point-distances": function (ele) {
-          const sourcePos = ele.source().position();
-          const targetPos = ele.target().position();
-          const dx = targetPos.x - sourcePos.x;
-          const dy = targetPos.y - sourcePos.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+        // "curve-style": "unbundled-bezier",
+        // "control-point-step-size": 40,
+        // "control-point-distances": function (ele) {
+        //   const sourcePos = ele.source().position();
+        //   const targetPos = ele.target().position();
+        //   const dx = targetPos.x - sourcePos.x;
+        //   const dy = targetPos.y - sourcePos.y;
+        //   const distance = Math.sqrt(dx * dx + dy * dy);
 
-          // Now we decide the control point distances based on the calculated distance
-          // First number decides control point distance from source node.
-          // Second number decides control point distance from targe node.
-          // For more information on bezier curves and control points, refer: https://en.wikipedia.org/wiki/B%C3%A9zier_curve
-          //  You can adjust the formula to suit your needs
-          const controlPointDistance = distance * 0.03;
-          return `${(dx < 0 ? -1 : 1) * controlPointDistance}  ${
-            (dy < 0 ? -1 : 1) * controlPointDistance
-          }`;
-        },
-        "control-point-weights": "0.2 0.6 0.2",
+        //   // Now we decide the control point distances based on the calculated distance
+        //   // First number decides control point distance from source node.
+        //   // Second number decides control point distance from targe node.
+        //   // For more information on bezier curves and control points, refer: https://en.wikipedia.org/wiki/B%C3%A9zier_curve
+        //   //  You can adjust the formula to suit your needs
+        //   const controlPointDistance = distance * 0.03;
+        //   return `${(dx < 0 ? -1 : 1) * controlPointDistance}  ${
+        //     (dy < 0 ? -1 : 1) * controlPointDistance
+        //   }`;
+        // },
+        // "control-point-weights": "0.2 0.6 0.2",
         "text-margin-y": -15,
         "edge-distances": "node-position",
       },
@@ -470,8 +470,8 @@ const handleNodeTypeChange = () => {
   )}</span>:</label>
   <select name="type">
   ${[
-    { label: "Question", value: "questions" },
     { label: "Assumption", value: "assumption" },
+    { label: "Question", value: "questions" },
     { label: "Datapoint", value: "datapoints" },
   ].map(
     ({ label, value: val }) =>
