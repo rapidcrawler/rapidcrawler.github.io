@@ -232,6 +232,32 @@ form button:hover {
     height: 48px;
     font-size: 26px;
     line-height: 1;
+    color: white;
+    cursor: pointer;
+}
+
+.add-node-type-container>button[data-node-type="assumption"] {
+    background: #820300;
+}
+
+.add-node-type-container>button[data-node-type="assumption"]:hover {
+    background: #820300ca;
+}
+
+.add-node-type-container>button[data-node-type="datapoints"] {
+    background: #0D4C92;
+}
+
+.add-node-type-container>button[data-node-type="datapoints"]:hover {
+    background: #0D4C92ca;
+}
+
+.add-node-type-container>button[data-node-type="questions"] {
+    background: #0D9276;
+}
+
+.add-node-type-container>button[data-node-type="questions"]:hover {
+    background: #0D9276ca;
 }
 
 #node-options-container {
@@ -246,7 +272,7 @@ form button:hover {
     gap: 8px;
 }
 
-#node-options-container li.option:hover, #add-nodes button:hover {
+#node-options-container li.option:hover {
     cursor: pointer;
     background-color: #ecf0ec;
 }
@@ -254,6 +280,20 @@ form button:hover {
 .graph-container {
     position: relative;
     z-index: 0;
+}
+
+.actions-container {
+    position: absolute;
+}
+
+.actions-container.bottom-left {
+    bottom: 2rem;
+    left: 2rem
+}
+
+.actions-container.top-right {
+    top: 2rem;
+    right: 2rem
 }
 
 .graph-container .spinner-container {

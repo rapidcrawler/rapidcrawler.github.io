@@ -1,5 +1,13 @@
 "use strict";
 
+const getElementFromEvent = (e, maxDepth = 1) => {
+  let element = e.target;
+  if (e.target.classList.contains("fa")) {
+    element = e.target.parentElement;
+  }
+  return element;
+};
+
 const spinnerContainer = document.querySelector("#spinner-container");
 const spinnerControl = new Proxy(
   { isShown: false },
@@ -30,6 +38,7 @@ const errorMessageControl = new Proxy(
 );
 
 const dialogContainer = document.querySelector("#dialog-container");
+const actionContainers = document.querySelectorAll(".actions-container");
 const dialogBg = document.querySelector("#dialog-container .dialog-bg");
 const dialog = document.querySelector("#dialog-container .dialog");
 
@@ -129,6 +138,7 @@ const layoutOptions = {
   root: "root-node",
   ready: undefined,
   stop: undefined,
+  padding: 20,
   transform: function (node, position) {
     return position;
   },
@@ -207,6 +217,72 @@ const tree = cytoscape({
   ],
 });
 
+const handleZoom = (zoomAmount) => {
+  if (zoomAmount === 0) {
+    tree.layout(layoutOptions).run();
+  } else {
+    tree.zoom(tree.zoom() + zoomAmount);
+  }
+};
+
+const handleImageSaveFormSubmit = async (e) => {
+  e.preventDefault();
+  dialogControl.isShown = false;
+  const formData = new FormData(e.target); // Get form data
+  const dataObject = Object.fromEntries(formData.entries()); // Convert FormData to plain object
+  const imageOptions = { bg: "transparent", highQuality: true };
+  if (!dataObject.transparent) {
+    imageOptions.bg = dataObject.color;
+  }
+  const pngString = await tree.png(imageOptions);
+  const downloadLink = document.createElement("a");
+  downloadLink.href = pngString;
+  downloadLink.download = `First_Principles_${new Date()
+    .toLocaleDateString()
+    .replace(/\//g, "-")}.png`;
+  downloadLink.innerText = "Download image";
+  document.body.appendChild(downloadLink);
+
+  downloadLink.click();
+
+  document.body.removeChild(downloadLink);
+};
+
+const handleSaveAsImage = () => {
+  dialog.innerHTML = `<form>
+  <p style="margin:0; padding:0 0 10px 0; font-size: 24px; text-align: center;">Image export options</p>
+  <label>Select background for your image 
+  <input type="color" name="color" />
+  </label>
+  <label>
+  <input type="checkbox" name="transparent" checked /> Ignore above colour and make the background transparent
+  </label>
+  <button>Save as image</button>
+  </form>`;
+  dialog
+    .querySelector("form")
+    .addEventListener("submit", handleImageSaveFormSubmit);
+  dialogControl.isShown = true;
+};
+
+const handleGraphActions = (e) => {
+  const element = getElementFromEvent(e);
+  const action = element.dataset.action;
+  switch (action) {
+    case "zoom-in":
+      handleZoom(0.05);
+      break;
+    case "zoom-out":
+      handleZoom(-0.05);
+      break;
+    case "fit":
+      handleZoom(0);
+      break;
+    case "save-as-image":
+      handleSaveAsImage();
+      break;
+  }
+};
 function getAllConnectedNodes(node) {
   let connectedNodes = [];
   const uniqueIds = [];
@@ -359,14 +435,6 @@ const showPopper = (x, y) => {
   popperBg.classList.add("visible");
   popper.style.top = `${finalY}px`;
   popper.style.left = `${finalX}px`;
-};
-
-const getElementFromEvent = (e, maxDepth = 1) => {
-  let element = e.target;
-  if (e.target.classList.contains("fa")) {
-    element = e.target.parentElement;
-  }
-  return element;
 };
 
 const handleAddNode = (e) => {
@@ -613,6 +681,10 @@ nodeContainer.addEventListener("mouseout", () => {
 });
 nodeContainer.addEventListener("mouseover", () => {
   document.addEventListener("contextmenu", stopEvent);
+});
+
+actionContainers.forEach((container) => {
+  container.addEventListener("click", handleGraphActions);
 });
 
 tree.on("click", "node", handleNodeClick);
