@@ -255,10 +255,10 @@ const handleSaveAsImage = () => {
   dialog.innerHTML = `<form>
   <p style="margin:0; padding:0 0 10px 0; font-size: 24px; text-align: center;">Image export options</p>
   <label>Select background for your image 
-  <input type="color" name="color" />
+  <input type="color" name="color" value="#ffffff" />
   </label>
   <label>
-  <input type="checkbox" name="transparent" checked /> Ignore above colour and make the background transparent
+  <input type="checkbox" name="transparent" /> Ignore above colour and make the background transparent
   </label>
   <button>Save as image</button>
   </form>`;
