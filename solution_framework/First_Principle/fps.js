@@ -1,5 +1,13 @@
 "use strict";
 
+const getElementFromEvent = (e, maxDepth = 1) => {
+  let element = e.target;
+  if (e.target.classList.contains("fa")) {
+    element = e.target.parentElement;
+  }
+  return element;
+};
+
 const spinnerContainer = document.querySelector("#spinner-container");
 const spinnerControl = new Proxy(
   { isShown: false },
@@ -30,6 +38,7 @@ const errorMessageControl = new Proxy(
 );
 
 const dialogContainer = document.querySelector("#dialog-container");
+const actionContainers = document.querySelectorAll(".actions-container");
 const dialogBg = document.querySelector("#dialog-container .dialog-bg");
 const dialog = document.querySelector("#dialog-container .dialog");
 
@@ -117,20 +126,22 @@ const initialEdges = await request({
 const allEdges = [...initialEdges];
 const allNodes = [...initialNodes];
 
+nodeContainer.style.height = `${
+  parent.window.innerHeight
+    ? parent.window.innerHeight - 40
+    : window.innerHeight
+}px`;
+
 const layoutOptions = {
-  name: "breadthfirst",
-  fit: true,
+  name: "dagre",
   directed: true,
   padding: 20,
-  circle: false,
-  avoidOverlap: true,
   spacingFactor: 2,
+
+  avoidOverlap: true,
   nodeDimensionsIncludeLabels: false,
   root: "root-node",
-  ready: undefined,
-  stop: undefined,
-  fit: false,
-  zoom: 0.9,
+  rankDir: "TB",
   transform: function (node, position) {
     return position;
   },
@@ -202,27 +213,6 @@ const tree = cytoscape({
         "line-color": "#ccc",
         "target-arrow-color": "#ccc",
         "target-arrow-shape": "triangle",
-        // "unbundled-bezier" allows us to use curved connecting lines and adjust the curves to our preference.
-        "curve-style": "unbundled-bezier",
-        "control-point-step-size": 40,
-        "control-point-distances": function (ele) {
-          const sourcePos = ele.source().position();
-          const targetPos = ele.target().position();
-          const dx = targetPos.x - sourcePos.x;
-          const dy = targetPos.y - sourcePos.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          // Now we decide the control point distances based on the calculated distance
-          // First number decides control point distance from source node.
-          // Second number decides control point distance from targe node.
-          // For more information on bezier curves and control points, refer: https://en.wikipedia.org/wiki/B%C3%A9zier_curve
-          //  You can adjust the formula to suit your needs
-          const controlPointDistance = distance * 0.03;
-          return `${(dx < 0 ? -1 : 1) * controlPointDistance}  ${
-            (dy < 0 ? -1 : 1) * controlPointDistance
-          }`;
-        },
-        "control-point-weights": "0.2 0.6 0.2",
         "text-margin-y": -15,
         "edge-distances": "node-position",
       },
@@ -230,6 +220,72 @@ const tree = cytoscape({
   ],
 });
 
+const handleZoom = (zoomAmount) => {
+  if (zoomAmount === 0) {
+    tree.layout(layoutOptions).run();
+  } else {
+    tree.zoom(tree.zoom() + zoomAmount);
+  }
+};
+
+const handleImageSaveFormSubmit = async (e) => {
+  e.preventDefault();
+  dialogControl.isShown = false;
+  const formData = new FormData(e.target); // Get form data
+  const dataObject = Object.fromEntries(formData.entries()); // Convert FormData to plain object
+  const imageOptions = { bg: "transparent", highQuality: true };
+  if (!dataObject.transparent) {
+    imageOptions.bg = dataObject.color;
+  }
+  const pngString = await tree.png(imageOptions);
+  const downloadLink = document.createElement("a");
+  downloadLink.href = pngString;
+  downloadLink.download = `First_Principles_${new Date()
+    .toLocaleDateString()
+    .replace(/\//g, "-")}.png`;
+  downloadLink.innerText = "Download image";
+  document.body.appendChild(downloadLink);
+
+  downloadLink.click();
+
+  document.body.removeChild(downloadLink);
+};
+
+const handleSaveAsImage = () => {
+  dialog.innerHTML = `<form>
+  <p style="margin:0; padding:0 0 10px 0; font-size: 24px; text-align: center;">Image export options</p>
+  <label>Select background for your image 
+  <input type="color" name="color" />
+  </label>
+  <label>
+  <input type="checkbox" name="transparent" checked /> Ignore above colour and make the background transparent
+  </label>
+  <button>Save as image</button>
+  </form>`;
+  dialog
+    .querySelector("form")
+    .addEventListener("submit", handleImageSaveFormSubmit);
+  dialogControl.isShown = true;
+};
+
+const handleGraphActions = (e) => {
+  const element = getElementFromEvent(e);
+  const action = element.dataset.action;
+  switch (action) {
+    case "zoom-in":
+      handleZoom(0.05);
+      break;
+    case "zoom-out":
+      handleZoom(-0.05);
+      break;
+    case "fit":
+      handleZoom(0);
+      break;
+    case "save-as-image":
+      handleSaveAsImage();
+      break;
+  }
+};
 function getAllConnectedNodes(node) {
   let connectedNodes = [];
   const uniqueIds = [];
@@ -384,14 +440,6 @@ const showPopper = (x, y) => {
   popper.style.left = `${finalX}px`;
 };
 
-const getElementFromEvent = (e, maxDepth = 1) => {
-  let element = e.target;
-  if (e.target.classList.contains("fa")) {
-    element = e.target.parentElement;
-  }
-  return element;
-};
-
 const handleAddNode = (e) => {
   const element = getElementFromEvent(e);
   const type = element.dataset.nodeType;
@@ -470,8 +518,8 @@ const handleNodeTypeChange = () => {
   )}</span>:</label>
   <select name="type">
   ${[
-    { label: "Question", value: "questions" },
     { label: "Assumption", value: "assumption" },
+    { label: "Question", value: "questions" },
     { label: "Datapoint", value: "datapoints" },
   ].map(
     ({ label, value: val }) =>
@@ -636,6 +684,10 @@ nodeContainer.addEventListener("mouseout", () => {
 });
 nodeContainer.addEventListener("mouseover", () => {
   document.addEventListener("contextmenu", stopEvent);
+});
+
+actionContainers.forEach((container) => {
+  container.addEventListener("click", handleGraphActions);
 });
 
 tree.on("click", "node", handleNodeClick);
