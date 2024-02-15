@@ -117,18 +117,22 @@ const initialEdges = await request({
 const allEdges = [...initialEdges];
 const allNodes = [...initialNodes];
 
+nodeContainer.style.height = `${
+  parent.window.innerHeight
+    ? parent.window.innerHeight - 40
+    : window.innerHeight
+}px`;
+
 const layoutOptions = {
   name: "dagre",
-  fit: true,
   directed: true,
   padding: 20,
-  circle: false,
-  avoidOverlap: true,
   spacingFactor: 2,
+
+  avoidOverlap: true,
   nodeDimensionsIncludeLabels: false,
   root: "root-node",
-  ready: undefined,
-  stop: undefined,
+  rankDir: "TB",
   transform: function (node, position) {
     return position;
   },
