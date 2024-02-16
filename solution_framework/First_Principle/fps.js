@@ -116,8 +116,6 @@ const initialNodes = await request({
   url: "/nodes",
 });
 
-let nodesLength = initialNodes.length;
-
 const initialEdges = await request({
   method: "get",
   url: "/edges",
@@ -131,7 +129,6 @@ nodeContainer.style.height = `${
     ? parent.window.innerHeight - 40
     : window.innerHeight
 }px`;
-
 const layoutOptions = {
   name: "dagre",
   directed: true,
@@ -146,7 +143,6 @@ const layoutOptions = {
     return position;
   },
 };
-
 const tree = cytoscape({
   container: nodeContainer,
   layout: layoutOptions,
@@ -156,15 +152,22 @@ const tree = cytoscape({
     {
       selector: "node",
       style: {
-        // styles for node are applied here.
-        label: "data(label)",
+        label: function (ele) {
+          const id = ele.data("id");
+          const isChildrenHidden = childrenHiddenNodes.includes(id);
+          const hasChildren = allEdges.find(
+            ({ data: { source } }) => source === id
+          );
+          let suffix = "";
+          if (hasChildren) {
+            suffix = isChildrenHidden ? "(+)" : "(-)";
+          }
+          return ele.data("label") + suffix;
+        },
         "background-color": function (ele) {
           const type = ele.data("type");
-          // The height and width are decided based on the height and width properties in the svg itself.
-          //  Setting those styles here did not seem to work.
           switch (type) {
             case "assumption":
-              // return "#fa4550";
               return "#820300";
             case "datapoints":
               return "#0D4C92";
@@ -173,7 +176,6 @@ const tree = cytoscape({
               return "#0D9276";
 
             default:
-              // return "#fa4550";
               return "#820300";
           }
         },
@@ -218,6 +220,33 @@ const tree = cytoscape({
       },
     },
   ],
+});
+
+const root = tree.elements().filter((node) => node.indegree() === 0);
+
+const nodesToHideIds = initialEdges
+  .filter(({ data: { source } }) => source !== root.data("id"))
+  .map(({ data: { target } }) => target);
+
+for (const id of nodesToHideIds) {
+  const selector = `node[id="${id}"]`;
+  const selectedNodes = tree.elements(selector);
+  selectedNodes.hide();
+}
+
+childrenHiddenNodes.splice(
+  -1,
+  0,
+  ...initialEdges
+    .filter(({ data: { source } }) => source === root.data("id"))
+    .map(({ data: { target } }) => target),
+  ...nodesToHideIds
+);
+
+setTimeout(() => tree.layout(layoutOptions).run());
+tree.nodes().forEach(function (node) {
+  node.data("label", node.data("label") + " ");
+  node.trigger("data");
 });
 
 const handleZoom = (zoomAmount) => {
@@ -286,35 +315,35 @@ const handleGraphActions = (e) => {
       break;
   }
 };
+
 function getAllConnectedNodes(node) {
   let connectedNodes = [];
   const uniqueIds = [];
 
-  function traverse(node) {
-    let successors = node.successors();
-    successors.forEach((node) => {
-      if (!uniqueIds.includes(node.data("id"))) {
-        connectedNodes.push(node);
-        uniqueIds.push(node.data("id"));
-      }
-    });
-
-    successors.forEach((succ) => {
-      traverse(succ);
-    });
-  }
-
-  traverse(node);
+  const successors = node.successors();
+  successors.forEach((node) => {
+    if (!uniqueIds.includes(node.data("id"))) {
+      connectedNodes.push(node);
+      uniqueIds.push(node.data("id"));
+    }
+  });
 
   return connectedNodes;
 }
 
-const handleExpandNode = (node) => {
-  const connectedNodes = getAllConnectedNodes(node);
+const handleExpandNode = (node, fullDepth = false) => {
+  let connectedNodes = [];
+  if (fullDepth) {
+    connectedNodes = getAllConnectedNodes(node, fullDepth ? -1 : 0);
+  } else {
+    const neighborhood = node.neighborhood();
+    connectedNodes = neighborhood.map((node) => node);
+  }
 
   connectedNodes.forEach((node) => {
     node.show();
   });
+  tree.layout(layoutOptions).run();
 };
 
 const handleCollapseNode = (node) => {
@@ -322,6 +351,14 @@ const handleCollapseNode = (node) => {
   connectedNodes.forEach((node) => {
     node.hide();
   });
+
+  childrenHiddenNodes.splice(
+    -1,
+    0,
+    ...connectedNodes.map((node) => node.data("id"))
+  );
+
+  tree.layout(layoutOptions).run();
 };
 
 const toggleNodeChildren = (node) => {
@@ -349,11 +386,11 @@ const handleNodeClick = (e) => {
 };
 
 const enableZoomOnCtrlKeyDown = (e) => {
-  // console.log({ e });
   if (e.key.toLowerCase() === "control" || e.key.toLowerCase() === "command") {
     tree.userZoomingEnabled(true);
   }
 };
+
 const disableZoomOnCtrlKeyup = (e) => {
   if (e.key.toLowerCase() === "control" || e.key.toLowerCase() === "command") {
     tree.userZoomingEnabled(false);
@@ -361,12 +398,10 @@ const disableZoomOnCtrlKeyup = (e) => {
 };
 
 const handleMouseOver = () => {
-  // console.log("mouseover");
   window.addEventListener("keydown", enableZoomOnCtrlKeyDown);
   window.addEventListener("keyup", disableZoomOnCtrlKeyup);
 };
 const handleMouseOut = () => {
-  // console.log("mouseout");
   window.removeEventListener("keydown", enableZoomOnCtrlKeyDown);
   window.removeEventListener("keyup", disableZoomOnCtrlKeyup);
 };
@@ -495,7 +530,7 @@ const handleCollapseAll = () => {
 
 const handleExpandAll = () => {
   const root = tree.getElementById("root-node");
-  handleExpandNode(root);
+  handleExpandNode(root, true);
   hidePopper();
 };
 
@@ -548,7 +583,7 @@ const handleEditOptions = (e) => {
       hidePopper();
       break;
     case "expand":
-      handleExpandNode(currentSelectedNode);
+      handleExpandNode(currentSelectedNode, false);
       hidePopper();
       break;
     case "expand-all":
