@@ -111,6 +111,12 @@ const request = async ({ method, url, data, token }) => {
   }
 };
 
+nodeContainer.style.height = `${
+  parent.window.innerHeight
+    ? parent.window.innerHeight - 40
+    : window.innerHeight
+}px`;
+
 const initialNodes = await request({
   method: "get",
   url: "/nodes",
@@ -124,11 +130,6 @@ const initialEdges = await request({
 const allEdges = [...initialEdges];
 const allNodes = [...initialNodes];
 
-nodeContainer.style.height = `${
-  parent.window.innerHeight
-    ? parent.window.innerHeight - 40
-    : window.innerHeight
-}px`;
 const layoutOptions = {
   name: "dagre",
   directed: true,
