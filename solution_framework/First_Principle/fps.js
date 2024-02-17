@@ -59,7 +59,7 @@ const dialogControl = new Proxy(
 );
 
 let childrenHiddenNodes = [];
-const baseURL = "https://fps-rapid-crawler.koyeb.app/";
+const baseURL = "https://rapidcrawler-aniganesh.koyeb.app/";
 const POPPER_WIDTH = 300;
 const POPPER_HEIGHT = 450;
 const popperBg = document.querySelector("#popper-bg");
@@ -682,13 +682,20 @@ const onRemoveNode = async (e) => {
     })
     .map(({ data: { target } }) => target);
 
-  const nodesToDelete = directlyConnectedNodeIds
+  let nodesToDelete = directlyConnectedNodeIds
     .map((id) => tree.$id(id))
     .concat(
       directlyConnectedNodeIds.flatMap((id) =>
         getAllConnectedNodes(tree.$id(id))
       )
     );
+
+  nodesToDelete = nodesToDelete.reduce((arr, curr, index) => {
+    if (nodesToDelete.indexOf(curr) === index) {
+      arr.push(curr);
+    }
+    return arr;
+  }, []);
 
   nodesToDelete.forEach((node) => node.remove());
   edgesToDeleteIds.forEach(deleteEdgeInDB);
