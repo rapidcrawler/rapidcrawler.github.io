@@ -41,6 +41,7 @@ const dialogContainer = document.querySelector("#dialog-container");
 const actionContainers = document.querySelectorAll(".actions-container");
 const dialogBg = document.querySelector("#dialog-container .dialog-bg");
 const dialog = document.querySelector("#dialog-container .dialog");
+const passwordToggleBtn = document.querySelector("#toggle-password");
 
 const dialogControl = new Proxy(
   { isShown: false },
@@ -111,11 +112,12 @@ const request = async ({ method, url, data, token }) => {
   }
 };
 
-nodeContainer.style.height = `${
-  parent.window.innerHeight
-    ? parent.window.innerHeight - 40
-    : window.innerHeight
-}px`;
+const actualWindowHeight = parent.window.innerHeight
+  ? parent.window.innerHeight
+  : window.innerHeight;
+const actualWindowWidth = window.innerWidth;
+
+nodeContainer.style.height = `${actualWindowHeight - 40}px`;
 
 const initialNodes = await request({
   method: "get",
@@ -433,7 +435,7 @@ const showPopper = (x, y) => {
   let horizontalSpace = "right",
     verticalSpace = "bottom";
 
-  if (x + POPPER_WIDTH > window.innerWidth) {
+  if (x + POPPER_WIDTH > actualWindowWidth) {
     if (x - POPPER_WIDTH > 0) {
       horizontalSpace = "left";
     } else {
@@ -441,7 +443,7 @@ const showPopper = (x, y) => {
     }
   }
 
-  if (y + POPPER_HEIGHT > window.innerHeight) {
+  if (y + POPPER_HEIGHT > actualWindowHeight) {
     if (y - POPPER_HEIGHT > 0) {
       verticalSpace = "top";
     } else {
@@ -670,7 +672,7 @@ const deleteNodeInDB = (id) => {
 const onRemoveNode = async (e) => {
   const data = e.target.data();
   deleteNodeInDB(data.id);
-  const edgesToDeleteIds = allEdges
+  let edgesToDeleteIds = allEdges
     .filter(function (edge) {
       return edge.data.target === data.id || edge.data.source === data.id;
     })
@@ -682,7 +684,7 @@ const onRemoveNode = async (e) => {
     })
     .map(({ data: { target } }) => target);
 
-  let nodesToDelete = directlyConnectedNodeIds
+  const nodesToDelete = directlyConnectedNodeIds
     .map((id) => tree.$id(id))
     .concat(
       directlyConnectedNodeIds.flatMap((id) =>
@@ -690,8 +692,8 @@ const onRemoveNode = async (e) => {
       )
     );
 
-  nodesToDelete = nodesToDelete.reduce((arr, curr, index) => {
-    if (nodesToDelete.indexOf(curr) === index) {
+  edgesToDeleteIds = edgesToDeleteIds.reduce((arr, curr, index) => {
+    if (edgesToDeleteIds.indexOf(curr) === index) {
       arr.push(curr);
     }
     return arr;
@@ -716,7 +718,15 @@ const stopEvent = (e) => {
   e.preventDefault();
 };
 
+const togglePassword = (e) => {
+  const input = document.querySelector('[name="auth-code"]');
+  const isPassword = input.getAttribute("type") === "password";
+  input.setAttribute("type", isPassword ? "text" : "password");
+  e.target.innerHTML = isPassword ? "Hide password" : "Show password";
+};
+
 /** All event listeners here */
+passwordToggleBtn.addEventListener("click", togglePassword);
 popperBg.addEventListener("click", hidePopper);
 dialogBg.addEventListener("click", hideDialog);
 addNodesContainer.addEventListener("click", handleAddNode);
