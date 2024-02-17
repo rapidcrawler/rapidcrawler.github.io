@@ -1,5 +1,6 @@
 "use strict";
 
+const failedRequestList = [];
 const getElementFromEvent = (e, maxDepth = 1) => {
   let element = e.target;
   if (e.target.classList.contains("fa")) {
@@ -41,6 +42,7 @@ const dialogContainer = document.querySelector("#dialog-container");
 const actionContainers = document.querySelectorAll(".actions-container");
 const dialogBg = document.querySelector("#dialog-container .dialog-bg");
 const dialog = document.querySelector("#dialog-container .dialog");
+const passwordToggleBtn = document.querySelector("#toggle-password");
 
 const dialogControl = new Proxy(
   { isShown: false },
@@ -70,18 +72,31 @@ const nodeContainer = document.querySelector("#nodes");
 const authCodeInput = document.querySelector("input[name=auth-code]");
 
 const COMMON_HEADERS = { "content-type": "application/json" };
+const retryFailedRequestsControl = new Proxy(
+  { shouldRetry: false },
+  {
+    set(target, prop, value) {
+      if (value) {
+        retryRequests();
+      }
+      target[prop] = value;
+      return true;
+    },
+  }
+);
+
 /**
  * Make a request to the back-end
  * @param {ReqObject} param0 Request object
  * @returns {Promise}
  */
-const request = async ({ method, url, data, token }) => {
+const request = async (params, showLoader = true) => {
   try {
+    const { method, url, data, token } = params;
     const _baseURL =
       baseURL[baseURL.length - 1] === "/" ? baseURL.slice(0, -1) : baseURL;
     const _url = url[0] === "/" ? url : "/" + url;
-
-    spinnerControl.isShown = true;
+    spinnerControl.isShown = showLoader;
     const res = await fetch(`${_baseURL}${_url}`, {
       method,
       body: data ? JSON.stringify(data) : undefined,
@@ -101,9 +116,11 @@ const request = async ({ method, url, data, token }) => {
       if (token) {
         errorMessageControl.message = "";
       }
+      retryFailedRequestsControl.shouldRetry = true;
       return res.json();
     }
   } catch (err) {
+    failedRequestList.push(params);
     console.error(err);
     errorMessageControl.message = "Auth code not supplied or invalid";
   } finally {
@@ -111,12 +128,45 @@ const request = async ({ method, url, data, token }) => {
   }
 };
 
+const debounce = (func, delay) => {
+  let timer;
+  return function () {
+    let self = this;
+    let args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(self, args);
+    }, delay);
+  };
+};
+const retryRequests = async () => {
+  let shouldBreak = false;
+  let count = 0;
+
+  while (failedRequestList.length && count < 10) {
+    count++;
+    const params = failedRequestList.shift();
+    try {
+      await request({ ...params, token: authCodeInput.value }, false);
+    } catch (err) {
+      failedRequestList.unshift(params);
+      shouldBreak = true;
+    }
+    if (shouldBreak) break;
+  }
+};
+
+const actualWindowHeight = parent.window.innerHeight
+  ? parent.window.innerHeight
+  : window.innerHeight;
+const actualWindowWidth = window.innerWidth;
+
+nodeContainer.style.height = `${actualWindowHeight - 40}px`;
+
 const initialNodes = await request({
   method: "get",
   url: "/nodes",
 });
-
-let nodesLength = initialNodes.length;
 
 const initialEdges = await request({
   method: "get",
@@ -125,12 +175,6 @@ const initialEdges = await request({
 
 const allEdges = [...initialEdges];
 const allNodes = [...initialNodes];
-
-nodeContainer.style.height = `${
-  parent.window.innerHeight
-    ? parent.window.innerHeight - 40
-    : window.innerHeight
-}px`;
 
 const layoutOptions = {
   name: "dagre",
@@ -146,7 +190,6 @@ const layoutOptions = {
     return position;
   },
 };
-
 const tree = cytoscape({
   container: nodeContainer,
   layout: layoutOptions,
@@ -156,15 +199,22 @@ const tree = cytoscape({
     {
       selector: "node",
       style: {
-        // styles for node are applied here.
-        label: "data(label)",
+        label: function (ele) {
+          const id = ele.data("id");
+          const isChildrenHidden = childrenHiddenNodes.includes(id);
+          const hasChildren = allEdges.find(
+            ({ data: { source } }) => source === id
+          );
+          let suffix = "";
+          if (hasChildren) {
+            suffix = isChildrenHidden ? "(+)" : "(-)";
+          }
+          return ele.data("label") + suffix;
+        },
         "background-color": function (ele) {
           const type = ele.data("type");
-          // The height and width are decided based on the height and width properties in the svg itself.
-          //  Setting those styles here did not seem to work.
           switch (type) {
             case "assumption":
-              // return "#fa4550";
               return "#820300";
             case "datapoints":
               return "#0D4C92";
@@ -173,7 +223,6 @@ const tree = cytoscape({
               return "#0D9276";
 
             default:
-              // return "#fa4550";
               return "#820300";
           }
         },
@@ -220,6 +269,33 @@ const tree = cytoscape({
   ],
 });
 
+const root = tree.elements().filter((node) => node.indegree() === 0);
+
+const nodesToHideIds = initialEdges
+  .filter(({ data: { source } }) => source !== root.data("id"))
+  .map(({ data: { target } }) => target);
+
+for (const id of nodesToHideIds) {
+  const selector = `node[id="${id}"]`;
+  const selectedNodes = tree.elements(selector);
+  selectedNodes.hide();
+}
+
+childrenHiddenNodes.splice(
+  -1,
+  0,
+  ...initialEdges
+    .filter(({ data: { source } }) => source === root.data("id"))
+    .map(({ data: { target } }) => target),
+  ...nodesToHideIds
+);
+
+setTimeout(() => tree.layout(layoutOptions).run());
+tree.nodes().forEach(function (node) {
+  node.data("label", node.data("label") + " ");
+  node.trigger("data");
+});
+
 const handleZoom = (zoomAmount) => {
   if (zoomAmount === 0) {
     tree.layout(layoutOptions).run();
@@ -255,10 +331,10 @@ const handleSaveAsImage = () => {
   dialog.innerHTML = `<form>
   <p style="margin:0; padding:0 0 10px 0; font-size: 24px; text-align: center;">Image export options</p>
   <label>Select background for your image 
-  <input type="color" name="color" />
+  <input type="color" name="color" value="#ffffff" />
   </label>
   <label>
-  <input type="checkbox" name="transparent" checked /> Ignore above colour and make the background transparent
+  <input type="checkbox" name="transparent" /> Ignore above colour and make the background transparent
   </label>
   <button>Save as image</button>
   </form>`;
@@ -286,35 +362,35 @@ const handleGraphActions = (e) => {
       break;
   }
 };
+
 function getAllConnectedNodes(node) {
   let connectedNodes = [];
   const uniqueIds = [];
 
-  function traverse(node) {
-    let successors = node.successors();
-    successors.forEach((node) => {
-      if (!uniqueIds.includes(node.data("id"))) {
-        connectedNodes.push(node);
-        uniqueIds.push(node.data("id"));
-      }
-    });
-
-    successors.forEach((succ) => {
-      traverse(succ);
-    });
-  }
-
-  traverse(node);
+  const successors = node.successors();
+  successors.forEach((node) => {
+    if (!uniqueIds.includes(node.data("id"))) {
+      connectedNodes.push(node);
+      uniqueIds.push(node.data("id"));
+    }
+  });
 
   return connectedNodes;
 }
 
-const handleExpandNode = (node) => {
-  const connectedNodes = getAllConnectedNodes(node);
+const handleExpandNode = (node, fullDepth = false) => {
+  let connectedNodes = [];
+  if (fullDepth) {
+    connectedNodes = getAllConnectedNodes(node, fullDepth ? -1 : 0);
+  } else {
+    const neighborhood = node.neighborhood();
+    connectedNodes = neighborhood.map((node) => node);
+  }
 
   connectedNodes.forEach((node) => {
     node.show();
   });
+  tree.layout(layoutOptions).run();
 };
 
 const handleCollapseNode = (node) => {
@@ -322,6 +398,14 @@ const handleCollapseNode = (node) => {
   connectedNodes.forEach((node) => {
     node.hide();
   });
+
+  childrenHiddenNodes.splice(
+    -1,
+    0,
+    ...connectedNodes.map((node) => node.data("id"))
+  );
+
+  tree.layout(layoutOptions).run();
 };
 
 const toggleNodeChildren = (node) => {
@@ -349,11 +433,11 @@ const handleNodeClick = (e) => {
 };
 
 const enableZoomOnCtrlKeyDown = (e) => {
-  // console.log({ e });
   if (e.key.toLowerCase() === "control" || e.key.toLowerCase() === "command") {
     tree.userZoomingEnabled(true);
   }
 };
+
 const disableZoomOnCtrlKeyup = (e) => {
   if (e.key.toLowerCase() === "control" || e.key.toLowerCase() === "command") {
     tree.userZoomingEnabled(false);
@@ -361,12 +445,10 @@ const disableZoomOnCtrlKeyup = (e) => {
 };
 
 const handleMouseOver = () => {
-  // console.log("mouseover");
   window.addEventListener("keydown", enableZoomOnCtrlKeyDown);
   window.addEventListener("keyup", disableZoomOnCtrlKeyup);
 };
 const handleMouseOut = () => {
-  // console.log("mouseout");
   window.removeEventListener("keydown", enableZoomOnCtrlKeyDown);
   window.removeEventListener("keyup", disableZoomOnCtrlKeyup);
 };
@@ -397,7 +479,7 @@ const showPopper = (x, y) => {
   let horizontalSpace = "right",
     verticalSpace = "bottom";
 
-  if (x + POPPER_WIDTH > window.innerWidth) {
+  if (x + POPPER_WIDTH > actualWindowWidth) {
     if (x - POPPER_WIDTH > 0) {
       horizontalSpace = "left";
     } else {
@@ -405,7 +487,7 @@ const showPopper = (x, y) => {
     }
   }
 
-  if (y + POPPER_HEIGHT > window.innerHeight) {
+  if (y + POPPER_HEIGHT > actualWindowHeight) {
     if (y - POPPER_HEIGHT > 0) {
       verticalSpace = "top";
     } else {
@@ -495,7 +577,7 @@ const handleCollapseAll = () => {
 
 const handleExpandAll = () => {
   const root = tree.getElementById("root-node");
-  handleExpandNode(root);
+  handleExpandNode(root, true);
   hidePopper();
 };
 
@@ -548,7 +630,7 @@ const handleEditOptions = (e) => {
       hidePopper();
       break;
     case "expand":
-      handleExpandNode(currentSelectedNode);
+      handleExpandNode(currentSelectedNode, false);
       hidePopper();
       break;
     case "expand-all":
@@ -634,7 +716,7 @@ const deleteNodeInDB = (id) => {
 const onRemoveNode = async (e) => {
   const data = e.target.data();
   deleteNodeInDB(data.id);
-  const edgesToDeleteIds = allEdges
+  let edgesToDeleteIds = allEdges
     .filter(function (edge) {
       return edge.data.target === data.id || edge.data.source === data.id;
     })
@@ -653,6 +735,13 @@ const onRemoveNode = async (e) => {
         getAllConnectedNodes(tree.$id(id))
       )
     );
+
+  edgesToDeleteIds = edgesToDeleteIds.reduce((arr, curr, index) => {
+    if (edgesToDeleteIds.indexOf(curr) === index) {
+      arr.push(curr);
+    }
+    return arr;
+  }, []);
 
   nodesToDelete.forEach((node) => node.remove());
   edgesToDeleteIds.forEach(deleteEdgeInDB);
@@ -673,7 +762,15 @@ const stopEvent = (e) => {
   e.preventDefault();
 };
 
+const togglePassword = (e) => {
+  const input = document.querySelector('[name="auth-code"]');
+  const isPassword = input.getAttribute("type") === "password";
+  input.setAttribute("type", isPassword ? "text" : "password");
+  e.target.innerHTML = isPassword ? "Hide password" : "Show password";
+};
+
 /** All event listeners here */
+passwordToggleBtn.addEventListener("click", togglePassword);
 popperBg.addEventListener("click", hidePopper);
 dialogBg.addEventListener("click", hideDialog);
 addNodesContainer.addEventListener("click", handleAddNode);
@@ -685,6 +782,8 @@ nodeContainer.addEventListener("mouseout", () => {
 nodeContainer.addEventListener("mouseover", () => {
   document.addEventListener("contextmenu", stopEvent);
 });
+
+authCodeInput.addEventListener("change", debounce(retryRequests, 1000));
 
 actionContainers.forEach((container) => {
   container.addEventListener("click", handleGraphActions);
@@ -700,3 +799,8 @@ tree.on("remove", "node", onRemoveNode);
 
 tree.on("mouseover", handleMouseOver);
 tree.on("mouseout", handleMouseOut);
+
+window.onbeforeunload = function (event) {
+  if (failedRequestList.length)
+    return "you have unsaved changes. Are you sure you want to navigate away?";
+};
