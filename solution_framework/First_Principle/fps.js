@@ -1,5 +1,6 @@
 "use strict";
 
+const failedRequestList = [];
 const getElementFromEvent = (e, maxDepth = 1) => {
   let element = e.target;
   if (e.target.classList.contains("fa")) {
@@ -71,18 +72,31 @@ const nodeContainer = document.querySelector("#nodes");
 const authCodeInput = document.querySelector("input[name=auth-code]");
 
 const COMMON_HEADERS = { "content-type": "application/json" };
+const retryFailedRequestsControl = new Proxy(
+  { shouldRetry: false },
+  {
+    set(target, prop, value) {
+      if (value) {
+        retryRequests();
+      }
+      target[prop] = value;
+      return true;
+    },
+  }
+);
+
 /**
  * Make a request to the back-end
  * @param {ReqObject} param0 Request object
  * @returns {Promise}
  */
-const request = async ({ method, url, data, token }) => {
+const request = async (params, showLoader = true) => {
   try {
+    const { method, url, data, token } = params;
     const _baseURL =
       baseURL[baseURL.length - 1] === "/" ? baseURL.slice(0, -1) : baseURL;
     const _url = url[0] === "/" ? url : "/" + url;
-
-    spinnerControl.isShown = true;
+    spinnerControl.isShown = showLoader;
     const res = await fetch(`${_baseURL}${_url}`, {
       method,
       body: data ? JSON.stringify(data) : undefined,
@@ -102,13 +116,43 @@ const request = async ({ method, url, data, token }) => {
       if (token) {
         errorMessageControl.message = "";
       }
+      retryFailedRequestsControl.shouldRetry = true;
       return res.json();
     }
   } catch (err) {
+    failedRequestList.push(params);
     console.error(err);
     errorMessageControl.message = "Auth code not supplied or invalid";
   } finally {
     spinnerControl.isShown = false;
+  }
+};
+
+const debounce = (func, delay) => {
+  let timer;
+  return function () {
+    let self = this;
+    let args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(self, args);
+    }, delay);
+  };
+};
+const retryRequests = async () => {
+  let shouldBreak = false;
+  let count = 0;
+
+  while (failedRequestList.length && count < 10) {
+    count++;
+    const params = failedRequestList.shift();
+    try {
+      await request({ ...params, token: authCodeInput.value }, false);
+    } catch (err) {
+      failedRequestList.unshift(params);
+      shouldBreak = true;
+    }
+    if (shouldBreak) break;
   }
 };
 
@@ -739,6 +783,8 @@ nodeContainer.addEventListener("mouseover", () => {
   document.addEventListener("contextmenu", stopEvent);
 });
 
+authCodeInput.addEventListener("change", debounce(retryRequests, 1000));
+
 actionContainers.forEach((container) => {
   container.addEventListener("click", handleGraphActions);
 });
@@ -753,3 +799,8 @@ tree.on("remove", "node", onRemoveNode);
 
 tree.on("mouseover", handleMouseOver);
 tree.on("mouseout", handleMouseOut);
+
+window.onbeforeunload = function (event) {
+  if (failedRequestList.length)
+    return "you have unsaved changes. Are you sure you want to navigate away?";
+};
