@@ -61,7 +61,7 @@ const dialogControl = new Proxy(
 );
 
 let childrenHiddenNodes = [];
-const baseURL = "https://rapidcrawler-aniganesh.koyeb.app/";
+const baseURL = "https://fps-rapid-crawler.koyeb.app/";
 const POPPER_WIDTH = 300;
 const POPPER_HEIGHT = 450;
 const popperBg = document.querySelector("#popper-bg");
