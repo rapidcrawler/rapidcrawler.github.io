@@ -199,6 +199,8 @@ const tree = cytoscape({
     {
       selector: "node",
       style: {
+        "text-wrap": "wrap",
+        "text-max-width": 160,
         label: function (ele) {
           const id = ele.data("id");
           const isChildrenHidden = childrenHiddenNodes.includes(id);
