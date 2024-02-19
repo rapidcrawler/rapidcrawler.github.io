@@ -190,6 +190,7 @@ const layoutOptions = {
     return position;
   },
 };
+
 const tree = cytoscape({
   container: nodeContainer,
   layout: layoutOptions,
@@ -215,6 +216,14 @@ const tree = cytoscape({
         },
         "background-color": function (ele) {
           const type = ele.data("type");
+          const edges = ele
+            .connectedEdges()
+            .toArray()
+            .filter((edge) => edge.data("target") === ele.data("id"));
+          const isRoot = edges.length === 0;
+          if (isRoot) {
+            return "#455454";
+          }
           switch (type) {
             case "assumption":
               return "#820300";
@@ -239,6 +248,14 @@ const tree = cytoscape({
         "font-size": 24,
         "background-image": function (ele) {
           const type = ele.data("type");
+          const edges = ele
+            .connectedEdges()
+            .toArray()
+            .filter((edge) => edge.data("target") === ele.data("id"));
+          const isRoot = edges.length === 0;
+          if (isRoot) {
+            return "url(/assets/imgs/solution_frameworks/bullseye.svg)";
+          }
           // The height and width are decided based on the height and width properties in the svg itself.
           //  Setting those styles here did not seem to work.
           switch (type) {
