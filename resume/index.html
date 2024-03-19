@@ -14,7 +14,27 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
 	<style>
+		.org_info {
+			display: flex;
+			/* This enables flexbox */
+			justify-content: space-between;
+			/* This spaces out the child elements */
+			align-items: center;
+			/* This aligns the items vertically in the center, if you want */
+		}
 
+		/* If you want the headers to take up the entire width of the container */
+		.left-header,
+		.right-header {
+			flex: 1;
+			/* This allows each header to grow and take up equal space */
+		}
+
+		/* This is optional, only if you want the right header specifically aligned to the right */
+		.right-header {
+			text-align: right;
+			/* This aligns the text of the right-header to the right */
+		}
 	</style>
 </head>
 
@@ -36,8 +56,10 @@
 						target="_blank">linkedin.jaspreetblogs.in</a>
 				</p>
 				<p style="text-align: center;">
-					<a href="http://github.jaspreetblogs.in" target="_blank" rel="noopener noreferrer">github.jaspreetblogs.in</a> • 
-					<a href="http://notion.jaspreetblogs.in" target="_blank" rel="noopener noreferrer">blog.jaspreetblogs.in</a>
+					<a href="http://github.jaspreetblogs.in" target="_blank"
+						rel="noopener noreferrer">github.jaspreetblogs.in</a> •
+					<a href="http://notion.jaspreetblogs.in" target="_blank"
+						rel="noopener noreferrer">blog.jaspreetblogs.in</a>
 				</p>
 			</div>
 		</div>
@@ -60,15 +82,16 @@
 			<div id="mag" class="header-container">
 				<div class="org_info">
 					<div class="left-header">
-						<h2><strong>M.A.G.</strong></h2>
+						<h2>
+							Lead Data Scientist | M.A.G.
+						</h2>
 					</div>
 					<div class="right-header">
 						<strong>Sep2023 - Present</strong>
 					</div>
 				</div>
-				<br>
+				<hr>
 				<div class="project_info">
-					<br>
 					<strong style="color: black; letter-spacing: 0.5px;">SKU Purchase Prediction</strong>
 					<p>
 					<ul>
@@ -104,15 +127,16 @@
 			<div id="jpmc" class="header-container">
 				<div class="org_info">
 					<div class="left-header">
-						<strong>J.P. Morgan</strong>
+						<h2>
+							Senior Data Scientist | J.P. Morgan
+						</h2>
 					</div>
 					<div class="right-header">
 						<strong>Feb2022 - Sep2023</strong>
 					</div>
 				</div>
-
+				<hr>
 				<div class="project_info">
-					<br>
 					<strong style="color: black; letter-spacing: 0.5px;">Attention & Deep Learning Based Email
 						Classifier </strong>
 					<p>
@@ -164,14 +188,16 @@
 			<div id="musigma" class="header-container">
 				<div class="org_info">
 					<div class="left-header">
-						<strong>Mu Sigma</strong>
+						<h2>
+							Data Scientist | Mu Sigma
+						</h2>
 					</div>
 					<div class="right-header">
 						<strong>Dec 2018 - Jan2022</strong>
 					</div>
 				</div>
+				<hr>
 				<div class="project_info">
-					<br>
 					<strong style="color: black; letter-spacing: 0.5px;">Random Forest Based Manufacturing Halts
 						Reduction</strong>
 					<p>
