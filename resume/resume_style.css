@@ -14,7 +14,7 @@ strong {
 li {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.9px;
-    line-height: 1.5;    
+    line-height: 1.5;
 }
 
 code {
@@ -56,10 +56,19 @@ code {
     /* Reduced from 10px to 5px */
 }
 
+.designation {
+    color: #470101;
+}
+
+.project_title {
+    color: #160000;
+    letter-spacing: 0.5px;
+}
+
 .project_info p,
 .project_info ul,
 .project_info li {
-    margin-top: 0; 
+    margin-top: 0;
     margin-bottom: 2px;
     /* padding-left: 10; */
 }
