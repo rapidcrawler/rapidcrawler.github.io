@@ -50,12 +50,6 @@ code {
     float: right;
 }
 
-.org_info,
-.project_info {
-    /* padding-bottom: 10px; */
-    /* Reduced from 10px to 5px */
-}
-
 .designation {
     color: #470101;
 }
