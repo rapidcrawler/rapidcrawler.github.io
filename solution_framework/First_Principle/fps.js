@@ -410,6 +410,10 @@ const handleExpandNode = (node, fullDepth = false) => {
     node.show();
   });
   tree.layout(layoutOptions).run();
+  tree.nodes().forEach(function (node) {
+    node.data("label", node.data("label") + "");
+    node.trigger("data");
+  });
 };
 
 const handleCollapseNode = (node) => {
@@ -596,6 +600,7 @@ const handleCollapseAll = () => {
 
 const handleExpandAll = () => {
   const root = tree.getElementById("root-node");
+  childrenHiddenNodes.splice(0, childrenHiddenNodes.length);
   handleExpandNode(root, true);
   hidePopper();
 };
