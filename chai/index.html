@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment</title>
+    <link rel="stylesheet" href="chai_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sponsor My Chai - ☕</h1>
+        
+        <!-- Quick Pay Buttons -->
+        <div class="quick-pay">
+            <button class="quick-pay-button" data-amount="10">1 Chai</button>
+            <button class="quick-pay-button" data-amount="70">1 Week Chai</button>
+            <button class="quick-pay-button" data-amount="300">1 Month Chai</button>
+        </div>
+
+        <!-- Manual Amount Entry -->
+        <div class="form-group">
+            <label for="amount">Or, Enter Amount:</label>
+            <input type="number" id="amount" placeholder="Enter amount" required>
+        </div>
+        
+        <!-- Pay Button -->
+        <button id="pay-button">Pay</button>
+    </div>
+
+    <script>
+        // Event Listener for Quick Pay Buttons
+        document.querySelectorAll('.quick-pay-button').forEach(button => {
+            button.addEventListener('click', function() {
+                var amount = this.getAttribute('data-amount');
+                initiatePayment(amount);
+            });
+        });
+
+        // Event Listener for Manual Pay Button
+        document.getElementById('pay-button').addEventListener('click', function() {
+            var amount = document.getElementById('amount').value;
+            if(amount && amount > 0) {
+                initiatePayment(amount);
+            } else {
+                alert('Please enter a valid amount.');
+            }
+        });
+
+        // Function to Initiate Payment
+        function initiatePayment(amount) {
+            var upiId = '9780953556@ybl';
+            var upiUrl = `upi://pay?pa=${upiId}&pn=Payee Name&am=${amount}&cu=INR`;
+            window.location.href = upiUrl;
+        }
+    </script>
+</body>
+</html>
