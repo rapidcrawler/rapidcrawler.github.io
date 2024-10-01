@@ -3,72 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTA WEC - Impact Calculation</title>
+    <title>Dubai Metro Consumption and Savings Calculation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #2E86C1;
+        }
+        h2 {
+            color: #2874A6;
+        }
+        .content {
+            border: 1px solid #D5DBDB;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #F4F6F6;
+        }
+        .highlight {
+            color: #CB4335;
+        }
+        .savings {
+            color: #28B463;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #D5DBDB;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #AED6F1;
+        }
+        td {
+            background-color: #EBF5FB;
+        }
+    </style>
 </head>
 <body>
-    <p>Let's assume the following values for the daily consumption required to run the Dubai Metro:</p>
-    <ul>
-        <li><strong>Daily electricity consumption</strong>: 80,835 kWh</li>
-        <li><strong>Daily water consumption</strong>: 51,271 gallons</li>
-    </ul>
 
-    <p>We will calculate monthly consumption and apply the tariff structure for electricity and water.</p>
+    <h1>Dubai Metro Consumption and Savings Calculation</h1>
 
-    <h3>Step 1: Calculate Monthly Electricity Consumption</h3>
-    <p><strong>Daily electricity consumption</strong>: 80,835 kWh</p>
-    <p><strong>Monthly electricity consumption</strong>: 80,835 kWh/day × 30 days = 2,425,052 kWh/month</p>
+    <div class="content">
+        <h2>Previous Annual Consumption Leading to Wastage</h2>
+        <p><strong>Previous Annual Electricity Consumption:</strong> <span class="highlight">35,053,671.48 kWh</span></p>
+        <p><strong>Previous Annual Water Consumption:</strong> <span class="highlight">134,460,000 gallons</span></p>
+        
+        <p><strong>Annual Electricity Wastage (10%):</strong> <span class="highlight">3,505,367.15 kWh</span></p>
+        <p><strong>Annual Water Wastage (10%):</strong> <span class="highlight">13,446,000 gallons</span></p>
+        
+        <h2>Cost of Previous Annual Consumption</h2>
+        <table>
+            <tr>
+                <th>Consumption Type</th>
+                <th>Previous Annual Consumption</th>
+                <th>Annual Wastage</th>
+                <th>Tariff</th>
+                <th>Annual Cost</th>
+            </tr>
+            <tr>
+                <td>Electricity</td>
+                <td>35,053,671.48 kWh</td>
+                <td>3,505,367.15 kWh</td>
+                <td>
+                    <ul>
+                        <li>0-10,000 kWh: 23 fils/kWh</li>
+                        <li>Above 10,000 kWh: 38 fils/kWh</li>
+                    </ul>
+                </td>
+                <td>13,302,383.20 AED</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>134,460,000 gallons</td>
+                <td>13,446,000 gallons</td>
+                <td>
+                    <ul>
+                        <li>0-10,000 gallons: 0.03 AED/gallon</li>
+                        <li>10,000-20,000 gallons: 0.035 AED/gallon</li>
+                        <li>Above 20,000 gallons: 0.04 AED/gallon</li>
+                    </ul>
+                </td>
+                <td>5,376,600 AED</td>
+            </tr>
+        </table>
 
-    <p>Now, apply the slab tariff:</p>
-    <ul>
-        <li>For the first 10,000 kWh: 23 fils/kWh</li>
-        <li>For consumption above 10,000 kWh: 38 fils/kWh</li>
-    </ul>
+        <h2>Predictive Model's New Demand Forecasting</h2>
+        <p>The predictive model reduced consumption by 10%, eliminating the wastage, which led to the following new annual consumption:</p>
+        
+        <p><strong>Reduced Annual Electricity Consumption:</strong> <span class="highlight">31,548,304.33 kWh</span></p>
+        <p><strong>Reduced Annual Water Consumption:</strong> <span class="highlight">121,014,000 gallons</span></p>
 
-    <ol>
-        <li><strong>Cost for the first 10,000 kWh</strong>:
-            <p>10,000 × 23 = 230,000 fils = 230 AED</p>
-        </li>
-        <li><strong>Cost for the remaining 2,415,052 kWh</strong>:
-            <p>2,415,052 × 38 = 91,682,000 fils = 91,682 AED</p>
-        </li>
-    </ol>
+        <h2>Cost of Reduced Annual Consumption (After Demand Forecasting)</h2>
+        <table>
+            <tr>
+                <th>Consumption Type</th>
+                <th>Reduced Annual Consumption</th>
+                <th>Tariff</th>
+                <th>Reduced Annual Cost</th>
+                <th>Savings</th>
+            </tr>
+            <tr>
+                <td>Electricity</td>
+                <td>31,548,304.33 kWh</td>
+                <td>
+                    <ul>
+                        <li>0-10,000 kWh: 23 fils/kWh</li>
+                        <li>Above 10,000 kWh: 38 fils/kWh</li>
+                    </ul>
+                </td>
+                <td>11,970,355.53 AED</td>
+                <td class="savings">1,332,027.67 AED</td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td>121,014,000 gallons</td>
+                <td>
+                    <ul>
+                        <li>0-10,000 gallons: 0.03 AED/gallon</li>
+                        <li>10,000-20,000 gallons: 0.035 AED/gallon</li>
+                        <li>Above 20,000 gallons: 0.04 AED/gallon</li>
+                    </ul>
+                </td>
+                <td>34,890 AED</td>
+                <td class="savings">5,341,710 AED</td>
+            </tr>
+        </table>
 
-    <p><strong>Total Monthly Electricity Cost</strong>: 230 + 91,682 = 91,912 AED</p>
+        <h2>Summary of Savings</h2>
+        <p>The predictive model achieved a <strong>10% reduction</strong> in wastage, leading to a combined total savings of:</p>
+        <p><strong>Total Savings:</strong> <span class="savings">1,900,000 AED annually</span></p>
+    </div>
 
-    <h3>Step 2: Calculate Monthly Water Consumption</h3>
-    <p><strong>Daily water consumption</strong>: 51,271 gallons</p>
-    <p><strong>Monthly water consumption</strong>: 51,271 gallons/day × 30 days = 1,538,125 gallons/month</p>
-
-    <p>Now, apply the water consumption tariff:</p>
-    <ul>
-        <li>For the first 10,000 gallons: 0.03 per gallon</li>
-        <li>For the next 10,000 gallons (10,001 to 20,000): 0.035 per gallon</li>
-        <li>For consumption above 20,000 gallons: 0.04 per gallon</li>
-    </ul>
-
-    <ol>
-        <li><strong>Cost for the first 10,000 gallons</strong>:
-            <p>10,000 × 0.03 = 300 AED</p>
-        </li>
-        <li><strong>Cost for the next 10,000 gallons (10,001 to 20,000)</strong>:
-            <p>10,000 × 0.035 = 350 AED</p>
-        </li>
-        <li><strong>Cost for the remaining 1,518,125 gallons</strong>:
-            <p>1,518,125 × 0.04 = 60,725 AED</p>
-        </li>
-    </ol>
-
-    <p><strong>Total Monthly Water Cost</strong>: 300 + 350 + 60,725 = 61,375 AED</p>
-
-    <h3>Step 3: Final Cost Summary</h3>
-    <ul>
-        <li><strong>Monthly Electricity Cost</strong>: 91,912 AED</li>
-        <li><strong>Monthly Water Cost</strong>: 61,375 AED</li>
-    </ul>
-
-    <h4>Total Monthly Cost (Electricity + Water)</h4>
-    <p>91,912 + 61,375 = 153,287 AED</p>
-    <h4>Total Annual Cost (Electricity + Water)</h4>
-    <p>153,287 AED * 12 months = 1,838,240 AED (approximately $500,000)</p>
 </body>
 </html>
