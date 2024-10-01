@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTA WEC - Impact Calculation</title>
+</head>
+<body>
+    <p>Let's assume the following values for the daily consumption required to run the Dubai Metro:</p>
+    <ul>
+        <li><strong>Daily electricity consumption</strong>: 80,835 kWh</li>
+        <li><strong>Daily water consumption</strong>: 51,271 gallons</li>
+    </ul>
+
+    <p>We will calculate monthly consumption and apply the tariff structure for electricity and water.</p>
+
+    <h3>Step 1: Calculate Monthly Electricity Consumption</h3>
+    <p><strong>Daily electricity consumption</strong>: 80,835 kWh</p>
+    <p><strong>Monthly electricity consumption</strong>: 80,835 kWh/day × 30 days = 2,425,052 kWh/month</p>
+
+    <p>Now, apply the slab tariff:</p>
+    <ul>
+        <li>For the first 10,000 kWh: 23 fils/kWh</li>
+        <li>For consumption above 10,000 kWh: 38 fils/kWh</li>
+    </ul>
+
+    <ol>
+        <li><strong>Cost for the first 10,000 kWh</strong>:
+            <p>10,000 × 23 = 230,000 fils = 230 AED</p>
+        </li>
+        <li><strong>Cost for the remaining 2,415,052 kWh</strong>:
+            <p>2,415,052 × 38 = 91,682,000 fils = 91,682 AED</p>
+        </li>
+    </ol>
+
+    <p><strong>Total Monthly Electricity Cost</strong>: 230 + 91,682 = 91,912 AED</p>
+
+    <h3>Step 2: Calculate Monthly Water Consumption</h3>
+    <p><strong>Daily water consumption</strong>: 51,271 gallons</p>
+    <p><strong>Monthly water consumption</strong>: 51,271 gallons/day × 30 days = 1,538,125 gallons/month</p>
+
+    <p>Now, apply the water consumption tariff:</p>
+    <ul>
+        <li>For the first 10,000 gallons: 0.03 per gallon</li>
+        <li>For the next 10,000 gallons (10,001 to 20,000): 0.035 per gallon</li>
+        <li>For consumption above 20,000 gallons: 0.04 per gallon</li>
+    </ul>
+
+    <ol>
+        <li><strong>Cost for the first 10,000 gallons</strong>:
+            <p>10,000 × 0.03 = 300 AED</p>
+        </li>
+        <li><strong>Cost for the next 10,000 gallons (10,001 to 20,000)</strong>:
+            <p>10,000 × 0.035 = 350 AED</p>
+        </li>
+        <li><strong>Cost for the remaining 1,518,125 gallons</strong>:
+            <p>1,518,125 × 0.04 = 60,725 AED</p>
+        </li>
+    </ol>
+
+    <p><strong>Total Monthly Water Cost</strong>: 300 + 350 + 60,725 = 61,375 AED</p>
+
+    <h3>Step 3: Final Cost Summary</h3>
+    <ul>
+        <li><strong>Monthly Electricity Cost</strong>: 91,912 AED</li>
+        <li><strong>Monthly Water Cost</strong>: 61,375 AED</li>
+    </ul>
+
+    <h4>Total Monthly Cost (Electricity + Water)</h4>
+    <p>91,912 + 61,375 = 153,287 AED</p>
+    <h4>Total Annual Cost (Electricity + Water)</h4>
+    <p>153,287 AED * 12 months = 1,838,240 AED (approximately $500,000)</p>
+</body>
+</html>
