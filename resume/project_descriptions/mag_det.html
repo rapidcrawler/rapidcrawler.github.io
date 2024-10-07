@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DET Solution Impact Calculation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    </style>
+</head>
+<body>
+    <h1>DE overnight Visitor Arrivals and Spends Predictions</h1>
+
+    <div class="content">
+        <h2>What-If Dashboard View</h2>
+        <img id="zoomImage" src="./mag_det_whatif_tool_01.png" alt="">
+        <h2>Integration with Prediction Model</h2>
+    </div>
+
+    <script>
+        const img = document.getElementById('zoomImage');
+
+        img.addEventListener('click', function () {
+            if (this.classList.contains('zoomed')) {
+                this.classList.remove('zoomed');
+            } else {
+                this.classList.add('zoomed');
+            }
+        });
+    </script>
+</body>
+</html>
