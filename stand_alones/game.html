@@ -176,18 +176,42 @@
     border: 1px solid #444;
 }/* CALCULATOR */
 
-.market-title {
+.calc-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.back-arrow-btn {
+    width: 45px;
+    height: 45px;
+    background: #333;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.calc-header-titles {
+    flex: 1;
     text-align: center;
-    font-size: 28px;
+}
+
+.calc-header-bar .placeholder {
+    width: 45px;
+}
+
+.market-title {
+    font-size: 26px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .date-label {
-    text-align: center;
     color: #aaa;
-    font-size: 14px;
-    margin-bottom: 15px;
+    font-size: 13px;
 }
 
 .calculator-layout {
@@ -195,13 +219,19 @@
     grid-template-columns: 1fr 1.15fr;
     gap: 12px;
     align-items: start;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }/* LEFT KEY LIST */
 
 .key-summary {
     background: #222;
     border-radius: 14px;
-    min-height: 300px;
-    height: 300px;
+    min-height: 240px;
+    height: 240px;
     overflow-y: auto;
     padding: 12px;
 }
@@ -268,6 +298,25 @@
     font-size: 13px;
     text-align: center;
     padding: 30px 5px;
+}/* HISTORY BUTTON SECTION */
+
+.history-section-btn {
+    width: 100%;
+    height: 48px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.history-section-btn:hover {
+    background: #2a2a2a;
 }/* RIGHT CALCULATOR */
 
 .entry-panel {
@@ -310,13 +359,22 @@
 
 .calculator-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 10px;
     margin-top: 10px;
 }
 
-.back {
+.calculator-actions button {
+    height: 52px;
+    font-size: 18px;
+}
+
+.remove-btn {
     background: #444;
+}
+
+.ok-btn {
+    background: #19733b;
 }
 
 .message {
@@ -429,15 +487,84 @@
     color: #ff5252;
     font-size: 11px;
     margin-top: 6px;
-}@media (max-width: 360px) {
+}/* HISTORY MODAL SPECIFIC */
+
+.history-modal-box {
+    max-width: 360px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-content-area {
+    overflow-y: auto;
+    max-height: 50vh;
+    padding-right: 4px;
+    margin-bottom: 15px;
+}
+
+.history-group-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #6ee7a0;
+    background: #1b1b1b;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.history-group-title:first-child {
+    margin-top: 0;
+}
+
+.history-entry-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #181818;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.history-entry-val {
+    font-weight: bold;
+    color: white;
+}
+
+.history-delete-btn {
+    background: #8b2525;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.history-delete-btn:active {
+    transform: scale(.95);
+}
+
+.history-close-btn {
+    width: 100%;
+    background: #444;
+    height: 45px;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+@media (max-width: 360px) {
     .calculator-layout {
         grid-template-columns: 1fr 1.1fr;
         gap: 8px;
     }
 
     .key-summary {
-        min-height: 285px;
-        height: 285px;
+        min-height: 235px;
+        height: 235px;
     }
 
     .calculator-grid {
@@ -504,7 +631,7 @@
 
     <!-- MARKET -->
     <div id="choiceScreen" class="screen">
-        <h1>Game</h1>
+        <h1>Select</h1>
 
         <div class="choice-container">
             <button class="choice" onclick="openMarket('kalyan')">Kalyan</button>
@@ -515,25 +642,37 @@
     <!-- CALCULATOR -->
     <div id="calculatorScreen" class="screen">
 
-        <div id="marketTitle" class="market-title">Kalyan</div>
-        <div id="calculatorDate" class="date-label"></div>
+        <div class="calc-header-bar">
+            <button class="back-arrow-btn" onclick="showChoiceScreen()">‹</button>
+            <div class="calc-header-titles">
+                <div id="marketTitle" class="market-title">Kalyan</div>
+                <div id="calculatorDate" class="date-label"></div>
+            </div>
+            <div class="placeholder"></div>
+        </div>
 
         <div class="calculator-layout">
 
-            <!-- LEFT: KEYS -->
-            <div class="key-summary">
+            <!-- LEFT COLUMN: KEYS + HISTORY -->
+            <div class="left-column">
+                <div class="key-summary">
 
-                <div class="summary-header">
-                    <div class="summary-title">Number - Total</div>
+                    <div class="summary-header">
+                        <div class="summary-title">KEY — SUM SO FAR</div>
 
-                    <button
-                        class="add-key-button"
-                        onclick="openKeyModal()"
-                        aria-label="Add new key"
-                    >+</button>
+                        <button
+                            class="add-key-button"
+                            onclick="openKeyModal()"
+                            aria-label="Add new key"
+                        >+</button>
+                    </div>
+
+                    <div id="keySummaryList"></div>
                 </div>
 
-                <div id="keySummaryList"></div>
+                <button class="history-section-btn" onclick="openHistoryModal()">
+                    History
+                </button>
             </div>
 
             <!-- RIGHT: VALUE CALCULATOR -->
@@ -560,8 +699,8 @@
                 </div>
 
                 <div class="calculator-actions">
-                    <button class="back" onclick="showChoiceScreen()">Back</button>
-                    <button class="ok" onclick="addValue()">OK</button>
+                    <button class="remove-btn" onclick="removeDigit()">Remove</button>
+                    <button class="ok-btn" onclick="addValue()">OK</button>
                 </div>
 
                 <div id="message" class="message"></div>
@@ -569,7 +708,7 @@
         </div>
 
         <button class="reset" onclick="resetTotals()">Reset All Keys</button>
-    </div></div><!-- ADD KEY POPUP --><div id="keyModal" class="modal" onclick="closeModalOutside(event)">
+    </div></div><!-- ADD KEY POPUP --><div id="keyModal" class="modal" onclick="closeModalOutside(event, 'keyModal')">
     <div class="modal-box">
 
         <div class="modal-title">Add New Key</div>
@@ -597,6 +736,14 @@
             <button class="modal-cancel" onclick="closeKeyModal()">Exit</button>
             <button class="modal-add" onclick="createKey()">Ok</button>
         </div>
+    </div></div><!-- HISTORY POPUP --><div id="historyModal" class="modal" onclick="closeModalOutside(event, 'historyModal')">
+    <div class="modal-box history-modal-box">
+        <div class="modal-title">Entries History</div>
+        <div class="modal-subtitle">Grouped by key entries</div>
+
+        <div id="historyContentArea" class="history-content-area"></div>
+
+        <button class="history-close-btn" onclick="closeHistoryModal()">Close</button>
     </div></div><script>let pin = "";let currentNumber = "";let currentKey = "";let currentMarket = "";let selectedDate = getTodayString();let keyModalInput = "";let calendarMonth = new Date(
     new Date().getFullYear(),
     new Date().getMonth(),
@@ -630,6 +777,10 @@
     });
 }/* STORAGE */function getStorageKey(market, date) {
     return market + "_keys_" + date;
+}
+
+function getHistoryStorageKey(market, date) {
+    return market + "_history_" + date;
 }function getKeyTotals(market, date) {
     const saved = localStorage.getItem(getStorageKey(market, date));
 
@@ -644,6 +795,23 @@
     localStorage.setItem(
         getStorageKey(market, date),
         JSON.stringify(keyTotals)
+    );
+}
+
+function getHistoryEntries(market, date) {
+    const saved = localStorage.getItem(getHistoryStorageKey(market, date));
+    if (!saved) return {};
+    try {
+        return JSON.parse(saved);
+    } catch (error) {
+        return {};
+    }
+}
+
+function saveHistoryEntries(market, date, historyData) {
+    localStorage.setItem(
+        getHistoryStorageKey(market, date),
+        JSON.stringify(historyData)
     );
 }/* SCREEN */function showScreen(screenId) {
     document.querySelectorAll(".screen").forEach(screen => {
@@ -754,9 +922,6 @@
     currentKey = "";
     currentNumber = "";
 
-    document.getElementById("calculatorDate").textContent =
-        formatDisplayDate(selectedDate);
-
     updateCalculator();
     showScreen("calculatorScreen");
 }/* KEY POPUP */function openKeyModal() {
@@ -770,9 +935,15 @@
     modal.classList.add("active");
 }function closeKeyModal() {
     document.getElementById("keyModal").classList.remove("active");
-}function closeModalOutside(event) {
-    if (event.target.id === "keyModal") {
-        closeKeyModal();
+}/* HISTORY POPUP */function openHistoryModal() {
+    renderHistoryModalContent();
+    document.getElementById("historyModal").classList.add("active");
+}function closeHistoryModal() {
+    document.getElementById("historyModal").classList.remove("active");
+}function closeModalOutside(event, modalId) {
+    if (event.target.id === modalId) {
+        if (modalId === "keyModal") closeKeyModal();
+        if (modalId === "historyModal") closeHistoryModal();
     }
 }function keyModalPress(num) {
     if (keyModalInput.length >= 10) return;
@@ -832,6 +1003,10 @@
     currentNumber = "";
     updateCalculator();
     document.getElementById("message").textContent = "";
+}function removeDigit() {
+    currentNumber = currentNumber.slice(0, -1);
+    updateCalculator();
+    document.getElementById("message").textContent = "";
 }function addValue() {
     if (!currentKey) {
         document.getElementById("message").textContent =
@@ -844,16 +1019,20 @@
     }
 
     const valueToAdd = Number(currentNumber);
+    
+    // Update Totals
     const keyTotals = getKeyTotals(currentMarket, selectedDate);
-
     keyTotals[currentKey] =
         (Number(keyTotals[currentKey]) || 0) + valueToAdd;
+    saveKeyTotals(currentMarket, selectedDate, keyTotals);
 
-    saveKeyTotals(
-        currentMarket,
-        selectedDate,
-        keyTotals
-    );
+    // Update History Entries
+    const historyData = getHistoryEntries(currentMarket, selectedDate);
+    if (!historyData[currentKey]) {
+        historyData[currentKey] = [];
+    }
+    historyData[currentKey].push(valueToAdd);
+    saveHistoryEntries(currentMarket, selectedDate, historyData);
 
     currentNumber = "";
 
@@ -865,6 +1044,83 @@
     setTimeout(() => {
         document.getElementById("message").textContent = "";
     }, 1500);
+}/* RENDER HISTORY MODAL */function renderHistoryModalContent() {
+    const area = document.getElementById("historyContentArea");
+    area.innerHTML = "";
+
+    const historyData = getHistoryEntries(currentMarket, selectedDate);
+    const keys = Object.keys(historyData).sort((a, b) => {
+        const na = Number(a);
+        const nb = Number(b);
+        if (Number.isNaN(na) || Number.isNaN(nb)) return a.localeCompare(b);
+        return na - nb;
+    });
+
+    let hasEntries = false;
+
+    keys.forEach(key => {
+        const entries = historyData[key];
+        if (entries && entries.length > 0) {
+            hasEntries = true;
+
+            const groupTitle = document.createElement("div");
+            groupTitle.className = "history-group-title";
+            groupTitle.textContent = "Key: " + key;
+            area.appendChild(groupTitle);
+
+            entries.forEach((val, index) => {
+                const row = document.createElement("div");
+                row.className = "history-entry-row";
+
+                const valSpan = document.createElement("span");
+                valSpan.className = "history-entry-val";
+                valSpan.textContent = "+" + formatNumber(val);
+
+                const delBtn = document.createElement("button");
+                delBtn.className = "history-delete-btn";
+                delBtn.textContent = "Remove";
+                delBtn.onclick = () => removeHistoryEntry(key, index);
+
+                row.appendChild(valSpan);
+                row.appendChild(delBtn);
+                area.appendChild(row);
+            });
+        }
+    });
+
+    if (!hasEntries) {
+        const empty = document.createElement("div");
+        empty.className = "no-entries";
+        empty.textContent = "No entry history found";
+        area.appendChild(empty);
+    }
+}function removeHistoryEntry(key, index) {
+    const historyData = getHistoryEntries(currentMarket, selectedDate);
+    if (historyData[key]) {
+        const removedVal = historyData[key].splice(index, 1)[0];
+
+        // Clean up empty array group if needed
+        if (historyData[key].length === 0) {
+            delete historyData[key];
+        }
+        saveHistoryEntries(currentMarket, selectedDate, historyData);
+
+        // Update corresponding Total
+        const keyTotals = getKeyTotals(currentMarket, selectedDate);
+        if (keyTotals[key]) {
+            keyTotals[key] -= removedVal;
+            if (keyTotals[key] <= 0) {
+                delete keyTotals[key];
+                if (currentKey === String(key)) {
+                    currentKey = "";
+                }
+            }
+            saveKeyTotals(currentMarket, selectedDate, keyTotals);
+        }
+
+        updateCalculator();
+        renderHistoryModalContent();
+    }
 }/* UPDATE UI */function updateCalculator() {
     const marketName =
         currentMarket === "kalyan" ? "Kalyan" : "Rajdhani";
@@ -955,6 +1211,9 @@
     localStorage.removeItem(
         getStorageKey(currentMarket, selectedDate)
     );
+    localStorage.removeItem(
+        getHistoryStorageKey(currentMarket, selectedDate)
+    );
 
     currentKey = "";
     currentNumber = "";
@@ -1013,10 +1272,7 @@
         }
 
         if (event.key === "Backspace") {
-            currentNumber =
-                currentNumber.slice(0, -1);
-
-            updateCalculator();
+            removeDigit();
         }
 
         if (event.key === "Enter") {
@@ -1027,4 +1283,4 @@
             clearNumber();
         }
     }
-});updatePinDateDisplay = updatePinDisplay();updatePinDisplay();</script></body></html>
+});updatePinDisplay();</script></body></html>
