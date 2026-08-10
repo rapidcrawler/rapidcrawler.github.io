@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Entry</title>
-<style>* {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Kalyan & Rajdhani</title><style>* {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }body {
@@ -279,7 +277,7 @@ h1 {
 .add-key-button {
     width: 30px;
     height: 30px;
-    border-radius: 8px;
+    border-radius: 50%;
     background: #19733b;
     font-size: 24px;
     line-height: 1;
@@ -422,6 +420,14 @@ h1 {
 
 .ok-btn {
     background: #19733b;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .message {
@@ -581,18 +587,54 @@ h1 {
     color: white;
 }
 
+.history-actions-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 28px;
+}
+
 .history-delete-btn {
-    background: #8b2525;
+    background: #f5f5f1;
+    color: rgb(255, 0, 0);
+    border: none;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.history-delete-btn:active {
+    transform: scale(.95);
+}
+
+.history-confirm-btn {
+    background: #fd0101;
     color: white;
     border: none;
     padding: 4px 10px;
     font-size: 12px;
     border-radius: 6px;
     cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    position: absolute;
+    right: 0;
+    transform: translateX(105%);
+    opacity: 0;
 }
 
-.history-delete-btn:active {
-    transform: scale(.95);
+.history-entry-row.confirming .history-delete-btn {
+    transform: translateX(-105%);
+    opacity: 0;
+}
+
+.history-entry-row.confirming .history-confirm-btn {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .history-close-btn {
@@ -717,7 +759,7 @@ h1 {
                 <div class="key-summary">
 
                     <div class="summary-header">
-                        <div class="summary-title">KEY — SUM SO FAR</div>
+                        <div class="summary-title">Number — Total</div>
 
                         <button
                             class="add-key-button"
@@ -736,8 +778,6 @@ h1 {
 
             <!-- RIGHT: VALUE CALCULATOR -->
             <div class="entry-panel">
-
-                <div id="entryLabel" class="entry-label"></div>
 
                 <div id="inputDisplay" class="input-display">
                     <div id="inputKeyBox" class="input-key-box">123</div>
@@ -760,7 +800,7 @@ h1 {
 
                 <div class="calculator-actions">
                     <button class="remove-btn" onclick="removeDigit()" aria-label="Backspace">⌫</button>
-                    <button class="ok-btn" onclick="addValue()">OK</button>
+                    <button class="ok-btn" onclick="addValue()" aria-label="Add">+</button>
                 </div>
 
                 <div id="message" class="message"></div>
@@ -798,8 +838,7 @@ h1 {
         </div>
     </div></div><!-- HISTORY POPUP --><div id="historyModal" class="modal" onclick="closeModalOutside(event, 'historyModal')">
     <div class="modal-box history-modal-box">
-        <div class="modal-title">Entries History</div>
-        <div class="modal-subtitle">Grouped by key entries</div>
+        <div class="modal-title">Number History</div>
 
         <div id="historyContentArea" class="history-content-area"></div>
 
@@ -1132,7 +1171,7 @@ function saveHistoryEntries(market, date, historyData) {
 
             const groupTitle = document.createElement("div");
             groupTitle.className = "history-group-title";
-            groupTitle.textContent = "Key: " + key;
+            groupTitle.textContent = "Number: " + key;
             area.appendChild(groupTitle);
 
             entries.forEach((val, index) => {
@@ -1143,13 +1182,26 @@ function saveHistoryEntries(market, date, historyData) {
                 valSpan.className = "history-entry-val";
                 valSpan.textContent = "+" + formatNumber(val);
 
+                const actionsContainer = document.createElement("div");
+                actionsContainer.className = "history-actions-container";
+
                 const delBtn = document.createElement("button");
                 delBtn.className = "history-delete-btn";
-                delBtn.textContent = "Remove";
-                delBtn.onclick = () => removeHistoryEntry(key, index);
+                delBtn.textContent = "Delete Entry";
+                delBtn.onclick = () => {
+                    row.classList.add("confirming");
+                };
+
+                const confirmBtn = document.createElement("button");
+                confirmBtn.className = "history-confirm-btn";
+                confirmBtn.textContent = "Confirm?";
+                confirmBtn.onclick = () => removeHistoryEntry(key, index);
+
+                actionsContainer.appendChild(delBtn);
+                actionsContainer.appendChild(confirmBtn);
 
                 row.appendChild(valSpan);
-                row.appendChild(delBtn);
+                row.appendChild(actionsContainer);
                 area.appendChild(row);
             });
         }
