@@ -29,7 +29,53 @@
 
 .screen.active {
     display: block;
-}h1 {
+}
+
+/* SCREEN HEADER BAR WITH BACK BUTTON */
+.screen-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.top-back-btn {
+    width: 45px;
+    height: 45px;
+    background: #333;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: transform .08s, background .15s;
+}
+
+.top-back-btn:active {
+    transform: scale(.95);
+}
+
+.top-back-btn.hidden {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.screen-header-title {
+    flex: 1;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.screen-header-placeholder {
+    width: 45px;
+}
+
+h1 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 32px;
@@ -176,35 +222,13 @@
     border: 1px solid #444;
 }/* CALCULATOR */
 
-.calc-header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
-.back-arrow-btn {
-    width: 45px;
-    height: 45px;
-    background: #333;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-}
-
 .calc-header-titles {
     flex: 1;
     text-align: center;
 }
 
-.calc-header-bar .placeholder {
-    width: 45px;
-}
-
 .market-title {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 2px;
 }
@@ -578,7 +602,11 @@
 
     <!-- PIN -->
     <div id="pinScreen" class="screen active">
-        <h1>Enter PIN</h1>
+        <div class="screen-header-bar">
+            <button class="top-back-btn hidden">‹</button>
+            <h2 class="screen-header-title">Enter PIN</h2>
+            <div class="screen-header-placeholder"></div>
+        </div>
 
         <div id="pinDisplay" class="pin-display"></div>
         <div id="pinError" class="pin-error"></div>
@@ -601,7 +629,11 @@
 
     <!-- DATE -->
     <div id="dateScreen" class="screen">
-        <h1>Select Date</h1>
+        <div class="screen-header-bar">
+            <button class="top-back-btn" onclick="showPinScreen()">‹</button>
+            <h2 class="screen-header-title">Select Date</h2>
+            <div class="screen-header-placeholder"></div>
+        </div>
 
         <div class="date-subtitle">Choose the date for today's entries</div>
 
@@ -631,7 +663,11 @@
 
     <!-- MARKET -->
     <div id="choiceScreen" class="screen">
-        <h1>Select</h1>
+        <div class="screen-header-bar">
+            <button class="top-back-btn" onclick="showDateScreen()">‹</button>
+            <h2 class="screen-header-title">Select Game</h2>
+            <div class="screen-header-placeholder"></div>
+        </div>
 
         <div class="choice-container">
             <button class="choice" onclick="openMarket('kalyan')">Kalyan</button>
@@ -642,13 +678,13 @@
     <!-- CALCULATOR -->
     <div id="calculatorScreen" class="screen">
 
-        <div class="calc-header-bar">
-            <button class="back-arrow-btn" onclick="showChoiceScreen()">‹</button>
+        <div class="screen-header-bar">
+            <button class="top-back-btn" onclick="showChoiceScreen()">‹</button>
             <div class="calc-header-titles">
                 <div id="marketTitle" class="market-title">Kalyan</div>
                 <div id="calculatorDate" class="date-label"></div>
             </div>
-            <div class="placeholder"></div>
+            <div class="screen-header-placeholder"></div>
         </div>
 
         <div class="calculator-layout">
@@ -813,12 +849,22 @@ function saveHistoryEntries(market, date, historyData) {
         getHistoryStorageKey(market, date),
         JSON.stringify(historyData)
     );
-}/* SCREEN */function showScreen(screenId) {
+}/* SCREEN NAVIGATION */function showScreen(screenId) {
     document.querySelectorAll(".screen").forEach(screen => {
         screen.classList.remove("active");
     });
 
     document.getElementById(screenId).classList.add("active");
+}function showPinScreen() {
+    pin = "";
+    updatePinDisplay();
+    document.getElementById("pinError").textContent = "";
+    showScreen("pinScreen");
+}function showDateScreen() {
+    renderCalendar();
+    showScreen("dateScreen");
+}function showChoiceScreen() {
+    showScreen("choiceScreen");
 }/* PIN */function pinPress(number) {
     if (pin.length >= 4) return;
 
@@ -849,8 +895,7 @@ function saveHistoryEntries(market, date, historyData) {
             1
         );
 
-        renderCalendar();
-        showScreen("dateScreen");
+        showDateScreen();
     } else {
         document.getElementById("pinError").textContent =
             "Incorrect PIN";
@@ -915,9 +960,7 @@ function saveHistoryEntries(market, date, historyData) {
     renderCalendar();
 }function confirmDate() {
     showChoiceScreen();
-}/* MARKET */function showChoiceScreen() {
-    showScreen("choiceScreen");
-}function openMarket(market) {
+}/* MARKET */function openMarket(market) {
     currentMarket = market;
     currentKey = "";
     currentNumber = "";
