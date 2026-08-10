@@ -1,0 +1,1030 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Kalyan & Rajdhani</title><style>* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+}
+
+.screen.active {
+    display: block;
+}h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}button {
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 22px;
+    border-radius: 12px;
+    background: #292929;
+    transition: transform .08s, background .15s;
+}button:active {
+    transform: scale(.95);
+}/* PIN */
+
+.pin-display {
+    height: 65px;
+    background: #222;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    letter-spacing: 12px;
+    margin-bottom: 25px;
+}
+
+.pin-error {
+    height: 22px;
+    text-align: center;
+    color: #ff5252;
+    margin-bottom: 10px;
+}
+
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.number-grid button {
+    height: 65px;
+}
+
+.clear {
+    background: #8b2525;
+}
+
+.ok {
+    background: #19733b;
+}/* DATE */
+
+.date-subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-top: -15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.date-picker {
+    background: #222;
+    border-radius: 14px;
+    padding: 15px;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.calendar-header button {
+    width: 45px;
+    height: 45px;
+    background: #333;
+}
+
+.month-year {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.weekday {
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+    padding: 5px 0;
+}
+
+.day {
+    height: 42px;
+    border-radius: 9px;
+    font-size: 15px;
+    background: #292929;
+}
+
+.day.empty {
+    visibility: hidden;
+}
+
+.day.today {
+    border: 2px solid #19733b;
+}
+
+.day.selected {
+    background: #19733b;
+    font-weight: bold;
+}
+
+.selected-date {
+    text-align: center;
+    margin-top: 15px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.date-confirm {
+    width: 100%;
+    height: 55px;
+    margin-top: 15px;
+    background: #19733b;
+}/* MARKET */
+
+.choice-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.choice {
+    height: 90px;
+    font-size: 28px;
+    font-weight: bold;
+    background: #222;
+    border: 1px solid #444;
+}/* CALCULATOR */
+
+.market-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.date-label {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.calculator-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 12px;
+    align-items: start;
+}/* LEFT KEY LIST */
+
+.key-summary {
+    background: #222;
+    border-radius: 14px;
+    min-height: 300px;
+    height: 300px;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+.summary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2px 8px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #333;
+}
+
+.summary-title {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.add-key-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: #19733b;
+    font-size: 24px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 7px;
+    border-bottom: 1px solid #333;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.summary-row:hover {
+    background: #2d2d2d;
+}
+
+.summary-row.selected {
+    background: #333;
+    border-left: 3px solid #19733b;
+    padding-left: 4px;
+}
+
+.summary-key {
+    font-weight: bold;
+}
+
+.summary-value {
+    color: #6ee7a0;
+    font-weight: bold;
+}
+
+.no-entries {
+    color: #777;
+    font-size: 13px;
+    text-align: center;
+    padding: 30px 5px;
+}/* RIGHT CALCULATOR */
+
+.entry-panel {
+    min-width: 0;
+}
+
+.entry-label {
+    color: #aaa;
+    font-size: 12px;
+    margin: 0 0 5px 3px;
+}
+
+.input-display {
+    background: #181818;
+    border: 1px solid #19733b;
+    border-radius: 12px;
+    height: 65px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 18px;
+    font-size: 32px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.calculator-grid button {
+    height: 62px;
+}
+
+.calculator-grid .zero {
+    grid-column: span 2;
+}
+
+.calculator-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.back {
+    background: #444;
+}
+
+.message {
+    text-align: center;
+    min-height: 22px;
+    margin-top: 10px;
+    color: #6ee7a0;
+    font-size: 13px;
+}
+
+.reset {
+    margin-top: 15px;
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+    background: #542626;
+}/* POPUP */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.72);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 320px;
+    background: #222;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.5);
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.modal-subtitle {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.key-modal-display {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #19733b;
+    border-radius: 12px;
+    background: #181818;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 15px;
+    font-size: 26px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.dialpad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.dialpad-grid button {
+    height: 48px;
+    font-size: 20px;
+}
+
+.dialpad-grid .zero-btn {
+    grid-column: span 2;
+}
+
+.modal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.modal-cancel {
+    background: #444;
+    height: 45px;
+    font-size: 16px;
+}
+
+.modal-add {
+    background: #19733b;
+    height: 45px;
+    font-size: 16px;
+}
+
+.modal-error {
+    min-height: 16px;
+    text-align: center;
+    color: #ff5252;
+    font-size: 11px;
+    margin-top: 6px;
+}@media (max-width: 360px) {
+    .calculator-layout {
+        grid-template-columns: 1fr 1.1fr;
+        gap: 8px;
+    }
+
+    .key-summary {
+        min-height: 285px;
+        height: 285px;
+    }
+
+    .calculator-grid {
+        gap: 7px;
+    }
+
+    .calculator-grid button {
+        height: 58px;
+    }
+}</style></head><body><div class="container">
+
+    <!-- PIN -->
+    <div id="pinScreen" class="screen active">
+        <h1>Enter PIN</h1>
+
+        <div id="pinDisplay" class="pin-display"></div>
+        <div id="pinError" class="pin-error"></div>
+
+        <div class="number-grid">
+            <button onclick="pinPress('1')">1</button>
+            <button onclick="pinPress('2')">2</button>
+            <button onclick="pinPress('3')">3</button>
+            <button onclick="pinPress('4')">4</button>
+            <button onclick="pinPress('5')">5</button>
+            <button onclick="pinPress('6')">6</button>
+            <button onclick="pinPress('7')">7</button>
+            <button onclick="pinPress('8')">8</button>
+            <button onclick="pinPress('9')">9</button>
+            <button class="clear" onclick="clearPin()">Clear</button>
+            <button onclick="pinPress('0')">0</button>
+            <button class="ok" onclick="checkPin()">OK</button>
+        </div>
+    </div>
+
+    <!-- DATE -->
+    <div id="dateScreen" class="screen">
+        <h1>Select Date</h1>
+
+        <div class="date-subtitle">Choose the date for today's entries</div>
+
+        <div class="date-picker">
+            <div class="calendar-header">
+                <button onclick="changeMonth(-1)">‹</button>
+                <div id="monthYear" class="month-year"></div>
+                <button onclick="changeMonth(1)">›</button>
+            </div>
+
+            <div class="weekdays">
+                <div class="weekday">Sun</div>
+                <div class="weekday">Mon</div>
+                <div class="weekday">Tue</div>
+                <div class="weekday">Wed</div>
+                <div class="weekday">Thu</div>
+                <div class="weekday">Fri</div>
+                <div class="weekday">Sat</div>
+            </div>
+
+            <div id="calendarDays" class="calendar-days"></div>
+            <div id="selectedDate" class="selected-date"></div>
+
+            <button class="date-confirm" onclick="confirmDate()">Continue</button>
+        </div>
+    </div>
+
+    <!-- MARKET -->
+    <div id="choiceScreen" class="screen">
+        <h1>Game</h1>
+
+        <div class="choice-container">
+            <button class="choice" onclick="openMarket('kalyan')">Kalyan</button>
+            <button class="choice" onclick="openMarket('rajdhani')">Rajdhani</button>
+        </div>
+    </div>
+
+    <!-- CALCULATOR -->
+    <div id="calculatorScreen" class="screen">
+
+        <div id="marketTitle" class="market-title">Kalyan</div>
+        <div id="calculatorDate" class="date-label"></div>
+
+        <div class="calculator-layout">
+
+            <!-- LEFT: KEYS -->
+            <div class="key-summary">
+
+                <div class="summary-header">
+                    <div class="summary-title">Number - Total</div>
+
+                    <button
+                        class="add-key-button"
+                        onclick="openKeyModal()"
+                        aria-label="Add new key"
+                    >+</button>
+                </div>
+
+                <div id="keySummaryList"></div>
+            </div>
+
+            <!-- RIGHT: VALUE CALCULATOR -->
+            <div class="entry-panel">
+
+                <div id="entryLabel" class="entry-label">
+                    Select a key
+                </div>
+
+                <div id="inputDisplay" class="input-display">0</div>
+
+                <div class="calculator-grid">
+                    <button onclick="numberPress('1')">1</button>
+                    <button onclick="numberPress('2')">2</button>
+                    <button onclick="numberPress('3')">3</button>
+                    <button onclick="numberPress('4')">4</button>
+                    <button onclick="numberPress('5')">5</button>
+                    <button onclick="numberPress('6')">6</button>
+                    <button onclick="numberPress('7')">7</button>
+                    <button onclick="numberPress('8')">8</button>
+                    <button onclick="numberPress('9')">9</button>
+                    <button class="zero" onclick="numberPress('0')">0</button>
+                    <button class="clear" onclick="clearNumber()">C</button>
+                </div>
+
+                <div class="calculator-actions">
+                    <button class="back" onclick="showChoiceScreen()">Back</button>
+                    <button class="ok" onclick="addValue()">OK</button>
+                </div>
+
+                <div id="message" class="message"></div>
+            </div>
+        </div>
+
+        <button class="reset" onclick="resetTotals()">Reset All Keys</button>
+    </div></div><!-- ADD KEY POPUP --><div id="keyModal" class="modal" onclick="closeModalOutside(event)">
+    <div class="modal-box">
+
+        <div class="modal-title">Add New Key</div>
+        <div class="modal-subtitle">Enter the number for this key</div>
+
+        <div id="keyModalDisplay" class="key-modal-display">0</div>
+
+        <div class="dialpad-grid">
+            <button onclick="keyModalPress('1')">1</button>
+            <button onclick="keyModalPress('2')">2</button>
+            <button onclick="keyModalPress('3')">3</button>
+            <button onclick="keyModalPress('4')">4</button>
+            <button onclick="keyModalPress('5')">5</button>
+            <button onclick="keyModalPress('6')">6</button>
+            <button onclick="keyModalPress('7')">7</button>
+            <button onclick="keyModalPress('8')">8</button>
+            <button onclick="keyModalPress('9')">9</button>
+            <button class="zero-btn" onclick="keyModalPress('0')">0</button>
+            <button class="clear" onclick="clearKeyModal()">C</button>
+        </div>
+
+        <div id="modalError" class="modal-error"></div>
+
+        <div class="modal-actions">
+            <button class="modal-cancel" onclick="closeKeyModal()">Exit</button>
+            <button class="modal-add" onclick="createKey()">Ok</button>
+        </div>
+    </div></div><script>let pin = "";let currentNumber = "";let currentKey = "";let currentMarket = "";let selectedDate = getTodayString();let keyModalInput = "";let calendarMonth = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    1
+);/* DATE */function getTodayString() {
+    const today = new Date();
+
+    return formatDateKey(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate()
+    );
+}function formatDateKey(year, month, day) {
+    return year + "-" +
+        String(month + 1).padStart(2, "0") + "-" +
+        String(day).padStart(2, "0");
+}function formatDisplayDate(dateKey) {
+    const parts = dateKey.split("-");
+
+    const date = new Date(
+        Number(parts[0]),
+        Number(parts[1]) - 1,
+        Number(parts[2])
+    );
+
+    return date.toLocaleDateString("en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+}/* STORAGE */function getStorageKey(market, date) {
+    return market + "_keys_" + date;
+}function getKeyTotals(market, date) {
+    const saved = localStorage.getItem(getStorageKey(market, date));
+
+    if (!saved) return {};
+
+    try {
+        return JSON.parse(saved);
+    } catch (error) {
+        return {};
+    }
+}function saveKeyTotals(market, date, keyTotals) {
+    localStorage.setItem(
+        getStorageKey(market, date),
+        JSON.stringify(keyTotals)
+    );
+}/* SCREEN */function showScreen(screenId) {
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(screenId).classList.add("active");
+}/* PIN */function pinPress(number) {
+    if (pin.length >= 4) return;
+
+    pin += number;
+    updatePinDisplay();
+
+    if (pin.length === 4) {
+        setTimeout(checkPin, 150);
+    }
+}function updatePinDisplay() {
+    document.getElementById("pinDisplay").textContent =
+        "•".repeat(pin.length);
+}function clearPin() {
+    pin = "";
+    updatePinDisplay();
+    document.getElementById("pinError").textContent = "";
+}function checkPin() {
+    if (pin === "1313") {
+        pin = "";
+        updatePinDisplay();
+        document.getElementById("pinError").textContent = "";
+
+        selectedDate = getTodayString();
+
+        calendarMonth = new Date(
+            new Date().getFullYear(),
+            new Date().getMonth(),
+            1
+        );
+
+        renderCalendar();
+        showScreen("dateScreen");
+    } else {
+        document.getElementById("pinError").textContent =
+            "Incorrect PIN";
+
+        pin = "";
+        updatePinDisplay();
+    }
+}/* CALENDAR */function renderCalendar() {
+    const year = calendarMonth.getFullYear();
+    const month = calendarMonth.getMonth();
+
+    document.getElementById("monthYear").textContent =
+        calendarMonth.toLocaleDateString("en-IN", {
+            month: "long",
+            year: "numeric"
+        });
+
+    const calendarDays = document.getElementById("calendarDays");
+    calendarDays.innerHTML = "";
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement("button");
+        empty.className = "day empty";
+        calendarDays.appendChild(empty);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+        const button = document.createElement("button");
+        button.className = "day";
+        button.textContent = day;
+
+        const dateKey = formatDateKey(year, month, day);
+
+        if (dateKey === getTodayString()) {
+            button.classList.add("today");
+        }
+
+        if (dateKey === selectedDate) {
+            button.classList.add("selected");
+        }
+
+        button.onclick = function() {
+            selectedDate = dateKey;
+            renderCalendar();
+        };
+
+        calendarDays.appendChild(button);
+    }
+
+    document.getElementById("selectedDate").textContent =
+        "Selected: " + formatDisplayDate(selectedDate);
+}function changeMonth(direction) {
+    calendarMonth = new Date(
+        calendarMonth.getFullYear(),
+        calendarMonth.getMonth() + direction,
+        1
+    );
+
+    renderCalendar();
+}function confirmDate() {
+    showChoiceScreen();
+}/* MARKET */function showChoiceScreen() {
+    showScreen("choiceScreen");
+}function openMarket(market) {
+    currentMarket = market;
+    currentKey = "";
+    currentNumber = "";
+
+    document.getElementById("calculatorDate").textContent =
+        formatDisplayDate(selectedDate);
+
+    updateCalculator();
+    showScreen("calculatorScreen");
+}/* KEY POPUP */function openKeyModal() {
+    const modal = document.getElementById("keyModal");
+    const error = document.getElementById("modalError");
+
+    keyModalInput = "";
+    error.textContent = "";
+    updateKeyModalDisplay();
+
+    modal.classList.add("active");
+}function closeKeyModal() {
+    document.getElementById("keyModal").classList.remove("active");
+}function closeModalOutside(event) {
+    if (event.target.id === "keyModal") {
+        closeKeyModal();
+    }
+}function keyModalPress(num) {
+    if (keyModalInput.length >= 10) return;
+    if (keyModalInput === "0") {
+        keyModalInput = num;
+    } else {
+        keyModalInput += num;
+    }
+    updateKeyModalDisplay();
+    document.getElementById("modalError").textContent = "";
+}function clearKeyModal() {
+    keyModalInput = "";
+    updateKeyModalDisplay();
+    document.getElementById("modalError").textContent = "";
+}function updateKeyModalDisplay() {
+    document.getElementById("keyModalDisplay").textContent = keyModalInput || "0";
+}function createKey() {
+    const error = document.getElementById("modalError");
+    const key = keyModalInput.trim();
+
+    if (!key || !/^\d+$/.test(key)) {
+        error.textContent = "Enter a valid number";
+        return;
+    }
+
+    const keyTotals = getKeyTotals(currentMarket, selectedDate);
+
+    if (!Object.prototype.hasOwnProperty.call(keyTotals, key)) {
+        keyTotals[key] = 0;
+        saveKeyTotals(currentMarket, selectedDate, keyTotals);
+    }
+
+    closeKeyModal();
+    selectKey(key);
+}/* KEY SELECTION */function selectKey(key) {
+    currentKey = String(key);
+    currentNumber = "";
+
+    updateCalculator();
+}/* VALUE CALCULATOR */function numberPress(number) {
+    if (!currentKey) {
+        document.getElementById("message").textContent =
+            "Add or select a key first";
+        return;
+    }
+
+    if (currentNumber.length >= 12) return;
+
+    if (currentNumber === "0") {
+        currentNumber = number;
+    } else {
+        currentNumber += number;
+    }
+
+    updateCalculator();
+}function clearNumber() {
+    currentNumber = "";
+    updateCalculator();
+    document.getElementById("message").textContent = "";
+}function addValue() {
+    if (!currentKey) {
+        document.getElementById("message").textContent =
+            "Add or select a key first";
+        return;
+    }
+
+    if (!currentNumber || Number(currentNumber) === 0) {
+        return;
+    }
+
+    const valueToAdd = Number(currentNumber);
+    const keyTotals = getKeyTotals(currentMarket, selectedDate);
+
+    keyTotals[currentKey] =
+        (Number(keyTotals[currentKey]) || 0) + valueToAdd;
+
+    saveKeyTotals(
+        currentMarket,
+        selectedDate,
+        keyTotals
+    );
+
+    currentNumber = "";
+
+    updateCalculator();
+
+    document.getElementById("message").textContent =
+        "+" + formatNumber(valueToAdd) + " added to " + currentKey;
+
+    setTimeout(() => {
+        document.getElementById("message").textContent = "";
+    }, 1500);
+}/* UPDATE UI */function updateCalculator() {
+    const marketName =
+        currentMarket === "kalyan" ? "Kalyan" : "Rajdhani";
+
+    document.getElementById("marketTitle").textContent =
+        currentKey
+            ? marketName + " - " + currentKey
+            : marketName;
+
+    document.getElementById("calculatorDate").textContent =
+        formatDisplayDate(selectedDate);
+
+    document.getElementById("entryLabel").textContent =
+        currentKey
+            ? "Value for Key " + currentKey
+            : "Select a key";
+
+    document.getElementById("inputDisplay").textContent =
+        currentNumber || "0";
+
+    renderKeySummary();
+}function renderKeySummary() {
+    const list = document.getElementById("keySummaryList");
+    list.innerHTML = "";
+
+    const keyTotals =
+        getKeyTotals(currentMarket, selectedDate);
+
+    const keys = Object.keys(keyTotals).sort(
+        (a, b) => {
+            const na = Number(a);
+            const nb = Number(b);
+
+            if (Number.isNaN(na) || Number.isNaN(nb)) {
+                return a.localeCompare(b);
+            }
+
+            return na - nb;
+        }
+    );
+
+    if (keys.length === 0) {
+        const empty = document.createElement("div");
+        empty.className = "no-entries";
+        empty.textContent = "Click + to add a key";
+        list.appendChild(empty);
+        return;
+    }
+
+    keys.forEach(key => {
+        const row = document.createElement("div");
+
+        row.className =
+            "summary-row" +
+            (String(key) === String(currentKey) ? " selected" : "");
+
+        row.onclick = () => selectKey(key);
+
+        const keyElement = document.createElement("span");
+        keyElement.className = "summary-key";
+        keyElement.textContent = key;
+
+        const valueElement = document.createElement("span");
+        valueElement.className = "summary-value";
+        valueElement.textContent =
+            formatNumber(keyTotals[key]);
+
+        row.appendChild(keyElement);
+        row.appendChild(valueElement);
+        list.appendChild(row);
+    });
+}/* RESET */function resetTotals() {
+    const marketName =
+        currentMarket === "kalyan"
+            ? "Kalyan"
+            : "Rajdhani";
+
+    const confirmed = confirm(
+        "Reset all key totals for " +
+        marketName +
+        " on " +
+        formatDisplayDate(selectedDate) +
+        "?"
+    );
+
+    if (!confirmed) return;
+
+    localStorage.removeItem(
+        getStorageKey(currentMarket, selectedDate)
+    );
+
+    currentKey = "";
+    currentNumber = "";
+
+    updateCalculator();
+}/* FORMATTING */function formatNumber(number) {
+    return Number(number).toLocaleString("en-IN");
+}/* KEYBOARD */document.addEventListener("keydown", function(event) {
+
+    if (
+        document.getElementById("pinScreen")
+            .classList.contains("active")
+    ) {
+        if (/^[0-9]$/.test(event.key)) {
+            pinPress(event.key);
+        }
+
+        if (event.key === "Backspace") {
+            pin = pin.slice(0, -1);
+            updatePinDisplay();
+        }
+
+        if (event.key === "Enter") {
+            checkPin();
+        }
+
+        return;
+    }
+
+    if (
+        document.getElementById("calculatorScreen")
+            .classList.contains("active")
+    ) {
+        if (
+            document.getElementById("keyModal")
+                .classList.contains("active")
+        ) {
+            if (/^[0-9]$/.test(event.key)) {
+                keyModalPress(event.key);
+            }
+            if (event.key === "Backspace") {
+                keyModalInput = keyModalInput.slice(0, -1);
+                updateKeyModalDisplay();
+            }
+            if (event.key === "Enter") {
+                createKey();
+            }
+            if (event.key === "Escape") {
+                closeKeyModal();
+            }
+            return;
+        }
+
+        if (/^[0-9]$/.test(event.key)) {
+            numberPress(event.key);
+        }
+
+        if (event.key === "Backspace") {
+            currentNumber =
+                currentNumber.slice(0, -1);
+
+            updateCalculator();
+        }
+
+        if (event.key === "Enter") {
+            addValue();
+        }
+
+        if (event.key === "Escape") {
+            clearNumber();
+        }
+    }
+});updatePinDateDisplay = updatePinDisplay();updatePinDisplay();</script></body></html>
